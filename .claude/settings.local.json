@@ -42,7 +42,8 @@
       "Bash(node --check:*)",
       "Bash(tree:*)",
       "Bash(chmod:*)",
-      "Bash(xargs:*)"
+      "Bash(xargs:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
