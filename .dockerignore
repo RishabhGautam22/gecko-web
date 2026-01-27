@@ -66,6 +66,12 @@ data/
 # Fortran build artifacts (rebuilt in container)
 docker/gecko_source/OBJ/*.o
 docker/gecko_source/OBJ/*.mod
+docker/gecko_source/OBJ/cm
 docker/gecko_source/RUN/OUT/*
-docker/boxmodel_source/OBJ/*
+# Keep Makefile in OBJ, exclude only compiled files
+docker/boxmodel_source/OBJ/*.o
+docker/boxmodel_source/OBJ/*.mod
+docker/boxmodel_source/OBJ/*.a
+docker/boxmodel_source/PROG/boxmod
+docker/boxmodel_source/INTERP30/gecko2box
 docker/boxmodel_source/SIMU/*/
