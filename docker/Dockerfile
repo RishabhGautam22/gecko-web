@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
-# Install system dependencies
+# Install system dependencies including RDKit prerequisites and Graphviz
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
@@ -9,6 +9,10 @@ RUN apt-get update && apt-get install -y \
     gawk \
     libnetcdf-dev \
     libnetcdff-dev \
+    graphviz \
+    libxrender1 \
+    libxext6 \
+    libcairo2-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
