@@ -54,7 +54,8 @@
       "Bash(flyctl auth whoami:*)",
       "Bash(flyctl launch:*)",
       "Bash(flyctl volumes create:*)",
-      "Bash(flyctl deploy:*)"
+      "Bash(flyctl deploy:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []

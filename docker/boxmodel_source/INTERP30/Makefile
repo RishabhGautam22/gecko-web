@@ -1,6 +1,7 @@
 #-*-makefile-*-
 
-include Makefile.hdr
+# Use -include to not fail if Makefile.hdr doesn't exist yet
+-include Makefile.hdr
 
 # define modules (to be produced 1st)
 MODULE=sortstring.mod intptool.mod keywordlist.mod speciestool.mod \

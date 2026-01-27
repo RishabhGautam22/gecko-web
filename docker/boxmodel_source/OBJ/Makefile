@@ -1,6 +1,7 @@
 #-*-makefile-*-
 
-include Makefile.hdr
+# Use -include to not fail if Makefile.hdr doesn't exist yet
+-include Makefile.hdr
 
 # set the path to search for *f90 files
 vpath %.f90 ../LIBSRC 
