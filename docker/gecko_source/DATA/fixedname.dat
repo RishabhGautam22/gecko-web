@@ -1,0 +1,36 @@
+! ======================================================================
+! List of species having a name fixed (i.e. not set by the generator)
+! ---------------------------------------------------------------------
+!
+! this file is read up to the keyword END. Comment line (! as first 
+! character) can be placed everywhere in the file.
+!
+! first column : is the 6 character name
+! second column : chemical formula of the corresponing species
+! data '!' are not read
+!
+! The maximum number of species in fixedname.dat is defined 
+! in 'database.f90' by PARAMETER (mxfn=xxx)
+!
+! ADDITIONAL COMMENT ABOUT THE NAMES
+! ----------------------------------
+! There are 2 ways to set the short name:
+! 1) use a name which can not be confused with the name given by 
+!    naming (for example use ACETON for CH3COCH3). In that case,
+!    numerical character (0-9) at the third position must be avoided
+! 2) set the name based on rules used by the generator (see routine
+!    naming). In that case, make sure that the first 3 characters are
+!    correctly set. The last 3 characters are "free".
+!
+! That file should NOT BE USED WITH C1 SPECIES (names already fixed in 
+! the corresponding file for C1)
+! ======================================================================
+ISOPRE   CH3Cd(=CdH2)CdH=CdH2                                                                                                    
+APINEN   C12HCH2CH(C1(CH3)CH3)CH2CdH=Cd2CH3                                                                                      
+BPINEN   C12HCH2CH(C1(CH3)CH3)CH2CH2Cd2=CdH2                                                                                     
+CARENE   C12HCH2Cd(CH3)=CdHCH2C2HC1(CH3)CH3                                                                                      
+MYRCEN   CH3Cd(CH3)=CdHCH2CH2Cd(=CdH2)CdH=CdH2                                                                                   
+OCIMEN   CH3Cd(CH3)=CdHCH2CdH=Cd(CH3)CdH=CdH2                                                                                    
+SABINN   CH3CH(CH3)C12CH2CH2Cd(=CdH2)C1HC2H2                                                                                     
+LIMONE   C1H2CH2Cd(CH3)=CdHCH2C1HCd(CH3)=CdH2                                                                                    
+END  

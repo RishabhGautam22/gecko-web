@@ -1,0 +1,1265 @@
+* heat of formation of the varius benson group
+*    --------------------------------------------
+*
+* this file is read up to the keyword END.
+* Comment line (* as first character) can be placed  
+* everywhere in the file.
+*
+*OLD Format of the file is fixed : a21,1x,f10.3 
+*OLD Benson group [21] + 1X [1] + value [10]
+*
+* !!NEW FORMAT!!
+* Format of the file is fixed : a24,1x,f10.3 
+*   Benson group [24] + ' ' + value [10]
+*
+* data have 3 origins : 
+*     - the original data from Benson
+*     - additional data given in the SAPRC99 documentation
+*     - some crude estimates performed to complete the database.
+*    These last data need to be revisited and additional work is
+*    required.
+*
+* data from benson
+*    ----------------
+C*_(C)                    39.10
+C*_(C)(C)                 40.95
+C*_(C)(C)(C)              42.60
+C*_(C)(O)                 35.10
+C*_(CO)                   37.90
+C_(CO*)                   -5.40
+C_(CO*)(C)                -0.30
+C_(CO*)(C)(C)              2.60
+C_(C)                    -10.20
+C_(C)(C)                  -4.93
+C_(C)(C)(C)               -1.90
+C_(C)(C)(C)(C)             0.50
+C_(C)(C)(C)(Cd)            1.68
+C_(C)(C)(C)(CO)            1.40
+C_(C)(C)(C)(NO2)         -11.70
+C_(C)(C)(C)(O)            -6.60
+C_(C)(C)(C)(O*)            8.60
+C_(C)(C)(Cd)              -1.48
+C_(C)(C)(CO)              -1.70
+C_(C)(C)(NO2)            -13.60
+C_(C)(C)(O)               -7.20
+C_(C)(C)(O)(O)           -18.60
+C_(C)(C)(O*)               7.80
+C_(C)(C*)                 -4.95
+C_(C)(Cd)                 -4.76
+C_(C)(Cd)(O)              -6.50
+C_(C)(CO)                 -5.20
+C_(C)(NO2)               -14.40
+C_(C)(O)                  -8.10
+C_(C)(O)(O)              -16.30
+C_(C)(O)(O)(O)           -29.60
+C_(C)(O*)                  6.10
+C_(C*)                   -10.08
+C_(Cd)                   -10.20
+C_(Cd)(Cd)                -4.29
+C_(Cd)(CO)                -3.80
+C_(CO)                   -10.20
+C_(CO)(CO)                -7.20
+C_(O)                    -10.20
+C_(O)(O)                 -16.20
+Cd_(C)(C)(Cd)             10.34
+Cd_(C)(Cd)                 8.59
+Cd_(C)(Cd)(Cd)             8.88
+Cd_(C)(Cd)(CO)             7.50
+Cd_(C)(Cd)(O)             10.30
+Cd_(Cd)                    6.26
+Cd_(Cd)(Cd)                6.78
+Cd_(Cd)(Cd)(Cd)            4.60
+Cd_(Cd)(Cd)(O)             8.90
+Cd_(Cd)(CO)                5.00
+Cd_(Cd)(CO)(O)            11.60
+Cd_(Cd)(O)                 8.60
+CO_(C)                   -29.10
+CO_(C)(C)                -31.40
+CO_(C)(C*)               -31.40
+CO_(C)(CO)               -29.20
+CO_(C)(O)                -35.10
+CO_(Cd)                  -29.10
+CO_(CO)                  -25.30
+CO_(CO)(O)               -29.30
+CO_(O)                   -32.10
+CO_(O)(O)                -29.70
+O_(C)                    -37.10
+O_(C)(C)                 -23.20
+O_(C)(C*)                -23.20
+O_(C)(Cd)                -30.50
+O_(C)(CO)                -43.10
+O_(C)(NO2)               -19.40
+O_(C)(O)                  -4.50
+O_(C*)                   -37.90
+O_(Cd)(Cd)               -33.00
+O_(Cd)(CO)               -45.20
+O_(CO)                   -58.10
+O_(CO)(CO)               -46.50
+O_(CO)(O)                -19.00
+O_(NO2)(O)                 4.00
+O_(O)                    -16.30
+O_(O)(O)                  14.70
+CO*_(C)                    0.00
+NO2_(C)                    0.00
+NO2_(O)                    0.00
+ONO2_(C)                   0.00
+* data taken from the SAPRC99 documentation
+*    ---------------------------------------
+CO*_(O)                   -4.20
+CO*_(ONO2)               -19.40
+C*_(C)(C)(CO)             42.25
+C*_(C)(C)(O)              31.50
+C*_(C)(C)(ONO2)           12.10
+C*_(C)(CO)                38.58
+C*_(C)(CO)(O)             32.46
+C*_(C)(O)(O)              24.50
+C*_(C)(ONO2)              15.70
+C*_(CO)(O)                34.95
+C*_(CO)(ONO2)             15.55
+C*_(O)                    35.75
+C*_(O)(O)                 29.93
+C*_(ONO2)                 16.35
+C_(CO*)(C)(C)(C)           5.70
+C_(CO*)(C)(ONO2)         -20.53
+C_(CO*)(CO)               -2.41
+C_(CO*)(O)                -1.76
+C_(CO*)(ONO2)            -21.71
+C_(C)(C)(C)(C*)           -1.20
+C_(C)(C)(C)(ONO2)        -26.00
+C_(C)(C)(C)(OO*)           5.50
+C_(C)(C)(C*)              -3.60
+C_(C)(C)(C*)(O)           -8.90
+C_(C)(C)(C*)(ONO2)       -28.30
+C_(C)(C)(CO)(CO)          -1.47
+C_(C)(C)(CO)(O)           -5.70
+C_(C)(C)(CO)(O*)           9.50
+C_(C)(C)(CO)(ONO2)       -25.10
+C_(C)(C)(O)(O*)           -3.40
+C_(C)(C)(O)(ONO2)        -38.00
+C_(C)(C)(O)(OO*)          -6.50
+C_(C)(C)(O*)(ONO2)       -23.80
+C_(C)(C)(ONO2)           -26.60
+C_(C)(C)(OO*)              4.90
+C_(C)(C*)(CO)             -3.40
+C_(C)(C*)(CO)(O)          -8.00
+C_(C)(C*)(CO)(ONO2)      -27.40
+C_(C)(C*)(O)              -9.50
+C_(C)(C*)(ONO2)          -28.90
+C_(C)(Cd)(ONO2)          -25.90
+C_(C)(CO)(CO)             -4.57
+C_(C)(CO)(CO)(O)          -8.57
+C_(C)(CO)(O)              -6.32
+C_(C)(CO)(O)(O)          -17.70
+C_(C)(CO)(O)(O*)          -2.50
+C_(C)(CO)(O*)              7.87
+C_(C)(CO)(ONO2)          -25.72
+C_(C)(NO2)(NO2)           -9.90
+C_(C)(O)(O)(ONO2)        -49.00
+C_(C)(O)(O*)              -2.10
+C_(C)(O)(ONO2)           -35.70
+C_(C)(O)(OO*)             -4.20
+C_(C)(O*)(ONO2)          -21.50
+C_(C)(ONO2)              -27.50
+C_(C)(OO*)                 3.34
+C_(C*)(CO)                -6.90
+C_(C*)(CO)(O)             -8.02
+C_(C*)(CO)(ONO2)         -27.42
+C_(C*)(O)                 -9.73
+C_(C*)(O)(O)             -18.60
+C_(C*)(ONO2)             -29.13
+C_(Cd)(O)                 -8.05
+C_(Cd)(O*)                 5.25
+C_(Cd)(OO*)                3.39
+C_(CO)(CO)(O)             -9.19
+C_(CO)(CO)(O)(ONO2)      -30.58
+C_(CO)(CO)(O*)             5.81
+C_(CO)(CO)(ONO2)         -28.59
+C_(CO)(O)                 -6.95
+C_(CO)(O)(O)             -15.42
+C_(CO)(O)(O*)             -1.22
+C_(CO)(O*)                 7.24
+C_(CO)(ONO2)             -26.36
+C_(CO)(OO*)                6.05
+C_(O)(O)(O)              -26.92
+C_(O)(O)(O)(O)           -40.25
+C_(O)(O)(O*)             -12.72
+C_(O)(O)(O)(O*)          -25.05
+C_(O)(O*)                 -1.90
+C_(O)(ONO2)              -35.50
+C_(O)(OO*)                -4.00
+C_(O*)(ONO2)             -21.30
+C_(ONO2)                 -29.60
+C_(OO*)                    2.49
+CO_(C)(Cd)               -34.09
+CO_(C)(O*)               -39.36
+CO_(C)(OO*)              -30.91
+CO_(C*)                  -29.10
+CO_(C*)(CO)              -31.10
+CO_(C*)(O)               -34.10
+CO_(CO)(CO)              -26.89
+CO_(O)(O*)               -34.10
+CO_(O)(OO*)              -25.51
+CO_(O*)                  -36.84
+O_(CO*)                  -42.64
+O_(CO*)(C)               -27.30
+O_(C*)(CO)               -40.65
+O_(C*)(NO2)              -12.45
+O_(C*)(O)                 -4.50
+O_(Cd)                   -44.86
+O_(O)(O*)                 17.50
+O_(O*)(ONO2)              14.00
+ONO2_(C*)                  6.95
+* crude estimation for the following group (see below the doc)
+*    ----------------------------------------
+C*_(C)(C)(Cd)             39.94
+C*_(C)(Cd)                37.89
+C*_(C)(CO)(CO)            40.75
+C*_(C)(CO)(ONO2)          20.01
+C*_(C)(O)(ONO2)           24.50  
+C*_(Cd)                   35.84
+C*_(Cd)(CO)               36.00
+C*_(Cd)(O)                31.84
+C*_(CO)(CO)               37.10
+C*_(CO)(CO)(O)            30.96
+C*_(CO)(CO)(ONO2)         17.03
+C*_(CO)(CO)(CO)           36.3
+C*_(CO)(O)(O)             26.48
+C*_(CO)(O)(ONO2)          11.55
+C*_(O)(ONO2)              12.35
+C_(C*)(Cd)                -4.78
+C_(C*)(Cd)(O)             -9.33
+C_(C*)(CO)(CO)            -3.72
+C_(C*)(CO)(CO)(O)         -6.31
+C_(C*)(CO)(CO)(ONO2)     -25.71
+C_(C*)(O)(ONO2)          -33.68
+C_(C)(C*)(Cd)             -3.43
+C_(C)(C*)(Cd)(ONO2)      -26.70
+C_(C)(C*)(CO)(CO)         -0.22
+C_(C)(C)(C*)(CO)           0.10
+C_(C)(C)(Cd)(CO)           3.00
+C_(C)(C)(Cd)(O)           -4.95
+C_(C)(C)(Cd)(O*)           7.75
+C_(C)(C)(Cd)(ONO2)       -25.30
+C_(C)(Cd)(CO)             -0.30
+C_(C)(Cd)(CO)(O)          -4.30
+C_(C)(Cd)(CO)(ONO2)      -23.70
+C_(C)(Cd)(CO)(O*)          8.68       
+C_(C)(Cd)(O*)              6.95
+C_(C)(CO)(CO)(O*)          5.62
+C_(C)(CO)(CO)(CO)         -2.37
+C_(C)(CO)(CO)(ONO2)      -27.97
+C_(C)(CO)(O)(ONO2)       -17.7    
+C_(Cd)(CO)(O*)             6.98
+C_(Cd)(CO)(O)             -4.92
+C_(CO*)(C)(C)(ONO2)      -19.35
+C_(CO*)(C)(O)             -1.30
+C_(CO*)(CO)(O)            -0.80
+C_(CO*)(CO)(ONO2)        -18.64
+C_(CO*)(C)(C)(O)           1.8
+C_(CO*)(C)(CO)(O)         -0.84
+C_(CO*)(C)(CO)(ONO2)     -15.54
+C_(CO*)(CO)(CO)(O)         0.16
+C_(CO*)(C)(CO)             2.69
+C_(CO*)(C)(C)(CO)          5.89
+C_(CO*)(CO)(CO)           -0.58
+C_(CO*)(C)(CO)(CO)         5.68
+C_(CO*)(O)(ONO2)         -21.99
+C_(CO*)(O)(O)              1.88
+C_(CO*)(Cd)                0.88
+C_(CO*)(Cd)(O)            -0.12
+C_(CO)(CO)(CO)            -5.00
+C_(CO)(CO)(CO)(CO)        -2.8
+C_(CO)(CO)(CO)(O)         -5.50
+C_(CO)(CO)(CO)(O*)         8.69
+C_(CO)(CO)(CO)(ONO2)     -30.82
+C_(CO)(O)(ONO2)          -22.47         
+C_(CO)(O*)(ONO2)         -20.36
+C_(Cd)(CO)(ONO2)         -24.32
+C_(Cd)(ONO2)             -27.45
+C_(CO*)(CO)(CO)(ONO2)    -14.97
+C_(CO*)(Cd)(ONO2)        -19.35
+C_(C*)(Cd)(ONO2)         -28.05
+C_(CO*)(CO)(CO)(CO)        1.25
+C_(Cd)(CO)(CO)(O*)         6.51
+C_(C*)(CO)(CO)(CO)         1.52
+C_(Cd)(CO)(CO)(O)         -7.17
+C_(Cd)(CO)(CO)(ONO2)     -26.57
+C_(Cd)(CO)(CO)             0.88
+C_(CO)(CO)(O)(O*)         -2.85
+C_(CO)(CO)(O)(O)         -17.66
+C_(O*)                     4.40
+Cd_(C)(C*)(Cd)             7.18
+Cd_(C*)(Cd)                4.85
+Cd_(C*)(Cd)(CO)            3.76
+Cd_(Cd)(CO)(CO)            3.91
+CO_(CO*)                 -16.90 
+CO_(CO*)(C)              -20.65
+CO_(CO*)(O)              -20.75
+CO_(CO*)(CO)             -18.50 
+CO_(Cd)(CO)              -29.20
+CO_(Cd)(O)               -35.10
+CO_(C*)(Cd)              -31.40
+CO_(C)(ONO2)             -27.5
+CO_(CO)(ONO2)            -26.36
+CO_(CO*)(Cd)             -20.65
+CO_(ONO2)                -29.6
+CO_(CO)(O*)              -36.94 
+CO*_(CO)                   0.00
+O_(CO)(ONO2)             -15.00
+O_(CO*)(CO)              -48.64
+O_(CO*)(O)                -3.40
+O_(CO*)(ONO2)              0.60
+ONO2_(CO)                  0.
+ONO2_(O)                   0.00
+**estimates by Lee-Taylor, July   2006**
+*-------------------------------------
+C_(C)(C*)(Cd)(O)          -7.3 
+C_(C)(CO)(OO*)             5.6
+C_(C)(CO)(O*)(ONO2)       -3.3
+C_(C*)(Cd)(CO)(O)         -6.6
+C_(C*)(Cd)(CO)(ONO2)     -25.6
+C_(C*)(CO)(O)(ONO2)      -17.5  
+C_(CO)(CO)(OO*)            3.5 
+C_(CO)(CO)(O*)(ONO2)     -16.2  
+C_(CO*)(CO)(O)(O)         -0.06
+C_(CO*)(CO)(O)(ONO2)     -18.1
+C_(CO*)(C)(Cd)             4.3
+CO_(CO)(OO*)             -27.8
+ONO2_(CO*)                 0.0
+**Ric, May   2008**
+*-------------------------------------
+C*_(C)(Cd)(CO)            38.86
+C*_(Cd)(CO)(CO)           37.79
+C_(C)(Cd)(CO)(CO)         -0.59
+C_(Cd)(CO)(CO)(CO)        -0.6
+C_(CO*)(Cd)(CO)(O)         3.03
+C_(CO*)(Cd)(CO)(ONO2)    -20.07
+**Ric, Nov   2008
+*-------------------------------------
+C_(C*)(Cd)(CO)            -3.45
+Cd_(Cd)(Cd)(CO)            8.88
+Cd_(C*)(Cd)(Cd)            9.0
+C_(CO*)(C)(Cd)(ONO2)     -18.3
+C_(CO*)(Cd)(CO)            1.04
+C_(CO*)(C)(Cd)(O)          2.58
+**Ludo, July   2009**
+*-------------------------------------
+Cd_(Cd)(O*)               22.8
+CO_(CO*)(ONO2)           -15.3
+C_(C)(C*)(O)(O)          -14.2
+C_(C)(C*)(O)(ONO2)       -40.3
+C_(CO*)(C)(O)(O)         -13.4
+C_(CO*)(C)(O)(ONO2)      -33.11
+C_(C*)(CO)(O)(O)         -12.72
+Cd_(C)(Cd)(O*)            25.3
+Cd_(C*)(Cd)(O)            10.42
+CO_(C*)(ONO2)            -27.5
+Cd_(Cd)(CO)(O*)           26.6
+C_(C)(Cd)(O)(O*)          -8.2
+C_(C)(Cd)(O)(O)          -11.2
+C_(C)(Cd)(O)(ONO2)       -30.6
+C_(C*)(Cd)(O)(ONO2)      -30.48
+C_(Cd)(CO)(O)(O*)         -2.27
+CO_(Cd)(ONO2)            -27.5
+C_(Cd)(O)(O*)              4.68
+C_(C)(Cd)(O*)(ONO2)      -23.63
+C_(Cd)(Cd)(O*)             8.44
+C_(Cd)(CO)(O)(ONO2)      -36.87
+C_(CO*)(Cd)(O)(ONO2)     -25.68
+CO_(Cd)(Cd)              -34.09
+C_(C*)(Cd)(O)(O)          -8.05
+C_(Cd)(CO)(O)(O)         -17.47
+C_(Cd)(CO)(O*)(ONO2)     -22.67
+C_(CO*)(Cd)(O)(O)         -3.6
+C_(Cd)(O)(O)             -10.32
+C_(Cd)(O)(ONO2)          -29.72
+C_(Cd)(O*)(ONO2)         -16.42
+Cd_(Cd)(Cd)(O*)           23.9
+C_(Cd)(Cd)(ONO2)         -25.96
+C_(Cd)(Cd)(O)             -6.56
+C_(Cd)(Cd)(O)(O*)         -2.76
+C_(Cd)(Cd)(O)(O)         -17.96
+C_(Cd)(Cd)(O)(ONO2)      -37.36
+CO_(Cd)(O*)              -39.36
+C*_(C)(Cd)(O)             32.41
+*-------------------------------------
+**Lee-Taylor, Dec 2014 (for camphene)**
+*-------------------------------------
+C_(CO*)(C)(C)(Cd)          6.8
+C_(CO*)(C)(Cd)(CO)         4.02
+C_(C)(C)(C*)(Cd)          -0.14
+*-------------------------------------
+**Lee-Taylor, Oct 2015 (for aromatic products)**
+*-------------------------------------
+C*_(C)(ONO2)(ONO2)        36.35
+C*_(Cd)(CO)(O)            32.26
+C*_(CO)(ONO2)(ONO2)       -6.8
+C*_(ONO2)(ONO2)           32.7
+C_(C*)(CO)(ONO2)(ONO2)   -47.9
+C_(C*)(ONO2)(ONO2)       -48.2
+C_(C)(C)(Cd)(OO*)          5.72
+C_(C)(C)(CO)(OO*)          7.36
+C_(C)(C)(ONO2)(ONO2)     -48.3
+C_(C)(C)(OO*)(ONO2)      -26.7  
+C_(C)(C*)(ONO2)(ONO2)    -52.8
+C_(C)(Cd)(OO*)             5.02
+C_(C)(Cd)(O)(OO*)         -6.12 
+C_(C)(Cd)(CO)(OO*)         6.50
+C_(C)(Cd)(OO*)(ONO2)     -26.5
+C_(C)(CO)(CO)(OO*)         4.43
+C_(C)(CO)(O)(OO*)         -5.62
+C_(C)(CO)(ONO2)(ONO2)    -46.24
+C_(C)(OO*)(ONO2)         -24.26
+C_(C)(CO)(OO*)(ONO2)     -13.7
+C_(C)(ONO2)(ONO2)        -44.8
+C_(Cd)(CO)(CO)(OO*)        4.46
+C_(Cd)(CO)(O)(OO*)         7.5
+C_(Cd)(CO)(OO*)            6.95
+C_(Cd)(CO)(OO*)(ONO2)    -23.9
+C_(CO*)(C)(ONO2)(ONO2)   -40.76
+C_(CO*)(CO)(ONO2)(ONO2)  -47.
+C_(CO*)(ONO2)(ONO2)      -38.02
+C_(CO)(CO)(CO)(OO*)        7.5
+C_(CO)(CO)(O)(OO*)         3.71
+C_(CO)(CO)(OO*)(ONO2)    -12.34
+C_(CO)(CO)(ONO2)(ONO2)   -52.
+C_(CO)(O)(OO*)            -8.1
+C_(CO)(OO*)(ONO2)        -15.4
+C_(CO)(ONO2)(ONO2)       -42.5
+CO_(Cd)(OO*)             -30.9
+*-------------------------------------
+** Ric 2015 ** mcm3.3.1 **
+*-------------------------------------
+CO_(OO*)                   2.39     (R15)
+C_(C)(OO*)(ONO2)         -20.40     (R15)
+C_(C)(C)(OO*)(ONO2)      -17.32     (R15)
+C_(C)(CO)(O)(OO*)         -6.50     (R15)
+C_(C)(CO)(OO*)(ONO2)     -17.78     (R15)
+C_(C)(ONO2)(ONO2)        -46.00     (R15)
+C*_(ONO2)(ONO2)           12.47     (R15)
+C_(CO)(ONO2)(ONO2)       -48.33     (R15)
+C_(C)(C)(CO)(OO*)          5.50     (R15)
+C_(C*)(ONO2)(ONO2)       -50.80     (R15)
+C_(CO)(OO*)(ONO2)        -16.53     (R15)
+C_(CO)(O)(OO*)            -4.20     (R15)
+C_(CO)(CO)(OO*)(ONO2)    -21.19     (R15)
+C_(C)(C)ONO2)(ONO2)      -42.40     (R15)
+C_(C)(CO)(ONO2)(ONO2)    -45.12     (R15)
+* 
+O_(Cd)(NO2)              -27.16     (R16)
+O_(CO)(NO2)              -40.40     (R16)
+O_(Cd)(O)                -12.26     (R16)
+C_(CO)(O)(O)(O)          -29.60     (R16)
+C_(CO)(O)(O)(ONO2)       -40.76     (R16)
+Cd_(Cd)(O)(O)             -8.14     (R16)
+C_(Cd)(O)(O)(O)          -29.60     (R16)
+O_(CO*)(NO2)             -23.50     (R16)
+C*_(Cd)(O)(O)             21.44     (R16)
+C*_(O)(O)(O)              17.58     (R16)
+C_(CO)(O)(O)(O*)           0.88     (R16)
+C_(C)(Cd)(Cd)(O*)          9.24     (R16)
+C_(C*)(O)(O)(O)          -15.83     (R16)
+C_(CO*)(O)(O)(O)         -19.39     (R16)
+C_(C)(Cd)(Cd)(O)          -5.96     (R16)
+C_(C)(Cd)(Cd)(ONO2)      -25.36     (R16)
+C_(Cd)(Cd)(CO)(O)         -5.06     (R16)
+C*_(O)(O)(ONO2)            6.53     (R16)
+C_(C)(O)(O)(OO*)          -5.77     (R16)
+C_(CO)(O)(O*)(ONO2)      -18.52     (R16)
+CO_(O)(ONO2)             -49.40     (R16)    
+C_(CO*)(O)(O)(ONO2)      -31.83     (R16)
+C_(C)(O)(ONO2)(ONO2)     -55.67     (R17)
+C_(CO)(O)(ONO2)(ONO2)    -55.67     (R17)
+C_(C)(Cd)(ONO2)(ONO2)    -52.5      (R17)
+C_(Cd)(CO)(ONO2)(ONO2)   -52.5      (R17)
+C_(C*)(O)(O)(ONO2)       -29.9      (R17)
+C_(C)(O)(O)(O*)           -6.57     (R17)
+C_(Cd)(O)(O)(ONO2)       -49.00     (R17)
+C_(C)(O)(OO*)(ONO2)      -33.31     (R17)
+C_(CO)(O)(O)(OO*)        -12.97     (R17)
+C_(C*)(O)(ONO2)(ONO2)    -47.83     (R18)
+C_(C)(C*)(Cd)(CO)         -1.88     (R20)
+C_(O)(O)(ONO2)           -35.70     (R20)
+C_(C)(Cd)(Cd)             -1.48     (R21)
+C_(Cd)(Cd)(CO)(ONO2)     -24.68     (R21)
+END
+***********************************
+Following groups were found in Carter's Table (Table 37)
+in(S) documentation. These groups are ordered in the 
+wrong way. In addition the groups were found in Table 38
+(ordered in the correct way) but with different values.
+Selected values are taken from table 38.
+C_(C)(C*)(C)          -1.90
+C_(C)(C*)(C)(C)        1.50
+
+Some additional group estimations :
+----------------------------------
+
+O_(CO*)(O) estimated as -3.40 from O_(CO)(O) and
+using the differences found between O_(CO) and O_(CO*)
+and O_(CO)(C) and O_(CO*)(C). Of course, highly uncertain
+
+O_(CO)(ONO2) = O_(CO)(O) + O_(NO2)(O) = -15.00 and setting
+group for ONO2_(O) to 0.
+
+O_(CO*)(ONO2) = O_(CO*)(O) + O_(NO2)(O) = 0.60
+
+CO_(CO*) and CO*_(CO) : I did not find any useful data
+to estimate those groups. I used the minimum of bond dissociation 
+energy linked to H-COR (i.e. 360 kJ) that I found in the 
+Handbook (see ref). Then using -211.9 kJ for the formation heat of
+glyoxal gives -69.9 kJ for the heat of formation of HCO-CO. Finally,
+setting CO*_(CO) to 0 gives a group contribution of -16.9 kcal for
+CO_(CO*).
+
+CO_(CO*)(C) : same approach as for CO_(CO*) above. Using 
+methyl glyoxal (instead of glyoxal) leads to CO_(CO*)(C)=-20.65 kcal
+
+CO_(CO*)(O) : use value given for above for CO_(CO*)(C), increased by 0.1
+which corresponds to the difference between CO_(CO)(C) and CO_(CO)(O)
+
+C_(C)(CO)(CO)(ONO2) =  C_(C)(CO)(CO)(O) + O_(C)(NO2) = -27.97
+
+C*_(C)(CO)(ONO2) = C*_(C)(CO)(O) + O_(C*)(NO2) = 20.01 
+
+C_(C)(CO)(CO)(O*) = C_(C)(CO)(CO)(O) +14.19=5.62 
+14.19 is the difference between C_(C)(O*)    and C_(C)(O)
+                                C_(C)(CO)(O*)and C_(C)(CO)(O)
+                                C_(CO)(O*)   and C_(CO)(O)
+
+C_(CO)(CO)(CO)(O) : estimated to be around -5.50, based on 
+the following data available for C_{(C)or(CO)}(O) :
+C_(C)(O) : -8.10
+C_(C)(C)(O) : -7.20
+C_(CO)(O) : -6.95
+C_(C)(C)(C)(O) : -6.60
+C_(C)(CO)(O) : -6.32
+C_(C)(C)(CO)(O) : -5.70
+Note that the data given for C_(C)(CO)(CO)(O) : -8.57 seems too high 
+
+C*_(CO)(CO)(O) : set equal to C*_(C)(CO)(O) (32.46) decreased by 1.5 due
+to the substitution of (C) to (CO) => 30.96
+
+C_(CO)(CO)(CO)   estimated to be  -5.00 based on :
+C_(C)(C) : -4.93 ; C_(C)(CO) : -5.20 ; C_(CO)(CO) : -7.60
+C_(C)(C)(C) : -1.90 ; C_(C)(C)(CO) : -1.70 ; C_(C)(CO)(CO) : -4.57
+
+C*_(CO)(CO) : set equal to C*_(C)(CO) (38.58) decreased by 1.5 due
+to the substitution of (C) to (CO) => 37.1
+
+C_(CO)(CO)(CO)(O*) = C_(CO)(CO)(CO)(O) + 14.19 (see above) 
+
+C_(CO*)(C)(O) = C_(CO)(C)(O) -5.00 = -1.30 ; based on the decrease between
+C_(CO*) and C_(CO)
+C_(CO*)(O) and C_(CO*)(C)
+
+CO_(CO*)(CO) = CO_(CO)(CO) + 8.4 = -18.5 based on the differences between
+CO_(CO) and CO_(CO*)
+CO_(CO)(C) and CO_(CO*)(C)
+
+C_(CO*)(CO)(O)  =  C_(CO)(CO)(O) +8.4= -0.80
+///
+C_(Cd)(CO)(O*) = 6.98 based on
+C_(C)(CO)(O*) - difference between C_(C)(O*) and C_(Cd)(O*)
+coherent with the value for C_(CO)(O*) : 7.24  
+
+CO_(Cd)(CO) estimated to be -29.20 based on :
+no difference between CO_(C) and CO_(Cd) so there is difference between
+CO_(Cd)(CO) and CO_(C)(CO) 
+
+C_(Cd)(C)(O*) = 6.95 based on
+C_(C)(C)(O*) - difference between C_(C)(O*) and C_(Cd)(O*)
+
+C_(Cd)(CO)(O) = -4.92 based on 
+C_(C)(CO)(O) - difference between C_(C)(CO) and C_(Cd)(CO)
+
+C_(Cd)(C*) = -4.78 based on 
+C_(C)(C*) + difference between C(Cd)(C) and C(C)(C)
+
+Cd_(C*)(Cd)            4.85
+C*_(Cd)               35.84     are calculated to imply a k
+decomposition for Cd=Cd-CH2-CH2O. equal to (k reaction with O2 * [o2])
+Actually, Cd_(C*)(Cd) + C*_(Cd) = 37.65 , so the two thermochemical
+groups are adjusted with the mean values of the Cd_ groups and the C*_
+groups.  
+
+CO_(Cd)(O)           -35.10  the same as CO_(C)(O) because there is no
+difference between CO_(C) and CO_(Cd)
+
+C_(CO*)(CO)(ONO2)    -18.64 based on C_(CO*)(CO) + the mean value of
+[C_(CO)(ONO2) - C_(CO)] and [C_(CO*)(ONO2) - C_(CO*)]
+
+C_(C)(C*)(Cd)         -3.43
+based on C_(C)(C)(C*) + difference between C(Cd)(C) and C(C)(C) 
+
+Cd_(C*)(Cd)(CO)        3.76
+based on Cd_(C*)(Cd) + difference between Cd_(C)(Cd) and Cd_(Cd)(C)(CO)
+
+Cd_(Cd)(CO)(CO)        3.91
+based on Cd_(Cd)(CO) + difference between Cd_(C)(Cd) and Cd_(Cd)(C)(CO)
+
+C_(C)(C)(Cd)(O*)       7.75
+based on C_(C)(C)(C)(O*) + difference between C_(C)(O*) and C_(Cd)(O*)
+
+C_(C)(Cd)(CO)         -0.30
+based on C_(C)(C)(CO) + difference between C_(C)(CO) and C_(Cd)(CO)
+
+C*_(C)(Cd)            37.89
+based on C*_(Cd) + difference between C*_(C) and C*_(C)(C)
+
+CO_(C*)(Cd)          -31.40
+same value as CO_(C)(C*) because there is no difference between CO_(C)
+and CO_Cd
+  
+C_(CO*)(C)(C)(ONO2)  -19.35
+based on C_(CO*)(C)(ONO2) + difference between C_(CO*)(ONO2)
+and C_(CO*)(C)(ONO2)
+
+C_(CO*)(C)(C)(O)       1.8
+based on C_(CO*)(C)(C)(C) + difference between C_(CO*)(C)(C) and 
+C_(CO*)(C)(O)
+
+C_(CO*)(C)(CO)(O)     -0.84
+based on C_(CO*)(CO)(O) + difference between C_(CO*)(O) and 
+C_(CO*)(O)(C)
+C_(CO*)(C)(O)
+
+C_(CO*)(C)(CO)(ONO2)  -15.54
+based on C_(CO*)(CO)(ONO2) + difference between C_(CO*)(C)(C)(C) and
+C_(CO*)(C)(C)
+
+C_(CO*)(CO)(CO)(O)     0.16
+based on C_(CO*)(CO)(O) + difference between C_(CO*)(O) and 
+C_(CO*)(CO)(O)
+
+C_(CO)(CO)(CO)(ONO2) -30.82
+based on C_(CO)(CO)(ONO2) + difference between C_(CO)(ONO2) and 
+C_(CO)(CO)(ONO2)
+
+C*_(CO)(CO)(ONO2)    17.03
+mean value between [C*_(CO)(CO)(O) + O_(C*)(NO2)] and [C*_(CO)(CO) +
+difference between C*_(CO) and C*_(CO)(ONO2)]
+
+C_(CO*)(C)(CO)         2.69
+= C_(CO*)(C) + [C_(CO*)(CO) - C_(CO*)]
+
+C_(C)(C)(C*)(CO)       0.10
+= C_(C)(C*)(CO) + [C_(C)(C)(CO) - C_(C)(CO)]
+= C_(C)(C*)(CO) + [C_(C)(C)(C*) - C_(C)(C*)]
+
+C_(CO*)(C)(C)(CO)     5.89
+= C_(CO*)(C)(C)(CO) + [C_(CO*)(C)(C)(CO) - C_(CO*)(C)(C)(CO)]
+
+CO_(CO)(O*)          -36.94 
+= CO_(O*) + [ CO_(C)(CO) - CO_(C) ]
+
+C_(CO)(O)(ONO2)      -22.47         
+= C_(CO)(O) + [ C_(CO)(ONO2) - C_(CO)]
+
+C*_(O)(ONO2)        12.35
+= C*_(O) + [C*_(C)(ONO2) - C*_(C) ]
+
+O_(CO*)(CO)          -48.64
+ = O_(CO*) + [O_(C)(CO) - O_(C) ]
+ coherent with  O_(CO) + [O_(C)(CO*) - O_(C) ] = -48.3
+ 
+ C_(O*)                 4.40
+= C_(C)(O*) - (C_(C)(C)(O*) - C_(C)(O*)]
+
+C_(C)(CO)(CO)(CO)     -2.37
+=C_(CO)(CO)(CO) + [C_(CO)(CO)(C) - C_(CO)(CO)]
+
+C*_(C)(CO)(CO) : set equal to C*_(C)(C)(CO) (42.25) decreased by 1.5 due
+to the substitution of (C) to (CO) => 40.75
+
+C_(CO)(CO)(CO)(CO)    -2.8
+C_(CO)(CO)(CO) + [C_(CO)(CO)(CO) - C_(CO)(CO)]
+
+C*_(CO)(CO)(CO)       36.3
+=C*_(CO)(CO) + [C*_(CO)(CO) - C*_(CO)]
+
+C_(C*)(CO)(CO)       -3.72
+= C_(C*)(CO) + [C_(C*)(CO) - C_(C*)]
+
+C_(CO*)(CO)(CO)      -0.58
+=C_(CO*)(CO) + [ C_(CO*)(CO) - C_(CO*)] 
+
+C_(C)(C*)(CO)(CO)    -0.22
+= C_(C*)(CO)(CO) + [C_(C)(C*)(CO) - C_(C*)(CO)]
+
+C_(CO*)(C)(CO)(CO)        5.68
+= C_(CO*)(C)(CO) +[C_(CO*)(C)(CO) - C_(CO*)(C)]  
+
+ONO2_(CO)             0.      These values are those for the same 
+CO_(C)(ONO2)         -27.5    groups but with a C instead of a CO, thus 
+CO_(ONO2)            -29.6    the estimations are very crude.
+CO_(CO)(ONO2)        -27.5
+
+C_(C)(CO)(O)(ONO2)   -21.81
+= C_(CO)(O)(ONO2) + [ C_(C)(CO)(ONO2) - C_(CO)(ONO2)]
+
+C*_(C)(O)(ONO2)       6.25
+= C*_(C)(C)(ONO2) + [C*_(C)(O) - C*_(C)(C)]
+
+C_(C*)(O)(ONO2)   - 33.68   
+= C_(C*)(ONO2)  + [C_(C)(C*)(O) - C_(C)(C*)]
+
+C_(CO*)(O)(ONO2)   -21.99
+= C_(CO*)(C)(ONO2) + [C_(CO*)(O) - C_(CO*)(C)]
+
+C_(CO*)(O)(O)          1.88
+= C_(CO*)(O) + [C_(CO*)(O) - C_(CO*)]
+
+C_(CO)(O*)(ONO2)     -20.36
+= C_(C)(O*)(ONO2) + [C_(CO)(O*) - C_(C)(O*)]
+
+C_(CO*)(Cd)     0.88
+= C_(CO*)(C) + [C_(C)(C)(C)(Cd) - (C_(C)(C)(C)(C)]
+
+C_(C*)(CO)(CO)(O)    -6.31
+= C_(C*)(CO)(O) + [ C_(C*)(CO)(O) - C_(C*)(O) ]
+
+C_(CO*)(Cd)(O)       -0.12
+= C_(CO*)(C)(O) + [C_(C)(C)(C)(Cd) - C_(C)(C)(C)(C)]
+
+C*_(Cd)(O)           31.84
+= C*_(C)(O) + [C*_(C)(O) - C*_(C)]
+
+C_(Cd)(CO)(ONO2)    -24.32
+= C_(Cd)(CO) + [C_(C)(CO)(ONO2) C_(C)(CO)] 
+
+C_(C*)(Cd)(O)        -9.33
+= C_(C*)(Cd) + [C_(C*)(C)(O) - C_(C*)(C)] 
+
+C_(C*)(CO)(CO)(ONO2) -25.71
+= C_(C*)(CO)(ONO2) + [C_(C*)(CO)(ONO2) - C_(C*)(ONO2)]
+
+C_(Cd)(ONO2)         -27.45
+= C_(C)(ONO2) + [C_(Cd)(O) - C_(C)(O)]
+
+C_(C)(Cd)(CO)(O*)     8.68 
+= C_(Cd)(CO)(O*) + [C_(C)(Cd)(O*) - C_(Cd)(O*)]      
+
+C_(CO*)(CO)(CO)(ONO2) -14.97
+C_(CO*)(CO)(ONO2) + [C_(CO*)(CO)(ONO2) -  C_(CO*)(ONO2) ]
+
+C_(CO*)(Cd)(ONO2)     -19.35
+= C_(CO*)(C)(ONO2) + [(C_(CO*)(Cd) - C_(CO*)(C)]
+
+C_(C*)(Cd)(ONO2)      -28.05
+mean value between = C_(C*)(C)(ONO2) + [C_(C*)(Cd)(O) - C_(C*)(C)(O)]
+and                = C_(C*)(Cd) + [C_(C*)(C)(ONO2)-C_(C*)(C)]
+
+C_(CO*)(CO)(CO)(CO)    1.25
+= C_(CO*)(CO)(CO) + [C_(CO*)(CO)(CO) - C_(CO*)(CO)] 
+
+CO_(CO*)(Cd)         -20.65
+= CO_(Cd) + [CO_(CO*)(C) - CO_(C)]
+
+C_(C*)(CO)(CO)(CO)     1.52
+= C_(C)(CO)(CO)(CO) + [C_(C)(CO)(CO) - C_(C*)(CO)(CO)]
+
+C_(Cd)(CO)(CO)(O*)     6.51
+= C_(C)(CO)(CO)(O*) + [C_(Cd)(CO)(O*) -  C_(C)(CO)(O*)]
+
+C_(C)(C)(Cd)(O)       -4.95
+= C_(C)(Cd)(O) + [C_(C)(Cd)(O) -  C_(Cd)(O) ] 
+
+C_(C)(C)(Cd)(CO)       3.00
+mean values between :
+C_(C)(Cd)(CO) + [C_(C)(Cd)(CO) - C_(Cd)(CO)] => +3.2
+C_(C)(C)(C)(CO) + [C_(C)(Cd)(CO) - C_(C)(C)(CO)] => +2.8
+
+C*_(C)(C)(Cd)         39.94
+= C*_(C)(Cd) + [C*_(C)(Cd) - C*_(Cd)]
+
+C_(C)(Cd)(CO)(O)      -4.30
+= C_(C)(C)(CO)(O) + [C_(Cd)(CO)(O)- C_(C)(CO)(O)] 
+
+C_(C)(C)(Cd)(ONO2)    -25.30
+= C_(C)(C)(C)(ONO2) + [C_(C)(Cd)(ONO2) - C_(C)(C)(ONO2)]
+
+C_(C)(C*)(Cd)(ONO2)   -26.70
+= C_(C*)(Cd)(ONO2) + [C_(C)(C*)(Cd) - C_(C*)(Cd)]
+
+C_(Cd)(CO)(CO)(O)     - 7.17
+= C_(C)(CO)(CO)(O) + [C_(Cd)(CO)(O) -  C_(C)(CO)(O)] 
+
+C_(Cd)(CO)(CO)(ONO2)  -26.57
+= C_(C)(CO)(CO)(ONO2) + [C_(Cd)(CO)(ONO2) - C_(C)(CO)(ONO2)] 
+
+C_(C)(Cd)(CO)(ONO2)   -23.70
+= C_(C)(C)(CO)(ONO2) + [C_(Cd)(CO)(ONO2)- C_(C)(CO)(ONO2)] 
+
+C_(Cd)(CO)(CO)         0.88
+= C_(C)(Cd)(CO) + [C_(C)(Cd)(CO) - C_(C)(C)(Cd)]
+
+C*_(Cd)(CO)           36.00
+mean value between :
+C*_(CO) + [C*_(C)(Cd) - C*_(C)] => 36.69
+C*_(Cd) + [C*_(C)(CO) - C*_(C)] => 35.32
+
+Cd_(C)(C*)(Cd)         7.18
+= Cd_(C*)(Cd) + [Cd_(C)(Cd) - Cd_(Cd)]
+
+C_(CO)(CO)(O)(ONO2)       -30.58
+= C_(CO)(CO)(ONO2) + [C_(CO)(CO)(O) - C_(CO)(CO)]
+
+C*_(CO)(O)(ONO2)     11.55
+= C*_(O)(ONO2) + [C*_(CO)(ONO2) - C*_(ONO2)]
+
+C_(CO)(CO)(O)(O*)     -2.85
+= C_(CO)(O)(O*) + [C_(CO)(O*) - C_(CO)(CO)(O*)]
+
+C_(CO)(CO)(O)(O)     -17.66
+= C_(CO)(CO)(O) + [C_(CO)(O) - C_(CO)(O)(O)]
+
+C*_(CO)(O)(O)     26.48
+= C*_(CO)(O) + [C_(CO)(O) - C_(CO)(O)(O)]
+
+Julia Lee-Taylor, NCAR, July 2006
+---------------------------------
+B = Benson; S = SAPRC; A = Aumont estimate
+
+CO_(CO)(OO*)          -27.8  = mean of:
+ CO_(C)(OO*) + CO_(CO)     - CO_(C)     = -30.91(S) + -25.3(B) - -29.1(B)
+ CO_(C)(OO*) + CO_(CO)(O*) - CO_(C)(O*) = -30.91(S) + -36.94(A) - -39.36(S)
+
+C_(CO)(CO)(OO*)        3.5   = mean of:
+ C_(CO)(CO)(O*) + C_(CO)(OO*) - C_(CO)(O*) = 5.81(S) + 6.05(S) - 7.24(S)
+ C_(CO)(CO)(O*) + C_(C)(OO*)  - C_(C)(O*)  = 5.81(S) + 3.32(S) - 6.1(S)
+ C_(CO)(CO)(O*) + C_(C)(C)(OO*) - C_(C)(C)(O*) = 5.81(S) + 4.9(S) - 7.8(S)
+
+C_(C)(CO)(OO*)         5.6   = mean of:
+ C_(C)(CO)(O*) + C_(CO)(OO*) - C_(CO)(O*) = 7.87(S) + 6.05(S) - 7.24(S)
+ C_(C)(CO)(O*) + C_(C)(OO*)  - C_(C)(O*)  = 7.87(S) + 3.32(S) - 6.1(S)
+ C_(C)(CO)(O*) + C_(C)(C)(OO*) - C_(C)(C)(O*) = 7.87(S) + 4.9(S) - 7.8(S)
+
+C_(CO*)(CO)(O)(O)     -0.06  =
+ C_(CO*)(CO)(CO)(O) + C_(CO*)(CO)(O) - C_(CO*)(CO)(CO) = 0.16(A) + -0.8(A) - -0.58(A)
+
+C_(CO*)(CO)(O)(ONO2)     -18.1  = mean of:
+ C_(CO*)(CO)(CO)(ONO2) + C_(CO*)(CO)(O) - C_(CO*)(CO)(CO) = -14.97(A) +  -0.8(A) - -0.58(A) = -15.19
+ C_(CO*)(CO)(CO)(O) + C_(CO*)(CO)(ONO2) - C_(CO*)(CO)(CO) =   0.16(A) + -18.64(A) - -0.58(A) = -17.9
+ C_(CO*)(CO)(CO)(ONO2) + C_(CO*)(O)(ONO2) - C_(CO*)(O)(ONO2) = -14.97(A) + -21.99(A) - -18.64(A) = -18.32
+ C_(CO*)(CO)(CO)(O) + C_(CO*)(O)(ONO2) - C_(CO*)(CO)(O)   =   0.16(A) + -21.99(A) - -0.8(A) = -21.03
+
+ONO2_(CO*)             0.00 estimated equivalent to ONO2_(CO)
+
+C_(C)(CO)(O*)(ONO2)   -3.3   = C_(C)(CO)(O)(ONO2)  -17.7(A) + mean of:
+ C_(C)(CO)(O*)     - C_(C)(CO)(O)     =  7.87(S) - -6.32(S) = 14.2
+ C_(C)(CO)(CO)(O*) - C_(C)(CO)(CO)(O) =  5.62(A) - -8.57(S) = 14.2
+ C_(C)(CO)(O)(O*)  - C_(C)(CO)(O)(O)  =   2.5(S) - -17.7(S) = 15.2
+ C_(C)(O*)(ONO2)   - C_(C)(O)(ONO2)   = -21.5(S) - -37.5(S) = 14.2
+ C_(O*)(ONO2)      - C_(O)(ONO2)      = -21.3(S) - -35.5(S) = 14.2
+i.e. radicalisation of the (O) group raises DHf by 14.4
+
+C_(CO)(CO)(O*)(ONO2)  -16.2  = C_(CO)(CO)(O)(ONO2) -30.58(S) + 14.4 (see above)
+(radicalisation of the (O) group raises DHf by 14.4)
+
+C_(CO*)(C)(Cd)  4.3 = C_(C)(Cd)(Cd)  -0.3(A) + mean of:
+ C_(CO*)(C)    - C_(C)(CO)    = -0.3(B) - -5.2(B) = 4.9
+ C_(CO*)(C)(C) - C_(C)(C)(CO) =  2.6(B) -  1.7(B) = 4.3
+ C_(CO*)(Cd)   - C_(Cd)(CO)   = 0.88(A) -  3.8(B) = 4.7
+i.e. radicalisation of the (CO) group raises DHf by -4.6
+
+C_(C)(C*)(Cd)(O)       -7.3  = C_(C)(C)(Cd)(O) -4.95(A) + mean of:
+ C_(C)(C*)(O)    - C_(C)(C)(O)    = -9.5(S)  - -7.2(B)  = -2.3
+ C_(C)(C*)(Cd)   - C_(C)(C)(Cd)   = -3.43(A) - -1.48(B) = -1.95
+ C_(C)(Cd)(O)    - C_(C*)(Cd)(O)  = -9.33(A) - -6.5(B)  = -2.83
+ C_(C)(C)(C*)(O) - C_(C)(C)(C)(O) = -8.9(S)  - -6.6(B)  = -2.3
+i.e. radicalisation of a (C) group lowers DHf by 2.3  
+
+C_(C*)(Cd)(CO)(O)      -6.6  = C_(C)(Cd)(CO)(O) -4.3(A) + mean of:
+ C_(C*)(CO)(O) - C_(C)(CO)(O) = -8.02(S) - -6.32(S) = -1.7
+ C_(C*)(Cd)(O) - C_(C)(Cd)(O) = -9.33(A) - -6.5(B)  = -2.8
+i.e. radicalisation of a (C) group lowers DHf by 2.3 (as above) 
+
+C_(C*)(Cd)(CO)(ONO2)  -25.6  = C_(C)(Cd)(CO)(ONO2) -23.7(A) + mean of:
+ C_(C*)(Cd)(ONO2) -  C_(C)(Cd)(ONO2) = -28.05(A) - -25.9(S)  = -2.15
+ C_(C*)(CO)(ONO2) -  C_(C)(CO)(ONO2) = -27.42(S) - -25.72(S) = -1.7
+i.e. radicalisation of the (C) group lowers DHf by 1.9 
+
+C_(C*)(CO)(O)(ONO2)  -17.5  = C_(C)(CO)(O)(ONO2) -17.7(A) + mean of:
+ C_(C*)(CO)(ONO2) -  C_(C)(CO)(ONO2) = -27.42(S) - -25.72(S) = -1.7
+ C_(C*)(O)(ONO2)  -  C_(C)(O)(ONO2)  = -33.7(A)  - -35.7(S)  =  2.0
+i.e. radicalisation of the (C) group raises DHf by 0.2
+
+------------------
+Ric, May 2008
+------------------
+C*_(C)(Cd)(CO)         38.86
+mean value between :
+     =  C*_(C)(C)(CO)  +  [C*_(Cd) - C*_(C)]
+     =  C*_(C)(C)(Cd)  +  [C*_(CO) - C*_(C)]
+
+C*_(Cd)(CO)(CO)        37.79
+     =  C*_(C)(C)(CO)  +  [C*_(Cd) - C*_(C)]  +  [C*_(CO) - C*_(C)]
+     
+C_(C)(Cd)(CO)(CO)      -0.59
+     =  C_(C)(C)(C)(Cd)  +  [C_(CO)(CO) - C_(C)(C)]
+     
+C_(Cd)(CO)(CO)(CO)     -0.6
+mean value between :
+     =  C_(C)(C)(C)(CO)  +  [C_(CO)(CO) - C_(C)(C)]  +  [C_(Cd) - C_(C)]  = -0.87
+     =  C_(C)(C)(C)(Cd)  +  [C_(CO)(CO) - C_(C)(C)]  +  [C_(CO) - C_(C)]  = -0.59
+     =  C_(C)(C)(CO)(CO)  +  [C_(Cd)(CO) - C_(C)(C)]                      = -0.34
+
+C_(CO*)(Cd)(CO)(O)      3.03
+mean value between :
+     =  C_(C)(C)(C)(O)  +  [C_(Cd)(CO) - C_(C)(C)]  +  [C_(CO*) - C_(C)]  = -0.67
+     =  C_(CO*)(C)(C)(C)  +  [C_(Cd)(CO) - C_(C)(C)]  +  [C_(O) - C_(C)]  =  6.83
+     =  C_(CO*)(C)(C)(O)  +  [C_(Cd)(CO) - C_(C)(C)]                      =  2.93
+
+C_(CO*)(Cd)(CO)(ONO2) -20.07
+     =  C_(C)(C)(C)(ONO2)  +  [C_(Cd)(CO) - C_(C)(C)]  +  [C_(CO*) - C_(C)]
+
+
+------------------
+Ric, Nov 2008
+------------------
+
+C_(C*)(Cd)(CO)         -3.45
+     =  C_(C)(C)(Cd)  +  [C_(C*)(CO) - C_(C)(C)]
+
+Cd_(Cd)(Cd)(CO)         8.88
+     =  Cd_(C)(Cd)(Cd)  +  [C_(CO) - C_(C)]
+
+Cd_(C*)(Cd)(Cd)         9.0
+     =  Cd_(C)(Cd)(Cd)  +  [C_(C*) - C_(C)]
+
+C_(CO*)(C)(Cd)(ONO2)  -18.3
+     =  C_(CO*)(C)(C)(C)  +  [C_(C)(Cd)(ONO2) - C_(C)(C)(C)]
+
+C_(CO*)(Cd)(CO)         1.04
+     =  C_(C)(C)(Cd)  +  [C_(CO*)(CO) - C_(C)(C)]
+
+C_(CO*)(C)(Cd)(O)       2.58
+     =  C_(CO*)(C)(C)(C)  +  [C_(Cd)(O) - C_(C)(C)]
+
+------------------
+Ludo, July 2009
+------------------
+
+Cd_(Cd)(O*)            22.8
+     =  Cd_(Cd)(O)  + C_(C)(O*)  -  C_(C)(O)
+
+CO_(CO*)(ONO2)        -15.3
+     =  CO_(CO*)  -  CO_(C)  +  CO_(C)(ONO2)
+
+C_(C)(C*)(O)(O)       -14.2
+     =  C_(C)(C)(C)(O)   +   [C_(C)(C*)(O) - C_(C)(C)(O)]  +  [C_(C)(C)(O) - C_(C)(C)(C)]
+
+C_(C)(C*)(O)(ONO2)    -40.3
+     =  C_(C)(C)(O)(ONO2)  +  [C_(C)(C*)(O) - C_(C)(C)(O)]
+
+C_(CO*)(C)(O)(O)      -13.4
+     =  C_(C)(C)(O)(O)  +  C_(CO*)(C)(C)(C) - C_(C)(C)(C)(C)
+
+C_(CO*)(C)(O)(ONO2)   -33.11
+     =  C_(C)(C)(O)(ONO2)  +  C_(CO*)(ONO2) - C_(C)(ONO2)
+
+C_(C*)(CO)(O)(O)      -12.72
+     =  C_(C*)(CO)(O)  +  C_(C)(C)(C)(O)  -  C_(C)(C)(C)
+
+Cd_(C)(Cd)(O*)         25.3
+     =  Cd_(C)(Cd)(O) +  C_(C)(C)(O*)  -  C_(C)(C)(O) 
+
+Cd_(C*)(Cd)(O)         10.42
+     =  Cd_(C)(Cd)(O) + C_(C*) - C_(C)
+
+CO_(C*)(ONO2)         -27.5
+     =  CO_(C*)  -  CO_(C)  +  CO_(C)(ONO2)
+
+Cd_(Cd)(CO)(O*)        26.6
+     =  Cd_(Cd)(CO)(O) +  C_(C)(C)(O*)  -  C_(C)(C)(O)
+
+C_(C)(Cd)(O)(O*)       -8.2
+     =  C_(C)(Cd)(O) + C_(C)(C)(O)(O*) - C_(C)(C)(O)
+
+C_(Cd)(CO)(O)(O*)      -2.27
+     = C_(Cd)(CO) + C_(C)(C)(O)(O) - C_(C)(C) + C_(C)(C)(C)(O*) - C_(C)(C)(C)(O)
+
+C_(C)(Cd)(O)(O)       -11.2
+     = C_(C)(Cd)(O)  +  C_(C)(C)(C)(O)  -  C_(C)(C)(C)
+
+C_(C)(Cd)(O)(ONO2)    -30.6
+     = C_(C)(Cd)(O) + C_(C)(C)(C)(ONO2) - C_(C)(C)(C)
+
+C_(C*)(Cd)(O)(ONO2)   -30.48
+     = C_(C)(Cd)(O) + C_(C)(C)(C)(ONO2) - C_(C)(C)(C) + C_(C*) - C_(C)
+
+CO_(Cd)(ONO2)         -27.5
+     =  CO_(Cd)  -  CO_(C)  +  CO_(C)(ONO2)
+
+C_(Cd)(O)(O*)           4.68
+     = C_(Cd)(O)  +  C_(C)(C)(O*)  -  C_(C)(C)
+
+C_(C)(Cd)(O*)(ONO2)   -23.63
+     = C_(C)(Cd)  +  C_(C)(C)(O*)(ONO2)  -  C_(C)(C)
+
+C_(Cd)(Cd)(O*)          8.44
+     = C_(Cd)(Cd)  +  C_(C)(C)(O*)  -  C_(C)(C)
+
+C_(Cd)(CO)(O)(ONO2)   -36.87
+     = C_(Cd)(CO)  +  C_(C)(C)(O)(ONO2)  -  C_(C)(C)
+
+C_(CO*)(Cd)(O)(ONO2)  -25.68
+     = C_(C)(Cd)(O)(ONO2)  +  C_(CO*)  -  C_(C)
+
+C_(C*)(Cd)(O)(O)       -8.05
+     = C_(C*)  +  C_(C)(Cd)(O)  +  C_(C)(C)(C)(O)  -  C_(C)  - (C)_(C)(C)
+
+C_(Cd)(CO)(O)(O)      -17.47
+     = C_(Cd)(CO)  +  C_(C)(C)(O*)(O)  -  C_(C)(C)
+
+C_(Cd)(CO)(O*)(ONO2)  -22.67
+     = C_(Cd)(CO)  +  C_(C)(C)(O*)(ONO2)  -  C_(C)(C)
+
+C_(CO*)(Cd)(O)(O)      -3.6
+     = C_(CO*)(C)(C)(C)  +  C_(C)(Cd)(O)(O)  -  C_(C)(C)(C)(C)
+
+C_(Cd)(O)(O)          -10.32
+     = C_(Cd)(O)  +  C_(C)(C)(O)  -  C_(C)(C)
+
+C_(Cd)(O)(ONO2)       -29.72
+     = C_(Cd)(O)  +  C_(C)(C)(ONO2)  -  C_(C)(C)
+
+C_(Cd)(O*)(ONO2)      -16.42
+     = C_(Cd)(O*)  +  C_(C)(C)(ONO2)  -  C_(C)(C)
+
+Cd_(Cd)(Cd)(O*)        23.9
+     = Cd_(Cd)(Cd)(O)  -  C_(C)(C)(O)  +  C_(C)(C)(O*)
+
+C_(Cd)(Cd)(ONO2)      -25.96
+     = C_(Cd)(Cd)  +  C_(C)(C)(ONO2)  -  C_(C)(C)
+
+C_(Cd)(Cd)(O)          -6.56
+     = C_(Cd)(Cd)  +  C_(C)(C)(O)  -  C_(C)(C)
+
+C_(Cd)(Cd)(O)(O*)      -2.76
+     = C_(C)(C)(O)(O*)  +  C_(Cd)(Cd)  -  C_(C)(C)
+
+C_(Cd)(Cd)(O)(O)       -17.96
+     = C_(C)(C)(O)(O)   +  C_(Cd)(Cd)  -  C_(C)(C)
+
+C_(Cd)(Cd)(O)(ONO2)       -37.36
+     = C_(C)(C)(O)(ONO2)   +  C_(Cd)(Cd)  -  C_(C)(C)
+
+CO_(Cd)(O*)         -39.36
+     =  CO_(Cd)  -  CO_(C)  +  CO_(C)(O*)
+
+C*_(C)(Cd)(O)         32.41
+mean value between :
+     =  C*_(C)(C)(O)   +  [C*_(O) - C*_(C)]
+     =  C*_(C)(C)(Cd)  +  [C*_(Cd) - C*_(C)]
+
+*-------------------------------------
+**Lee-Taylor, Dec 2014 (for camphene)**
+*-------------------------------------
+C_(CO*)(C)(C)(Cd)  6.8  = C_(CO*)(C)(C)(C)  5.7(S) + mean of:
+C_(CO*)(C)(Cd) - C_(CO*)(C)(C) =  4.3(LT) - 2.60(B) = 1.7
+C_(C)(C)(Cd)   - C_(C)(C)(C)   = -1.48(B) - -1.90(B) = 0.42
+i.e. double-bonding a (C) group raises DHf by 1.1
+
+C_(C)(C)(C*)(Cd) -0.14  = C_(C)(C)(C)(Cd)  1.68(B) + mean of:
+C_(C)(C)(C)(C*) -1.20(S) - C_(C)(C)(C)(C) 0.50(B) = -1.70
+C_(C)(C*)(Cd)   -3.43(A) - C_(C)(C)(Cd)  -1.48(B) = -1.95
+i.e. exciting a (C) group raises DHf by -1.82
+
+C_(CO*)(C)(Cd)(CO)  4.02  = C_(C)(Cd)(CO)(CO) -0.59(R) + mean of:
+ C_(CO*)(C)     -0.30(B) - C_(C)(CO)     -5.20(B) = 4.90
+ C_(CO*)(Cd)     0.88(c) - C_(Cd)(CO)    -3.80(B) = 4.68
+ C_(CO*)(C)(CO)  2.69(c) - C_(C)(CO)(CO) -4.57(S) = 7.26
+ C_(CO*)(Cd)(CO) 1.04(R) - C_(Cd)(CO)(CO) 0.88(c) = 1.92
+ C_(CO*)(C)(C)  -2.60(B) - C_(C)(C)(CO)  -1.70(B) = 4.30
+i.e. exciting a (CO) group raises DHf by 4.61 (or so)
+
+*-------------------------------------
+**Lee-Taylor, Oct 2015 (aromatic products)**
+*-------------------------------------
+C_(C)(Cd)(O)(OO*)  : -6.12 : average of
+ C_(C)(C)(O)(OO*) -6.5(S) + C_(C)(Cd)(O) -6.5(B) - C_(C)(C)(O) -7.2(B) = -5.8
+ C_(C)(C)(O)(OO*) -6.5(S) + C_(Cd)(OO*)  3.39(S) - C_(C)(OO*)  3.34(S) = -6.45
+
+C_(C)(Cd)(OO*)  : 5.02: average of
+ C_(C)(C)(OO*) 4.9(S) + C_(Cd)(OO*) 3.39(S) - C_(C)(OO*) 3.34(S) = 4.95
+ C_(C)(Cd)(O*) 6.95(A) + C_(Cd)(OO*) 3.39(S) - C_(Cd)(OO*) 5.25(S) = 5.09
+
+C_(C)(C)(Cd)(OO*)  : 5.72: average of
+C_(C)(C)(C)(OO*) 5.5(S) + C_(Cd)(OO*) 3.39(S) - C_(C)(OO*) 3.34(S) = 5.55
+C_(C)(C)(Cd)(O*) 7.75(A) + C_(Cd)(OO*) 3.39(S) - C_(Cd)(OO*) 5.25(S) = 5.89
+
+C*_(Cd)(CO)(O) : 32.26:
+C*_(C)(Cd)(O) 32.41(L) + C*_(CO)(O) 34.95(S) - C*_(C)(O) 35.1 (B) = 32.26
+
+C_(C)(Cd)(CO)(OO*) : 6.50: average of
+C_(C)(Cd)(CO)(O*) 8.68(A) + C_(Cd)(OO*) 3.39(S) - C_(Cd)(O*) 5.25(S) = 6.82
+C_(C)(Cd)(CO)(O*) 8.68(A) + C_(C)(OO*)  3.34(S) - C_(C)(O*)  6.1(B) = 5.92
+C_(C)(Cd)(CO)(O*) 8.68(A) + C_(OO*)     2.49(S) - C_(O*)     4.4(A) = 6.77
+
+C_(C)(C)(OO*)(ONO2) : -26.7  
+C_(C)(C)(O*)(ONO2) -23.8(S) + C_(C)(C)(OO*) 4.9(S) - C_(C)(C)(O*) 7.8(B) 
+
+C_(C)(OO*)(ONO2) : -24.26
+C_(C)(O*)(ONO2) -21.5(S) + C_(C)(OO*) 3.34(S) - C_(C)(O*) 6.1(B)
+
+C_(C)(C)(CO)(OO*) : 7.36: average of
+C_(C)(C)(OO*)    4.9(S) + C_(C)(C)(CO) -1.7(B) - C_(C)(C)   -4.93(B) = 8.13
+C_(C)(C)(CO)(O*) 9.5(S) + C_(C)(C)(OO*) 4.9(S) - C_(C)(C)(O*) 7.8(B) = 6.6
+
+C_(C)(CO)(O)(OO*) : -5.62
+C_(C)(C)(O)(OO*) -6.5(S) + C_(C)(CO)(O) -6.32(S) - C_(C)(C)(O) -7.2(B)
+
+C_(C)(CO)(OO*)(ONO2) : -13.7: average of 5 WIDELY varying estimates
+C_(C)(C)(OO*)(ONO2) -26.7(L5) + C_(C)(CO)(ONO2) -25.72(S) - C_(C)(C)(ONO2) -26.6(S) = -25.82
+C_(C)(CO)(OO*)        5.6(L6) + C_(C)(CO)(ONO2) -25.72(S) - C_(C)(CO)       -5.2(B) = -14.92
+C_(C)(CO)(ONO2)     -25.72(S) + C_(C)(OO*)        3.34(S) - C_(C)          -10.2(B) = -12.18
+C_(C)(CO)(ONO2)     -25.72(S) + C_(CO)(OO*)       6.05(S) - C_(CO)         -10.2(B) = -9.47
+C_(C)(CO)(O*)(ONO2)  -3.3(L6) + C_(C)(OO*)        3.34(S) - C_(C)(O*)        6.1(B) = -6.06
+
+CO_(Cd)(OO*) :  -30.9 based on
+CO_(C)(OO*) -30.91(S) + CO_(Cd) -29.1(B) - CO_(C) -29.1(B)
+
+C_(Cd)(CO)(OO*) : 6.95
+C_(Cd)(OO*) 3.39(S) + C_(CO)(OO*) 6.05(S) - C_(OO*) 2.49(S)
+
+C_(CO)(OO*)(ONO2)     -15.4 : average of 2 WIDELY varying estimates
+C_(CO)(O*)(ONO2) -20.36 Aumont + C_(CO)(OO*) 6.05(S) - C_(CO)(O*) 7.24(S) = -21.55
+C_(CO)(OO*) 6.05(S) + C_(CO)(ONO2) -26.36(S) - C_(CO) -10.2(B) = -10.11
+
+C_(C)(Cd)(OO*)(ONO2)  -26.5
+C_(C)(Cd)(O*)(ONO2) -23.63 Ludo + C_(C)(C)(OO*) 4.9(S) - C_(C)(C)(O*) 7.8(B)
+
+C_(C)(CO)(CO)(OO*)      4.43
+C_(C)(CO)(CO)(O*) 5.62 Aumont + C_(CO)(OO*) 6.05(S) - C_(CO)(O*) 7.24(S)
+
+C_(C)(C)(ONO2)(ONO2) -48.3
+C_(C)(C)(ONO2) -26.6(S) + C_(C)(C)(ONO2) -26.6(S) - C_(C)(C) -4.93(B) = -48.27
+
+C_(C)(C*)(ONO2)(ONO2) -52.85
+C_(C)(C*)(ONO2) -28.9(S) + C_(C)(C*)(ONO2) -28.9(S) - C_(C)(C*) -4.95(B) = -52.85
+
+C*_(C)(ONO2)(ONO2)       36.35 
+C*_(C)(ONO2) 15.7(S) + C*_(C)(ONO2) 15.7(S) - C_(C)(C*) -4.95(B) = 36.35
+
+C_(C)(ONO2)(ONO2)  -44.8
+C_(C)(ONO2) -27.5(S) + C_(C)(ONO2) -27.5(S) - C_(C) -10.2(B) = -44.8
+ 
+C_(C*)(ONO2)(ONO2)   -48.2
+C_(C*)(ONO2) -29.13(S) + C_(C*)(ONO2) -29.13(S) - C_(C*) -10.08(B) = -48.18
+
+C_(CO)(ONO2)(ONO2)    -42.5
+C_(CO)(ONO2) -26.36(S) + C_(CO)(ONO2) -26.36(S) - C_(C) -10.2(B) = -42.52
+
+C*_(ONO2)(ONO2)        32.7
+C*_(ONO2) 16.35(S) + C*_(ONO2) 16.35(S) -    = 32.7
+
+C_(CO)(O)(OO*)  -8.1
+C_(C)(O)(OO*) -4.2(S) + C_(CO)(O) -6.95(S) - C_(C)(O) -8.1(B) = -3.05
+
+C_(CO)(CO)(O)(OO*)    3.71
+C_(CO)(CO)(O*) 5.81(S) + C_(C)(O)(OO*) -4.2(S) - C_(C)(O)(O*) -2.1(S) = 3.71
+
+C_(CO)(CO)(OO*)(ONO2)  -12.34
+C_(CO)(CO)(ONO2) -28.59(S) + C_(CO)(OO*) 6.05(S) - C_(CO) -10.2(B) = -12.34
+
+C_(CO)(CO)(CO)(OO*)     7.5
+C_(CO)(CO)(CO)(O*) 8.69(A) + C_(CO)(OO*) 6.05(S) - C_(CO)(O*) 7.24(S) = 7.5
+
+C_(C)(CO)(ONO2)(ONO2)  -46.24
+C_(C)(CO)(ONO2) -25.72(S) + C_(C)(CO)(ONO2) -25.72(S) - C_(C)(CO) -5.2(B) = -46.24
+
+C_(Cd)(CO)(O)(OO*)    7.5
+C_(C)(Cd)(CO)(O*) 8.68 Aumont + C_(CO)(OO*) 6.05(S) - C_(CO)(O*) 7.24(S) = 7.49
+
+C_(Cd)(CO)(OO*)(ONO2)  -23.9
+C_(Cd)(CO)(O*)(ONO2) -22.67 Ludo + C_(CO)(OO*) 6.05(S) - C_(CO)(O*) 7.24(S) = -23.86
+ 
+C*_(CO)(ONO2)(ONO2)   -6.8
+C*_(CO)(ONO2) 15.55(S) + C*_(CO)(ONO2) 15.55(S) - C*_(CO) 37.9(B) = -6.8
+  
+C_(C*)(CO)(ONO2)(ONO2)   -47.9
+C_(C*)(CO)(ONO2) -27.42(S) + C_(C*)(CO)(ONO2) -27.42(S) - C_(C*)(CO) -6.9(S) = -47.94
+
+C_(CO)(CO)(ONO2)(ONO2)  -51.98
+C_(CO)(CO)(ONO2) -28.59(S) + C_(CO)(CO)(ONO2) -28.59(S) - C_(C)(CO) -5.2(B)
+
+C_(CO*)(CO)(ONO2)(ONO2
+C_(CO)(CO)(ONO2)(ONO2) -51.98 JMLT + C_(CO*)(CO) -2.41 SAPRC - C_(CO)(CO )- 7.2Benson = -47.19
+
+C_(Cd)(CO)(CO)(OO*)  5.32 : average of 
+C_(Cd)(CO)(CO)(O*) 6.51(A) + C_(CO)(OO*)      6.05(S) - C_(CO)(O*)      7.24(S) = 5.32
+C_(Cd)(CO)(CO)(O*) 6.51(A) + C_(C)(C)(C)(OO*) 5.5(S)  - C_(C)(C)(C)(O*) 8.6(B) = 3.41
+C_(Cd)(CO)(CO)(O*) 6.51(A) + C_(Cd)(OO*)      3.39(S) - C_(Cd)(O*)      5.25(S) = 4.65
+
+C_(CO*)(C)(ONO2)(ONO2) -40.76
+C_(CO*)(C)(ONO2) -20.53(S) + C_(CO*)(C)(ONO2) -20.53(S) - C_(CO*)(C) -0.3(B)
+
+C_(CO*)(ONO2)(ONO2) -38.02
+C_(CO*)(ONO2) -21.71(S) + C_(CO*)(ONO2) -21.71(S) - C_(CO*) -5.4(B) 
+
+C_(CO)(O)(O)(O) -29.60
+>> C_(C)(O)(O)(O) + C_(CO) - C_(C)
+
+C_(CO)(O)(O)(ONO2)
+>> C_(CO)(ONO2) + C_(C)(O)(O) - C_(C)(C)(C)
+
+C_(Cd)(O)(O) -24.60
+>> C_(Cd) + C_(C)(O)(O) - C_(C)(C)(C)
+
+Cd_(Cd)(O)(O) -8.14
+>> Cd_(Cd) + C_(C)(O)(O) - C_(C)(C)(C)
+
+C_(Cd)(O)(O)(O) -29.60 
+>> C_(C)(O)(O)(O) + C_(Cd) - C_(C)
+
+O_(CO*)(NO2)  -23.50
+>> O_(CO*)(C) + O_(C)(NO2) - O_(C)(C)
+
+C*_(Cd)(O)(O) 21.44
+>> C*(C)(O)(O) + C*_(C)(Cd) - C*(C)(C)
+
+C*_(O)(O)(O) 21.44
+>> C*(C)(C)(C) + C_(O)(O)(O) - C_(C)(C)(C)
+
+C_(CO)(O)(O)(O*) 0.88
+>> C_(CO)(O)(O*) + C_(C)(O) - C_(C)
+
+C_(C)(Cd)(Cd)(O*) 
+>> C_(C)(C)(C)(O*) + C_(Cd)(Cd) - C_(C)(C)
+
+C_(C)(O)(ONO2)(ONO2)
+>> C_(C)(C)(C)(ONO2) + C_(C)(O) - C_(C) + C_(C)(C)(C)(ONO2) - C_(C)(C)(C)
+
+C_(CO)(O)(ONO2)(ONO2)
+>> C_(C)(C)(C)(ONO2) + C_(C)(O) - C_(C) + C_(C)(C)(C)(ONO2) - C_(C)(C)(C) + C_(CO) - C_(C)
+
+C_(C*)(O)(O)(ONO2)
+>> C_(C)(C)(O)(ONO2) + C_(C*)(O) - C_(C)(C)
+
+C_(C)(O)(O)(O*)   
+>> C_(C)(C)(O)(O*) + C_(C)(O) - C_(C)(C)
+
+C_(Cd)(O)(O)(ONO2)
+>> C_(C)(O)(O)(ONO2) + C_(Cd) - C_(C)
+
+C_(C)(O)(OO*)(ONO2)
+>> C_(C)(O)(ONO2) + C_(OO*)
+
+C_(C*)(O)(ONO2)(ONO2) -47.83
+>> C_(C*)(O) + C_(C*)(ONO2) + C_(C*)(ONO2) - C_(C*) - C_(C*)
+-9.73 -29.13 -29.13 + 10.08 + 10.08
+
+C_(C)(C*)(Cd)(CO) -1.88
+>> C_(C)(C*)(Cd) + C_(C)(C*)(CO) - C_(C)(C*)  
+
+C_(O)(O)(ONO2)  -35.70
+>> C_(C)(O)(ONO2) + C_(O) - C_(C) = -35.70
+
+C_(C)(Cd)(Cd) -1.48
+>> C_(C)(C)(Cd) + C_(Cd) - C_(C)
+
+C_(Cd)(Cd)(CO)(ONO2) -24.68
+>> C_(C)(C)(C)(Cd) + C_(Cd) - C_(C) + C_(CO)(ONO2) -C_(C)(C)
+

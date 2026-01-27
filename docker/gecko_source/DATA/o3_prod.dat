@@ -1,0 +1,26 @@
+!=======================================================================
+! List of the 'constrained' VOC + O3 reactions
+! ---------------------------------------------
+!
+! this file is read up to the keyword END. Comment line (! as 1st 
+! character) can be placed everywhere in the file, EXCEPT BETWEEN A 
+! GIVEN BLOCK OF DATA.
+!
+! for each VOC, format of the file is:
+! - first line = chemical formula of the VOC considered + number of 
+!   different compounds (i.e line to be read) produced by the reaction +
+!   code for references (at least one ";"). Number of code is free, each 
+!   separated by ";" (up to 3)
+! - following lines = yield + chemical formula of the major product +
+!   name of the coproducts (6 character). The number of coproducts  
+!   allowed must not exceed max co-product per species.
+!=======================================================================
+!
+! The following lines are an example for apinene.
+!C12HCH2CH(C1(CH3)CH3)CH2CdH=Cd2CH3 : 3  ; DUM1O3PD ; DUM2O3PD
+!0.30 : CHOCH2C1HCH2CH(C1(CH3)CH3)COCH2(OO.) + HO
+!0.40 : CH3COC(OO.)(C1(CH3)CH3)CH2C1HCH2CHO  + HO
+!0.30 : CH3COCH(C1(CH3)CH3)CH2C1HCH2CO(OH)
+!
+END
+===============================================================

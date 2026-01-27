@@ -1,0 +1,267 @@
+! ----------------------------------------------------------------------    
+! 
+! this file provides "comment" for the various codes used in GECKO to 
+! provide information about rate constant, estimation methods, 
+! properties, products ... 
+!
+! The code should no be longer than 10 characters. The maximum length of
+! the comment is 254 characters. Code:comment should hold on a single
+! line. 
+! 
+! Format for the code is "free". However, for references, the following
+! nomenclature is prefered : 
+! CHAR12: 1st author initials (e.g. DD for Donald Duck)
+! CHAR34: year of publication (e.g. 98 for 1998)
+! CHAR5 : either K (for rate), P (for vapor pressure), H (for Henry constant), M (Mechanism)
+! CHAR6 : either M (for measured), E (for estimated), T (Theoretical)
+! CHAR7 : either V (for VOC), R (for radical)
+! CHAR890: counter to discriminate references
+!
+! ----------------------------------------------------------------------    
+AB92KMV000 : Bierbach, A., I. Barnes, and K. H. Becker (1992), Rate coefficients for the gas-phase reactions of hydroxyl radicals with furan, 2-methylfuran, 2-ethylfuran, and 2,5-dimethylfuran, Atmos. Environ., 26A, 813-817.
+AB95KMV000 : Bierbach, A, Barnes, I & Becker, KH, Product and kinetic-study of the OH-initiated gas-phase oxidation of furan, 2-methylfuran and furanaldehydes at approximate-to-300 K, Atm. Environ., 29(19), 2651-2660 (1995).
+AC75HMV000 : Cooper, A. J. L., and Redfield, A. G.: Proton Magnetic-Resonance Studies of Alpha-Keto Acids, J. Biol. Chem., 250, 527–532, 1975.
+AH73HMV000 : Hartkopf, A., and Karger, B. L.: Study of interfacial properties of water by gas-chromatography, Accounts Chem. Res., 6, 209–216, 1973.
+AL01KMV000 : Lewin, AG; Johnson, D; Price, DW; Marston, G. Aspects of the kinetics and mechanism of the gas-phase reactions of ozone with conjugated dienes, PHYSICAL CHEMISTRY CHEMICAL PHYSICS, 3, 7, 1253-1261, 2001.
+BA05KEV000 : B. Aumont, S. Szopa, S. Madronich, Modelling the evolution of organic carbon during its gas-phase tropospheric oxidation: development of an explicit model based on a self generating approach, Atmospheric Chemistry and Physics, 5, 2497-2517, 2005.
+BJ96HMV000 : Johnson, B. J., Betterton, E. A., and Craig, D.: Henry’s law coefficients of formic and acetic acids, J. Atmos. Chem., 24, 113–119, 1996.
+BK95KMV000 : Klotz, B.G.; Bierbach, A.; Barnes, I.; Becker, K.H. Kinetic and mechanistic study of the atmospheric chemistry of muconaldehydes, Environ. Sci. Technol. 29, 2322 (1995).
+CG94KMV000 : Greene CR., Atkinson R. Rate conbstants for the gas phase reactions of O3 with a series of cycloalkenes and unsatured ketones at 296 K. Int.J.Chem.Kin. 26, 37-44 (1994).
+CP75HMV000 : Pearson, C. R., and McConnell, G.: Chlorinated C1 and C2 hydrocarbons in marine environment, P. Roy. Soc. Lond. B, 189, 305–332, 1975.
+CP08KMV000 : Pfrang C., King M.D., Braeckevelt M., Canosa-Mas C.E., Wayne, R.P., Atmos. Environ., 2008, 42(13), p.3018-3034.
+CR73HMV000 : Rochester C., and Symonds, J. R.: Thermodynamic Studies of Fluoroalcohols .3. Thermodynamics of transfer of five fluoroalcohols from gas-phase to aqueous-solution, J. Chem. Soc. Farad. T. 1, 1577-1585, 1973.
+CY90HMV000 : YAWS, CL, YANG, HC, HOPPER, JR, HANSEN, KC, ORGANIC-CHEMICALS - WATER SOLUBILITY DATA, CHEMICAL ENGINEERING, 97, 7, 115-, 1990.
+DB98HMV000 : Bowden, D. J., Clegg, S. L., and Brimblecombe, P.: The Henry’s law constant of trichloroacetic acid, Water Air Soil Pollut., 101, 197-215, 1998.
+DG93KMV000 : GROSJEAN, D; WILLIAMS, EL; GROSJEAN, E. Atmospheric chemistry of isoprene and its Carbonyl products. Environ.Sci.Technol. 27, 830.
+DL81HMV000 : Leighton, D. T., and Calo, J. M.: Distribution coefficients of chlorinated hydrocarbons in dilute air-water systems for groundwater contamination applications, J. Chem. Eng. Data., 26, 382–385, 1981.
+DL95HRV000 : Lide, D. R., and Frederikse, H. P. R.: CRC handbook of chemistry and physics : a ready-reference book of chemical and physical data, Crc, Boca Raton, London, 1995.
+DM81HRV000 : Mackay, D., and Shiu, W. Y.: A critical-review of Henrys law constants for chemicals of environmental interest, J. Phys. Chem. Ref. Data., 10, 1175–1199, 1981.
+DO96HMV000 : O’Sullivan, D. W., Lee, M., Noone, B. C., and Heikes, B. G.: Henry’s law constant determinations for hydrogen peroxide, methyl hydroperoxide, hydroxymethyl hydroperoxide, ethyl hydroperoxide, and peroxyacetic acid, J. Phys. Chem., 100 3241–3247, 1996.
+DW92HMV000 : Wright, D. A., Sandler, S. I., and Devoll, D.: Infinite Dilution Activity-Coefficients and Solubilities of Halogenated Hydrocarbons in Water at Ambient-Temperatures, Environ. Sci. Technol., 26(9), 1828-1831, 1992.
+DW93KMV000 : Williams, D.C.; O'rji, L.N.; Stone, D.A. Kinetics of the reactions of OH radicals with selected acetates and other esters under simulated atmospheric conditions, Int. J. Chem. Kinet. 25, 539 (1993).
+DZ97HMV000 : Zheng, D. Q., Guo, T. M., and Knapp, H.: Experimental and modeling studies on the solubility of CO2, CHClF2, CHF3, C2H2F4 and C2H4F2 in water and aqueous NaCl solutions under low pressures, Fluid Phase Equilibr., 129, 197-209, 1997.
+EA18KMR000 : Assaf, E., Schoemaecker, C., Vereecken, L., and Fittschen, C.: Experimental and theoretical investigation of the reaction of RO2 radicals with OH radicals: Dependence of the HO2 yield on the size of the alkyl group, Int. J. Chem. Kinet., 50, 670\u2013680, 2018.
+EB88HMV000 : Betterton, E. A., and Hoffmann, M. R.: Henry's law constants of some environmentally important aldehydes, Environ. Sci. Technol, 22, 1415–1418, 1988.
+EB91HMV000 : Betterton, E. A.: The partitioning of ketones between the gas and aqueous Phases, Atmos. Environ., 25, 1473–1477, 1991.
+EK95KEV000 : Kwok, E. S. C. and Atkinson, R.: Estimation of the hydroxyl radical reaction rate constants for gas-phase organic compounds using a structure-reactivity relationship: an update, Atmos. Environ., 29,1685–1695, 1995.
+EG98KMV000 : Grosjean, E; Grosjean, D. Rate constant for the Gas-Phase reaction of Ozone with Unsatured Oxygenates. Int.J.Chem.Kin. 30, 21-29.
+EM00KMV000 : Martinez, E., Martin P., Salgado S., Baeza M.T. in Eurotrac 2 44.
+EP00HEV000 : US EPA. [2012 or insert current year]. Estimation Programs Interface Suite™ for Microsoft® Windows, v 4.11 or insert version used]. United States Environmental Protection Agency, Washington, DC, USA.
+EW77HRV000 : Wilhelm, E., Battino, R., and Wilcock, R. J.: Low-pressure solubility of gases in liquid water, Chem. Rev., 77, 219-262, 1977.
+FD88HMV000 : Dunnivant, F. M., Coates, J. T., and Elzerman, A. W.: Experimentally Determined Henry Law Constants for 17 Polychlorobiphenyl Congeners, Environ. Sci. Technol., 22, 448-453, 1988.
+FN94HMV000 : Nielsen, F., Olsen, E., and Fredenslund, A.: Henry’s law constants and infinite dilution activity coefficients for volatile organic compounds in water by a validated batch air stripping method, Environ. Sci. Technol, 28, 2133–2138, 1994.
+FP09MTV000 : Paulot, F., Crounse, J. D., Kjaergaard, H. G., Kroll, J. H., Seinfeld, J. H., and Wennberg, P. O.: Isoprene photooxidation: new insights into the production of acids and organic nitrates, Atmos. Chem. Phys., 9, 1479–1501, https://doi.org/10.5194/acp-9-1479-2009, 2009.
+GJ88HMV000 : Johanson, G., and Dynesius, B.: Liquid Air partition coefficients of 6 commonly used glycol ethers, Brit. J. Ind. Med., 45, 561–564, 1988.
+GR93HMV000 : Robbins, G. A., Wang, S., and Stuart, J. D.: Using the headspace method to determine Henry’s law constants, Anal. Chem., 65, 3113-3118, 1993.
+GT01KMV000 : Tyndall, GS, Cox, RA, Granier, C, Lesclaux, R, Moortgat, GK, Pilling, MJ, Ravishankara, AR , Wallington, TJ, Atmospheric chemistry of small organic peroxy radicals, journal of geophysical research-atmospheres, 106, 12157-12182, 2001
+GT02KMV000 : Thiault, G., et al., OH and O-3-initiated oxidation of ethyl vinyl ether. Physical Chemistry Chemical Physics, 2002. 4(4): p. 613-619.
+GT06KMV000 : Thiault, G. and A. Mellouki, Rate constants for the reaction of OH radicals with n-propyl, n-butyl, iso-butyl and tert-butyl vinyl ethers. Atmospheric Environment, 2006. 40(29): p. 5566-5573.
+GP71HMV000 : Parsons, G. H., Rocheste.Ch, and Wood, C. E. C.: Effect of 4-substitution on thermodynamics of hydration of phenol and phenoxide anion, J. Chem. Soc. B, 533, 1971.
+HA18KMV000 : Hannah M. Allen, J.D. Crounse, K.H. Bates, A. Paichung Teng, M.P. Krawiec-Thayer, J.C. Rivera-Rios, F.N. Keutsch, J.M. St. Clair, T.F. Hanisco, K.H. Moller, H. G. Kjaergaard, and P.O. Wennberg. Kinetics and Product Yields of the OH Initiated Oxidation of Hydroxymethyl Hydroperoxide. J. Phys. Chem. A 2018, 122, 6292−6302.
+HB80HMV000 : Buschmann, H. J., Fuldner, H. H., and Knoche, W.: The reversible hydration of carbonyl-compounds in aqueous-solution .1. Keto-Gem-Diol Equilibrium, Ber. Bunsen Ges. Phys. Chem. Chem. Phys., 84, 41–44, 1980.
+HB82HMV000 : Buschmann, H. J., Dutkiewicz, E., and Knoche, W.: The Reversible Hydration of Carbonyl-Compounds in Aqueous-Solution .2. the Kinetics of the Keto Gem-Diol Transition, Ber. Bunsen-Ges. Phys. Chem. Chem. Phys., 86, 129–134, 1982.
+HI09HMV000 : Ip, H. S. S., Huang, X. H. H., and Yu, J. Z.: Effective Henry’s law constants of glyoxal, glyoxylic acid, and glycolic acid, Geophys. Res. Lett., 36, 5, L01802, doi:10.1029/2008GL036212, 2009.
+HS94HMV000 : Santl, H., Bichlmaier, A., Gruber, L., Stohrer, E., MASS-BALANCE OF POLYCHLORINATED DIBENZOFURANS (PCDFS) AND POLYCHLORINATED DIBENZODIOXINS (PCDDS) IN A RECYCLING PAPER-MILL, CHEMOSPHERE, 28, 9, 1633-1639, 1994.
+IK95HMV000 : Khan, I., Brimblecombe, P., and Clegg, S. L.: Solubilities of pyruvic-acid and the lower (C-1-C-6) carboxylic-acids - Experimental-determination of equilibrium vapor-pressures above pure aqueous and salt-solutions, J. Atmos. Chem., 22, 285–302, 1995.
+JA18KMV000 : Anglada, J. M. and Solé, A.: Tropospheric  oxidation  of  methyl hydrotrioxide (CH3OOOH) by hydroxyl radical, Phys. Chem. Chem. Phys., 20, 27406–27417, 2018.
+JA99HMV000 : Altschuh, J., Bruggemann, R., Santl, H., Eichinger, G., and Piringer, O. G.: Henry’s law constants for a diverse set of organic chemicals: Experimental determination and comparison of estimation methods, Chemosphere, 39, 1871-1887, 1999.
+JB35HMV000 : Butler, J. A. V., and Ramchandani, C. N.: The solubility of nonelectrolytes. Part II. The influence of the polar group on the free energy of hydration of aliphatic compounds, J. Chem. Soc., 952-955, 1935.
+JC02KMV000 : J.G.Calvert, R.Atkinson, K.H.Becker, R.M.Kamens, J.H.Seinfeld, T.J.Wallington, and G.Yarwood : The mechanisms of atmospheric oxidation of aromatic hydrocarbons.
+JC11KMV000 : Jack G. Calvert, Abdelwahid Mellouki, John Orlando, Michael Pilling, Timothy Wallington: The mechanisms of atmospheric oxidation of the oxygenates.
+JD95HMV000 : Dewulf, J., Drijvers, D., and Langenhove, H. V.: Measurement of Henry’s law constant as function of temperature and salinity for the low temperature range, Atmos. Environ., 29, 323-331, 1995.
+JG75HMV000 : Guthrie, J. P.: Carbonyl addition-reactions - factors affecting hydrate-hemiacetal and hemiacetal-acetal equilibrium-constants, Can. J. Chem., 53, 898–906, 1975.
+JG78HMV000 : Guthrie, J. P.: Hydration of thioesters - evaluation of free-energy changes for addition of water to some thioesters, rate-equilibrium correlations over very wide ranges in equilibrium-constants, and a New Mechanistic Criterion, J. Am. Chem. Soc., 100, 5892–5904, 1978.
+JG87HMV000 : Gaffney, J. S., Streit, G. E., Spall, W. D., and Hall, J. H.: Beyond acid rain. Do soluble oxidants and organic toxinsinteract with SO2 and NOx to increase ecosystem effects ?, Environ. Sci. Technol., 21 (6), 519–524, 1987.
+JG87HMV001 : Gossett, J. M.: Measurement of Henrys law constants for C1 and C2 chlorinated hydrocarbons, Environ. Sci. Technol., 21, 202–208, 1987.
+JG00HMV000 : Guthrie, J. P.: Hydration of carbonyl compounds, an analysis in terms of multidimensional marcus theory, J. Am. Chem. Soc., 122, 5529–5538, doi:10.1021/ja992992i, 2000.
+JH75HMV000 : Hine J., and Moorkerjee P. K.: The intrinsic hydrophilic character of organic compounds. Correlations in terms of structural contributions, J. Org. Chem., 40, 292–298, 1975.
+JH93HMV000 : Hoff, J. T., Mackay, D., Gillham, R., and Shiu, W. Y.: Partitioning of organic-chemicals at the air-water-interface in environmental systems, Environ. Sci. Technol., 27, 2174–2180, 1993.
+JK87HMV000 : Kozlowski, J., and Zuman, P.: Polarographic-reduction of aldehydes and ketones .30. Effects of acid-base, hydration dehydration and keto enol equilibria on reduction of alpha-ketoglutaric and oxalacetic acid and their esters, J. Electroanal. Chem., 226, 69–102, 1987.
+JK92HMV000 : Kames, J., and Schurath, U.: Alkyl nitrates and bifunctional nitrates of atmospheric interest - Henry Law constants and their temperature dependencies, J. Atmos. Chem., 15, 79–95, 1992.
+JK95HMV000 : Kames, J., and Schurath, U.: Henrys Law and hydrolysis-rate constants for peroxyacyl nitrates (PANs) using a homogeneous gas-phase source, J. Atmos. Chem., 21, 151–164, 1995.
+JK10KEV000 : Kerdouci, J., Picquet-Varrault, B., Doussin, JF: Prediction of Rate Constants for Gas-Phase Reactions of Nitrate Radical with Organic Compounds: A New Structure-Activity Relationship, ChemPhysChem, 11, 3909-3920, DOI: 10.1002/cphc.201000673, 2010.
+JK14KEV000 : Kerdouci, J., Picquet-Varrault, B., Doussin, JF: Structureactivity relationship for the gas-phase reactions of NO3 radical with organic compounds: Update and extension to aldehydes, Atmospheric Environment, 84, 2014, 363-372, 1352-2310, 10.1016/j.atmosenv.2013.11.024
+JP01MTV000 : Peeters, J., Vereecken, L., and Fantechi, G.: The detailed mechanism of the OH-initiated atmospheric oxidation of alpha-pinene: a theoretical study, Phys. Chem. Chem. Phys., 3, 5489–5504, 2001.
+JP07KEV000 : Peeters, J., Boullart, W., Pultau, V., Vandenberk, S., and Vereecken,L.: Structure-activity relationship for the addition of OH to (poly)alkenes: site-specific and total rate constants, J. Phys.Chem. A, 111, 1618–1631, 2007
+JP98KMR000 : Platz, J., Nielsen, O. J., Wallington, T. J., Ball, J. C., Hurley, M. D.,Straccia, A. M., Schneider, W. F., and Sehested, J.: Atmospheric chemistry of the phenoxy radical, J. Phys. Chem. A, 102, 7964–7974, 1998.
+JP08PEV000 : J.F. Pankow and W.E. Asher, SIMPOL.1: a simple group contribution method for predicting vapor pressures and enthalpies of vaporization of multifunctional organic compounds, Atmos. Chem. Phys., 8, 2773-2796, 2008.
+JS85HMV000 : Snider, J. R., and Dawson, G. A.: Tropospheric light alcohols, carbonyls, and acetonitrile: Concentrations in the southwestern United States and Henry’s law data, J. Geophys. Res., 90D, 3797–3805, 1985.
+JS96HRV000 : Staudinger, J., and Roberts, P. V.: A critical review of Henry’s law constants for environmental applications, Crit. Rev. Environ. Sci. Technol., 26, 205-297, 1996.
+JS96KMV000 : Seland, JG; Noremsaune, IMW; Nielsen, CJ., FTIR studies of the NO3 initiated degradation of but-2-yne: Mechanism and rate constant determination, Journal of the chemical society-faraday transactions, 92, 3459-3465, 1996 
+JS92HMV000 : Sagebiel, J. C., Seiber, J. N., and Woodrow, J. E.: Comparison of headspace and gas-stripping methods for determining the Henrys Law constant (H) for organic-compounds of low to intermediate-H, Chemosphere, 25, 1763-1768, 1992.
+KB76HEV000 : Bocek, K., Relationships among activity coefficients, partition coefficients and solubilities. Experientia. Supplementum, 23, 231-40, 1976.
+KD98HMV000 : Drouillard, K. G., Tomy, G. T., Muir, D. C. G., and Friesen, K. J.: Volatility of chlorinated n-alkanes (C-10-C-12): Vapor pressures and Henry’s law constants, Environ. Toxicol. Chem., 17, 1252-1260, 1998.
+KH95HRV000 : Hansen, K. C., Zhou, Z., Yaws, C. L., and Aminabhavi, T. M.: A laboratory method for the determination of Henrys Law constants of Volatile Organic Chemicals, J. Chem. Educ., 72, 93–96, 1995.
+KH95HMV000 : Hansen, K. C., Zhou, Z., Yaws, C. L., and Aminabhavi, T. M.: A laboratory method for the determination of Henrys Law constants of Volatile Organic Chemicals, J. Chem. Educ., 72, 93–96, 1995.
+KH98HMV000 : Hauff, K., Fischer, R. G., and Ballschmiter, K.: Determination of C-1-C-5 alkyl nitrates in rain, snow, white frost, lake, and tap water by a combined codistillation head-space gas chromatography technique. Determination of Henry’s law constants by head-space GC, Chemosphere, 37, 2599–2615, 1998.
+KS97KMV000 : Stemmler, K; Mengon, W; Kerr, JA, Hydroxyl-radical-initiated oxidation of isobutyl isopropyl ether under laboratory conditions related to the troposphere. Product studies and proposed mechanism, JOURNAL OF THE CHEMICAL SOCIETY-FARADAY TRANSACTIONS, 93, 16, 2865-2875, 1997.
+LI99HMV000 : Iraci, L. T., Baker, B. M., Tyndall, G. S., and Orlando, J. J.: Measurements of the Henry’s law coefficients of 2-methyl-3-buten-2-ol, methacrolein, and methylvinyl ketone, J. Atmos. Chem., 33, 321–330, 1999.
+LR73HMV000 : Rohrschn.L: Solvent Characterization by Gas-Liquid Partition-Coefficients of Selected Solutes, Anal. Chem., 45, 1241–1247, 1973.
+LV07KER000 : Vereecken L, Muller JF, Peeters J. Low-volatility poly-oxygenates in the OH-initiated atmospheric oxidation of [small alpha]-pinene: impact of non-traditional peroxyl radical chemistry. Phys Chem Chem Phys. 2007;9(38):52415248. doi: 10.1039/B708023A.
+MA94HMV000 : Abraham, M. H., Andonianhaftvan, J., Whiting, G. S., Leo, A., and Taft, R. S.: Hydrogen-Bonding .34. The factors that influence the solubility of gases and vapors in water at 298 K, and a new method for its determination, J. Chem. Soc. Perkin Trans. 21777-1791, 1994.
+MB09KMV000 : OH-Initiated Degradation of Unsaturated Esters in the Atmosphere:Kinetics in the Temperature Range of 287-313 K. Blanco MB, Bejan I,Barnes I, Wiesen P, Teruel MA, JOURNAL OF PHYSICAL CHEMISTRY A, 113, 20, 5958-5965, 2009.
+MC06PEV000 : M. Camredon, B. Aumont, Assessment of vapor pressure estimation methods for secondary organic aerosol modeling, Atmospheric Environment, 40, 2105-2116, 2006.
+MG97KMV000 : Glasius, M.; Calogirou, A.; Jensen, N.R.; Hjorth, J.; Nielsen, C.J., Kinetic study of gas-phase reactions of pinonaldehyde and struturally related compounds, Int. J. Chem. Kinet., 29, 527 - 531, 1997.
+MJ00MER000 : M.E. Jenkin, D.E. Shallcross, J.N. Harvey. Development and application of a possible mechanism for the generation of cis-pinic acid from the ozonolysis of α-and β-pinene. Atmos. Environ., 34 (2000), pp. 2837-2850
+MJ18KEV000 : Michael E. Jenkin, Richard Valorso, Bernard Aumont, Andrew R. Rickard, and Timothy J. Wallington, Estimation of rate coefficients and branching ratios for gas-phase reactions of OH with aliphatic organic compounds for use in automated mechanism construction, Atmos. Chem. Phys., https://doi.org/10.5194/acp-18-9297-2018, 2018.
+MJ18KEV001 : Michael E. Jenkin, Richard Valorso, Bernard Aumont, Andrew R. Rickard, and Timothy J. Wallington, Estimation of rate coefficients and branching ratios for gas-phase reactions of OH with aromatic organic compounds for use in automated mechanism construction, Atmos. Chem. Phys., https://doi.org/10.5194/acp-18-9329-2018, 2018.
+MJ18KMV000 : Michael E. Jenkin, Richard Valorso, Bernard Aumont, Andrew R. Rickard, and Timothy J. Wallington, Estimation of rate coefficients and branching ratios for gas-phase reactions of OH with aliphatic organic compounds for use in automated mechanism construction, Atmos. Chem. Phys., https://doi.org/10.5194/acp-18-9297-2018, 2018.
+MJ18KMV001 : Michael E. Jenkin, Richard Valorso, Bernard Aumont, Andrew R. Rickard, and Timothy J. Wallington, Estimation of rate coefficients and branching ratios for gas-phase reactions of OH with aromatic organic compounds for use in automated mechanism construction, Atmos. Chem. Phys., https://doi.org/10.5194/acp-18-9329-2018, 2018.
+MJ19KMV000 : Michael E. Jenkin, Richard Valorso, Bernard Aumont, Andrew R. Rickard, Estimation of rate coefficients and branching ratios for reactions of organic peroxy radicals for use in automated mechanism construction, Atmos. Chem. Phys., https://doi.org/10.5194/acp-19-7691-2019, 2019
+MJ20KMV000 : Jenkin, M. E., Valorso, R., Aumont, B., Newland, M. J., and Rickard, A. R.: Estimation of rate coefficients for the reactions of O3 with unsaturated organic compounds for use in automated mechanism construction, Atmos. Chem. Phys., 20, 1292112937, https://doi.org/10.5194/acp-20-12921-2020
+MM19KMV000 : M. R. McGillen, W. P. L. Carter, A. Mellouki, J. J. Orlando, B. Picquet-Varrault, and T. J. Wallington. Compilation of recommended rate constants for reactions of volatile organic compounds with OH radicals, ozone, NO3 radicals and Cl atoms under atmospheric conditions.
+MM94HMV000 : Montoya, M. R., and Mellado, J. M. R.: Use of convolutive botential sweep voltammetry in the calculation of hydration equilibrium-constants of alpha-dicarbonyl compounds, J. Electroanal. Chem., 370, 183–187, 1994.
+MM00HMV000 : Malik, M; Joens, JA, Temperature dependent near-UV molar absorptivities of glyoxal and gluteraldehyde in aqueous solution SPECTROCHIMICA ACTA PART A-MOLECULAR AND BIOMOLECULAR SPECTROSCOPY, 56, 14, 2653-2658, 2000.
+MS06KMV000 : Scarfogliero, M., et al., Kinetic and mechanistic study of the gas-phase reactions of a series of vinyl ethers with the nitrate radical. Journal of Physical Chemistry A, 2006. 110(38); p. 11074-11081.
+NN09KMV000 : Nishino, N., Arey, J., and Atkinson, R.: Rate constants for the gas-phase reactions of OH radicals with a series of C6–C14alkenesat 299±2 K, J. Phys. Chem. A, 113, 852–857, 2009
+ON89KMV000 : Nielsen,  O.  J.,  Sidebottom,  H.  W.,  O’Farrell,  D.  J.,  Donlon,  M.,and Treacy, J.: Rate constants for the gas-phase reactions of OH radicals  and  Cl  atoms  with  CH3CH2NO2, CH3CH2CH2NO2,CH3CH2CH2CH2NO2,andCH3CH2CH2CH2CH2NO2, Chem. Phys. Lett., 156, 312–318, 1989
+PB89KMV000 : Bennett, P.J. & Kerr, J.A. J Atmos Chem (1990) 10: 27. https://doi.org/10.1007/BF01980036
+PL68HMV000 : Le Henaff, P.: Methodes d’etude et proprietes des hydrates, hemiacetals et hemithioacetals derives des aldehydes et des cetones., P. Bull. Soc. Chim. Fr., 11, 4687–4698, 1968.
+PM96HMV000 : Mirabel, P., C. George, L. Magi, and J. L. Ponche. Chapter 6.3: Gas-liquid interactions. In P. Warneck, editor, Heterogeneous and Liquid-Phase Processes, pages 175-181. Springer Verlag, Berlin, 1996.
+PM97PEV000 : P.B Myrdal,S.H Yalkowsky, Estimating pure component vapor pressures of complex organic molecules. Industrial & Engineering Chemistry Research 36, 2494-2499, 1997.
+PM02KMV000 : Martin, P., et al., Formation and atmospheric reactions of 4,5-dihydro-2-methylfuran. Journal of Physical Chemistry A, 2002. 106(47): p. 11492-11501.
+PS96HMV000 : Shepson, P. B., Mackay, E., and Muthuramu, K.: Henry’s law constants and removal processes for several atmospheric beta-hydroxy alkyl nitrates, Environ. Sci. Technol., 30, 3618-3623, 1996.
+PZ02HMV000 : Zuman, P.: Additions of water, hydroxide ions, alcohols and alkoxide ions to carbonyl and azomethine bonds, Arkivoc, 85–140, 2002.
+RA81KMV000 : Roger Atkinson, Aschmann S.M., Winer A.M., Pitts J.N.Jr. Rate constants for the gas-phase reactions of O3 with a series of carbonyls at 296K, Int. J. Chem. Kinet., 13.
+RA87KMV000 : Roger Atkinson, Aschmann S.M., Goodman, M.A., Kinetics of the gas-phase reactions of NO3 radicals with A series of alkynes, haloalkenes, and alpha,beta-unsaturated Aldehydes, International Journal Of Chemical Kinetics, 19, 4, 299-307, 1987.
+RA89KMV000 : Roger Atkinson, Kinetics and mechanisms of the gas phase reactions of the OH radical with organic compounds, J. Phys. Chem. Ref. Data, monograph 1, 1989.
+RA91KMV000 : Roger Atkinson, KINETICS AND MECHANISMS OF THE GAS-PHASE REACTIONS OF THE NO3 RADICAL WITH ORGANIC-COMPOUNDS, JOURNAL OF PHYSICAL AND CHEMICAL REFERENCE DATA, 20, 3, 459-507, 1991.
+RA94KMV000 : Roger Atkinson, Gas phase tropospheric chemistry of organic compounds, J. Phys. Chem. Ref. Data,monograph 2, 1994.
+RA95KMV000 : R. Atkinson, Aschmann S.M., Corchnoy S.B., Shu Y. Rate constants for the gas-phase reactions of cis-3-hexen-1-ol, cis-3-hexenylacetate, trans-2-hexenal and linalool with OH and NO3 radicals and O3 at 296 K, and OH radical formation Yields from the O3 reactions. Int.J.Chem.Kin. 27, 941-955 (1995).
+RA97KMV000 : Roger Atkinson, Gas phase tropospheric chemistry of VOC : 1. Alkanes and alkenes, J. Phys. Chem. Ref. Data, 2, 1997.
+RA99KMV000 : Roger Atkinson, et al., Evaluated kinetic and photochemical data for atmospheric chemistry, organic species ; Supplement VII, J. Phys. Chem. Ref. Data, 28, 191-393, 1999.
+RA03KMV000 : Roger Atkinson, Kinetics of the gas-phase reactions of OH radicals with alkanes and cycloalkanes, Atmospheric Chemistry and Physics Discussions, Vol. 3, pp 4183-4358, 29-7-2003.
+RA03KMV001 : Roger Atkinson, Arey, J. Atmospheric degradation of volatile organic compounds, CHEMICAL REVIEWS, 103, 12, 4605-4638.
+RA06KMR000 : Roger Atkinson, Baulch, D. L., Cox, R. A., Crowley, J. N., Hampson, R. F., Hynes, R. G., Jenkin, M. E., Rossi, M. J., Troe, J., and IUPAC Subcommittee: Evaluated kinetic and photochemical data for atmospheric chemistry: Volume II – gas phase reactions of organic species, Atmos. Chem. Phys., 6, 3625–4055, https://doi.org/10.5194/acp-6-3625-2006, 2006.
+RB69HMV000 : Buttery, R. G., Ling, L. C., and Guadagni, D. G.: Volatilities of aldehydes, ketones, and esters in dilute water solutions, J. Agric. Food Chem., 17, 385-389, 1969.
+RB71HMV000 : Buttery, R. G., Bomben, J. L., Guadagni, D. G., and Ling, L. C.: Some considerations of volatilities of organic flavor compounds in foods, J. Agric. Food Chem., 19 1045–1048, 1971.
+RF98HMV000 : Fischer, R. G., and Ballschmiter, K.: Determination of vapor pressure, water solubility, gas-water partition coefficient P-GW, Henry’s law constant, and octanol-water partition coefficient P-OW of 26 alkyl dinitrates, Chemosphere, 36, 2891–2901, 1998.
+RH83HMV000 : Huntersmith, R. J., Balls, P. W., and Liss, P. S.: Henry law constants and the air-sea exchange of various low-molecular weight halocarbon gases, Tellus B, 35, 170–176, 1983.
+RL15KMV000 : R. Li, B.B. Palm, A.M. Ortega, J. Hlywiak, W. Hu, Z. Peng, D.A. Day, C. Knote, W.H. Brune, J.A. de Gouw, and J.L. Jimenez. Modeling the Radical Chemistry in an Oxidation Flow Reactor: Radical Formation and Recycling, Sensitivities, and the OH Exposure Estimation Equation. J. Phys. Chem. A, 2015, 119 (19), pp 4418–4432.
+RM83HMV000 : McClelland, R. A., and Coe, M.: Structure reactivity effects in the hydration of benzaldehydes, J. Am. Chem. Soc., 105, 2718–2725, 1983.
+RM95HMV000 : Moore, R. M., Geen, C. E., and Tait, V. K.: Determination of Henry law constants for a suite of naturally-occurring halogenated methanes in seawater, Chemosphere, 30, 1183–1191, 1995.
+RM16RER000 : McVay, R. C., Zhang, X., Aumont, B., Valorso, R., Camredon, M., La, Y. S., Wennberg, P. O., and Seinfeld, J. H.: SOA formation from the photooxidation of α-pinene: systematic exploration of the simulation of chamber data, Atmos. Chem. Phys., 16, 27852802, https://doi.org/10.5194/acp-16-2785-2016, 2016.
+RR86PEV000 : R.C. Reid,J.M. Prausnitz, B.E. Poling, The properties of gases and liquids. 4th edition, McGraw-Hill, New York, 1986.
+RS99HMV000 : Sander, R.: Compilation of Henry’s law constants for inorganic and organic species of potential importance in environmental chemistry (Version 3): www.henrys-law.org, 1999.
+RS12KMV000 : Suarez-Bertoa R., Benedicte Picquet-Varrault, W. Tamas, Edouard Pangui, Jean-Francois Doussin, Atmospheric fate of a series of carbonyl nitrates: photolysis frequencies and OH-oxidation rate constants, Environ. Sci. Technol., 46, 12502-1250, 2012.
+RT85HEV000 : Taft, RW, SUBSTITUENT AND SOLUTE PARAMETERS, ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY, 189, 34, 1985.
+RV11PEV000 : R. Valorso, B. Aumont, M. Camredon, T. Raventos-Duran, C. Mouchel-Vallon, N. L. Ng, J. H. Seinfeld,J. Lee-Taylor, and S. Madronich, Explicit modelling of SOAformation from \u03b1-pinene photooxidation: sensitivity to vapour pressure estimation, Atmos. Chem. Phys., 11, 6895-6910, 2011.
+SA01KMV000 : 
+SA11KMV000 : Aschmann, S. M., N. Nishino, J. Arey, and R. Atkinson, Kinetics of the reactions of OH radicals with 2- and 3-methylfuran, 2,3- and 2,5-dimethylfuran, and E- and Z-3-hexene-2,5-dione, and products of OH+2,5-dimethylfuran, Environ Sci Technol, 45(5), 1859-1865, 2011.
+SC71HMV000 : Cabani, S., Conti, G., and Lepori, L.: Thermodynamic Study on aqueous dilute solutions of organic compounds .2. Cyclic ethers, T. Faraday Soc., 67, 1943–1950, 1971.
+SH08HMV000 : Hilal S. H., Ayyampalayam S. N., and Carreira, L. A.: Air-liquid partition coefficient for a diverse set of organic compounds: Henry’s law constant in water and hexadecane, Environ. Sci. Technol., 42 (24), 9231–9236, 2008.
+SH85HMV000 : Hawthorne, S. B., Sievers, R. E., and Barkley, R. M.: Organic emissions from shale oil wastewaters and their implications for air quality., Environ. Sci. Technol., 19(10), 992–997, 1985.
+SH85KMV000 : Rate constants and mechanism for reactions of ketenes with OH radicals in air at 299+-2K. Bull. Chem. Soc. Jpn, 58, 2157-2162, 1985, doi:10.1246/bcsj.58.2157.
+SH85KMV001 : Honda, S., & Akimoto, H., Reactions of ketene, methylketene, ethylketene, and dimethylketene with ozone in air, Bull. Chem. Soc. Jpn., 58.
+SM11KER000 : Mousavipour, S. H. and Homayoon, Z.: Multichannel RRKM-TST and CVT rate constant calculations for reactions of CH2OH or CH3O with HO2, J. Phys. Chem. A, 115, 3291–3300, 2011.
+SS00KMV000 : NASA 2000. Sander S.P., R.R. Friedl, W.B. DeMore, A.R. Ravishankara, D.M. Golden, C.E. Kolb, M.J. Kurylo, R.F. Hampson, R.E. Huie,  M.J. Molina, G.K. Moortgat, Chemical kinetics and photochemical data for use in stratospheric modeling, JPL Publication 00-3, Jet Propulsion Laboratory, Pasadena, Califonia.
+SS06KMR000 : NASA 2006. Sander .P., B.J. Finlayson-Pitts, R.R. Friedl, D.M. Golden, R.E. Huie, C.E. Kolb, M.J. Kurylo, M.J. Molina, G.K. Moortgat, V.L. Orkin, A.R. Ravishankara, P.H. Wine, Chemical kinetics and photochemical data for use in atmospheric studies, Evaluation No. 15, JPL Publication 06-2, Jet Propulsion Laboratory, Pasadena, Califonia.
+SS11KMV000 : Sander S.P., R.R. Friedl, J.R. Barker, D.M. Golden, M.J. Kurylo, P.H. Wine, J.P.D. Abbatt, J.B. Burkholder, C.E. Kolb, G.K. Moortgat, R.E. Huie, V.L. Orkin, Chemical Kinetics and Photochemical Data for Use in Atmospheric Studies, Evaluation No. 17, JPL Publication 10-6, Jet Propulsion Laboratory, Pasadena, Califonia.
+SZ06KMV000 : Zhou, S.M., et al., Kinetic study of the gas-phase reactions of OH and NO3 radicals and O-3 with selected vinyl ethers.Journal of Physical Chemistry A, 2006. 110(23): p. 7386-7392.
+TH79HMV000 : Hurley, T. J., Carrell, H.L., Gupta, R. K., Schwartz, J., and Glusker, J.P.: The structure of sodium B-fluoropyruvate: A gem-diol, Arch. Biochem. Biophys., 193, 478–486, 1979.
+TK79HMV000 : Kieckbusch, T. G., and King, C. J.: Partition-coefficients for acetates in food systems, J. Agr. Food Chem., 27, 504–507, 1979.
+TR10HEV000 : Raventos-Duran, T., Camredon, M., Valorso, R., Mouchel-Vallon, C., and Aumont, B.: Structure-activity relationships to estimate the effective Henry's law constants of organics of atmospheric interest, Atmos. Chem. Phys., 10, 7643-7654, https://doi.org/10.5194/acp-10-7643-2010, 2010.
+VALUECIS   : Rate constant is for the cis isomer. 
+VALUEE     : Rate constant for E configuration. 
+VALUEZ     : Rate constant for Z configuration. 
+VALUELOW   : Rate constant is a lower value. 
+VALUEMEAN  : Rate constant is a "mean" value.
+VALUEMST   : Rate constant is a "mean" value for the cis/trans isomers. 
+VALUETRANS : Rate constant is for the trans isomer. 
+VALUEUP    : Rate constant is an upper value. 
+WC99KMV000 : Documentation of the SAPRC-99 chemical mechanism for VOC reactivity assessment, Report to California air resources board, Sept 1999 (see Carter Web site).
+WD97KMV000 : NASA 1997. DeMore W.B., S.P. Sander, D.M. Golden, R.F. Hampson, M.J. Kurylo, C.J. Howard, A.R. Ravishankara, C.E. Kolb, M.J. Molina, Chemical kinetics and photochemical data for use in stratospheric modeling, JPL Publication 97-4, Jet Propulsion Laboratory, Pasadena, Califonia.
+XG07HMV000 : Guo, X. X., and Brimblecombe, P.: Henry’s law constants of phenol and mononitrophenols in water and aqueous sulfuric acid, Chemosphere, 68, 436–444, 10.1016/j.chemosphere.2007.01.011, 2007.
+XL99KMV000 : Xiaoyu Liu, Harvey E. Jeffries*, and Kenneth G. Sexton. Atmospheric Photochemical Degradation of 1.4-Unsatured Dicarbonyls. Environmental science and technology 33, 4212 (1999).
+XZ90HMV000 : Zhou, X., and Mopper, K.: Apparent partition coefficients of 15 carbonyl compounds between air and seawater and between air and freshwater; implications for air-sea exchange, Environ. Sci. Technol., 24, 1864-1869, 1990.
+YN04TEV000 : Y. Nannoolal, J. Rarey, D. Ramjugernath, and W. Cordes, Estimation of pure component properties: Part 1. Estimation of the normal boiling point of non-electrolyte organic compounds via group contributions and group interactions, Fluid Phase Equilibria, 226, 45-63, 2004.
+YN08PEV000 : Nannoolal, Y., Rarey, J., and Ramjugernath, D.:Estimation of pure component properties: Part 3. Estimation of the vapor pressure of non-electrolyte organic compounds via group contributions and group interactions, Fluid PhaseEquilibria, 269, 117-133, 2008.
+YR21KMV000 : Ren, Y., Zhou, L., Mellouki, A., Daële, V., Idir, M., Brown, S. S., Ruscic, B., Paton, R. S., McGillen, M. R., and Ravishankara, A. R.: Reactions of NO3 with aromatic aldehydes: gas-phase kinetics and insights into the mechanism of the reaction, Atmos. Chem. Phys., 21, 1353713551, https://doi.org/10.5194/acp-21-13537-2021, 2021.
+YR96KMV000 : Rudich, Y., Talukdar, R. K., Fox, R. W. and Ravishankara, A. R.: J. Phys. Chem., 100, 5374, 1996.
+YS95HMV000 : Sham, Y. Y., and Joens, J. A.: Temperature-Dependent near UV molar absorptivities of several small aldehydes in aqueous-solution, Spectrochim. Acta A., 51, 247-251, 1995.
+YT98HMV000 : Tur’yan, Y. I.: Kinetics and equilibrium of the dehydration-hydration and recombination-dissociation reactions of glyoxylic acid investigated by electrochemical methods, Croat. Chem. Acta, 71, 727-743, 1998.
+ZT99KMR000 : Tao, Z. and Li, Z.: A kinetics study on reactions of C6H5O withC6H5O and O3at 298 K, Int. J. Chem. Kinetics, 31, 65–72, 1999.
+DUMOHPROD1 : dummy comment1 for oh_prod data
+DUMOHPROD2 : dummy comment2 for oh_prod data
+DUMNO3PD1  : dummy comment1 for no3_prod data
+DUM1RO2    : dummy comment for RO2 reactions
+DUM2RO2    : dummy comment for RO2 reactions
+DUM3RO2    : dummy comment for RO2 reactions
+DUM1RCO3   : dummy comment for RCO3 reactions
+DUM1RO     : dummy comment for RO reactions
+DUM1JDAT   : dummy comment for hv reactions
+DUM1INORG  : dummy comment for inorganic reactions
+DUM2INORG  : dummy comment for inorganic reactions
+DUM1O3PD   : dummy comment1 for o3_prod data
+DUM2O3PD   : dummy comment2 for o3_prod data
+!
+! SAR VOC+OH, VOC+O3,  ...
+!
+HABSAR     : Rate for C-H abstraction based on SAR  
+HABSAR1    : Rate for RO-H abstraction based on SAR  
+HABSAR2    : Rate for ROO-H abstraction based on SAR  
+HABSAR3    : Rate for RC(O)O-H abstraction based on SAR  
+HABSAR4    : No products studies available for this type of reaction. The substitution reaction leading ROH+NO2 is assumed (exothermic).
+OHADDSAR1  : Rate for OH addition based on SAR.
+SARNISHINO : Rate constant based on: Nishino, N., Arey, J., and Atkinson, R.: Rate constants for the gas-phase reactions of OH radicals with a series of C6–C14alkenesat 299±2 K, J. Phys. Chem. A, 113, 852–857, 2009
+BRCHZIE1   : Branching ratio based on Ziemann et al., xxxx
+OHETHENE   : Reaction rate from OH+ethene chemistry
+SARPEET2   : Reaction rate based on Peeters, J., Boullart, W., Pultau, V., Vandenberk, S., and Vereecken,L.: Structure-activity relationship for the addition of OH to (poly)alkenes: site-specific and total rate constants, J. Phys.Chem. A, 111, 1618–1631, 2007
+BRCHPEET1  : Branching ratio based on Peeters, J., Boullart, W., Pultau, V., Vandenberk, S., and Vereecken,L.: Structure-activity relationship for the addition of OH to (poly)alkenes: site-specific and total rate constants, J. Phys.Chem. A, 111, 1618–1631, 2007
+SARKETENE  : Rate constants based on CdH2=CdO. Rate from Hatakeyama et al. (1985),"Rate constants and mechanism for reactions of ketenes with OH radicals", Bull. Chem. Soc. Japan, 58(8), 2157-2162, 10.1246/bcsj.58.2157, 1985.
+DUMMYREF   : xxxx missing reference!
+O3ADDMONO  : O3 addition on simple C=C bond.
+O3ADDCONJ  : O3 addition on conjugated C=C bond.
+O3ADDSAR1  : Rate for O3 addition based on SAR. 
+MJ15REPORT : Magnify report (Mike Jenkin, 2015) - to be published.
+O3ETHERSAR : Crude (preliminary) estimate for vinylether structure.
+MN22SAR1   : Decomposition of the primary ozonide and CI* based on Newland et al., 2022.
+MN22SAR2   : Chemistry for stabilized Criegee based on Newland et al., 2022.
+!
+!-- GENERAL COMMENT ABOUT PRODUCTS
+!
+SWAPISOMER : The product was substituted with an isomer.
+KETOENOL   : The enol was assumed to be rearranged into a keto structure.
+JO23PRSCOM : John Orlando personnal communication, 2023.
+!
+!-- GENERAL COMMENT ABOUT REACTIONS
+!
+KEXP298    : The overall rate constant was scaled to the experimental value at 298K.
+KEXPBRSAR  : Overall rate constant from experimental value. Branching ratio based on SAR.
+RXEXP      : Experimental values available (rate and products).
+!--
+GASDHF     : The condensed phase cyclisation of 1,4 hydroycarbonyl to dihydrofuran represented as a pseudo gas phase first order procress. 
+CP_HC2CHA  : Condensed phase cyclisation of 1,4 hydroycarbonyl to tetrahydrofuran (Cyclic Hemi-Acetal CHA) - The reaction is set with an arbitrary high reaction rate (see La et al., ACP, 2016).
+CP_CHA2DHF : Condensed phase dihydration (CHA -> DHF). Rate from La et al., ACP, https://doi.org/10.5194/acp-16-1417-2016, 2016.
+CP_DHF2CHA : Condensed phase hydration (DHF -> CHA). Rate from La et al., ACP, https://doi.org/10.5194/acp-16-1417-2016, 2016.
+MCMRX      : Reation not generated but taken in another mechanism (usually MCM).
+AUTOOX1    : Assume a fast (and unique) isomeriation (H-shift) of RO2 to RCO3: RC(OO.)CxCHO -> RC(OOH)CxCO(OO.).
+OLDHVRX    : Photolysis based on SAR described in Aumont et al., ACP, 2005. Update is in progress. 
+!--
+RO_NITRO   : For nitro alkoxy radicals, decomposition is the only reaction considered. The rate constant is set to an arbitrary high value. 
+RO_BPOL_U  : For beta unsaturated alkoxy radicals, decomposition is the only reaction considered. 
+RO_ESTER_U : For unsaturated alpha ester alkoxy, the alpha-ester channel is the only channel considered. 
+RO_ESTER   : Rate constant based on SAPRC99 mechanism (Carter, 1999). 
+RA07KER000 : Reaction rate based on Atkinson R., Rate constants for the atmospheric reactions of alkoxy radicals: An updated estimation method, Atmospheric Environment, 41, 8468–8485, 2007. doi:10.1016/j.atmosenv.2007.07.002. 
+LV09KER000 : Reaction rate based on Vereecken, L. and J. Peeters, Decomposition of substituted alkoxy radicals—part I: a generalized structure–activity relationship for reaction barrier heights, Phys. Chem. Chem. Phys., 11, 9062–9074, 2009. DOI: 10.1039/b909712k.
+LV10KER000 : Reaction rate based on Vereecken, L. and J. Peeters, A structure–activity relationship for the rate coefficient of H-migration in substituted alkoxy radicals, Phys. Chem. Chem. Phys., 2010, 12, 12608–12620, DOI: 10.1039/c0cp00387e.
+RO_CO(NO3) : The R-C(=O)ONO2 structure was assumed to decompose (R.+CO2+NO2). 
+KETOENENIT : The unsaturated nitrate was assumed to decompose.
+CHO(ONO2)  : The species "CHO(ONO2)" was assumed to decompose to "CO2+HO2+NO2".
+XOCO(OO)   : The molecular structure "X-O-CO(OO.)" was assumed to decompose to "X.+CO2+O2". 
+C(OOH)(OO) : The molecular structure "-C(OOH)(OO.)-" was assumed to decompose to "-C(.)(OOH)+O2-".
+CdCd(OO)   : The molecular structure ">C=C(OO.)-" was assumed to rearrange to ">C(O.)-C(=O)-".
+CdCd(O)    : The molecular structure ">C=C(O.)-" was written as ">C(O.)-C(=O)-".
+CdCd(X)(.) : The molecular structure ">C=C(X)(.)" was assumed to decompose to ">C=C=O+radical".
+RCOCO3_NO2 : The RCOCO(OO.)+NO2 reaction is assumed to produce RCOCO(O.)+NO3 (see Jenkin et al., ACP, 2019). 
+SPLITIN2   : The reaction was split in 2 reactions.
+SPLITIN3   : The reaction was split in 3 reactions.
+SPLITMANY  : The reaction was split in many reactions.
+FORCEDREAC : Forced reaction. 
+OCRIEGEE   : The -O-C.(OO.)- CI structure was forced to decompose to CO2 + 2 radicals.
+STYRO3     : The Phi-CH.(OO.)* was forced to decompose to CO2+HO2+phi.
+RO2TEMPO   : Chemistry of the RO2 must be updated. Assumed here to decompose with an arbitrary high rate to avoid radical accumulation.
+NH1001COM1 : Chemistry need to be updated. The radical is assumed here to decompose with -ONO2 has the leaving group.
+EPOX_DEC   : Epoxide decomposition following -C.C1-O-C1-  ->  -C=C-C(O.)-
+OOC._DEC   : Decomposition for -C.-O--O-R  ->  -CO +R(O.)
+END 

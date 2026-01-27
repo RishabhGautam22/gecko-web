@@ -1,0 +1,675 @@
+!!! SPECIES                                             ;   k298    ;     A     ;   n ;   E/R   ; CODE1     ; CODE2     ; CODE3
+! 
+! Acyclic alkanes
+! 
+CH3CH3                                                  ;  2.40e-13 ;  6.90e-12 ; 0.0 ;  1000.0 ; MJ18KMV000;           ;           
+CH3CH2CH3                                               ;  1.10e-12 ;  7.60e-12 ; 0.0 ;   585.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH3                                            ;  2.35e-12 ;  9.80e-12 ; 0.0 ;   425.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH3                                         ;  3.96e-12 ;  1.81e-11 ; 0.0 ;   452.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH3                                      ;  5.48e-12 ;  2.05e-11 ; 0.0 ;   394.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH3                                   ;  6.50e-12 ;  2.76e-11 ; 0.0 ;   430.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH3                                ;  7.81e-12 ;  3.43e-11 ; 0.0 ;   441.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH3                             ;  9.75e-12 ;  9.75e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH3                          ;  1.10e-11 ;  1.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CH3                       ;  1.23e-11 ;  1.23e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2CH3                    ;  1.32e-11 ;  1.32e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2CH3                 ;  1.51e-11 ;  1.51e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH3                                           ;  2.10e-12 ;  5.40e-12 ; 0.0 ;   285.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)CH3                                        ;  3.75e-12 ;  1.01e-11 ; 0.0 ;   296.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)CH3                                       ;  8.20e-13 ;  1.20e-11 ; 0.0 ;   800.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH(CH3)CH3                                     ;  5.26e-12 ;  1.77e-11 ; 0.0 ;   362.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)CH2CH3                                     ;  5.53e-12 ;  1.80e-11 ; 0.0 ;   351.0 ; MJ18KMV000;           ;           
+CH3CH2C(CH3)(CH3)CH3                                    ;  2.23e-12 ;  3.37e-11 ; 0.0 ;   809.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH(CH3)CH3                                    ;  6.14e-12 ;  1.25e-11 ; 0.0 ;   212.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)CH(CH3)CH3                                 ;  6.58e-12 ;  1.53e-11 ; 0.0 ;   252.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2CH(CH3)CH3                                 ;  5.70e-12 ;  2.70e-11 ; 0.0 ;   460.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)C(CH3)(CH3)CH3                                ;  3.81e-12 ;  3.81e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH(CH3)CH(CH3)CH3                             ;  6.60e-12 ;  6.60e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2C(CH3)(CH3)CH3                             ;  3.34e-12 ;  3.34e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)C(CH3)(CH3)CH3                            ;  9.72e-13 ;  1.20e-11 ; 0.0 ;   750.0 ; MJ18KMV000;           ;           
+CH3CH2C(CH2CH3)(CH2CH3)CH2CH3                           ;  4.80e-12 ;  4.80e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2C(CH3)(CH3)CH3                                 ;  3.40E-12 ;  3.40E-12 ; 0.  ;     0.  ; RA97KMV000;           ;           
+CH3CH2CH2CH2C(CH3)(CH3)CH3                              ;  4.80E-12 ;  4.80E-12 ; 0.  ;     0.  ; RA97KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH(CH3)CH3                            ;  1.01E-11 ;  1.01E-11 ; 0.  ;     0.  ; RA97KMV000;           ;           
+CH3CH2CH2CH2CH(CH3)CH2CH2CH3                            ;  9.70E-12 ;  9.70E-12 ; 0.  ;     0.  ; RA97KMV000;           ;           
+CH3CH(CH3)CH2CH(CH3)CH(CH3)CH3                          ;  7.90E-12 ;  7.90E-12 ; 0.  ;     0.  ; RA97KMV000;           ;           
+! 
+! Mono-cycloalkanes
+! 
+C1H2CH2C1H2                                             ;  7.40e-14 ;  6.00e-12 ; 0.0 ;  1300.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2C1H2                                          ;  2.00e-12 ;  1.11e-11 ; 0.0 ;   510.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2C1H2                                       ;  4.90e-12 ;  2.20e-11 ; 0.0 ;   450.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2CH2C1H2                                    ;  6.90e-12 ;  3.00e-11 ; 0.0 ;   440.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2C1HCH3                                     ;  8.60e-12 ;  8.60e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2C1HCH(CH3)CH3                                    ;  2.61e-12 ;  2.61e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2CH2CH2C1H2                                 ;  1.10e-11 ;  4.00e-11 ; 0.0 ;   388.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2CH2C1HCH3                                  ;  9.64e-12 ;  9.64e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2CH2CH2CH2C1H2                              ;  1.30e-11 ;  5.20e-11 ; 0.0 ;   408.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2CH2C1HCH2CH2CH2CH3                         ;  1.47e-11 ;  1.47e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Poly-cycloalkanes
+! 
+C2H2CH2CH(C1H2)CH2CH2C12H                               ;  5.10e-12 ;  5.10e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C12HCH(C24H)CH2CH(C34H)C13H                             ;  1.70e-12 ;  1.70e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH(CH2C2H2)CH2CH2C12H                            ;  1.37e-11 ;  1.37e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C2H2CH2CH2C1HCH2CH2CH2C12H                              ;  1.03e-11 ;  1.03e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C12HCH2CH2CH2C1HCH(C3H2)CH2CH2C23H                      ;  1.06e-11 ;  1.06e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C2H2CH(C3H2)CH2CH(CH2C12H)CH2C3HC1H2                    ;  2.15e-11 ;  2.15e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C12HCH2CH(C1(CH3)CH3)CH2CH2C2HCH3                       ;  1.24e-11 ;  1.24e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C23HCH2CH(C1(CH3)CH3)CH2C3HC12CH3                       ;  2.70e-12 ;  2.70e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Saturated Alcohols
+! 
+CH3CH2(OH)                                              ;  3.20e-12 ;  3.00e-12 ; 0.0 ;   -20.0 ; MJ18KMV000;           ;           
+CH3CH2CH2(OH)                                           ;  5.80e-12 ;  4.60e-12 ; 0.0 ;   -70.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH3                                            ;  5.10e-12 ;  2.60e-12 ; 0.0 ;  -200.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2(OH)                                        ;  8.50e-12 ;  5.30e-12 ; 0.0 ;  -140.0 ; MJ18KMV000;           ;           
+CH3CH2CH(OH)CH3                                         ;  8.70e-12 ;  8.70e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2(OH)                                       ;  8.90e-12 ;  2.73e-12 ; 0.0 ;  -352.0 ; MJ18KMV000;           ;           
+CH3C(OH)(CH3)CH3                                        ;  1.10e-12 ;  1.60e-12 ; 0.0 ;   121.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2(OH)                                     ;  1.10e-11 ;  1.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH(OH)CH3                                      ;  1.10e-11 ;  1.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(OH)CH2CH3                                      ;  1.30e-11 ;  1.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2CH2(OH)                                    ;  1.40e-11 ;  1.50e-12 ; 0.0 ;  -664.0 ; MJ18KMV000;           ;           
+CH3CH2C(OH)(CH3)CH3                                     ;  3.40e-12 ;  2.00e-12 ; 0.0 ;  -160.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH(CH3)CH3                                     ;  1.20e-11 ;  2.50e-12 ; 0.0 ;  -464.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)CH2(OH)                                   ;  5.50e-12 ;  5.00e-12 ; 0.0 ;   -28.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2(OH)                                  ;  1.30e-11 ;  1.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH(OH)CH3                                   ;  1.20e-11 ;  1.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2C(OH)(CH3)CH3                                  ;  7.10e-12 ;  7.10e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2CH(CH3)CH3                                  ;  1.70e-11 ;  1.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(OH)(CH3)CH(CH3)CH3                                 ;  9.30e-12 ;  1.45e-12 ; 0.0 ;  -554.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2(OH)                               ;  1.30e-11 ;  1.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(OH)(CH3)CH2CH(CH3)CH3                              ;  1.10e-11 ;  1.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2(OH)                            ;  1.30e-11 ;  1.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2C(OH)(CH3)CH2CH(CH3)CH3                           ;  1.30e-11 ;  1.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH(OH)CH2C1H2                                    ;  1.10e-11 ;  1.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH(OH)CH2C1H2                                 ;  1.70e-11 ;  1.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(OH)CH2(OH)                                          ;  1.45e-11 ;  1.45e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2(OH)                                        ;  2.10e-11 ;  2.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(OH)CH2(OH)                                     ;  2.43e-11 ;  2.43e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2CH2(OH)                                     ;  2.99e-11 ;  2.99e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(OH)CH2CH2CH2(OH)                                    ;  3.67e-11 ;  3.67e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH(OH)CH3                                      ;  2.12e-11 ;  2.12e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2C(OH)(CH3)CH3                               ;  2.50e-11 ;  2.50e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH(OH)CH3                             ;  2.52E-11 ;  2.52E-11 ; 0.  ;     0.  ; WC99KMV000;           ;           
+CH3CH2CH2CH2CH2CH(OH)CH2CH3                             ;  3.14E-11 ;  3.14E-11 ; 0.  ;     0.  ; WC99KMV000;           ;           
+CH3CH2CH2CH2CH(OH)CH2CH2CH3                             ;  2.87E-11 ;  2.87E-11 ; 0.  ;     0.  ; WC99KMV000;           ;           
+! 
+! Saturated Aldehydes
+! 
+CH3CHO                                                  ;  1.50e-11 ;  4.70e-12 ; 0.0 ;  -345.0 ; MJ18KMV000;           ;           
+CH3CH2CHO                                               ;  1.90e-11 ;  4.90e-12 ; 0.0 ;  -405.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CHO                                            ;  2.40e-11 ;  6.00e-12 ; 0.0 ;  -410.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CHO                                           ;  2.60e-11 ;  6.80e-12 ; 0.0 ;  -410.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CHO                                         ;  2.66e-11 ;  8.60e-12 ; 0.0 ;  -336.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)CHO                                        ;  3.33e-11 ;  3.33e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2CHO                                        ;  2.59e-11 ;  2.59e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)CHO                                       ;  2.80e-11 ;  5.30e-12 ; 0.0 ;  -494.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CHO                                      ;  2.85e-11 ;  4.30e-12 ; 0.0 ;  -565.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH(CH3)CHO                                     ;  3.30e-11 ;  3.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)CH2CHO                                     ;  2.91e-11 ;  2.91e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2CH2CHO                                     ;  2.63e-11 ;  2.63e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)CH2CHO                                    ;  2.14e-11 ;  2.14e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CHO)CH2CH3                                     ;  4.02e-11 ;  4.02e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CHO                                   ;  2.96e-11 ;  2.96e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)CH(CH3)CHO                                 ;  4.20e-11 ;  4.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CHO                             ;  3.20e-11 ;  3.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2C1HCHO                                           ;  2.10e-11 ;  2.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2C1HCHO                                        ;  2.63e-11 ;  2.63e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2C1HCHO                                     ;  3.13e-11 ;  3.13e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2CH2C1HCHO                                  ;  3.70e-11 ;  3.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CHOCHO                                                  ;  9.70e-12 ;  3.10e-12 ; 0.0 ;  -340.0 ; MJ18KMV000;           ;           
+CHOCH2CH2CH2CHO                                         ;  2.38E-11 ;  2.38E-11 ; 0.  ;     0.  ; RA89KMV000;           ;
+CH3COCHO                                                ;  1.30e-11 ;  1.90e-12 ; 0.0 ;  -575.0 ; MJ18KMV000;           ;           
+CH3COCH2C1HCH(C1(CH3)CH3)CH2CHO                         ;  5.00e-11 ;  5.00e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH(C1(CH3)CH3)CH2C1HCH2CHO                         ;  3.90e-11 ;  5.20e-12 ; 0.0 ;  -600.0 ; MJ18KMV000;           ;           
+CH2(OH)CHO                                              ;  1.02e-11 ;  1.02e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CHO                                            ;  1.70e-11 ;  1.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(OH)CH2CHO                                           ;  1.99e-11 ;  1.99e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(OH)CHO                                         ;  2.37e-11 ;  2.37e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2CHO                                         ;  2.95e-11 ;  2.95e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(OH)(CH3)CHO                                        ;  1.40e-11 ;  1.40e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(OH)(CH2(OH))CHO                                    ;  3.30e-11 ;  3.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH(OH)CHO                                      ;  4.10e-11 ;  4.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Saturated Ketones
+! 
+CH3COCH3                                                ;  1.80e-13 ;  4.82e-24 ; 3.88;  -678.0 ; MM19KMV000;           ;           
+CH3CH2COCH3                                             ;  1.10e-12 ;  1.50e-12 ; 0.0 ;    90.0 ; MJ18KMV000;           ;           
+CH3CH2CH2COCH3                                          ;  4.10e-12 ;  3.80e-13 ; 0.0 ;  -705.0 ; MJ18KMV000;           ;           
+CH3CH2COCH2CH3                                          ;  2.00e-12 ;  2.00e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH(CH3)CH3                                         ;  3.00e-12 ;  1.45e-12 ; 0.0 ;  -219.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2COCH3                                       ;  7.50e-12 ;  8.40e-13 ; 0.0 ;  -654.0 ; MJ18KMV000;           ;           
+CH3CH2CH2COCH2CH3                                       ;  6.40e-12 ;  6.40e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)COCH3                                      ;  6.20e-12 ;  6.20e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2CH(CH3)CH3                                      ;  1.28e-11 ;  8.00e-13 ; 0.0 ;  -828.0 ; MJ18KMV000;           ;           
+CH3COC(CH3)(CH3)CH3                                     ;  1.21e-12 ;  1.21e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2COCH3                                    ;  9.40e-12 ;  3.25e-12 ; 0.0 ;  -317.0 ; MJ18KMV000;           ;           
+CH3COCH2CH2CH(CH3)CH3                                   ;  1.20e-11 ;  1.24e-12 ; 0.0 ;  -674.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)COCH(CH3)CH3                                  ;  4.90e-12 ;  4.90e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2COCH3                                 ;  1.10e-11 ;  1.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2COCH3                              ;  1.22e-11 ;  1.22e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2COCH2CH(CH3)CH3                            ;  2.50e-11 ;  2.50e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2COCH3                           ;  1.32e-11 ;  1.32e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2COC1H2                                           ;  8.70e-13 ;  8.70e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2COCH2C1H2                                        ;  2.90e-12 ;  2.90e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2COCH2C1H2                                     ;  6.40e-12 ;  6.40e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C1(CH3)COCH(C2H2)CH2CH2C12H                          ;  4.80e-12 ;  4.80e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C1(CH3)CH(C2H2)COCH2CH2C12H                          ;  1.52e-11 ;  1.52e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)C12CH2CH2COC1HC2H2                            ;  6.00e-12 ;  6.00e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C2H2CH2CH(C1(CH3)CH3)CH2COC12CH3                        ;  4.10e-12 ;  4.10e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCOCH3                                              ;  2.30e-13 ;  5.25e-13 ; 0.0 ;   243.0 ; MJ18KMV000;           ;           
+CH3CH2CH2COCOCH3                                        ;  3.60e-12 ;  3.60e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2CH2COCH3                                        ;  7.13e-12 ;  7.13e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2COCH3                                           ;  1.15E-12 ;  1.15E-12 ; 0.  ;     0.  ; RA89KMV000;           ;
+CH3COCH2(OH)                                            ;  4.50e-12 ;  1.60e-12 ; 0.0 ;  -305.0 ; MJ18KMV000;           ;           
+CH3CH2COCH2(OH)                                         ;  7.60e-12 ;  7.60e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)COCH3                                          ;  9.30e-12 ;  9.30e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2CH2(OH)                                         ;  1.04e-11 ;  1.04e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2CH2CH2(OH)                                      ;  1.55e-11 ;  1.55e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH(CH3)CH2(OH)                                     ;  1.46e-11 ;  1.46e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COC(OH)(CH3)CH3                                      ;  8.50e-13 ;  8.50e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2CH2COCH3                                    ;  2.20e-11 ;  2.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(OH)COCH2CH3                                    ;  1.36e-11 ;  1.36e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2COCH2CH2CH2(OH)                                   ;  1.70e-11 ;  1.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2C(OH)(CH3)CH3                                   ;  3.80e-12 ;  3.80e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(OH)CH2CH2COCH3                                 ;  1.90e-11 ;  1.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2CH2COCH2CH3                                 ;  1.60e-11 ;  1.60e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2COCH2CH2CH2(OH)                                ;  1.00e-11 ;  1.00e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH(OH)CH2CH2COCH3                              ;  2.30e-11 ;  2.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(OH)CH2CH2COCH2CH3                              ;  1.50e-11 ;  1.50e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2CH2COCH2CH2CH3                              ;  1.90e-11 ;  1.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH(OH)CH2(OH)                                      ;  1.20e-11 ;  1.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Saturated Hydroperoxides
+! 
+CH3CH2(OOH)                                             ;  6.00e-12 ;  6.00e-12 ; 0.0 ;     0.0 ; MJ18KMV000;   VALUELOW;           
+CH3C(OOH)(CH3)CH3                                       ;  3.56e-12 ;  7.00e-13 ; 0.0 ;  -485.0 ; MJ18KMV000;           ;           
+! 
+! Saturated Ethers
+! 
+CH3-O-CH3                                               ;  2.80e-12 ;  5.70e-12 ; 0.0 ;   215.0 ; MJ18KMV000;           ;           
+CH3CH2-O-CH3                                            ;  6.30e-12 ;  6.30e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2-O-CH2CH3                                         ;  1.22e-11 ;  4.62e-12 ; 0.0 ;  -289.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-CH3                                      ;  1.45e-11 ;  1.01e-11 ; 0.0 ;  -107.0 ; MJ18KMV000;           ;           
+CH3-O-C(CH3)(CH3)CH3                                    ;  3.00e-12 ;  4.00e-12 ; 0.0 ;    80.0 ; MJ18KMV000;           ;           
+CH3CH2CH2-O-CH2CH2CH3                                   ;  2.00e-11 ;  1.03e-11 ; 0.0 ;  -197.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)-O-CH(CH3)CH3                                 ;  1.00e-11 ;  2.97e-12 ; 0.0 ;  -361.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-CH2CH3                                   ;  2.20e-11 ;  6.60e-12 ; 0.0 ;  -362.0 ; MJ18KMV000;           ;           
+CH3CH2-O-C(CH3)(CH3)CH3                                 ;  8.70e-12 ;  3.40e-12 ; 0.0 ;  -280.0 ; MJ18KMV000;           ;           
+CH3CH2C(CH3)(CH3)-O-CH3                                 ;  5.50e-12 ;  3.07e-12 ; 0.0 ;  -172.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2-O-CH(CH3)CH3                              ;  2.10e-11 ;  2.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2-O-CH2CH(CH3)CH3                           ;  2.61E-11 ;  2.61E-11 ; 0.  ;     0.  ; PB89KMV000;           ;
+CH3CH2CH2CH2-O-CH2CH2CH2CH3                             ;  2.80e-11 ;  4.50e-12 ; 0.0 ;  -550.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)-O-C(CH3)(CH3)CH3                         ;  3.70e-12 ;  3.70e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2-O-CH2CH2CH2CH2CH3                       ;  3.30e-11 ;  7.70e-12 ; 0.0 ;  -429.0 ; MJ18KMV000;           ;           
+CH3-O-CH2-O-CH3                                         ;  4.50e-12 ;  2.70e-18 ; 0.0 ;  -879.0 ; MJ18KMV000;           ;           
+CH3-O-CH(CH3)-O-CH3                                     ;  8.90e-12 ;  8.90e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-CH2CH2-O-CH3                                      ;  2.80e-11 ;  5.30e-18 ; 0.0 ; -1220.0 ; MJ18KMV000;           ;           
+CH3CH2-O-CH2-O-CH2CH3                                   ;  1.96e-11 ;  3.80e-18 ; 0.0 ; -1212.0 ; MJ18KMV000;           ;           
+CH3-O-C(CH3)(CH3)-O-CH3                                 ;  4.10e-12 ;  3.70e-12 ; 0.0 ;   -30.0 ; MJ18KMV000;           ;           
+CH3CH2-O-CH2CH2-O-CH2CH3                                ;  5.80e-11 ;  5.80e-18 ; 0.0 ; -1400.0 ; MJ18KMV000;           ;           
+CH3-O-CH2CH2CH2CH2-O-CH3                                ;  3.00e-11 ;  3.00e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2-O-CH2-O-CH2CH2CH3                             ;  2.70e-11 ;  4.30e-12 ; 0.0 ;  -546.0 ; MJ18KMV000;           ;           
+CH3CH2-O-C(CH3)(CH3)-O-CH2CH3                           ;  1.11e-11 ;  1.06e-12 ; 0.0 ;   -15.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)-O-CH2-O-CH(CH3)CH3                           ;  3.80e-11 ;  4.40e-12 ; 0.0 ;  -646.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-CH2-O-CH2CH2CH2CH3                       ;  3.60e-11 ;  5.20e-12 ; 0.0 ;  -580.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)-O-CH2-O-CH(CH3)CH2CH3                     ;  4.30e-11 ;  8.70e-12 ; 0.0 ;  -477.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2-O-CH2-O-CH2CH(CH3)CH3                     ;  3.60e-11 ;  3.60e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2-O-C1H2                                             ;  8.80e-14 ;  8.80e-14 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2-O-C1HCH2CH3                                        ;  1.90e-12 ;  1.90e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2-O-C1H2                                          ;  1.03e-11 ;  1.03e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2-O-CH2C1H2                                       ;  1.70e-11 ;  9.40e-12 ; 0.0 ;  -177.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2-O-CH2C1H2                                    ;  1.20e-11 ;  7.80e-12 ; 0.0 ;  -136.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2-O-C1HCH3                                     ;  2.27e-11 ;  2.20e-12 ; 0.0 ;  -690.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2-O-CH2CH2C1H2                                 ;  1.80e-11 ;  9.80e-12 ; 0.0 ;  -179.0 ; MJ18KMV000;           ;           
+C1H2-O-CH2-O-C1H2                                       ;  1.00e-11 ;  1.00e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2-O-CH2-O-C1H2                                    ;  1.00e-11 ;  8.60e-12 ; 0.0 ;   -45.0 ; MJ18KMV000;           ;           
+C1H2-O-CH2CH2-O-C1H2                                    ;  1.15e-11 ;  6.80e-12 ; 0.0 ;  -159.0 ; MJ18KMV000;           ;           
+C1H2CH2-O-CH2-O-CH2C1H2                                 ;  1.40e-11 ;  6.00e-12 ; 0.0 ;  -250.0 ; MJ18KMV000;           ;           
+C1H2CH2-O-CH2-O-C1HCH3                                  ;  1.13e-11 ;  1.13e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2-O-CH2-O-CH2-O1-                                    ;  5.50e-12 ;  1.50e-11 ; 0.0 ;   302.0 ; MJ18KMV000;           ;           
+CH3-O-CH2CH2(OH)                                        ;  1.30e-11 ;  6.00e-18 ; 0.0 ;  -938.0 ; MJ18KMV000;           ;           
+CH3CH2-O-CH2CH2(OH)                                     ;  1.90e-11 ;  1.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2-O-CH3                                      ;  2.00e-11 ;  2.00e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-CH(CH3)CH2CH2(OH)                                 ;  2.36e-11 ;  2.36e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2-O-CH2CH2CH2(OH)                                  ;  2.20e-11 ;  2.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2-O-CH2CH2(OH)                                  ;  1.73e-11 ;  1.73e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)-O-CH2CH2(OH)                                 ;  2.26e-11 ;  2.26e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-CH2CH(OH)CH3                             ;  3.76e-11 ;  3.76e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C1(CH2(OH))-O-C1HCH2(OH)                             ;  1.67e-11 ;  1.67e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+!CH3C1(CH2(OH))-O-C1HCH2(OH)                             ;  1.08e-11 ;  1.08e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2-O-C1HC(OH)(CH3)CH2(OH)                             ;  9.20e-12 ;  9.20e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-CH2CH2(OH)                               ;  2.57E-11 ;  2.57E-11 ; 0.  ;     0.  ; WC99KMV000;  VALUEMEAN;
+CH3CH2-O-CH2CH2-O-CH2CH2(OH)                            ;  5.72E-11 ;  5.72E-11 ; 0.  ;     0.  ; SA01KMV000;           ;
+CH3CH2CH2CH2-O-CH2CH2-O-CH2CH2(OH)                      ;  7.44E-11 ;  7.44E-11 ; 0.  ;     0.  ; SA01KMV000;           ;
+! 
+! Saturated Carboxylics acids
+! 
+CH3CO(OH)                                               ;  6.90e-13 ;  4.00e-14 ; 0.0 ;  -850.0 ; MJ18KMV000;           ;           
+CH3CH2CO(OH)                                            ;  1.20e-12 ;  1.20e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CO(OH)                                         ;  1.80e-12 ;  1.80e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CO(OH)                                        ;  2.10e-12 ;  2.10e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCO(OH)                                             ;  1.20e-13 ;  4.90e-14 ; 0.0 ;  -276.0 ; MJ18KMV000;           ;           
+! 
+! Saturated Esters
+! 
+CH3-O-CHO                                               ;  1.79e-13 ;  1.28e-18 ; 2.0 ;  -136.0 ; MJ18KMV000;           ;           
+CH3CH2-O-CHO                                            ;  8.74e-13 ;  9.00e-19 ; 2.0 ;  -713.0 ; MJ18KMV000;           ;           
+CH3CH2CH2-O-CHO                                         ;  1.85e-12 ;  2.41e-18 ; 2.0 ;  -643.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)-O-CHO                                        ;  2.29e-12 ;  2.29e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-CHO                                      ;  3.68e-12 ;  4.95e-18 ; 2.0 ;  -633.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)-O-CHO                                    ;  7.82e-13 ;  5.41e-18 ; 2.0 ;  -145.0 ; MJ18KMV000;           ;           
+CH3CO-O-CH3                                             ;  3.46e-13 ;  6.69e-19 ; 2.0 ;  -525.0 ; MJ18KMV000;           ;           
+CH3CH2-O-COCH3                                          ;  1.80e-12 ;  8.90e-19 ; 2.0 ;  -932.0 ; MJ18KMV000;           ;           
+CH3CH2CH2-O-COCH3                                       ;  3.45e-12 ;  1.46e-18 ; 2.0 ;  -978.0 ; MJ18KMV000;           ;           
+CH3CO-O-CH(CH3)CH3                                      ;  3.79e-12 ;  4.55e-19 ; 2.0 ; -1353.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-COCH3                                    ;  5.66e-12 ;  3.03e-18 ; 2.0 ;  -908.0 ; MJ18KMV000;           ;           
+CH3CO-O-CH2CH(CH3)CH3                                   ;  6.47e-12 ;  1.50e-18 ; 2.0 ; -1157.0 ; MJ18KMV000;           ;           
+CH3CO-O-CH(CH3)CH2CH3                                   ;  6.10e-12 ;  1.07e-18 ; 2.0 ; -1240.0 ; MJ18KMV000;           ;           
+CH3CO-O-C(CH3)(CH3)CH3                                  ;  5.75e-13 ;  3.19e-18 ; 2.0 ;  -211.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2-O-COCH3                                 ;  7.39e-12 ;  3.71e-18 ; 2.0 ;  -927.0 ; MJ18KMV000;           ;           
+CH3CO-O-C2HCH2CH(C1(CH3)CH3)CH2CH2C12CH3                ;  1.25e-11 ;  1.25e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CO-O-CH3                                          ;  8.73e-13 ;  2.00e-18 ; 2.0 ;  -475.0 ; MJ18KMV000;           ;           
+CH3CH2CO-O-CH2CH3                                       ;  2.10e-12 ;  2.10e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2-O-COCH2CH3                                    ;  4.00e-12 ;  4.00e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CO-O-CH3                                       ;  3.36e-12 ;  1.35e-18 ; 2.0 ;  -993.0 ; MJ18KMV000;           ;           
+CH3-O-COCH(CH3)CH3                                      ;  1.70e-12 ;  1.70e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CO-O-CH2CH3                                    ;  4.50e-12 ;  4.50e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CO-O-CH2CH2CH3                                 ;  4.71e-12 ;  4.71e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CO-O-CH(CH3)CH3                               ;  7.00e-12 ;  7.00e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-COCH2CH2CH3                              ;  1.06e-11 ;  1.06e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CO-O-CH3                                    ;  5.26e-12 ;  1.88e-18 ; 2.0 ; -1028.0 ; MJ18KMV000;           ;           
+CH3-O-COC(CH3)(CH3)CH3                                  ;  1.19e-12 ;  1.19e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CO-O-CH3                                 ;  7.30e-12 ;  3.30e-18 ; 2.0 ;  -958.0 ; MJ18KMV000;           ;           
+CHO-O-CH2CH2-O-CHO                                      ;  4.84e-13 ;  4.84e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CO-O-CH2CH2-O-COCH3                                  ;  2.16e-12 ;  2.16e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-COCH2CH2CO-O-CH3                                  ;  1.36e-12 ;  1.36e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-COCH2CH2CH2CO-O-CH3                               ;  3.23e-12 ;  3.23e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-COCH2CH2CH2CH2CO-O-CH3                            ;  8.15e-12 ;  8.15e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CO-O-CH3                                       ;  2.59e-12 ;  2.59e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CO-O-CH2CH3                                    ;  3.66e-12 ;  3.66e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-CO-O-CH3                                          ;  3.26e-13 ;  6.31e-19 ; 2.0 ;  -525.0 ; MJ18KMV000;           ;           
+C1H2CH2CO-O-C1HCH3                                      ;  1.95e-12 ;  1.95e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2-O-COC1HCH3                                      ;  1.81e-12 ;  1.81e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-CH2CH(CH3)-O-COCH3                                ;  1.44E-11 ;  1.44E-11 ; 0.  ;     0.  ; WC99KMV000;           ;
+CH3CH(CH3)CH2CO-O-CH(CH3)CH3                            ;  6.50E-12 ;  6.50E-12 ; 0.  ;     0.  ; KS97KMV000;           ;
+CH3CO-O-CH2C(OH)(CH3)CH3                                ;  9.50E-12 ;  9.50E-12 ; 0.  ;     0.  ; KS97KMV000;           ;
+CH3CH2-O-CH2CH2-O-COCH3                                 ;  1.06E-11 ;  1.06E-11 ; 0.  ;     0.  ; DW93KMV000;           ;
+CH3CH2-O-CH2CH2-O-COCH(CH3)CH3                          ;  1.36E-11 ;  1.36E-11 ; 0.  ;     0.  ; DW93KMV000;           ;
+! 
+! Saturated Nitrogen-containing compounds
+! 
+CH3CH2(ONO2)                                            ;  1.80e-13 ;  6.70e-13 ; 0.0 ;   395.0 ; MJ18KMV000;           ;           
+CH3CH2CH2(ONO2)                                         ;  5.80e-13 ;  5.80e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(ONO2)CH3                                          ;  2.90e-13 ;  6.20e-13 ; 0.0 ;   230.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2(ONO2)                                      ;  1.60e-12 ;  1.60e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(ONO2)CH3                                       ;  8.60e-13 ;  8.60e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2(ONO2)                                     ;  1.53e-12 ;  1.53e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2(ONO2)                                   ;  3.60e-12 ;  3.60e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH(ONO2)CH3                                    ;  1.72e-12 ;  1.72e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(ONO2)CH2CH3                                    ;  1.04e-12 ;  1.04e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(CH3)CH2(ONO2)                                  ;  2.33e-12 ;  2.33e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CH2CH2(ONO2)                                  ;  2.37e-12 ;  2.37e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(ONO2)CH(CH3)CH3                                   ;  1.70e-12 ;  1.70e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)CH2(ONO2)                                 ;  7.90e-13 ;  7.90e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH(ONO2)CH3                                 ;  2.94e-12 ;  2.94e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH(ONO2)CH2CH3                                 ;  2.50e-12 ;  2.50e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2C(ONO2)(CH3)CH3                                ;  1.59e-12 ;  1.59e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(ONO2)CH(CH3)CH2CH3                                ;  2.80e-12 ;  2.80e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH(ONO2)CH2CH3                              ;  3.42e-12 ;  3.42e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH(ONO2)CH2CH3                           ;  3.60e-12 ;  3.60e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH(ONO2)CH2C1H2                               ;  3.06e-12 ;  3.06e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(ONO2)CH2(ONO2)                                    ;  3.00e-13 ;  3.00e-13 ; 0.0 ;     0.0 ; MJ18KMV000;    VALUEUP;           
+CH3CH2CH(ONO2)CH2(ONO2)                                 ;  1.63e-12 ;  1.63e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(ONO2)CH(ONO2)CH3                                  ;  1.02e-12 ;  1.02e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(ONO2)CH2CH2CH2(ONO2)                                ;  6.30e-12 ;  6.30e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2CH(ONO2)C1(ONO2)CH3                        ;  1.66e-12 ;  1.66e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(ONO2)CH2(OH)                                      ;  6.70e-12 ;  6.70e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2(ONO2)                                      ;  5.10e-12 ;  5.10e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(ONO2)CH2(OH)                                   ;  7.40e-12 ;  7.40e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH(OH)CH2(ONO2)                                   ;  7.00e-12 ;  7.00e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2CH2(ONO2)                                   ;  1.04e-11 ;  1.04e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(ONO2)CH2CH2(OH)                                   ;  1.19e-11 ;  1.19e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(OH)CH2CH2CH2(ONO2)                                  ;  1.26e-11 ;  1.26e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH(OH)CH2(ONO2)                                ;  9.80e-12 ;  9.80e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CH2CH2CH2(ONO2)                                ;  3.21e-11 ;  3.21e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(ONO2)CH2CH2CH2(OH)                                ;  2.86e-11 ;  2.86e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(OH)CH2CH2CH2CH2CH2(ONO2)                            ;  3.09e-11 ;  3.09e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH(OH)CH(ONO2)CH2C1H2                               ;  3.53e-12 ;  3.53e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2(ONO2)                                          ;  5.40e-13 ;  5.40e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2COCH2(ONO2)                                       ;  8.40e-13 ;  8.40e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH(ONO2)CH3                                        ;  1.10e-12 ;  1.10e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COC(ONO2)(CH3)CH3                                    ;  2.60e-13 ;  2.60e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2COCH(ONO2)CH2C1H2                                ;  3.47e-12 ;  3.47e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CO(OONO2)                                            ;  3.00e-14 ;  3.00e-14 ; 0.0 ;     0.0 ; MJ18KMV000;    VALUEUP;           
+CH3CH2(NO2)                                             ;  1.44e-13 ;  1.44e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2(NO2)                                          ;  5.29e-13 ;  5.29e-13 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2(NO2)                                       ;  1.67e-12 ;  1.67e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2(NO2)                                    ;  3.15e-12 ;  3.15e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2CH2(ONO2)                                       ;  31.9E-13 ;  31.9E-13 ; 0.  ;     0.  ; RS12KMV000;           ;
+CH3COCH2CH2CH2(ONO2)                                    ;  8.20E-13 ;  8.20E-13 ; 0.  ;     0.  ; RS12KMV000;           ;
+CH3CH2COCH2CH2(ONO2)                                    ;  7.30E-13 ;  7.30E-13 ; 0.  ;     0.  ; RS12KMV000;           ;
+! 
+! Acyclic alkenes
+! 
+CdH2=CdH2                                               ;  9.05e-12 ;  4.58e-12 ; 0.0 ;  -206.0 ; MJ18KMV000;           ;           
+CH3CdH=CdH2                                             ;  3.02e-11 ;  1.36e-11 ; 0.0 ;  -242.0 ; MJ18KMV000;           ;           
+CH3CH2CdH=CdH2                                          ;  3.10e-11 ;  6.60e-12 ; 0.0 ;  -465.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CdH=CdH2                                       ;  3.14e-11 ;  3.14e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CdH=CdH2                                    ;  3.70e-11 ;  3.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CdH=CdH2                                 ;  3.95e-11 ;  3.95e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CdH=CdH2                              ;  4.14e-11 ;  4.14e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CdH=CdH2                           ;  4.32e-11 ;  4.32e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CdH=CdH2                        ;  4.61e-11 ;  4.61e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CdH=CdH2                     ;  4.79e-11 ;  4.79e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CdH=CdH2                  ;  5.03e-11 ;  5.03e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2CdH=CdH2               ;  5.09e-11 ;  5.09e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2CdH=CdH2            ;  4.96e-11 ;  4.96e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+!CH3CdH=CdHCH3                                           ;  5.60e-11 ;  1.10e-11 ; 0.0 ;  -485.0 ; MJ18KMV000; VALUECIS  ;           
+CH3CdH=CdHCH3                                           ;  6.40e-11 ;  1.00e-11 ; 0.0 ;  -553.0 ; MJ18KMV000; VALUETRANS;           
+!CH3CH2CdH=CdHCH3                                        ;  6.50e-11 ;  6.50e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUECIS  ;           
+CH3CH2CdH=CdHCH3                                        ;  6.70e-11 ;  6.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CdH=CdHCH3                                     ;  6.08e-11 ;  6.08e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CH2CdH=CdHCH3                                  ;  6.80e-11 ;  6.80e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CH2CH2CdH=CdHCH3                               ;  7.23e-11 ;  7.23e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CH2CH2CH2CdH=CdHCH3                            ;  7.54e-11 ;  7.54e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CH2CH2CH2CH2CdH=CdHCH3                         ;  7.80e-11 ;  7.80e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CdH=CdHCH2CH2CH3                               ;  6.90e-11 ;  6.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CH2CH2CH2CdH=CdHCH2CH2CH2CH2CH2CH3             ;  7.47e-11 ;  7.47e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUECIS  ;           
+CH3Cd(CH3)=CdH2                                         ;  5.10e-11 ;  9.40e-12 ; 0.0 ;  -505.0 ; MJ18KMV000;           ;           
+CH3CH2Cd(CH3)=CdH2                                      ;  6.10e-11 ;  6.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)CdH=CdH2                                      ;  3.18e-11 ;  5.32e-12 ; 0.0 ;  -533.0 ; MJ18KMV000;           ;           
+CH3CdH=Cd(CH3)CH3                                       ;  8.69e-11 ;  1.92e-11 ; 0.0 ;  -450.0 ; MJ18KMV000;           ;           
+CH3CH2CH2Cd(CH3)=CdH2                                   ;  5.97e-11 ;  5.97e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)CdH=CdH2                                  ;  2.80e-11 ;  2.80e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CdH=Cd(CH3)CH3                                    ;  8.90e-11 ;  8.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CdH=CdHCH(CH3)CH3                                    ;  6.10e-11 ;  6.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3Cd(CH3)=Cd(CH3)CH3                                   ;  1.10e-10 ;  1.10e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2Cd(CH3)=CdH2                                ;  6.50e-11 ;  6.50e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(CH3)(CH3)CH2CdH=CdH2                               ;  2.41e-11 ;  2.41e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2Cd(CH3)=Cd(CH3)CH3                                ;  1.03e-10 ;  1.03e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CdH=CdHC(CH3)(CH3)CH3                                ;  5.50e-11 ;  5.50e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CH2CH2Cd(CH3)=CdH2                             ;  6.71e-11 ;  6.71e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2Cd(CH3)=CdH2                          ;  7.02e-11 ;  7.02e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2Cd(CH3)=CdH2                       ;  7.28e-11 ;  7.28e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2Cd(CH3)=CdH2                    ;  7.85e-11 ;  7.85e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2Cd(CH3)=CdH2                 ;  7.85e-11 ;  7.85e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2Cd(CH3)=CdH2              ;  7.96e-11 ;  7.96e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2Cd(CH3)=CdH2           ;  8.38e-11 ;  8.38e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Acyclic-dialkenes
+! 
+CdH2=Cd=CdH2                                            ;  9.82e-12 ;  7.66e-12 ; 0.0 ;   -74.0 ; MJ18KMV000;           ;           
+CH3CdH=Cd=CdH2                                          ;  2.60e-11 ;  2.60e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CdH=Cd=CdH2                                       ;  3.55e-11 ;  3.55e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH3)=Cd=CdH2                                      ;  5.70e-11 ;  5.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CdH2=CdHCH2CdH=CdH2                                     ;  5.30e-11 ;  5.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CdH=CdHCH2CdH=CdH2                                   ;  9.10e-11 ;  9.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CdH2=CdHCH2CH2CdH=CdH2                                  ;  6.20e-11 ;  6.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CdH2=CdHCH2Cd(CH3)=CdH2                                 ;  7.90e-11 ;  7.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CdH2=CdHCH2CH2Cd(CH3)=CdH2                              ;  9.60e-11 ;  9.60e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CdH2=Cd(CH3)CH2CH2Cd(CH3)=CdH2                          ;  1.20e-10 ;  1.20e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CdH2=CdHCdH=CdH2                                        ;  6.66e-11 ;  1.48e-11 ; 0.0 ;  -448.0 ; MJ18KMV000;           ;           
+CH3CdH=CdHCdH=CdH2                                      ;  1.01e-10 ;  1.01e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUECIS  ;           
+CdH2=CdHCd(CH3)=CdH2                                    ;  1.00e-10 ;  2.70e-11 ; 0.0 ;  -390.0 ; MJ18KMV000;           ;           
+CH3CH2CdH=CdHCdH=CdH2                                   ;  1.12e-10 ;  1.12e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3CdH=CdHCdH=CdHCH3                                    ;  1.34e-10 ;  1.34e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUEMST  ;           
+CH3CdH=CdHCd(CH3)=CdH2                                  ;  1.36e-10 ;  1.36e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH3)=CdHCdH=CdH2                                  ;  1.31e-10 ;  1.31e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CdH2=Cd(CH3)Cd(CH3)=CdH2                                ;  1.22e-10 ;  1.22e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH3)=CdHCdH=Cd(CH3)CH3                            ;  2.10e-10 ;  2.10e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH3)=CdHCH2CH2Cd(=CdH2)CdH=CdH2                   ;  2.15e-10 ;  2.15e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH3)=CdHCH2CdH=Cd(CH3)CdH=CdH2                    ;  2.52e-10 ;  2.52e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! cycloalkenes
+! 
+C1H2CH2CdH=CdHC1H2                                      ;  6.70e-11 ;  6.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CdH=CdHCH2C1H2                                   ;  6.77e-11 ;  6.77e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CdH=CdHCdH=CdHC1H2                                  ;  1.60e-10 ;  1.60e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CdH=CdHCH2CdH=Cd1H                                  ;  9.95e-11 ;  9.95e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CdH=CdHCH2C1H2                                ;  7.40e-11 ;  7.40e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CdH=CdHCdH=CdHC1H2                               ;  1.39e-10 ;  1.39e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2CH2CdH=Cd1CH3                                 ;  9.40e-11 ;  9.40e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C2H2CH2CH(C1H2)CdH=CdHC12H                              ;  4.90e-11 ;  4.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+Cd2H=CdHCH(C1H2)CdH=CdHC12H                             ;  1.20e-10 ;  1.20e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH(CH2C2H2)CdH=CdHC12H                           ;  4.10e-11 ;  4.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CdH2=Cd(C1(CH3)CH3)CH(C2H2)CH2CH2C12H                   ;  5.30e-11 ;  5.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C1(CH3)C2HCdH=Cd(CH3)CH2CH2C12H                      ;  8.00e-11 ;  8.00e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C1(CH3)C2HCH2CdH=Cd(CH3)CH2C12H                      ;  8.80e-11 ;  8.80e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2Cd(CH3)=CdHCH2C1HCd(CH3)=CdH2                    ;  1.65e-10 ;  3.55e-11 ; 0.0 ;  -458.0 ; MJ18KMV000;           ;           
+C12HCH2CH(C1(CH3)CH3)CH2CdH=Cd2CH3                      ;  5.30e-11 ;  1.20e-11 ; 0.0 ;  -440.0 ; MJ18KMV000;           ;           
+CH3C1(CH3)CH(CH2C12H)CH2CH2Cd2=CdH2                     ;  7.43e-11 ;  1.55e-11 ; 0.0 ;  -467.0 ; MJ18KMV000;           ;           
+C1H2CdH=Cd(CH3)CdH=CdHC1HCH(CH3)CH3                     ;  3.20e-10 ;  3.20e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)C1HCdH=CdHCd(CH2C1H2)=CdH2                    ;  1.70e-10 ;  1.70e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH(CH3)C12CH2CH2Cd(C1HC2H2)=CdH2                     ;  1.17e-10 ;  1.17e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2Cd(CH3)=CdHCdH=Cd1CH(CH3)CH3                     ;  3.50e-10 ;  3.50e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CdH=Cd(CH3)CH2CdH=Cd1CH(CH3)CH3                     ;  1.70e-10 ;  1.70e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2Cd(CH3)=CdHCH2Cd1=Cd(CH3)CH3                     ;  2.20e-10 ;  2.20e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C2(CH3)CH(C3H2)Cd(CH3)=CdHCH2C13CH(CH3)CH2CH2C12H    ;  6.70e-11 ;  6.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+!C12HCd(CH3)=CdHCH2C3HC2HCH(CH(CH3)CH3)CH2CH2C13CH3      ;  9.00e-11 ;  9.00e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C12HCd(CH3)=CdHCH2C3HC2HCH(CH(CH3)CH3)CH2CH2C13CH3      ;  2.00e-10 ;  2.00e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CdH=Cd(CH3)CH2CdH=CdHC(CH3)(CH3)CH2CdH=Cd1CH3    ;  2.90e-10 ;  2.90e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+!C1H2CH2CdH=Cd(CH3)CH2CdH=CdHC(CH3)(CH3)CH2CdH=Cd1CH3    ;  4.70e-11 ;  4.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Unsaturated Alcohols
+! 
+CH2(OH)CdH=CdH2                                         ;  5.00e-11 ;  5.70e-12 ; 0.0 ;  -650.0 ; MJ18KMV000;           ;           
+CH3CdH=CdHCH2(OH)                                       ;  8.70e-11 ;  7.40e-12 ; 0.0 ;  -734.0 ; MJ18KMV000;           ;           
+CH3CH(OH)CdH=CdH2                                       ;  5.90e-11 ;  5.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH2(OH))=CdH2                                     ;  9.00e-11 ;  8.10e-12 ; 0.0 ;  -716.0 ; MJ18KMV000;           ;           
+CH3CH2CdH=CdHCH2(OH)                                    ;  1.17e-10 ;  1.17e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUECIS  ;           
+CH3CH2CH(OH)CdH=CdH2                                    ;  7.40e-11 ;  7.40e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH3)=CdHCH2(OH)                                   ;  1.60e-10 ;  1.60e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(OH)(CH3)CdH=CdH2                                   ;  6.30e-11 ;  8.10e-12 ; 0.0 ;  -610.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CdH=CdHCH2(OH)                                 ;  9.62e-11 ;  9.62e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3Cd(CH3)=CdHCH2CH2Cd(CH3)=CdHCH2(OH)                  ;  2.30e-10 ;  2.30e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH3)=CdHCH2CH2CH(CH3)CH2CH2(OH)                   ;  1.70e-10 ;  1.70e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(OH)CH2CdH=CdH2                                      ;  5.50e-11 ;  3.80e-12 ; 0.0 ;  -797.0 ; MJ18KMV000;           ;           
+CH2(OH)CH2Cd(CH3)=CdH2                                  ;  9.40e-11 ;  6.10e-12 ; 0.0 ;  -814.0 ; MJ18KMV000;           ;           
+!CH3CH2CdH=CdHCH2CH2(OH)                                 ;  1.07e-10 ;  1.07e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUECIS  ;           
+CH3CH2CdH=CdHCH2CH2(OH)                                 ;  1.08e-10 ;  1.08e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3C(OH)(CH3)CH2CH2CH2CH(CH3)CdH=CdH2                   ;  3.80e-11 ;  3.80e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3Cd(CH3)=CdHCH2CH2C(OH)(CH3)CdH=CdH2                  ;  1.90e-10 ;  1.90e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2Cd(CH3)=CdHCH2C1HC(OH)(CH3)CH3                   ;  1.90e-10 ;  1.90e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Unsaturated Aldehydes
+! 
+CHOCdH=CdH2                                             ;  2.16e-11 ;  7.10e-12 ; 0.0 ;  -333.0 ; MJ18KMV000;           ;           
+CH3CdH=CdHCHO                                           ;  3.60e-11 ;  6.00e-12 ; 0.0 ;  -533.0 ; MJ18KMV000;           ;           
+CH3Cd(CHO)=CdH2                                         ;  2.90e-11 ;  8.00e-12 ; 0.0 ;  -380.0 ; MJ18KMV000;           ;           
+CH3CH2CdH=CdHCHO                                        ;  4.40e-11 ;  7.90e-12 ; 0.0 ;  -510.0 ; MJ18KMV000; VALUETRANS;           
+CH3Cd(CH3)=CdHCHO                                       ;  6.21e-11 ;  6.21e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CdH=CdHCHO                                     ;  4.30e-11 ;  7.50e-12 ; 0.0 ;  -520.0 ; MJ18KMV000; VALUETRANS;           
+CH3CH2CH2CH2CdH=CdHCHO                                  ;  4.40e-11 ;  9.70e-12 ; 0.0 ;  -450.0 ; MJ18KMV000; VALUETRANS;           
+CdH2=CdHCd(CH2CH2CHO)=CdH2                              ;  1.55e-10 ;  1.55e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+!CHOCH2CdH=Cd(CH3)CdH=CdH2                               ;  1.61e-10 ;  1.61e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUEZ    ;           
+CHOCH2CdH=Cd(CH3)CdH=CdH2                               ;  2.52e-10 ;  2.52e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUEE    ;           
+CH3Cd(CH3)=CdHCH2CH2CH(CH3)CH2CHO                       ;  1.51e-10 ;  1.51e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CHOCdH=CdHCHO                                           ;  5.70e-11 ;  5.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUEZ    ;           
+CH3COCdH=CdHCHO                                         ;  6.10e-11 ;  6.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CHOCdH=CdHCdH=CdHCHO                                    ;  7.60e-11 ;  7.60e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUEE    ; VALUEE   
+!CHOCdH=CdHCdH=CdHCHO                                    ;  7.40e-11 ;  7.40e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUEE    ; VALUEZ          
+CH3Cd(CHO)=CdHCdH=CdHCHO                                ;  1.18e-10 ;  1.18e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUEE    ; VALUEE          
+CH3CdH=CdHCdH=Cd(CH3)CHO                                ;  1.18E-10 ;  1.18E-10 ; 0.0 ;     0.0 ; BK95KMV000;           ;
+! 
+! Unsaturated Ketones
+! 
+CdH2=CdO                                                ;  1.79E-11 ;  1.79E-11 ; 0.  ;      0. ; SH85KMV000;           ;           
+CH3COCdH=CdH2                                           ;  2.00e-11 ;  2.60e-12 ; 0.0 ;  -610.0 ; MJ18KMV000;           ;           
+CH3COCdH=CdHCH3                                         ;  7.22e-11 ;  7.22e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2COCdH=CdHCH3                                      ;  9.04e-11 ;  9.04e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2COCH2CdH=CdH2                                     ;  5.18e-11 ;  5.18e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCH2CH2CdH=Cd(CH3)CH3                               ;  1.57e-10 ;  1.57e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2CH2COCdH=Cd1CH3                                  ;  3.10e-11 ;  3.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2COCH2CdH=Cd1CH3                                  ;  1.10e-10 ;  1.10e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2Cd(CH3)=CdHCOCH2C1(CH3)CH3                          ;  2.40e-11 ;  2.40e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2Cd(CH3)=CdHCH2C1HCOCH3                           ;  1.29e-10 ;  1.29e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCdH=CdHCd1=Cd(CH3)CH2CH2CH2C1(CH3)CH3              ;  1.21e-10 ;  1.21e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COC1(CH3)CH2Cd2=Cd(CH2C1HCH3)CH2CH2CH2C2(CH3)CH3     ;  9.90e-11 ;  9.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+!CH3COC1(CH3)CH2Cd2=Cd(CH2C1HCH3)CH2CH2CH2C2(CH3)CH3     ;  7.70e-11 ;  7.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCdH=CdHCOCH3                                       ;  7.20e-11 ;  7.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUECIS  ;           
+!CH3COCdH=CdHCOCH3                                       ;  5.10e-11 ;  5.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3Cd(OH)=CdHCOCH3                                      ;  8.90e-11 ;  3.27e-12 ; 0.0 ;  -985.0 ; MJ18KMV000;           ;           
+CH3Cd(OH)=Cd(CH3)COCH3                                  ;  6.10e-11 ;  6.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3COCd(OH)=Cd(OH)COCH3                                 ;  2.70e-10 ;  2.70e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Unsaturated Hydroperoxides
+! 
+CH3C(OOH)(CH2(OH))CdH=CdH2                              ;  8.30e-11 ;  8.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(OH)CH(OOH)Cd(CH3)=CdH2                              ;  1.30e-10 ;  1.30e-10 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Unsaturated Carboxylics acids
+! 
+CO(OH)CdH=CdH2                                          ;  1.70e-11 ;  1.70e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+! 
+! Unsaturated Esters
+! 
+CH3CO-O-CdH=CdH2                                        ;  2.49e-11 ;  4.77e-12 ; 0.0 ;  -493.0 ; MJ18KMV000;           ;           
+CH3CO-O-CH2CdH=CdH2                                     ;  2.66e-11 ;  2.29e-12 ; 0.0 ;  -731.0 ; MJ18KMV000;           ;           
+CH3CO-O-Cd(CH3)=CdH2                                    ;  6.72e-11 ;  4.36e-12 ; 0.0 ;  -815.0 ; MJ18KMV000;           ;           
+CH3CO-O-CH2CH2CH2CdH=CdH2                               ;  4.30e-11 ;  4.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CO-O-CH2CH2CdH=CdHCH2CH3                             ;  7.74e-11 ;  7.74e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-COCdH=CdH2                                        ;  1.29e-11 ;  2.00e-12 ; 0.0 ;  -556.0 ; MJ18KMV000;           ;           
+CH3CH2-O-COCdH=CdH2                                     ;  1.59e-11 ;  2.50e-12 ; 0.0 ;  -552.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-COCdH=CdH2                               ;  1.94e-11 ;  3.74e-13 ; 0.0 ; -1177.0 ; MJ18KMV000;           ;           
+CH3-O-COCd(CH3)=CdH2                                    ;  4.07e-11 ;  2.68e-12 ; 0.0 ;  -811.0 ; MJ18KMV000;           ;           
+CH3CH2-O-COCd(CH3)=CdH2                                 ;  4.30e-11 ;  4.30e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3CH2CH2CH2-O-COCd(CH3)=CdH2                           ;  6.58e-11 ;  2.44e-11 ; 0.0 ;  -982.0 ; MJ18KMV000;           ;           
+C1O-O-CdH=CdHC1H2                                       ;  4.42e-11 ;  4.42e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CdH=Cd(CH3)-O-C1O                                   ;  6.78e-11 ;  6.78e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3-O-COCH2CH2CH2Cd(CH3)=CdH2                           ;  6.60E-11 ;  1.65E-11 ; 0.  ;  -413.  ; MB09KMV000;           ;     
+CH3-O-COCH2CH2CH2CdH=CdH2                               ;  1.87E-11 ;  4.40E-13 ; 0.  ; -1117.  ; MB09KMV000;           ;     
+! 
+! Unsaturated Ethers
+! 
+CH3-O-CdH=CdH2                                          ;  3.39E-11 ;  6.10E-12 ; 0.  ; -511.   ; GT06KMV000;           ;           
+CH3CH2-O-CdH=CdH2                                       ;  6.90E-11 ;  1.55E-11 ; 0.  ; -445.   ; GT02KMV000;           ;           
+CH3CH2CH2-O-CdH=CdH2                                    ;  1.00E-10 ;  9.30E-12 ; 0.  ; -708.   ; GT06KMV000;           ;           
+CH3CH2CH2CH2-O-CdH=CdH2                                 ;  1.02E-10 ;  1.50E-11 ; 0.  ; -572.   ; GT06KMV000;           ;           
+CH3CH(CH3)CH2-O-CdH=CdH2                                ;  1.07E-10 ;  1.60E-11 ; 0.  ; -567.   ; GT06KMV000;           ;           
+CH3C(CH3)(CH3)-O-CdH=CdH2                               ;  1.07E-11 ;  1.70E-12 ; 0.  ; -549.   ; GT06KMV000;           ;           
+C1H2-O-Cd(CH3)=CdHC1H2                                  ;  2.18E-10 ;  2.18E-10 ; 0.  ;    0.   ; PM02KMV000;           ; 
+-O1-CdH=CdHCdH=Cd1H                                     ;  4.19E-11 ;  4.19E-11 ; 0.  ;    0.   ; AB92KMV000;           ; 
+-O1-CdH=CdHCdH=Cd1CH3                                   ;  7.31E-11 ;  7.31E-11 ; 0.  ;    0.   ; SA11KMV000;           ;  
+-O1-CdH=CdHCd(CH3)=Cd1H                                 ;  8.73E-11 ;  8.73E-11 ; 0.  ;    0.   ; SA11KMV000;           ;  
+-O1-CdH=CdHCdH=Cd1CH2CH3                                ;  1.08E-10 ;  1.077E-10; 0.  ;    0.   ; AB92KMV000;           ; 
+-O1-Cd(CH3)=CdHCdH=Cd1CH3                               ;  1.25E-10 ;  1.25E-10 ; 0.  ;    0.   ; SA11KMV000;           ;  
+-O1-CdH=CdHCdH=Cd1CHO                                   ;  3.51E-11 ;  3.51E-11 ; 0.  ;    0.   ; AB95KMV000;           ; 
+-O1-CdH=CdHCd(CHO)=Cd1H                                 ;  4.85E-11 ;  4.85E-11 ; 0.  ;    0.   ; AB95KMV000;           ; 
+! 
+! Unsaturated Nitrogen-containing compounds
+! 
+CH2(ONO2)CdH=CdHCH2(ONO2)                               ;  1.40e-11 ;  1.40e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(ONO2)CH(ONO2)CdH=CdH2                               ;  9.32e-12 ;  9.32e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(ONO2)CH(OH)CdH=CdH2                                 ;  3.62e-11 ;  3.62e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(OH)CdH=CdHCH2(ONO2)                                 ;  2.20e-11 ;  2.20e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+!CH3Cd(CH2(OH))=CdHCH2(ONO2)                             ;  1.00e-10 ;  1.00e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3Cd(CH2(OH))=CdHCH2(ONO2)                             ;  1.10e-10 ;  1.10e-10 ; 0.0 ;     0.0 ; MJ18KMV000; VALUECIS  ;           
+CH2(OH)CH(ONO2)Cd(CH3)=CdH2                             ;  3.90e-11 ;  3.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH3C(OH)(CH2(ONO2))CdH=CdH2                             ;  3.40e-11 ;  3.40e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(ONO2)CH(OH)Cd(CH3)=CdH2                             ;  6.60e-11 ;  6.60e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(ONO2)CdH=Cd(CH3)CHO                                 ;  4.10e-11 ;  4.10e-11 ; 0.0 ;     0.0 ; MJ18KMV000; VALUETRANS;           
+CH3Cd(CO(OONO2))=CdH2                                   ;  2.90e-11 ;  2.90e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CdH(NO2)=CdH2                                           ;  1.20e-12 ;  1.20e-12 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+CH2(NO2)CdH=CdH2                                        ;  1.22e-11 ;  1.22e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+C1H2CH2Cd(NO2)=CdHCH2C1H2                               ;  4.37e-11 ;  4.37e-11 ; 0.0 ;     0.0 ; MJ18KMV000;           ;           
+!
+! Monocyclic aromatic Hydrocarbons
+! 
+c1HcHcHcHcHc1H                                          ;  1.20e-12 ;  2.27e-12 ; 0.0 ;   190.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CH3                                        ;  5.60e-12 ;  1.79e-12 ; 0.0 ;  -340.0 ; MJ18KMV001;           ;           
+CH3c1cHcHcHcHc1CH3                                      ;  1.32e-11 ;  1.32e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1Hc(CH3)cHcHcHc1CH3                                    ;  2.29e-11 ;  2.29e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHc(CH3)cHcHc1CH3                                    ;  1.38e-11 ;  8.07e-12 ; 0.0 ;  -160.0 ; MJ18KMV001;           ;           
+CH3c1cHcHcHc(CH3)c1CH3                                  ;  3.08e-11 ;  3.84e-12 ; 0.0 ;  -620.0 ; MJ18KMV001;           ;           
+CH3c1cHcHc(CH3)cHc1CH3                                  ;  3.21e-11 ;  2.77e-12 ; 0.0 ;  -730.0 ; MJ18KMV001;           ;           
+c1Hc(CH3)cHc(CH3)cHc1CH3                                ;  6.00e-11 ;  1.12e-11 ; 0.0 ;  -500.0 ; MJ18KMV001;           ;           
+CH3c1c(CH3)cHcHc(CH3)c1CH3                              ;  6.00e-11 ;  3.83e-12 ; 0.0 ;  -820.0 ; MJ18KMV001;           ;           
+CH3c1cHc(CH3)cHc(CH3)c1CH3                              ;  5.80e-11 ;  1.92e-11 ; 0.0 ;  -330.0 ; MJ18KMV001;           ;           
+CH3c1cHc(CH3)c(CH3)cHc1CH3                              ;  5.50e-11 ;  1.28e-12 ; 0.0 ; -1120.0 ; MJ18KMV001;           ;           
+CH3c1c(CH3)cHc(CH3)c(CH3)c1CH3                          ;  1.03e-10 ;  3.84e-12 ; 0.0 ;  -980.0 ; MJ18KMV001;           ;           
+CH3c1c(CH3)c(CH3)c(CH3)c(CH3)c1CH3                      ;  1.28e-10 ;  1.89e-11 ; 0.0 ;  -570.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CH2CH3                                     ;  6.40e-12 ;  6.40e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHcHcHcHc1CH2CH3                                   ;  1.32e-11 ;  1.32e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1Hc(CH3)cHcHcHc1CH2CH3                                 ;  2.01e-11 ;  2.01e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHc(CH3)cHcHc1CH2CH3                                 ;  1.33e-11 ;  1.33e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CH2CH2CH3                                  ;  5.80e-12 ;  5.80e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CH(CH3)CH3                                 ;  6.30e-12 ;  6.30e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHc(CH3)cHcHc1CH(CH3)CH3                             ;  1.47e-11 ;  1.72e-12 ; 0.0 ;  -640.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1C(CH3)(CH3)CH3                             ;  4.50e-12 ;  4.50e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CdH=CdH2                                   ;  5.80e-11 ;  9.80e-12 ; 0.0 ;  -530.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1Cd(CH3)=CdH2                               ;  5.10e-11 ;  5.10e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CdH=CdHCH3                                 ;  5.70e-11 ;  5.70e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CdH=Cd(CH3)CH3                             ;  3.20e-11 ;  3.20e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+! 
+! Monocyclic aromatic Alcohols
+! 
+c1HcHcHc(OH)cHc1H                                       ;  2.80e-11 ;  4.70e-13 ; 0.0 ; -1220.0 ; MJ18KMV001;           ;           
+c1HcHcHcHc(OH)c1CH3                                     ;  4.10e-11 ;  1.60e-12 ; 0.0 ;  -970.0 ; MJ18KMV001;           ;           
+c1HcHcHc(OH)cHc1CH3                                     ;  5.90e-11 ;  2.30e-12 ; 0.0 ;  -965.0 ; MJ18KMV001;           ;           
+c1HcHc(OH)cHcHc1CH3                                     ;  4.90e-11 ;  1.90e-12 ; 0.0 ;  -970.0 ; MJ18KMV001;           ;           
+CH3c1cHcHcHc(OH)c1CH3                                   ;  8.24e-11 ;  8.24e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1Hc(CH3)c(OH)cHcHc1CH3                                 ;  7.32e-11 ;  7.32e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHc(CH3)c(OH)cHc1CH3                                 ;  8.48e-11 ;  8.48e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHc(CH3)c(OH)c1CH3                                 ;  6.67e-11 ;  6.67e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHcHc(OH)cHc1CH3                                   ;  8.27e-11 ;  8.27e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1Hc(CH3)cHc(OH)cHc1CH3                                 ;  1.14e-10 ;  1.14e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1c(OH)cHc(CH3)cHc1CH3                               ;  1.48e-10 ;  1.48e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1c(OH)c(CH3)cHcHc1CH3                               ;  1.35e-10 ;  1.35e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHc(OH)c(CH3)cHc1CH3                               ;  1.23e-10 ;  1.23e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1Hc(CH3)c(OH)c(CH3)cHc1CH3                             ;  1.67e-10 ;  1.67e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHc(OH)cHc(CH3)c1CH3                               ;  1.55e-10 ;  1.55e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHc(OH)c(OH)cHc1H                                    ;  1.00e-10 ;  1.00e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHc(OH)c(OH)c1CH3                                  ;  2.00e-10 ;  2.00e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHc(OH)c(OH)cHc1CH3                                  ;  1.50e-10 ;  1.50e-10 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CH2(OH)                                    ;  2.70e-11 ;  2.70e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+! 
+! Monocyclic aromatic Aldehydes
+! 
+c1HcHcHcHcHc1CHO                                        ;  1.26e-11 ;  5.90e-12 ; 0.0 ;  -225.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1CdH=CdHCHO                                 ;  4.80E-11 ;  4.80E-11 ; 0.  ;     0.  ; JC02KMV000;           ;
+CH3c1cHcHcHcHc1CHO                                      ;  1.89e-11 ;  1.89e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHcHcHc(c1H)CHO                                    ;  1.68e-11 ;  1.68e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHcHc(CHO)cHc1H                                    ;  1.68e-11 ;  1.68e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHcHcHc(CHO)c1CH3                                  ;  2.55e-11 ;  2.55e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHc(CH3)cHcHc1CHO                                  ;  2.72e-11 ;  2.72e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHcHc(CH3)cHc1CHO                                  ;  2.76e-11 ;  2.76e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHcHcHc(CH3)c1CHO                                  ;  3.03e-11 ;  3.03e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3c1cHcHc(CHO)cHc1CH3                                  ;  2.44e-11 ;  2.44e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1Hc(CH3)cHc(CHO)cHc1CH3                                ;  2.78e-11 ;  2.78e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CHOc1cHcHcHcHc1CHO                                      ;  2.30e-11 ;  2.30e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+CH3COc1cHcHcHcHc1CHO                                    ;  1.70e-11 ;  1.70e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+! 
+! Monocyclic aromatic Ketones
+! 
+CH3COc1cHcHcHcHc1COCH3                                  ;  1.20e-12 ;  1.20e-12 ; 0.0 ;     0.0 ; MJ18KMV001;    VALUEUP;           
+! 
+! Monocyclic aromatic Ethers
+! 
+c1HcHcHcHcHc1-O-CH3                                     ;  1.80e-11 ;  5.20e-12 ; 0.0 ;  -370.0 ; MJ18KMV001;           ;           
+CH3-O-c1cHcHcHcHc1-O-CH3                                ;  3.60e-11 ;  3.60e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHcHcHc1-O-c2cHcHcHcHc2H                           ;  8.20e-12 ;  8.20e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+! 
+! Monocyclic aromatic Esters
+! 
+c1HcHcHcHc(OH)c1CO-O-CH3                                ;  1.10e-11 ;  1.10e-11 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+! 
+! Monocyclic aromatic Nitroarenes
+! 
+c1HcHcHc(NO2)cHc1H                                      ;  1.40e-13 ;  1.40e-13 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHc(NO2)cHc1CH3                                    ;  1.20e-12 ;  1.20e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHc(OH)c(NO2)c1CH3                                 ;  3.69e-12 ;  3.69e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHc(OH)c(NO2)cHc1CH3                                 ;  3.59e-12 ;  3.59e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHc(NO2)c(OH)cHc1CH3                                 ;  6.72e-12 ;  6.72e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+c1HcHcHc(NO2)c(OH)c1CH3                                 ;  2.70e-12 ;  2.70e-12 ; 0.0 ;     0.0 ; MJ18KMV001;           ;           
+! 
+! Bicyclic aromatic
+! 
+c12CH2CH2CH2c1cHcHcHc2H                                 ;  1.90E-11 ;  1.90E-11 ; 0.  ;      0. ; RA03KMV000;           ;
+c12CH2CdH=CdHc1cHcHcHc2H                                ;  7.80E-11 ;  7.80E-11 ; 0.  ;      0. ; RA03KMV000;           ;
+c12CH2CH2CH2CH2c1cHcHcHc2H                              ;  3.40E-11 ;  3.40E-11 ; 0.  ;      0. ; RA03KMV000;           ;
+c12cHcHcHcHc1cHcHcHc2H                                  ;  2.31E-11 ;  1.56E-11 ; 0.  ;   -117  ; RA03KMV000;           ;
+!
+END 

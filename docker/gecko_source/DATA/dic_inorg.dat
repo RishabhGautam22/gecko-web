@@ -1,0 +1,43 @@
+!=======================================================================
+! list of species.
+! -------------------------------------------------------
+!
+! this file is read up to the keyword END. Comment lines (! as 1st 
+! character) can be placed anywhere in the file.
+!
+! If the second column (formula) does not represent a "real formula",  
+! then lowercase should be prefered.
+!                                                                                                         
+! The format of the line is free but include at least the name and 
+! the formula the species. 
+!
+! The formula is the "ID" of a given species. Therefore, formulae 
+! for organic species must be given according to the rules that are
+! used in the program. The name (1st column) of the species is "free". 
+!
+! The program counts the number of "C" in formula, so avoid to use for 
+! example "CARBONMONOXIDE" as a formula for CO. 
+! If a "usual formula" is not used in the second column, it is best 
+! to use lowercase to avoid any confusion with the characters "C","O",
+! "N","H" used to define atoms.  Also avoid "c".
+!=======================================================================
+! inorganic species (HOx, NOx, Ox chemistry)
+HNO2     HNO2                                                             
+H2       H2                                                                                                              
+H2O      H2O                                                                                                             
+H2O2     H2O2                                                                                                            
+HNO3     HNO3                                                                                                            
+HNO4     HNO4                                                                                                            
+HO       HO                                                                                                              
+HO2      HO2                                                                                                             
+N2O5     N2O5                                                                                                            
+NO       NO                                                                                                              
+NO2      NO2                                                                                                             
+NO3      NO3                                                                                                             
+O3P      O                                                                                                               
+O1D      O*                                                                                                              
+O2       O2                                                                                                              
+O3       O3                                                                                                              
+SO2      SO2 
+SULF     sulf
+END

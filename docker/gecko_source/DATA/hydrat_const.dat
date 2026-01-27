@@ -1,0 +1,71 @@
+! List of the hydration constants
+! ----------------------------------
+! This file is read up to the keyword END. Comment line ("!"  as 1st 
+! character) can be placed everywhere in the file.
+! 
+! Data after the "!" are not read.
+! 
+! Constants are in log unit
+! =================================================================
+CH3CHO                        ;     0.08    ; HB80HMV000  ;  ;
+CH3CH2CHO                     ;     0.09    ; HB80HMV000  ;  ;  
+CH3CH2CH2CHO                  ;     -0.24   ; HB80HMV000  ;  ;
+CH3CH2CH2CH2CHO               ;     -0.26   ; YS95HMV000  ;  ;
+CH3CH2CH2CH2CH2CHO            ;     -0.31   ; YS95HMV000  ;  ;
+CH3CH(CH3)CHO                 ;     -0.29   ; YS95HMV000  ;  ;
+CH3C(CH3)(CH3)CHO             ;     -0.64   ; PL68HMV000  ;  ;
+CH2(Cl)CHO                    ;     1.46    ; PL68HMV000  ;  ;
+CH3C(Cl)(CH3)CHO              ;     1.19    ; PL68HMV000  ;  ;
+CH3CH2CH(Cl)CHO               ;     1.61    ; PL68HMV000  ;  ;
+CH3CH2CH2CH2CH2CH(Cl)CHO      ;     1.28    ; PL68HMV000  ;  ;
+C(Cl)(Cl)(Cl)CHO              ;     4.45    ; PL68HMV000  ;  ;
+CH3CH2CH2CH2CH2C(Br)(Br)CHO   ;     1.44    ; PL68HMV000  ;  ;
+CH3CH2CH(Br)CHO               ;     1.12    ; PL68HMV000  ;  ;
+CH2(OH)CHO                    ;     0.95    ; HB80HMV000  ;  ;
+CH3CH(OH)CHO                  ;     1.36    ; HB80HMV000  ;  ;
+CO(OH)CHO                     ;     3.04    ; YT98HMV000  ;  ;
+CHOCHO                        ;     2.24    ; MM94HMV000  ;  ;
+CH(OH)(OH)CHO                 ;     2.31    ; MM94HMV000  ;  ;
+CHOCH2CH2CH2CHO               ;     0.57    ; MM00HMV000  ;  ;
+CH3COCHO                      ;     3.14    ; MM94HMV000  ;  ;
+c1HcHcHcHcHc1COCHO            ;     2.6     ; MM94HMV000  ;  ;
+CH3COCH3                      ;    -2.85    ; JG78HMV000  ;  ;
+CH3COCH2(F)                   ;    -0.78    ; JG78HMV000  ;  ;
+CH3COCH2(Cl)                  ;    -1.04    ; PL68HMV000  ;  ;
+CH3COCH2(Br)                  ;    -1.15    ; PL68HMV000  ;  ;
+! CH3COCH(Cl)(Cl)              ;    0.45    ; JG75HMV000  ;  ;
+CH2(Cl)COCH2(Cl)              ;     0.62    ; JG75HMV000  ;  ;
+CH2(Br)COCH2(Br)              ;     0.27    ; HB80HMV000  ;  ;
+! CH3COC(F)(F)(F)              ;     1.54   ; HB80HMV000  ;  ;
+! C(F)(F)(F)COC(F)(F)(F)       ;     6.08   ; JG75HMV000  ;  ;
+! CH3COCH2COC(F)(F)(F)         ;     1.89   ; JG75HMV000  ;  ;
+CH3COCO(OH)                   ;     0.47    ; JK87HMV000  ;  ;
+CH3CH2COCO(OH)                ;     0.23    ; HB80HMV000  ;  ;
+CH3CH(CH3)COCO(OH)            ;     0.05    ; AC75HMV000  ;  ;
+CH3CH2CH(CH3)COCO(OH)         ;     0.18    ; AC75HMV000  ;  ;
+CH3CH(CH3)CH2CH2COCO(OH)      ;     -0.95   ; AC75HMV000  ;  ;
+CO(OH)CH2COCO(OH)             ;     0.85    ; JK87HMV000  ;  ;
+CO(OH)CH2CH2COCO(OH)          ;     0.34    ; JK87HMV000  ;  ;
+CO(OH)CH2CH2CH2COCO(OH)       ;     0.23    ; AC75HMV000  ;  ;
+c1HcHcHcHcHc1CH2COCO(OH)      ;     0.6     ; AC75HMV000  ;  ;
+CH3CH2-O-COCOCH2CO(OH)        ;     0.89    ; JK87HMV000  ;  ;
+CH3CH2-O-COCH2CH2COCO-O-CH2CH3  ;     0.39   ; JK87HMV000  ;  ;
+CH3CH2-O-COCH2COCO-O-CH2CH3   ;     1.15    ; JK87HMV000  ;  ;
+CO(OH)COCO(OH)                ;     2.00    ; PL68HMV000  ;  ;
+CH3COCOCH3                    ;     0.22     ; PZ02HMV000  ;  ;
+CH3CH2COCOCH2CH3              ;     0.01     ; MM94HMV000  ;  ;
+CH3CH2COCOCH3                 ;     0.10     ; HB82HMV000    ;  ;
+CH3COCO-O-CH3                 ;     0.41     ; HB82HMV000  ;  ;
+CH3COCO-O-CH2CH3              ;     0.41     ; HB82HMV000  ;  ;
+CH2(F)COCO(OH)                ;     2.58     ; TH79HMV000  ;  ;
+c1HcHcHcHcHc1CHO              ;     -2.10    ; RM83HMV000  ;  ;
+c1HcHc(Cl)cHcHc1CHO           ;     -1.80    ; RM83HMV000  ;  ;
+c1HcHcHc(Cl)cHc1CHO           ;     -1.66    ; RM83HMV000  ;  ;
+c1HcHc(Cl)c(Cl)cHc1CHO        ;     -1.35    ; RM83HMV000  ;  ;
+! C(F)(F)(F)c1cHcHc(CHO)cHc1H  ;     -1.26    ; RM83HMV000  ;  ;
+c1HcHcHc(NO2)cHc1CHO          ;     -0.96    ; RM83HMV000  ;  ;
+c1HcHc(NO2)cHcHc1CHO          ;     -0.77    ; RM83HMV000  ;  ;
+c1HcHc(Cl)c(NO2)cHc1CHO       ;     -0.74    ; RM83HMV000  ;  ;
+c1Hc(NO2)cHc(NO2)cHc1CHO      ;     0.32     ; RM83HMV000  ;  ;
+c1HcHc(Cl)c(CHO)c(NO2)c1H     ;     -0.47    ; JG00HMV000  ;  ;
+END

@@ -1,0 +1,71 @@
+!=======================================================================
+! List of the 'constrained' VOC + OH reactions
+! ---------------------------------------------
+!
+! this file is read up to the keyword END. Comment line (! as 1st 
+! character) can be placed everywhere in the file, EXCEPT BETWEEN A 
+! GIVEN BLOCK OF DATA.
+!
+! for each VOC, format of the file is:
+! - first line = chemical formula of the VOC considered + number of 
+!   different compounds (i.e line to be read) produced by the reaction +
+!   code for references (at least one ";"). Number of code is free, each 
+!   separated by ";" (up to 3)
+! - following lines = yield + chemical formula of the major product +
+!   name of the coproducts (6 character). The number of coproducts  
+!   allowed must not exceed max co-product per species.
+!=======================================================================
+!
+! Orlando and Tyndall IJCK 2001
+CHOCHO : 2   ;  FORCEDREAC ; 
+0.70 : CHO.   + CO        
+0.30 : CHOCO. 
+!
+! SAPRC 99 
+CH3-O-CH2-O-CH3 : 2  ;  FORCEDREAC ; WC99KMV000 ;
+0.67 : CH3-O-CH2-O-CH2(.) 
+0.33 : CH3-O-CH(.)-O-CH3 
+!
+! SAPRC 99
+CH3CO-O-CH3 : 1   ;  FORCEDREAC ; WC99KMV000 ;
+1.00 : CH3CO-O-CH2(.)
+!
+! Grussdorf 1994 (Ber. Bunsenges. Phys. Chem. 98, 546-553) [product = CH2(OH).]
+CdH2=CdO : 1  ; FORCEDREAC ;
+1.00 : CH2O + CO   
+!
+! a-pinene : Peeters et al. 2001
+C12HCH2CH(C1(CH3)CH3)CH2CdH=Cd2CH3 : 6  ;  FORCEDREAC ; JP01MTV000 ;
+0.09 : C12HCH2CH(C1(CH3)CH3)CdH=CdHC2(OO.)CH3			  
+0.01 : CH3C1(CH3)CH(CH2C12H)CH2CH(OO.)Cd2=CdH2			  
+0.02 : C12HCH2CH(C1(CH2(OO.))CH3)CH2CdH=Cd2CH3			  
+0.22 : C12HCH2CH(C1(CH3)CH3)CH2CH(OH)C2(OO.)CH3  		  
+0.44 : C12HCH2CH(C1(CH3)CH3)CH2CH(OO.)C2(OH)CH3  		  
+0.22 : C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 		  
+!
+! Isoprene + OH; Paulot 2009 (Atmos. Chem. Phys. 9, 1479-1501) Figure 1.
+! specify peroxy radical products to avoid activating delocalisation routine!
+CH3Cd(=CdH2)CdH=CdH2 : 6  ;  FORCEDREAC ; FP09MTV000 ;
+0.02 : CdH2=CdHC(OH)(CH3)CH2(OO.)
+0.05 : CH3Cd(=CdH2)CH(OH)CH2(OO.)
+0.41 : CH3C(OO.)(CH2(OH))CdH=CdH2
+0.23 : CH2(OH)CH(OO.)Cd(CH3)=CdH2
+0.15 : CH3Cd(CH2(OH))=CdHCH2(OO.)
+0.14 : CH2(OH)CdH=Cd(CH3)CH2(OO.)
+!
+! Isoprene +OH (reduced mechanism version):
+!CH3Cd(=CdH2)CdH=CdH2 : 4   ;  DUMOHPROD1 ; DUMOHPROD2 ;
+!0.46 : CH3C(OO.)(CH2(OH))CdH=CdH2
+!0.25 : CH2(OH)CH(OO.)Cd(CH3)=CdH2
+!0.15 : CH3Cd(CH2(OH))=CdHCH2(OO.)
+!0.14 : CH2(OH)CdH=Cd(CH3)CH2(OO.)
+!
+! Isoprene MCM 3.3
+!CH3Cd(=CdH2)CdH=CdH2 : 5  ;  FORCEDREAC  ; MCMRX ;
+!0.56 : CH2(OO.)CdH=Cd(CH3)CH2(OH)
+!0.022 : CH2(OO.)CH(OH)Cd(CH3)=CdH2
+!0.02 : CH3Cd(=CdH2)CH2CHO + HO2
+!0.042 : CH3COCH2CdH=CdH2
+!0.356 : CH2(OO.)Cd(CH3)=CdHCH2(OH)
+END
+===============================================================

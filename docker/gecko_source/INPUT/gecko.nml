@@ -1,0 +1,26 @@
+&dir
+dirgecko='/Users/rgpro/Documents/GEKO/docker/gecko_source/'              ! GECKO-A directory
+dirout='/Users/rgpro/Documents/GEKO/docker/gecko_source/RUN/OUT/'        ! OUT directory (must exist before running gecko)
+/
+&thresholds
+critvp = -13.0                ! log(Pvap) below which chemistry is ignored
+brcut  = 0.05               ! rx cut off branching ratio below which a reaction pathway is ignored
+yldcut = 1E-3               ! rx cut off if: (rx branching ratio)*(yield) is below threshold
+rxloss = 1E-10              ! send to lost carbon if species yield below threshold
+/
+&env_cond
+TK = 298.0               ! reference temperature used to compute branching ratios
+/
+&reductions
+maxgen = 2                  ! maximum # of generations allowed
+isomerfg = .TRUE.           ! allow isomer substitution
+highnoxfg = .FALSE.         ! only NO chemistry for RO2 considered 
+rx_ro2_multiclass = .TRUE.  ! treat RO2+RO2 with the 9 classes (true) of ro2 or only CH3O2 (false)
+/
+&sar
+pvap_sar = 2                ! select the SAR for vapor pressure: 1=JR-MY; 2=Nannoolal; 3=SIMPOL-1
+/
+&process
+g2pfg = .TRUE.              ! flag to write for gas/particle partitioning "reactions"
+g2wfg = .FALSE.             ! flag to write for gas/wall partitioning "reactions" (chamber simulations)
+/

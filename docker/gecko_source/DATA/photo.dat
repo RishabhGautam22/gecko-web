@@ -1,0 +1,103 @@
+! ======================================================================
+! photolytic reaction and their associated label and product
+! ----------------------------------------------------------
+!
+! This file is read up to the keyword END. Comment line (! as 1st 
+! character) can be placed everywhere in the file.
+!
+! - first column: gives the formula of the species
+! - second column: is the label associated to the reaction (integer)
+! - third and fourth: are the formula of the 2 fragmentation products.
+! - fifth  : gives the coproduct of the reaction. If no
+!   coproduct, then use '-'. The coproduct must be given using the name
+!   (i.e. the 6 character name) of the species, not the formula.
+! ======================================================================
+CH3(ONO2)                     |  100  | CH3(O.)                       | NO2                  | -   ; DUM1JDAT ; 
+CH3CH2(ONO2)                  |  200  | CH3CH2(O.)                    | NO2                  | -   ; DUM1JDAT ; 
+CH3CH2CH2(ONO2)               |  300  | CH3CH2CH2(O.)                 | NO2                  | -   ; DUM1JDAT ; 
+CH3CH(ONO2)CH3                |  400  | CH3CH(O.)CH3                  | NO2                  | -   ; DUM1JDAT ; 
+CH3CH2CH2CH2(ONO2)            |  500  | CH3CH2CH2CH2(O.)              | NO2                  | -   ; DUM1JDAT ; 
+CH3CH(ONO2)CH2CH3             |  600  | CH3CH(O.)CH2CH3               | NO2                  | -   ; DUM1JDAT ; 
+CH3C(ONO2)(CH3)CH3            |  700  | CH3C(O.)(CH3)CH3              | NO2                  | -   ; DUM1JDAT ; 
+CH3CH2CH2CH2CH2(ONO2)         |  800  | CH3CH2CH2CH2CH2(O.)           | NO2                  | -   ; DUM1JDAT ; 
+CH3CH(ONO2)CH2CH2CH3          |  900  | CH3CH(O.)CH2CH2CH3            | NO2                  | -   ; DUM1JDAT ; 
+CH3CH2CH(ONO2)CH2CH3          | 1000  | CH3CH2CH(O.)CH2CH3            | NO2                  | -   ; DUM1JDAT ; 
+CH3CH2CH(CH3)CH2(ONO2)        | 1100  | CH3CH2CH(CH3)CH2(O.)          | NO2                  | -   ; DUM1JDAT ; 
+CH3(OONO2)                    | 1200  | CH3(OO.)                      | NO2                  | -   ; DUM1JDAT ; 
+CH3(OONO2)                    | 1300  | CH3(O.)                       | NO3                  | -   ; DUM1JDAT ; 
+CH3CO(OONO2)                  | 1400  | CH3CO(OO.)                    | NO2                  | -   ; DUM1JDAT ; 
+CH3CHO                        | 1700  | CH3.                          | CHO.                 | -   ; DUM1JDAT ; 
+CH3CH2CHO                     | 1800  | CH3CH2.                       | CHO.                 | -   ; DUM1JDAT ; 
+CH3CH2CH2CHO                  | 1900  | CH3CH2CH2.                    | CHO.                 | -   ; DUM1JDAT ; 
+CH3CH2CH2CHO                  | 2000  | CdH2=CdH2                     | CH3CHO               | -   ; DUM1JDAT ; 
+CH3CH(CH3)CHO                 | 2100  | CH3CH.CH3                     | CHO.                 | -   ; DUM1JDAT ; 
+CH3CH2CH2CH2CHO               | 2300  | CH3CH2CH2CH2.                 | CHO.                 | -   ; DUM1JDAT ; 
+CH3CH2CH2CH2CHO               | 2400  | CH3CHO                        | CdH2=CdHCH3          | -   ; DUM1JDAT ; 
+CH3CH(CH3)CH2CHO              | 2500  | CH3CH(CH3)CH2.                | CHO.                 | -   ; DUM1JDAT ; 
+CH3CH(CH3)CH2CHO              | 2600  | CH3CHO                        | CdH2=CdHCH3          | -   ; DUM1JDAT ; 
+CH3C(CH3)(CH3)CH2CHO          | 2700  | CHO.                          | CH3C(CH3)(CH3)CH2.   | -   ; DUM1JDAT ; 
+CH3CH2CH2CH2CH2CHO            | 2800  | CHO.                          | CH3CH2CH2CH2CH2.     | -   ; DUM1JDAT ; 
+CH3CH2CH2CH2CH2CHO            | 2900  | CH3CHO                        | CdH2=CdHCH2CH3       | -   ; DUM1JDAT ; 
+CH3COCH3                      | 3000  | CH3CO.                        | CH3.                 | -   ; DUM1JDAT ; 
+CH3COCH2CH3                   | 3100  | CH3CH2.                       | CH3CO.               | -   ; DUM1JDAT ; 
+CH3COCH2CH3                   | 3200  | CH3.                          | CH3CH2CO.            | -   ; DUM1JDAT ; 
+CH3COCH2CH2CH3                | 3300  | CH3CH2CH2.                    | CH3CO.               | -   ; DUM1JDAT ; 
+CH3CH2COCH2CH3                | 3400  | CH3CH2CO.                     | CH3CH2.              | -   ; DUM1JDAT ; 
+CH3CH(CH3)COCH(CH3)CH3        | 3500  | CH3CH(CH3)CO.                 | CH3CH.CH3            | -   ; DUM1JDAT ; 
+CH3COCH2CH(CH3)CH3            | 3600  | CH3CO.                        | CH2.CH(CH3)CH3       | -   ; DUM1JDAT ; 
+CH3COCH2CH(CH3)CH3            | 3700  | CH3COCH3                      | CdH2=CdHCH3          | -   ; DUM1JDAT ; 
+CH3COCH2CH2CH(CH3)CH3         | 3800  | CH3CO.                        | CH2.CH2CH(CH3)CH3    | -   ; DUM1JDAT ; 
+CH3COCH2CH2CH(CH3)CH3         | 3900  | CH3COCH3                      | CdH2=Cd(CH3)CH3      | -   ; DUM1JDAT ; 
+CdH2=CdHCHO                   | 4000  | CdH2=CdHCO.                   | HO2                  | -   ; DUM1JDAT ; 
+CdH2=CdHCHO                   | 4100  | CdH2=CdH.                     | CHO.                 | -   ; DUM1JDAT ; 
+CdH2=CdHCHO                   | 4200  | CH3CH.(OO.)*                  | CO                   | -   ; DUM1JDAT ; 
+CdH2=Cd(CH3)CHO               | 4300  | CdH2=Cd.CH3                   | CHO.                 | -   ; DUM1JDAT ; 
+CdH2=Cd(CH3)CHO               | 4400  | CH3C.(OO.)*CH3                | CO                   | -   ; DUM1JDAT ; 
+CdH2=Cd(CH3)CHO               | 4500  | CdH2=Cd(CH3)CO.               | HO2                  | -   ; DUM1JDAT ; 
+CH3CdH=CdHCHO                 | 4600  | CH3CdH=CdH.                   | CHO.                 | -   ; DUM1JDAT ; 
+CH3CdH=CdHCHO                 | 4700  | CH3CdH=CdHCO.                 | HO2                  | -   ; DUM1JDAT ; 
+CH3CdH=CdHCHO                 | 4800  | CH3CH2CH.(OO.)*               | CO                   | -   ; DUM1JDAT ; 
+CdH2=CdHCOCH3                 | 4900  | CdH2=CdHCH3                   | CO                   | -   ; DUM1JDAT ; 
+CdH2=CdHCOCH3                 | 5000  | CdH2=CdH.                     | CH3CO.               | -   ; DUM1JDAT ; 
+CHOCHO                        | 5100  | H2                            | CO                   | CO  ; DUM1JDAT ; 
+CHOCHO                        | 5200  | CHO.                          | CHO.                 | -   ; DUM1JDAT ; 
+CHOCHO                        | 5300  | CH2O                          | CO                   | -   ; DUM1JDAT ; 
+CH3COCHO                      | 5400  | CHO.                          | CH3CO.               | -   ; DUM1JDAT ; 
+CH3COCHO                      | 5500  | CO                            | CH3CHO               | -   ; DUM1JDAT ; 
+CH3COCHO                      | 5600  | CO                            | CO                   | CH4 ; DUM1JDAT ; 
+CH3COCOCH3                    | 5700  | CH3CO.                        | CH3CO.               | -   ; DUM1JDAT ; 
+CHOCdH=CdHCdH=CdHCHO          | 5800  | CHO.                          | CdH.=CdHCdH=CdHCHO   | -   ; DUM1JDAT ; 
+CHOCdH=CdHCdH=CdHCHO          | 5900  | CHOCdH=CdHCdH=CdHCO.          | HO2                  | -   ; DUM1JDAT ; 
+CHOCd(CH3)=CdHCdH=CdHCHO      | 6100  | CHOCd(CH3)=CdHCdH=CdH.        | CHO.                 | -   ; DUM1JDAT ; 
+CHOCd(CH3)=CdHCdH=CdHCHO      | 6200  | CHO.                          | CH3Cd.=CdHCdH=CdHCHO | -   ; DUM1JDAT ; 
+CHOCd(CH3)=CdHCdH=CdHCHO      | 6300  | CHOCd(CH3)=CdHCdH=CdHCO.      | HO2                  | -   ; DUM1JDAT ; 
+CHOCd(CH3)=CdHCdH=CdHCHO      | 6400  | CO.Cd(CH3)=CdHCdH=CdHCHO      | HO2                  | -   ; DUM1JDAT ; 
+CH3CH(ONO2)CH2(ONO2)          | 6500  | CH3CH(O.)CH2(ONO2)            | NO2                  | -   ; DUM1JDAT ; 
+CH3CH(ONO2)CH2(ONO2)          | 6600  | CH3CH(ONO2)CH2(O.)            | NO2                  | -   ; DUM1JDAT ; 
+CH3CH2CH(ONO2)CH2(ONO2)       | 6700  | CH3CH2CH(O.)CH2(ONO2)         | NO2                  | -   ; DUM1JDAT ; 
+CH3CH2CH(ONO2)CH2(ONO2)       | 6800  | CH3CH2CH(ONO2)CH2(O.)         | NO2                  | -   ; DUM1JDAT ; 
+CH3CH(ONO2)CH(ONO2)CH3        | 6900  | CH3CH(O.)CH(ONO2)CH3          | NO2                  | -   ; DUM1JDAT ; 
+CH2(ONO2)CH(ONO2)CdH=CdH2     | 7000  | CH2(ONO2)CH(O.)CdH=CdH2       | NO2                  | -   ; DUM1JDAT ; 
+CH2(ONO2)CH(ONO2)CdH=CdH2     | 7100  | CH2(O.)CH(ONO2)CdH=CdH2       | NO2                  | -   ; DUM1JDAT ; 
+CH2(ONO2)CdH=CdHCH2(ONO2)     | 7200  | CH2(ONO2)CdH=CdHCH2(O.)       | NO2                  | -   ; DUM1JDAT ; 
+CH3OOH                        | 7300  | CH3(O.)                       | HO                   | -   ; DUM1JDAT ; 
+CH2(OH)CHO                    | 7400  | CH2.(OH)                      | CHO.                 | -   ; DUM1JDAT ; 
+CH2(OH)CH2(ONO2)              | 7500  | CH2(OH)CH2(O.)                | NO2                  | -   ; DUM1JDAT ; 
+CH2(OH)COCH3                  | 7600  | CH2.(OH)                      | CH3CO.               | -   ; DUM1JDAT ; 
+CH2(OH)(OOH)                  | 7700  | CH2(O.)(OH)                   | HO                   | -   ; DUM1JDAT ; 
+CHOCO(OH)                     | 7800  | CO2                           | CH2O                 | -   ; DUM1JDAT ; 
+CHOCO(OH)                     | 7900  | CO                            | CO                   | -   ; DUM1JDAT ; 
+CO(OH)CO(OH)                  | 8000  | CO2                           | CHO(OH)              | -   ; DUM1JDAT ; 
+CO(OH)CO(OH)                  | 8100  | CO2                           | CO                   | -   ; DUM1JDAT ; 
+CH3COCO(OH)                   | 8200  | CO2                           | CH3CHO               | -   ; DUM1JDAT ; 
+CHOCO(OOH)                    | 7800  | CHO(OH)                       | CO2                  | -   ; DUM1JDAT ; 
+CHOCO(OOH)                    | 7900  | CO                            | CO2                  | -   ; DUM1JDAT ; 
+CO(OONO2)CHO                  | 5200  | CHO.                          | CO                   | NO2 ; DUM1JDAT ; 
+CH3CH(ONO)CH3                 | 40000 | CH3CH(O.)CH3                  | NO                   | -   ; DUM1JDAT ; 
+!CH3COCH2(ONO2)                | 40001 | CH3COCH2(O.)                  | NO2                  | -  ; DUM1JDAT ; 
+!CH3COCH(ONO2)CH3              | 40002 | CH3COCH(O.)CH3                | NO2                  | -  ; DUM1JDAT ; 
+!CH3COC(ONO2)(CH3)CH3          | 40003 | CH3COC(O.)(CH3)CH3            | NO2                  | -  ; DUM1JDAT ; 
+END                                                                                                  
+!*******************************************************************************************************        
+! label 1-9000 = available data
+! label 9000 - 9999 = data from other species for particular species

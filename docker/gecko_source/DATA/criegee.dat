@@ -1,0 +1,26 @@
+! Criegee forced reactions, products and their associated rate constant
+! ----------------------------------------------------------
+!
+! this file is read up to the keyword END.
+! Comment line (! as first character) can be placed  
+! everywhere in the file.
+!
+! - first column : gives the formula of the species (must start at the
+!   character of the line
+! - second column : gives the formula of 2nd reactant
+! - third and fourth columns : stochiometric coefficient and first product
+! - 5th and 6th columns      : stochiometric coefficient and second product
+! - 7th and 8th columns      : stochiometric coefficient and third product
+! - 9th and 10th columns     : stochiometric coefficient and fourth product
+! - 11th column : arrhenius coefficient for the reaction
+! A 'space 
+!   character' must be inserted between '|' and the beginning of the 
+!   formula
+! if no product, let 1 or any value for the associated stochimetric coefficient, no '-'
+! for inorganic species, put the gecko name without the 'G' : e.g. HO, NO, NO2, O3 ...
+! for reaction with O2, the second reactant must be OXYGEN.
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+END
+CH3CH.(ZOO.) | CHO(OH) | 1.0 |  CH3CH(OOH)-O-CHO | 0.0 | - | 0.0 | - | 0.0 | - |  2.00E-10  0.0  0. ; FORCEDREAC 

@@ -1,0 +1,292 @@
+!***********************************************************************
+! This file gives the inorganic reactions that are pasted              *
+! into the chemical scheme given as output.                            *
+! UPDATED for JPL 10-6 (2011) by Julia Lee-Taylor, NCAR/CU 2015        *
+! CAUTION! Must be used with spakkextra5 or later !
+! --------------------                                                 *
+! Format of the file :                                                 *
+! --------------------                                                 *
+!                                                                      *
+! - END OF FILE  :                                                     *
+!        set by the keyword END                                        *
+!                                                                      *
+! - COMMENT LINE :                                                     *
+!        must be given using a "*" has first character                 *
+!                                                                      *
+! - THERMAL REACTIONS :                                                *
+!        The format for simple thermal reaction is :                   *
+!             reactants => products : A  n  E ;                        *
+!        with the rate constant being k = A*(T)^n*exp(-E/T)            *
+!        The unit system is :                                          *
+!           A : molecule - cm3 - s                                     *
+!           n : dimensionless                                          *
+!           E : Kelvin (E=Ea/R)                                        *
+!                                                                      *
+! - FALL OFF REACTIONS                                                 *
+!        FALL OFF REACTION ARE GIVEN WITH THE KEYWORD "(+M)"           *
+!        The format for the fall off reaction is :                     *
+!           reactants (+M)=> products (+M): a1  a2  a3  a4 ;           *
+!                                   B  m  E (parameters for k0)        *
+!                                   B  m  E (parameters for kinfinite) *
+!        with : k0 = B*(T/300)^m*exp(-E/T) and a similar expression    *
+!        for Kinfinite. The rate constant is computed according        *
+!        to the Troe expression :                                      *
+!           k= [k0[M]/(1+k0[M]/kinf)] * F ^ {1/[1+[log(k0[M]/kinf)]^2]}*
+!        Various expression for F can be set, depending on the value   *
+!        of a2 and a4 :                                                *
+!            - IF (a2 equal 0) THEN F=a1                               *
+!            - IF (a2 not equal 0) and (a4 not equal 0) THEN           *
+!                 F=(1-a1)*exp(-T/a2) + a1*exp(-T/a3) + exp(-a4/T)     *
+!            - IF (a2 not equal 0) and (a4 equal 0) THEN               *
+!                 F=(1-a1)*exp(-T/a2) + a1*exp(-T/a3)                  *
+!                                                                      *
+! - REACTIONS WITH SPECIAL REACTION RATE                               *
+!        THESE REACTIONS ARE GIVEN WITH THE KEYWORD "EXTRA" and are    *
+!        typically used for reactions involving a reactant not         *
+!        set by the system of ODE  (exemple O2, H2O) or when the       *
+!        reaction has a particular expression rate                     *
+!        The format for these reactions is :                           *
+!           reactants + EXTRA => products : A  n  E ;                  *
+!               ii : xx1 xx2 xx3 ... ;                                 *
+!        A, n, E : have the same meaning than thermal reaction         *
+!        ii : is a label (for ex. label 100 is used for O2 reactions)  *
+!        xx1, xx2, ... : is optional additionnal information (numbers) *
+!                                                                      *
+! - PHOTOLYTIC REACTIONS                                               *
+!        THESE REACTIONS ARE GIVEN WITH THE KEYWORD "HV"               *
+!        The format is :                                               *
+!           reactants +HV => products : jj kk                          *
+!        jj : is a label (allow to find the corresponding J values)    *
+!             labels correspond to TUV labels where applicable         *
+!        kk : multiplicating factor                                    *
+!***********************************************************************
+!
+! THERMAL REACTION
+! ----------------
+!
+! NASA 1997 - reaction produces 2 O2
+GO3P + GO3 => NOTHING                         : 8.00E-12  0.   2060 ;
+!
+! NASA JPL 10-6 (2011)
+GO3P + GNO2 => GNO                            : 5.10E-12  0.   -210 ;
+!
+! NASA JPL 10-6 (2011)
+!GO1D + GN2 => GO3P + GN2                      : 2.15E-11  0.   -110 ;
+!GO1D + GO2 => GO3P + GO2                      : 3.30E-11  0.    -55 ;
+! Since N2 and O2 are not explicitly considered, use TWO "+M" reactions:
+GO1D +TBODY => GO3P                            : 1.677E-11  0.0   -110. ; ! JPL 10-6 (O1D + N2): A = 2.15e-11 * 78%
+GO1D +TBODY => GO3P                            : 6.765E-12  0.0    -55. ; ! JPL 10-6 (O1D + O2): A = 3.3e-11 * 20.5%
+!
+! NASA 2000
+GO3 + GNO => GNO2                             : 3.00E-12  0.   1500 ;     
+! 
+! NASA 1997
+GO3 + GNO2 => GNO3                            : 1.20E-13  0.   2450 ;
+!
+! NASA 1997
+GNO + GNO3 => 2. GNO2                         : 1.50E-11  0.   -170 ;
+!
+! IUPAC 1997 - Supp V
+GNO + GNO +TBODY => 2. GNO2                   : 3.30E-39  0.   -530 ;
+!
+! NASA 1997
+GNO2 + GNO3 => GNO + GNO2                     : 4.50E-14  0.   1260 ;
+!
+! NASA JPL 10-6 (2011), unchanged
+GHO + GHNO2 => GNO2                           : 1.80E-11  0.    390 ;
+!
+! NASA JPL 10-6 (2011)
+GHO + GNO3 => GHO2 + GNO2                     : 2.20E-11  0.      0 ;
+!
+! NASA 1997
+GHO + GCO => GHO2 + GCO2                      : 1.50E-13  0.      0 ;
+!
+! NASA 1997
+GHO + GCO +TBODY => GHO2 + GCO2               : 3.66E-33  0.      0 ;
+!
+! NASA JPL 10-6 (2011)
+GHO + GO3 => GHO2                             : 1.70E-12  0.    940 ;   
+!
+! JPL 10-6 (2011)
+GHO2 + GNO => GHO + GNO2                      : 3.50E-12  0.   -270 ;
+!
+! NASA 1997
+GHNO4 + GHO => GNO2                           : 1.30E-12  0.   -380 ;
+!
+! JPL 10-6 (2011)
+GHO2 + GO3 => GHO                             : 1.00E-14  0.    490 ;   
+!
+! JPL 10-6 (2011) - see also rxn EXTRA 501
+GHO2 + GHO2 => GH2O2                          : 3.00E-13  0.   -460 ;
+!
+! JPL 10-6 (2011) - see also rxn EXTRA 501
+GHO2 + GHO2 +TBODY => GH2O2                   : 2.10E-33  0.   -920 ;
+!
+! NASA 1997
+GNO3 + GHO2 => 0.8 GHO + 0.8 GNO2 + 0.2 GHNO3 : 3.50E-12  0.      0 ;
+!
+! NASA 1997
+GNO3 + GNO3 => 2. GNO2                        : 8.50E-13  0.   2450 ;
+!
+! JPL 10-6 (2011)
+GH2O2 + GHO => GHO2                           : 1.80E-12  0.      0 ;
+!
+! NASA 2000 
+GHO + GHO2 => NOTHING                         : 4.80E-11  0.   -250 ;  
+!
+! JPL 10-6 (2011) (warning, might already be accounted in mch_pam file)
+GHO + GH2 => GH2O + GHO2                      : 2.8E-12   0.   1800 ;
+!
+! FALL OFF REACTION
+! -----------------
+!
+! NASA 2000
+GO3P + GNO + FALLOFF => GNO2            : 0.6    0.   0.    0. ;
+                                         9.00E-32  1.5     0.
+                                         3.00E-11  0.0     0.
+!
+! JPL 10-6 (2011)
+GO3P + GNO2 + FALLOFF => GNO3           : 0.6    0.    0.   0. ;
+                                         2.50E-31  1.8     0.
+                                         2.20E-11  0.7     0.
+!
+! NASA 2000
+GNO2 + GNO3 + FALLOFF=> GN2O5           : 0.6    0.   0.    0. ;
+                                         2.00E-30  4.4     0.
+                                         1.40E-12  0.7     0.
+!
+! NASA 2000    Keq = 3.0E-27exp(10991/T)
+GN2O5 + FALLOFF => GNO2 + GNO3          : 0.6    0.   0.    0. ; 
+                                         6.67E-04  4.4  10991
+                                         4.67E+14  0.7  10991
+!
+! NASA 1997
+GHO + GNO + FALLOFF => GHNO2            : 0.6    0.   0.    0. ;
+                                         7.00E-31  2.6     0.
+                                         3.60E-11  0.1     0.
+!
+! JPL 10-6 (2011)
+GHO + GNO2 + FALLOFF => GHNO3           : 0.6    0.   0.    0. ;
+                                         1.80E-30  3.0     0.
+                                         2.80E-11  0.0     0.
+!
+! JPL 10-6 (2011)
+GHO2 + GNO2 + FALLOFF => GHNO4          : 0.6    0.   0.    0. ;
+                                         2.00E-31  3.4     0.
+                                         2.90E-12  0.0     0.
+!
+! IUPAC 1997
+GHNO4 + FALLOFF => GHO2 + GNO2          : 0.6    0.   0.    0. ;
+                                         5.00E-06  0.0  10000
+                                         2.61E+15  0.0  10900
+!
+! JPL 10-6 (2011)
+GHO + GSO2 + FALLOFF => GHO2 + GSULF    : 0.6    0.   0.    0. ;
+                                         3.30E-31  4.3     0.
+                                         1.60E-12  0.0     0.
+!----------------------
+! SPECIAL REACTION RATE
+! ---------------------
+!
+! NASA JPL 10-6 (2011) - rate constant is mult. by [O2] and [M]
+! from JPL10-6: k300 = 6.0E-34, n = 2.4, form k=k300(T/300)^-n
+!               Convert to form k = A.T^b.EXP(-E/R/T) as follows:
+!               A = k300/(300^-n), n = -b 
+!               (Conversion is exact because (E/R) = 0)
+GO3P + EXTRA => GO3                    : 5.29E-28  -2.4    0. ;
+  100 : ;
+!
+! JPL 10-6 (2011) - rate constant is mult. by [H2O]
+GO1D + EXTRA => 2. GHO                 : 1.63E-10   0.   -60. ;
+  500 : ;
+!
+! NASA 2000 - rate constant is k=k0+k3[M]/(1+k3[M]/k2)
+!             k0 is given just after the reaction
+!             k2 is the first 3 numbers after the label
+!             k3 is the last 3 numbers after the label
+GHO + GHNO3 + EXTRA => GNO3            : 2.40E-14   0.   -460 ;
+  550 : 2.7E-17 0. -2199 6.5E-34 0. -1335 ;
+!
+! JPL 10-6 (2011) - rate const is k = (k1 + k2[M])(1 + k3[H2O])
+!             k1 and k2 are given above.
+!             k3 (JPL 10-6) is   1.4E-21   0.   -2200
+! multiplying k3 by k1 and k2 gives values for use in spakkextra4.f:
+!             k1k3 is the first set of 3 numbers
+!             k2k3 is the 3 numbers after the label
+GHO2 + GHO2 + EXTRA => GH2O2            : 4.2E-34  0.  -2660 ;
+  501 : 2.94E-54    0.    -3120  ; 
+!---------------------------------
+! PHOTOLYTIC REACTIONS
+! --------------------
+!
+! SAPRC 99
+GO3 + HV => GO1D             : 02   1 ;
+!
+! SAPRC 99
+GO3 + HV => GO3P             : 03   1 ;
+!
+! SAPRC 99
+GNO2 + HV => GNO + GO3P      : 04   1 ;
+!
+! SAPRC 99
+GNO3 + HV => GNO             : 05   1 ;
+!
+! SAPRC 99
+GNO3 + HV => GNO2 + GO3      : 06   1 ;
+!
+! SAPRC 99
+GH2O2 + HV => 2. GHO         : 11   1 ;
+!
+! Stutz et al., 2000
+GHNO2 + HV => GHO + GNO      : 12   1 ;
+!
+! SAPRC 99
+GHNO3 + HV => GHO + GNO2     : 13   1 ;
+!
+! SAPRC 99
+GHNO4 + HV => 0.61 GHO2 + 0.61 GNO2 + 0.39 GHO + 0.39 GHNO3  :  14   1 ;
+!
+! end of file
+END
+=======================================================================
+
+References :
+------------
+
+IUPAC 1997 :
+Atkinson R., D.L. Baulch, R.A. Cox, R.F. Hampson, J.A. Kerr,
+M. Rossi, J. Troe, Evaluated kinetic, photochemical and heterogeneous
+data dor atmospheric chemistry : Supplement V, IUPAC subcommittee
+on gas kinetic data evaluation for atmospheric chemistry, J. Phys.
+Chem. Ref. Data, 521-1011, 1997
+
+JPL 2011 : 
+Sander S.P., R.R. Friedl, J.R. Barker, D.M. Golden,
+M.J. Kurylo, P.H. Wine, J.P.D. Abbatt, J.B. Burkholder,
+C.E. Kolb, G.K. Moortgat, R.E. Huie, V.L. Orkin,
+Chemical Kinetics and Photochemical Data for Use in
+Atmospheric Studies, Evaluation No. 17, JPL Publication 10-6,
+Jet Propulsion Laboratory, Pasadena, Califonia
+
+Li, R. et al, J Phys Chem A, 1990, 4418-4432, doi:10.1021/jp509534k, 2015.
+
+NASA 1997 :
+DeMore W.B., S.P. Sander, D.M. Golden, R.F. Hampson, M.J. Kurylo,
+C.J. Howard, A.R. Ravishankara, C.E. Kolb, M.J. Molina, Chemical
+kinetics and photochemical data for use in stratospheric modeling,
+JPL Publication 97-4, Jet Propulsion Laboratory, Pasadena, Califonia
+
+NASA 2000 :
+Sander S.P., R.R. Friedl, W.B. DeMore, A.R. Ravishankara, D.M. Golden,
+C.E. Kolb, M.J. Kurylo, R.F. Hampson, R.E. Huie,  M.J. Molina,
+G.K. Moortgat, Chemical kinetics and photochemical data for use 
+in stratospheric modeling, JPL Publication 00-3, Jet Propulsion 
+Laboratory, Pasadena, Califonia
+
+Stutz J., E.S. Kim, U. Platt, P. Bruno, C. Perrino and  A. Febo, 
+UV-visible absorption cross section of nitrous acid, Journal of
+Geophysical Research, 14585-14592, 2000
+
+Troe J., Analysis of the temperature and pressure dependence of the 
+reaction HO+NO2+M <=> HONO2+M, International Journal of Chemical
+Kinetic, 878-889, 2001

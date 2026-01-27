@@ -1,0 +1,11 @@
+*.o
+*.mod
+*.out
+*.err
+*.bak
+*.old
+cm
+RUN/OUT/*
+RUN/SCRIPTS/scheme.new
+!RUN/OUT/.gitkeep
+

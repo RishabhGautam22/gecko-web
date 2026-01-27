@@ -1,0 +1,213 @@
+!***********************************************************************
+! This file gives the inorganic reactions that are pasted              *
+! in the chemical scheme given as output.                              *
+!                                                                      *
+! --------------------                                                 *
+! Format of the file :                                                 *
+! --------------------                                                 *
+!                                                                      *
+! - END OF FILE  :                                                     *
+!        set by the keyword END                                        *
+!                                                                      *
+! - COMMENT LINE :                                                     *
+!        must be given using a "*" has first character                 *
+!                                                                      *
+! - THERMAL REACTION :                                                 *
+!        The format for simple thermal reaction is :                   *
+!             reactants => products : A  n  E ;                        *
+!        with the rate constant being k = A*(T)^n*exp(-E/T)            *
+!        The unit system is :                                          *
+!           A : molecule - cm3 - s                                     *
+!           n : dimensionless                                          *
+!           E : Kelvin (E=Ea/R)                                        *
+!                                                                      *
+! - FALL OFF REACTION                                                  *
+!        FALL OFF REACTION ARE GIVEN WITH THE KEYWORD "(+M)"           *
+!        The format for the fall off reaction is :                     *
+!           reactants (+M)=> products (+M): a1  a2  a3  a4 ;           *
+!                                   B  m  E (parameter for k0)         *
+!                                   B  m  E (parameter for kinfinite)  *
+!        with : k0 = B*(T/300)^m*exp(-E/T) and a similar expression    *
+!        for Kinfinite. The rate constant is computed according        *
+!        to the Troe expression :                                      *
+!           k= [k0[M]/(1+k0[M]/kinf)] * F ^ {1/[1+[log(k0[M]/kinf)]^2]}*
+!        Various expression for F can be set, depending on the value   *
+!        of a2 and a4 :                                                *
+!            - IF (a2 equal 0) THEN F=a1                               *
+!            - IF (a2 not equal 0) and (a4 not equal 0) THEN           *
+!                 F=(1-a1)*exp(-T/a2) + a1*exp(-T/a3) + exp(-a4/T)     *
+!            - IF (a2 not equal 0) and (a4 equal 0) THEN               *
+!                 F=(1-a1)*exp(-T/a2) + a1*exp(-T/a3)                  *
+!                                                                      *
+! - REACTIONS WITH SPECIAL REACTION RATE                               *
+!        THESE REACTIONS ARE GIVEN WITH THE KEYWORD "EXTRA" and are    *
+!        typically used for reactions involving a reactant not         *
+!        set by the system of ODE  (exemple O2, H2O) or when the       *
+!        reaction has a particular expression rate                     *
+!        The format for these reactions is :                           *
+!           reactants + EXTRA => products : A  n  E ;                  *
+!               ii : xx1 xx2 xx3 ... ;                                 *
+!        A, n, E : have the same meaning than thermal reaction         *
+!        ii : is a label (for ex. label 100 is used for O2 reactions)  *
+!        xx1, xx2, ... : is optional additionnal information (numbers) *
+!                                                                      *
+! - PHOTOLYTIC REACTIONS                                               *
+!        THESE REACTIONS ARE GIVEN WITH THE KEYWORD "HV"               *
+!        The format is :                                               *
+!           reactants +HV => products : jj kk                          *
+!        jj : is a label (allow to find the corresponding J values)    *
+!        kk : multiplicating factor                                    *
+!***********************************************************************
+!
+! -------------
+! CH4 chemistry
+! -------------
+!
+! IUPAC 1999
+GCH4 + GHO => GCH3O2                          : 2.15E-12  0.   1735 ;
+!
+! CH3O2 + CH3O2 is added through rxmeo2ro2 in loadc1tool.f90
+!
+! Tyndall 2001
+GCH3O2 + GNO => GCH3O + GNO2                  : 2.80E-12  0.   -300 ;
+!
+! IUPAC 1999
+GCH3O2 + GNO3 => GCH3O + GNO2                 : 1.30E-12  0.      0 ;
+!
+! Tyndall 2001 
+GCH3O2 + GHO2 => GCH3OOH                      : 4.10E-13  0.   -750 ;
+!
+! rate constant is multiplied by [O2]
+!GCH3O + EXTRA => GCH2O + GHO2                 : 7.20E-14  0.   1080 ;
+!  300 : ;
+GCH3O + OXYGEN => GCH2O + GHO2                 : 7.20E-14  0.   1080 ;
+!
+! ----------------------
+! CH3OH chemistry
+! ----------------------
+!
+! IUPAC 1999 
+GCH3OH + GHO => 0.85 GCH2O + 0.85 GHO2 + 0.15 GCH3O : 3.10E-12  0. 360 ;
+!
+! IUPAC 1999
+GCH3OH + GNO3 => GCH2O + GHO2 + GHNO3         : 9.4E-13  0.   2650 ;
+!
+! ----------------------
+! CH3OOH chemistry
+! ----------------------
+!
+! reference
+GCH3OOH + HV => GCH3O + GHO                   : 7300   1 ;
+!
+! IUPAC 1999
+GCH3OOH + GHO => GHO + GCH2O                  : 1.00E-12  0.   -190 ;
+GCH3OOH + GHO => GCH3O2                       : 1.90E-12  0.   -190 ;
+!
+! ----------------------
+! CH3ONO chemistry
+! ----------------------
+!
+!GN01003 + HV => GNO + GCH3O                   : 40000  1 ;
+!
+!GN01003 + GHO => GH2O + GCH2O + GNO           : 0.301E-12  0.    0. ;
+!
+! ----------------------
+! CH3ONO2 chemistry
+! ----------------------
+!
+! IUPAC 1999 (GN0101=CH3(ONO2))
+GCH3O + GNO2 + FALLOFF => GN01001              : 0.44  0.  0.  0. ;
+                                                9.0E-29  4.5  0.
+                                                1.9E-11  0.   0.
+!
+! reference
+GN01001 + HV => GCH3O + GNO2                  : 100   1 ;
+!
+! IUPAC 1999 
+GN01001 + GHO => GCH2O + GNO2                 : 4.00E-13  0.    845 ;
+!
+! ----------------------
+! formaldehyde chemistry
+! ----------------------
+!
+! reference
+GCH2O + HV => GCO + 2 GHO2                    : 110    1 ;
+GCH2O + HV => GH2 + GCO                       : 17    1 ;
+!
+! IUPAC 99
+GCH2O + GHO => GCO + GHO2                     : 8.60E-12  0.    -20 ;
+!
+! reference 
+GCH2O + GNO3 => GHNO3 + GCO + GHO2            : 5.80E-16  0.      0 ;
+!
+! ----------------------
+! formic acid chemistry
+! ----------------------
+!
+! IUPAC 1999
+GHCOOH + GHO => GHO2 + GCO2                   : 4.50E-13  0.      0 ;
+!
+! ---------------------
+! Chemistry of HCO(OOH) 
+! ---------------------
+!
+! this species is produced as a minor product
+! during the oxidation of some HC. We assume
+! that this species behaves like CH3-CO(OOH).
+! RO2+RO2 reactions are not considered (minor reaction
+! channel for a very minor species).
+!
+! use rate for CH3OOH + HO => CH3OO. + H2O
+GHCOO2H + GHO => GHCOO2                       : 1.90E-12  0.   -190 ;
+!
+! Photolysis values of CH3OOH
+GHCOO2H + HV => GHO2 + GHO + GCO2             : 40100    1 ; 
+!                                                               
+! use rate for CH3CO(OO.) (IUPAC 1999)
+GHCOO2 + GHO2 => 0.7 GHCOO2H + 0.3 GHCOOH + 0.3 GO3 : 4.3E-13 0. -1040 ;
+!
+! use rate for CH3CO(OO.) (Tyndall 2001)
+GHCOO2 + GNO => GHO2 + GNO2 + GCO2            : 8.10E-12  0.   -270 ; 
+!
+! use rate for CH3CO(OO.) (Canosa-Mas)
+GHCOO2 + GNO3 => 0.5 GCH3O2 + 0.5 GCO2 + GNO2         : 5.00E-12  0.      0 ; 
+!
+! use rate for CH3CO(OO.)
+GHCOO2 + GCH3O2 => 1.37 GHO2 + 1.37 GCO2 + 1.37 GCH3O : 5.00E-12 0.  0 ;
+GHCOO2 + GCH3O2 => 0.63 GHCOOH + 0.63 GCH2O           : 5.00E-12 0.  0 ;
+!
+!  use rate for CH3CO(OO.) (Tyndall 2001) [P01001 = CHO(OONO2) ]              
+GHCOO2 + GNO2 + FALLOFF => GP01001             : 0.6    0.   0.  0. ;
+                                                8.50E-29  6.5   0. 
+                                                1.10E-11  1.0   0.
+! values for PAN decomposition
+GP01001 + FALLOFF => GHCOO2 + GNO2             : 0.3    0.   0.  0. ;
+                                                4.90E-03 0.0 12100.
+                                                5.40E+16 0.0 13830.
+!
+! reference
+GP01001 + HV => GHCOO2 + GNO2                 : 1400   1 ;
+!
+! end of file
+!
+! added for Kevin simulation - phoylysis of butyl nitrite
+! species added in dic_c1 file and fixedname (for the butoxy)
+!GBU1ONO => G104000 + GNO                       :  2.0E-3  0. 0. ;
+!GC5ONO => G105000 + GNO                         :  2.0E-3  0. 0. ;
+END
+=======================================================================
+
+References :
+------------
+
+IUPAC 1999 :
+Atkinson R., D.L. Baulch, R.A. Cox, R.F. Hampson, J.A. Kerr,
+M. Rossi, Evaluated kinetics and photochemical data for 
+atmospheric chemistry, organic species : Supplement VII, IUPAC 
+subcommittee on gas kinetic data evaluation for atmospheric 
+chemistry, J. Phys. Chem. Ref. Data, 191-392, 1999
+
+Tyndall, G.S. ; Cox, R.A. ; Granier, C. ; Lesclaux, R. ; 
+Moortgat, G.K. ; Pilling, M.J. ; Ravishankara, A.R. ; 
+Wallington, T.J., Atmospheric chemistry of small organic peroxy 
+radicals, J. Geophys. Res., 12,157-12,181, 2001

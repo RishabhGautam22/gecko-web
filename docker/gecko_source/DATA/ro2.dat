@@ -1,0 +1,41 @@
+! RO2 forced reaction, products and their associated rate constant
+! ----------------------------------------------------------
+!
+! this file is read up to the keyword END.
+! Comment line (* as first character) can be placed  
+! everywhere in the file.
+!
+! - first column : gives the formula of the species (must start at the
+!   character of the line
+! - second column : gives the formula of 2nd reactant
+! - third and fourth columns : stochiometric coefficient and first product
+! - 5th and 6th columns      : stochiometric coefficient and second product
+! - 7th and 8th columns      : stochiometric coefficient and third product
+! - 9th and 10th columns     : stochiometric coefficient and fourth product
+! - 11th column : arrhenius coefficient for the reaction
+! A 'space character' must be inserted between '|' and the beginning of the formula
+! if no product, let 1 or any value for the associated stochimetric coefficient, no '-'
+! for inorganic species, put the gecko name without the 'G' : e.g. HO, NO, NO2, O3 ...
+! for reaction with others peroxy, the second reactant must be MEPERO, PERO1, PERO3, etc.
+!************************************************************************************
+! Forcing 1,6-H shift predicted by Vereecken 2007 to form alkyl radical, which GECKO-A delocalizes
+! Vereecken predicts that anti peroxy radicals will react only through this 1,6-H shift
+! However, not possible in GECKO-A to distinguish between anti and syn isomers
+! Therefore, forced each HO2, NO, and PERO reaction to produce 60% 1,6-H shift product
+! Ring-closure species also predicted by Vereecken 2007, rate given 
+!*****************************************************************************************************
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | NO      | 0.40 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 0.40 | NO2                                       | 0.60 | NO  | 2.07E-12  0.0  -360.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | NO      | 0.40 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(ONO2)(CH3)CH3   | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 0.60 | NO                                        | 1.00 | -   | 6.28E-13  0.0  -360.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | HO2     | 0.40 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3    | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 0.60 | HO2                                       | 1.00 | -   | 2.58E-13  0.0 -1300.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | NO3     | 0.40 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 0.40 | NO2                                       | 0.60 | NO3 | 8.90E-12  0.0   390.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | PERO1   | 0.40 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -                                         | 1.00 | -   | 1.00E-13  0.0  2317.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | PERO2   | 0.32 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.08 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OH)(CH3)CH3  | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -   | 1.00E-13  0.0  1535.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | PERO3   | 0.40 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -                                         | 1.00 | -   | 1.00E-13  0.0  1433.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | PERO4   | 0.32 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.08 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OH)(CH3)CH3  | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -   | 1.00E-13  0.0   904.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | PERO5   | 0.40 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -                                         | 1.00 | -   | 1.00E-13  0.0  1055.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | MEPERO  | 0.32 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.08 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OH)(CH3)CH3  | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -   | 1.00E-13  0.0   662.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | PERO7   | 0.32 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.08 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OH)(CH3)CH3  | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -   | 1.00E-13  0.0   491.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | PERO8   | 0.32 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.08 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OH)(CH3)CH3  | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -   | 1.00E-13  0.0   257.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | PERO9   | 0.40 | C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3     | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -                                         | 1.00 | -   | 2.00E-12  0.0  -508.  ; RM16RER000 ; LV07KER000 ; MJ19KMV000 ; FORCEDREAC
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(OO.)(CH3)CH3 | -    | 0.4 | C12H-O--O-C(CH3)(CH3)CH(C1H2)CH2CH(OH)C2(OO.)CH3 | 0.60 | C1H2C.(OH)Cd(CH3)=CdHCH2C1HC(OOH)(CH3)CH3 | 1.00 | -                                         | 1.00 | -   | 2.60      0.0    0.0  ; RM16RER000 ; LV07KER000 ; FORCEDREAC
+END

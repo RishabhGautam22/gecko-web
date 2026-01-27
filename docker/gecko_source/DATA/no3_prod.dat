@@ -1,0 +1,27 @@
+!=======================================================================
+! List of the 'constrained' VOC + NO3 reactions
+! ---------------------------------------------
+!
+! this file is read up to the keyword END. Comment line (! as 1st 
+! character) can be placed everywhere in the file, EXCEPT BETWEEN A 
+! GIVEN BLOCK OF DATA.
+!
+! for each VOC, format of the file is:
+! - first line = chemical formula of the VOC considered + number of 
+!   different compounds (i.e line to be read) produced by the reaction +
+!   code for references (at least one ";"). Number of code is free, each 
+!   separated by ";" (up to 3)
+! - following lines = yield + chemical formula of the major product +
+!   name of the coproducts (6 character). The number of coproducts  
+!   allowed must not exceed max co-product per species.
+!=======================================================================
+!
+! Orlando and Tyndall IJCK 2001
+CHOCHO : 2       ;  DUMNO3PD1 ;
+0.70  : CHO.   + HNO3  + CO  
+0.30  : CHOCO. + HNO3 
+! Isoprene MCM 3.3
+!CH3Cd(=CdH2)CdH=CdH2 : 1
+!1.00  : CH2(ONO2)CdH=Cd(CH3)CH2(OO.)
+END                    
+=========================================================

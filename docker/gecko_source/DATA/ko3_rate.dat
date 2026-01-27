@@ -1,0 +1,353 @@
+!!! SPECIES                                             ;   k298    ;     A     ;   n ;   E/R   ; CODE1     ; CODE2     ; CODE3
+!
+!
+CdH2=CdH2                                                      ; 1.55E-18  ; 6.82E-15  ; 0.0 ; 2500.0 ; MJ20KMV000 ;            ;
+!
+! Acyclic CH2=CHR                                          
+!
+CdH2=CdHCH3                                                    ; 1.05E-17  ; 5.77E-15  ; 0.0 ; 1880.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH3                                                 ; 1.00E-17  ; 3.55E-15  ; 0.0 ; 1750.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH2CH3                                              ; 1.06E-17  ; 2.13E-15  ; 0.0 ; 1580.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH2CH2CH3                                           ; 9.24E-18  ; 2.07E-17  ; 0.0 ; 1480.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH2CH2CH2CH3                                        ; 1.09E-17  ; 2.76E-17  ; 0.0 ; 1756.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH2CH2CH2CH2CH3                                     ; 1.04E-17  ; 1.04E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH2CH2CH2CH2CH2CH2CH3                               ; 1.15E-17  ; 1.15E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH(CH3)CH3                                             ; 1.05E-17  ; 1.05E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH(CH3)CH2CH3                                          ; 4.83E-18  ; 4.83E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH(CH3)CH3                                          ; 1.00E-17  ; 1.00E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;          
+CdH2=CdHC(CH3)(CH3)CH3                                         ; 5.06E-18  ; 5.06E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Acyclic cis-CHR=CHR                                       
+!
+CH3Cd/H=Cd\HCH3                                                ; 1.30E-16  ; 3.37E-15  ; 0.0 ;  970.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3Cd/H=Cd\HCH2CH3                                             ; 1.30E-16  ; 3.70E-15  ; 0.0 ; 1002.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3Cd/H=Cd\HCH2CH2CH3                                          ; 1.10E-16  ; 3.20E-15  ; 0.0 ; 1017.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3CH2Cd/H=Cd\HCH2CH3                                          ; 1.45E-16  ; 1.45E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3CH2CH2Cd/H=Cd\HCH2CH2CH3                                    ; 9.53E-17  ; 9.53E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3CH2CH2CH2Cd/H=Cd\HCH2CH2CH2CH3                              ; 1.16E-16  ; 1.16E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!
+! Acyclic trans-CHR=CHR                                      
+!
+CH3Cd/H=Cd/HCH3                                                ; 2.00E-16  ; 7.00E-15  ; 0.0 ; 1060.0 ; MJ20KMV000 ; VALUETRANS ;
+CH3Cd/H=Cd/HCH2CH3                                             ; 1.60E-16  ; 7.10E-15  ; 0.0 ; 1132.0 ; MJ20KMV000 ; VALUETRANS ; 
+CH3Cd/H=Cd/HCH2CH2CH3                                          ; 1.50E-16  ; 7.60E-15  ; 0.0 ; 1163.0 ; MJ20KMV000 ; VALUETRANS ;
+CH3CH2Cd/H=Cd/HCH2CH3                                          ; 1.77E-16  ; 1.77E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS ;
+CH3CH2CH2Cd/H=Cd/HCH2CH2CH3                                    ; 1.44E-16  ; 1.44E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS ;
+CH3CH(CH3)Cd/H=Cd/HCH(CH3)CH3                                  ; 4.15E-17  ; 4.15E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS ;
+CH3C(CH3)(CH3)Cd/H=Cd/HCH2CH3                                  ; 4.15E-17  ; 4.15E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS ;
+!
+! Acyclic CH2=CR2                                             
+!
+CdH2=Cd(CH3)CH3                                                ; 1.15E-17  ; 2.92E-15  ; 0.0 ; 1650.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CH3                                             ; 1.40E-17  ; 4.90E-15  ; 0.0 ; 1741.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CH2CH3                                          ; 1.30E-17  ; 1.30E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CH2CH2CH2CH3                                    ; 1.39E-17  ; 1.39E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CH2CH2CH2CH2CH3                                 ; 1.42E-17  ; 1.42E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CH2CH2CH2CH2CH2CH2CH3                           ; 1.53E-17  ; 1.53E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CH2CH2CH2CH2CH2CH2CH2CH3                        ; 1.50E-17  ; 1.50E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH(CH3)CH3                                         ; 1.30E-17  ; 1.30E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)C(CH3)(CH3)CH3                                     ; 8.38E-18  ; 8.38E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH2CH3)CH2CH3                                          ; 1.30E-17  ; 1.30E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH(CH3)CH3)CH(CH3)CH3                                  ; 3.24E-18  ; 3.24E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Acyclic CHR=CR2                                              
+!
+CH3Cd(CH3)=CdHCH3                                              ; 4.03E-16  ; 6.51E-15  ; 0.0 ;  829.0 ; MJ20KMV000 ;            ;
+CH3CdH=Cd(CH3)CH2CH3                                           ; 4.50E-16  ; 4.50E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!CH3Cd/H=Cd/(CH3)CH2CH3                                         ; 5.54E-16  ; 5.54E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3Cd(CH3)=CdHC(CH3)(CH3)CH3                                   ; 1.42E-16  ; 1.42E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CdH=Cd(CH2CH3)CH(CH2CH3)CH2CH3                              ; 4.26E-18  ; 4.26E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Acyclic CR2=CR2                                               
+!
+CH3Cd(CH3)=Cd(CH3)CH3                                          ; 1.10E-15  ; 3.00E-15  ; 0.0 ;  300.0 ; MJ20KMV000 ;            ;
+!CH3CH2Cd(CH3)=Cd(CH3)CH2CH3                                    ; >3.7E-16  ; >3.7E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Acyclic dialkenes (isolated)                   
+!
+CdH2=CdHCH2CdH=CdH2                                            ; 1.45E-17  ; 1.45E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CdH=CdH2                                        ; 1.30E-17  ; 1.30E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CH2Cd(CH3)=CdH2                                 ; 1.40E-17  ; 1.40E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Acyclic dialkenes (conjugated)                  
+!
+CdH2=CdHCdH=CdH2                                               ; 6.30E-18  ; 1.34E-14  ; 0.0 ; 2283.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCd/H=Cd\HCH3                                           ; 2.80E-17  ; 2.80E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+CdH2=CdHCd/H=Cd/HCH3                                           ; 4.30E-17  ; 1.47E-14  ; 0.0 ; 1739.0 ; MJ20KMV000 ; VALUETRANS ;
+CdH2=Cd(CH3)CdH=CdH2                                           ; 1.28E-17  ; 1.05E-14  ; 0.0 ; 2000.0 ; MJ20KMV000 ;            ;
+CH3CdH=CdHCdH=CdHCH3                                           ; 3.10E-16  ; 3.10E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!CH3CdH=CdHCdH=CdHCH3                                           ; 3.70E-16  ; 3.70E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CdH2=Cd(CH3)CdH=CdHCH3                                         ; 8.00E-17  ; 8.00E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCdH=CdHCH(CH3)CH3                                      ; 2.37E-17  ; 2.37E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)Cd(CH3)=CdH2                                       ; 2.60E-17  ; 6.90E-15  ; 0.0 ; 1668.0 ; MJ20KMV000 ;            ;
+CH3Cd(CH3)=CdHCdH=Cd(CH3)CH3                                   ; 3.05E-15  ; 3.05E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCdH=CdHC(CH3)(CH3)CH3                                  ; 2.52E-17  ; 2.52E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(=CdHCH2CH2Cd(=CdH2)CdH=CdH2)CH3                          ; 4.70E-16  ; 2.69E-15  ; 0.0 ;  520.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCd(CH3)=CdHCH2CdH=Cd(CH3)CH3                           ; 5.10E-16  ; 4.15E-15  ; 0.0 ;  625.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCd(CH2CH2CdH=Cd(CH3)CH2CH2CdH=Cd(CH3)CH3)=CdH2         ; 5.60E-16  ; 1.50E-12  ; 0.0 ; 2350.0 ; MJ20KMV000 ;            ;
+!
+! Acyclic polyalkenes (conjugated)                 
+!
+CdH2=CdHCdH=CdHCdH=CdH2                                        ; 2.60E-17  ; 2.60E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclopentenes                                     
+!
+Cd1H=CdHCH2CH2C1H2                                             ; 5.70E-16  ; 1.84E-15  ; 0.0 ;  350.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCH2CH2C1H2                                           ; 8.32E-16  ; 8.32E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3C1HCdH=CdHCH2C1H2                                           ; 3.34E-16  ; 3.34E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclohexenes                                       
+!
+Cd1H=CdHCH2CH2CH2C1H2                                          ; 7.90E-17  ; 2.80E-15  ; 0.0 ; 1063.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCH2CH2CH2C1H2                                        ; 1.46E-16  ; 4.79E-15  ; 0.0 ; 1040.0 ; MJ20KMV000 ;            ;
+CH3C1HCdH=CdHCH2CH2C1H2                                        ; 5.53E-17  ; 5.53E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3C1HCH2CdH=CdHCH2C1H2                                        ; 7.31E-17  ; 1.78E-15  ; 0.0 ;  952.0 ; MJ20KMV000 ;            ;
+CH3Cd1=Cd(CH3)CH2CH2CH2C1H2                                    ; 2.07E-16  ; 2.07E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3C2(CH3)C1HCH2CH2Cd(CH3)=CdHC12H                             ; 2.40E-16  ; 2.40E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3C2(C1HCH2CdH=Cd(CH2C12H)CH3)CH3                             ; 4.90E-17  ; 4.90E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cycloheptenes                                       
+!
+Cd1H=CdHCH2CH2CH2CH2C1H2                                       ; 2.43E-16  ; 1.28E-15  ; 0.0 ;  494.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCH2CH2CH2CH2C1H2                                     ; 9.30E-16  ; 9.30E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclooctenes                                         
+!
+Cd1H=CdHCH2CH2CH2CH2CH2C1H2                                    ; 3.86E-16  ; 8.00E-16  ; 0.0 ;  217.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3Cd1=CdHCH2CH2CH2CH2CH2C1H2                                  ; 1.42E-15  ; 1.42E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3C1HCdH=CdHCH2CH2CH2CH2C1H2                                  ; 1.39E-16  ; 1.39E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclodecenes                                          
+!
+Cd1H=CdHCH2CH2CH2CH2CH2CH2CH2C1H2                              ; 2.90E-17  ; 1.09E-15  ; 0.0 ; 1081.0 ; MJ20KMV000 ;            ;
+!
+! Other cyclo-monoalkenes (with fused cycles)            
+!
+C1H(C2H2)CdH=CdHC2HCH2C1H2                                     ; 9.00E-16  ; 9.00E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+C1H(CH2C2H2)CdH=CdHC2HCH2C1H2                                  ; 7.10E-17  ; 7.10E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3C1(CH3)C2HCH2CdH=Cd(CH3)C1HC2H2                             ; 9.60E-17  ; 8.22E-16  ; 0.0 ;  640.0 ; MJ20KMV000 ;            ;
+CH3Cd3=CdHCH2C12CH(CH3)CH2CH2C1HC(CH3)(CH3)C3HC2H2             ; 1.30E-16  ; 1.30E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCH2C2HC3HC1HC2(CH3)CH2CH2C3HCH(CH3)CH3               ; 1.50E-16  ; 1.50E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3C1(CH2CH2CdH=Cd2C13CH2CH2CH(C3H2)C2(CH3)CH3)CH3             ; 1.00E-17  ; 1.00E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclo compounds with exocyclic monoalkene substituents  
+!
+CdH2=Cd1CH2CH2CH2CH2C1H2                                       ; 1.10E-17  ; 1.10E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHC1HCH2CH2CH2CH2C1H2                                    ; 7.50E-18  ; 7.50E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CdH=Cd1CH2CH2CH2CH2C1H2                                     ; 2.33E-16  ; 2.33E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd1C2HCH2CH(C2(CH3)CH3)CH2C1H2                            ; 1.90E-17  ; 1.39E-15  ; 0.0 ; 1280.0 ; MJ20KMV000 ;            ;
+Cd1(=CdH2)C(CH3)(CH3)C2HCH2C1HCH2C2H2                          ; 5.00E-19  ; 9.00E-18  ; 0.0 ;  860.0 ; MJ20KMV000 ;            ;
+CdH2=Cd2C1HCH2C1(CH2C2H2)CH(CH3)CH3                            ; 8.30E-17  ; 8.30E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!CdH2=Cd2C1(CH3)CH2CH2CH2C(CH3)(CH3)C3HC1HCH2CH2C23H            ;  < 5E-19  ;  < 5E-19  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclic isolated dienes (endo- or exo-cyclic) 
+!
+Cd1H=CdHCH2CdH=CdHC1H2                                         ; 4.60E-17  ; 4.60E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+Cd1H=CdHCH2CH2CdH=CdHCH2C1H2                                   ; 1.52E-16  ; 1.52E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCH2CH(CH2C1H2)Cd(CH3)=CdH2                           ; 2.20E-16  ; 2.91E-15  ; 0.0 ;  770.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCH2Cd(CH(CH3)CH3)=CdHC1H2                            ; 1.60E-16  ; 1.60E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CH2C1H2)=CdHCH2Cd1=Cd(CH3)CH3                            ; 1.60E-15  ; 1.60E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCH2CH2Cd(=CdH2)C2HCH2C(CH3)(CH3)C2HCH2C1H2           ; 1.20E-14  ; 1.20E-14  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+C13HCdH=CdHCH(C3H2)C2HC1HCH2CdH=Cd2H                           ; 1.51E-15  ; 1.51E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CH3)=Cd1CH2CH2Cd(C(CH3)(CH3)CH3)=CdHC1H2                 ; 1.22E-15  ; 1.22E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclic conjugated dienes (endo- or exo-cyclic)
+!
+Cd1H=CdHCdH=CdHCH2C1H2                                         ; 1.20E-15  ; 1.20E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+Cd1H=CdHCdH=CdHCH2CH2C1H2                                      ; 1.50E-16  ; 1.50E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+Cd1H=CdHCdH=CdHCH2CH2CH2C1H2                                   ; 2.00E-17  ; 2.00E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH(C1HCdH=CdHCd(CH3)=CdHC1H2)CH3                            ; 2.90E-15  ; 2.90E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCdH=Cd(CH(CH3)CH3)CH2C1H2                            ; 1.90E-14  ; 1.90E-14  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd1CH2CH2CH(CH(CH3)CH3)CdH=Cd1H                           ; 5.20E-17  ; 5.20E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclic isolated polyenes (endo- or exo-cyclic)
+!
+CH3Cd1=CdHCH2C(CH3)(CH3)CdH=CdHCH2Cd(CH3)=CdHCH2C1H2           ; 1.20E-14  ; 1.20E-14  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclic conjugated polyenes                   
+!
+Cd1H=CdHCdH=CdHCdH=CdHC1H2                                     ; 5.40E-17  ; 5.40E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+Cd1H=CdHCdH=CdHCdH=CdHCdH=Cd1H                                 ; 2.60E-18  ; 2.60E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Aromatic hydrocarbon with alkene substituent   
+!
+CdH2=CdHc1cHcHcHcHc1H                                          ; 1.70E-17  ; 1.70E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)c1cHcHcHcHc1H                                      ; 1.80E-17  ; 1.80E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCd1=CdHCdH=CdHCdH=Cd1CH3                               ; 3.10E-17  ; 3.10E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+Cd12=Cd(CH2CdH=Cd2H)CdH=CdHCdH=Cd1H                            ; 1.70E-16  ; 1.70E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! a.b-unsaturated alcohols                        
+!
+CdH2=CdHCH2(OH)                                                ; 1.60E-17  ; 1.60E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CdH=CdHCH2(OH)                                              ; 2.50E-16  ; 2.50E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3CH(OH)CdH=CdH2                                              ; 1.60E-17  ; 1.60E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH2CdH=CdHCH2(OH)                                           ; 1.70E-16  ; 3.51E-15  ; 0.0 ;  902.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH(OH)CH2CH3                                           ; 1.80E-17  ; 2.09E-15  ; 0.0 ;  730.0 ; MJ20KMV000 ;            ;
+CH3C(OH)(CH3)CdH=CdH2                                          ; 1.00E-17  ; 1.00E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH2CH2CdH=CdHCH2(OH)                                        ; 7.44E-17  ; 7.44E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!CH3CH2CH2CdH=CdHCH2(OH)                                        ; 6.54E-17  ; 6.54E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CdH2=CdHC(OH)(CH3)CH2CH3                                       ; 5.20E-18  ; 5.20E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH(OH)CH2CH2CH2CH2CH3                                  ; 1.91E-17  ; 1.91E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH(OH)CH2CH2CH2CH2CH2CH3                               ; 1.89E-17  ; 1.89E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CH3)=CdHCH2CH2Cd(CH3)=CdHCH2(OH)                         ; 9.30E-16  ; 9.30E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHC(OH)(CH3)CH2CH2CdH=Cd(CH3)CH3                         ; 4.20E-16  ; 4.20E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH2(OH)CdH=Cd(CH2CH2CdH=Cd(CH2CH2CdH=Cd(CH3)CH3)CH3)CH3        ; 2.10E-15  ; 2.10E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Other unsaturated alcohols                       
+!
+CdH2=CdHCH2CH2(OH)                                             ; 4.90E-18  ; 4.90E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH2CH2(OH)                                          ; 7.68E-18  ; 7.68E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH(OH)CH2CdH=CdH2                                           ; 4.88E-18  ; 4.88E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH(CH3)CH2(OH)                                         ; 3.74E-18  ; 3.74E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(CH3)CH2CH2(OH)                                         ; 6.80E-18  ; 6.80E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH2(OH)CH2CdH=CdHCH2CH3                                        ; 7.21E-17  ; 7.21E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!CH3CH2CdH=CdHCH2CH2(OH)                                        ; 6.01E-17  ; 1.84E-15  ; 0.0 ; 1020.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3CdH=CdHCH2CH2CH2(OH)                                        ; 1.66E-16  ; 1.66E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!CH3CdH=CdHCH2CH2CH2(OH)                                        ; 1.05E-16  ; 1.05E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3CH(OH)CH2CH2CdH=Cd(CH3)CH3                                  ; 3.80E-16  ; 3.80E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCH2CH(OH)CH2CH2CH2CH2CH3                               ; 8.30E-18  ; 8.30E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!CH3C(OH)(CH3)CH2CH2CH2CH(CH3)CdH=CdH2                          ;  < 2E-18  ;  < 2E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3C(OH)(C1HCH2CdH=Cd(CH3)CH2C1H2)CH3                          ; 3.00E-16  ; 3.00E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CH3)=CdHCH2CH2CH(CH3)CH2CH2(OH)                          ; 2.40E-16  ; 2.40E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Vinyl aldehydes                                   
+!
+CdH2=CdHCHO                                                    ; 2.90E-19  ; 2.90E-19  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CdH=CdHCHO                                                  ; 1.40E-18  ; 1.40E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CdH2=Cd(CH3)CHO                                                ; 1.20E-18  ; 1.40E-15  ; 0.0 ; 2100.0 ; MJ20KMV000 ;            ;
+CH3CH2CdH=CdHCHO                                               ; 1.60E-18  ; 1.60E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3CdH=Cd(CH3)CHO                                              ; 5.30E-18  ; 5.30E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3Cd(CH3)=CdHCHO                                              ; 1.80E-18  ; 1.80E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH2CH2CdH=CdHCHO                                            ; 2.10E-18  ; 2.10E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3CH2CdH=Cd(CH3)CHO                                           ; 7.10E-18  ; 7.10E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH2CH2CH2CdH=CdHCHO                                         ; 2.47E-18  ; 2.47E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3CH2CH2CH2CH2CdH=CdHCHO                                      ; 2.37E-18  ; 2.37E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3CH2CH2CH2CH2CH2CdH=CdHCHO                                   ; 2.05E-18  ; 2.05E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+!
+! Other unsaturated aldehydes                        
+!
+CH3CH2CdH=CdHCH2CHO                                            ; 3.50E-17  ; 3.50E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+CdH2=CdHCd(CH2CH2CHO)=CdH2                                     ; 1.50E-17  ; 1.50E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCd(CH3)=CdHCH2CHO                                      ; 4.40E-17  ; 4.40E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!CdH2=CdHCd(CH3)=CdHCH2CHO                                      ; 5.70E-17  ; 5.70E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+CH3Cd(CH3)=CdHCH2CH2CH(CH3)CH2CHO                              ; 3.50E-16  ; 3.50E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Unsaturated dialdehydes/ketoaldehydes               
+!
+CHOCdH=CdHCHO                                                  ; 1.60E-18  ; 1.60E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(CdH=CdHCHO)                                              ; 4.80E-18  ; 4.80E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!CHOCdH=CdHCdH=CdHCHO                                           ;   <1E-17  ;   <1E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Acyclic vinyl ketones                                
+!
+CO(CH3)CdH=CdH2                                                ; 5.20E-18  ; 8.50E-16  ; 0.0 ; 1520.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCO(CH2CH3)                                             ; 6.00E-18  ; 6.00E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(CdH=CdHCH3)                                              ; 3.20E-17  ; 3.20E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(Cd(CH3)=CdH2)                                            ; 1.18E-17  ; 1.18E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH2CO(CdH=CdHCH3)                                           ; 6.40E-17  ; 6.40E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(Cd(CH3)=CdHCH3)                                          ; 4.07E-17  ; 4.07E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(CdH=Cd(CH3)CH3)                                          ; 8.30E-18  ; 8.30E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Other unsaturated acyclic ketones                    
+!
+CH3CO(CH2CH2CdH=CdH2)                                          ; 9.20E-18  ; 9.20E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(CH2CH2CdH=Cd(CH3)CH3)                                    ; 3.90E-16  ; 3.90E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Cyclic ketones                                        
+!
+C1OCdH=CdHCH2CH2C1H2                                           ; 1.20E-18  ; 1.20E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+C1OCH2CdH=Cd(CH3)CH2C1H2                                       ; 7.40E-17  ; 7.40E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(CdH=CdHCd1=Cd(CH3)CH2CH2CH2C1(CH3)CH3)                   ; 2.20E-17  ; 2.20E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!CH3CO(Cd2=Cd(CH3)C3HC(CH3)(CH3)C1HCH2CH2CH(CH3)C1(C3H2)C2H2)   ; 2.20E-18  ; 2.20E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Diketones                                              
+!
+CH3CO(CdH=CdHCO(CH3))                                          ; 1.80E-18  ; 1.80E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!CH3CO(CdH=CdHCO(CH3))                                          ; 8.30E-18  ; 8.30E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+!
+! Hydroxyketones                                          
+!
+CH3CO(Cd(OH)=Cd(OH)CO(CH3))                                    ; 3.60E-18  ; 3.60E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Vinyl ethers                                             
+!
+CdH2=CdH-O-CH2CH3                                              ; 1.90E-16  ; 1.90E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(-O-CH3)-O-CH3                                          ; 4.80E-16  ; 4.80E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(-O-CH3)CH3                                             ; 1.20E-17  ; 1.20E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdH-O-CH2CH2CH3                                           ; 2.30E-16  ; 2.30E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!CH3CdH=CdH-O-CH2CH3                                            ;   >5E-16  ;   >5E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=Cd(-O-CH2CH3)CH3                                          ; 1.92E-17  ; 1.92E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdH-O-CH2CH2CH2CH3                                        ; 2.60E-16  ; 2.60E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdH-O-CH2CH(CH3)CH3                                       ; 2.85E-16  ; 2.85E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdH-O-C(CH3)(CH3)CH3                                      ; 5.30E-16  ; 5.30E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH2(OH)CH2-O-CdH=CdH2                                          ; 2.00E-16  ; 2.00E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdH-O-CH2CH2-O-CdH=CdH2                                   ; 5.40E-16  ; 5.40E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdH-O-CH2CH2-O-CH2CH2-O-CdH=CdH2                          ; 2.70E-16  ; 2.70E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(CdH=CdH-O-CH3)                                           ; 1.30E-17  ; 1.30E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Furans and hydrofurans                  
+!
+-O1-CH2CdH=CdHC1H2                                             ; 1.60E-17  ; 1.60E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdHCH2CH2-O1-                                           ; 3.50E-15  ; 3.50E-15  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+-O1-CdH=CdHCdH=Cd1H                                            ; 2.40E-18  ; 2.40E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd1=CdH-O-CdH=Cd1H                                          ; 2.00E-17  ; 2.00E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! a.b-unsaturated ethers (allyl ethers)    
+!
+CdH2=CdHCH2-O-CH2CH3                                           ; 8.80E-18  ; 8.80E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHC1HCH2-O1-                                             ; 1.60E-17  ; 1.60E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHC1(CH3)CH2-O1-                                         ; 2.63E-18  ; 2.63E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+C1H(OH)-O-C(CdH=CdH2)(CH3)CH2C1H2                              ; 3.50E-18  ; 3.50E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Other ethers                    
+!
+CH3-O-Cd1=CdHCdH=Cd(CH2CdH=CdH2)CdH=Cd1H                       ; 1.03E-17  ; 1.03E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Alk-1-enoic acids                
+!
+CdH2=CdHCO(OH)                                                 ; 6.50E-19  ; 6.50E-19  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CO(OH))=CdH2                                             ; 4.10E-18  ; 4.10E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH2CdH=CdHCO(OH)                                            ; 3.10E-18  ; 3.10E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUETRANS  ;
+!
+! Alkanoic acid alk-1-enyl esters   
+!
+CH3CO(-O-CdH=CdH2)                                             ; 3.20E-18  ; 3.20E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(-O-Cd(CH3)=CdH2)                                         ; 5.40E-19  ; 5.40E-19  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CO(-O-CdH=Cd(CH3)CH3)                                       ; 2.76E-18  ; 2.76E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH2CO(-O-CdH=CdH2)                                          ; 5.30E-18  ; 5.30E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Other alkanoic acid alkenyl esters 
+!
+CH3CO(-O-CH2CdH=CdH2)                                          ; 2.50E-18  ; 2.50E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CH2CdH=CdHCH2CH2-O-CHO                                      ; 4.06E-17  ; 4.06E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3CO(-O-CH2CH2CdH=CdHCH2CH3)                                  ; 5.80E-17  ; 5.80E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3CH2CdH=CdHCH2CH2-O-CO(CH2CH3)                               ; 7.62E-17  ; 7.62E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+CH3CH2CdH=CdHCH2CH2-O-CO(CH2CH2CH3)                            ; 1.23E-16  ; 1.23E-16  ; 0.0 ;    0.0 ; MJ20KMV000 ; VALUECIS   ;
+!
+! Alk-1-enoic acid alkyl esters  
+!
+CdH2=CdHCO(-O-CH3)                                             ; 1.10E-18  ; 1.10E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CdH2=CdHCO(-O-CH2CH2CH2CH3)                                    ; 2.40E-18  ; 2.40E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CO(-O-CH3))=CdH2                                         ; 6.45E-18  ; 6.45E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CO(-O-CH2CH3))=CdH2                                      ; 7.70E-18  ; 7.70E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CO(-O-CH2CH2CH3))=CdH2                                   ; 8.46E-18  ; 8.46E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CO(-O-CH2CH2CH2CH3))=CdH2                                ; 1.00E-17  ; 1.00E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CO(-O-CH(CH3)CH3))=CdH2                                  ; 1.12E-17  ; 1.12E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3Cd(CO(-O-CH2CH(CH3)CH3))=CdH2                               ; 1.08E-17  ; 1.08E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH3CdH=CdHCO(-O-CH2CH3)                                        ; 8.00E-18  ; 8.00E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CO(-O-CH2CH3)CdH=Cd(CH3)CH3                                    ; 8.20E-18  ; 8.20E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Hydroxyalkenyl nitrates
+!
+!CdH2=Cd(CH3)CH(ONO2)CH2(OH)                                    ; see comme ;           ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+CH2(OH)Cd(CH3)=CdHCH2(ONO2)                                    ; 2.90E-17  ; 2.90E-17  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Oxoalkenyl nitrates   
+!
+CHOCd(CH3)=CdHCH2(ONO2)                                        ; 4.40E-18  ; 4.40E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+!
+! Peroxyacyl nitrates    
+!
+CdH2=Cd(CH3)CO(OONO2)                                          ; 8.20E-18  ; 8.20E-18  ; 0.0 ;    0.0 ; MJ20KMV000 ;            ;
+END
+

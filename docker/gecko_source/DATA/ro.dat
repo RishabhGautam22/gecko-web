@@ -1,0 +1,29 @@
+! RO forced reactions, products and their associated rate constant
+! ----------------------------------------------------------
+!
+! this file is read up to the keyword END.
+! Comment line (! as first character) can be placed  
+! everywhere in the file.
+!
+! - first column : gives the formula of the species (must start at the
+!   character of the line
+! - second column : gives the formula of 2nd reactant
+! - third and fourth columns : stochiometric coefficient and first product
+! - 5th and 6th columns      : stochiometric coefficient and second product
+! - 7th and 8th columns      : stochiometric coefficient and third product
+! - 9th and 10th columns     : stochiometric coefficient and fourth product
+! - 11th column : arrhenius coefficient for the reaction
+! A 'space 
+!   character' must be inserted between '|' and the beginning of the 
+!   formula
+! if no product, let 1 or any value for the associated stochimetric coefficient, no '-'
+! for inorganic species, put the gecko name without the 'G' : e.g. HO, NO, NO2, O3 ...
+! for reaction with O2, the second reactant must be OXYGEN.
+!
+! Renee McVay, April 2015
+! Additional isomerization reaction for alpha-pinene product CHOCH2C1HCH2CH(C1(CH3)CH3)COCH2(O.)
+! proposed by Jenkin 2000 to generate observed acids. Preliminary
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+C1H2CH(OH)Cd(CH3)=CdHCH2C1HC(O.)(CH3)CH3 | - | 1.0 | C12(CH3)-O-C(CH3)(CH3)CH(CH2C1H(OO.))CH2C2H(OH) | 1.0 | -   | 1.0 | - | 1.0 | -                          | 0.120E+15  0.0  4879   ; MJ00MER000 ; FORCEDREAC
+CHOCH2C1HCH2CH(C1(CH3)CH3)COCH2(O.)      | - | 0.8 | CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | 0.2 | CH3C1(CH3)CH(COCH2(OH))CH2C1HCH2CO(OO.) | 0.8 | CH2O | 1.0 | - | 0.112E+10  1.7  3065.  ; MJ00MER000 ; FORCEDREAC
+END

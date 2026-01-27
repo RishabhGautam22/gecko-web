@@ -1,0 +1,18 @@
+* Parameters used to calculate deposition velocities for each species
+* WARNING: file format is entirely constrained ( 10 lines of comments
+* then format "1pe7.1,2x,1pe7.1,2x,1pe7.1,2x,a16").
+* File reading is stopped by "*****". No comments are allowed between values
+* but the number of species in the list is not limited.
+* All of these parameters are used for the Wesely, 1989 parameterization.
+* Parameters are:
+* 1st column => diffusion coefficient ratio D_H2O/D_x
+* 2nd column => Effective Henry's law coefficient at pH=7 (M/atm)
+* 3rd column => reactivity factor (0, 0.1 or 1)
+1.6E+00  1.0E-02  1.0E+00  GO3
+1.6E+00  1.0E-02  0.1E+00  GNO2
+1.3E+00  2.0E-03  0.0E+00  GNO
+1.9E+00  1.0E+14  0.0E+00  GHNO3
+1.4E+00  1.0E+05  1.0E+00  GH2O2
+1.6E+00  1.0E+05  0.1E+00  GHNO2
+1.5E+00  6.0E+03  0.0E+00  GCH2O
+1.6E+00  2.4E+02  0.1E+00  GCH3OOH

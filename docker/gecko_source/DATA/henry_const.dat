@@ -1,0 +1,659 @@
+! List of the henry's law constant
+! ----------------------------------
+!
+! This file is read up to the keyword END.
+! Comment line (! as first character) can be placed  
+! everywhere in the file.
+!
+! Format of the file is free, but first column (chemical formula) 
+! must be separate from the henry data by ";". Data after
+! the "!" are not read.
+! Temporary set of constants, taken from Sander, 1996
+!
+! Effective Henry'law constants are in M/atm
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!C1
+!name ; H(logM/atm DeltaH(J/mol) ; source or comments
+!CH2O                                      ; 3004.      ;  30000 ;  -100 ; DUMHENRY1  ! Moller & Mauersberger,1992
+!CHO(OH)                                   ; 8900.      ;    0 ; -100 ; BJ96HMV000
+!CH4                                       ; 1.4E-03    ;    0 ; -100 ; DL95HRV000
+!CHO(ONO2)                                 ; 1.8E+04    ;    0 ; -100 ; DUMHENRY1   ! estimated with GROMHE 
+!CHO(OOH)                                  ; 8.95E+06   ;    0 ; -100 ; DUMHENRY1   ! estimated with GROMHE
+!CHO(OONO2)                                ; 5.08E+06   ;    0 ; -100 ; DUMHENRY1   ! estimated with GROMHE
+!CO                                        ; 9.90E-04   ;    0 ; -100 ; DL95HRV000
+!CO2                                       ; 3.58E-02   ;    0 ; -100 ; DL95HRV000
+!                                                       
+!    Structure                               Kh (M/atm)                    
+!
+! Hydrocarbons --------------------     
+!
+CH3CH3                                    ;   1.9E-03 ;  2300  ; -100 ; DL95HRV000 ;   ;
+CH3CH2CH3                                 ;   1.5E-03 ;  2700  ; -100 ; DL95HRV000 ;   ;
+CH3CH2CH2CH3                              ;   1.1E-03 ;  3100  ; -100 ; DM81HRV000 ;   ;
+CH3C(CH3)(CH3)CH3                         ;   2.7E-04 ;  3400  ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH3                             ;   8.4E-04 ;  2700  ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH2CH3                          ;   7.3E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CH3                           ;   8.1E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH2CH2CH3                       ;   6.0E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH(CH3)CH2CH3                       ;   5.9E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3C(CH3)(CH3)CH2CH3                      ;   5.9E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH(CH3)CH3                      ;   7.8E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3C(CH3)(CH3)CH2CH2CH3                   ;   3.2E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH(CH3)CH2CH3                   ;   5.8E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH2CH(CH3)CH3                   ;   3.4E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH3                  ;   3.4E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH(CH3)CH2CH2CH2CH3                 ;   2.7E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3C(CH3)(CH3)CH2CH(CH3)CH3               ;   3.1E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH(CH3)CH(CH3)CH3               ;   5.3E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2CH3               ;   2.0E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH(CH3)CH2CH2CH2CH3              ;   1.0E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH3            ;   1.4E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2CH3      ;   1.4E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH3                     ;   1.2E-03 ;  3700  ; -100 ; KH95HRV000 ;   ;
+CH3CH2CH2CH2CH2CH3                        ;   6.0E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH2CH2CH2CH3                    ;   1.9E-03 ; -3600  ; -100 ; KH95HMV000 ;   ;
+C1H2CH2C1H2                               ;   1.1E-02 ;  1700  ; -100 ; EW77HRV000 ;   ;
+C1H2CH2CH2CH2C1H2                         ;   6.6E-03 ;  3400  ; -100 ; KH95HMV000 ;   ;                     
+C1H(CH3)CH2CH2CH2C1H2                     ;   2.8E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+C1H(CH3)CH2CH2CH2CH2C1H2                  ;   9.7E-03 ;  9400  ; -100 ; KH95HMV000 ;   ;
+C1H(CH3)CH(CH3)CH2CH2CH2C1H2              ;   2.8E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+C1H(CH3)CH2CH2CH(CH3)CH2C1H2              ;   1.1E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+C1(CH3)(CH3)CH2CH(CH3)CH2C1H2             ;   6.4E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+C1H(CH2CH2CH3)CH2CH2CH2C1H2               ;   1.1E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+C1H(CH2CH2CH2CH2CH3)CH2CH2CH2C1H2         ;   5.5E-04 ;      0 ; -100 ; DM81HRV000 ;   ;
+C1H2CH2CH2CH2CH2CH2C1H2                   ;  1.08E-02 ;      0 ; -100 ; EP00HEV000 ;   ;
+C1H(CH2CH3)CH2CH2CH2CH2C1H2               ;  3.33E-03 ;      0 ; -100 ; EP00HEV000 ;   ;
+!
+CdH2=CdH2                                 ;   4.7E-03 ;  1800  ; -100 ; EW77HRV000 ;   ;
+CH3CdH=CdH2                               ;   4.8E-03 ;  3400  ; -100 ; DM81HRV000 ;   ;
+CH3CH2CdH=CdH2                            ;   1.4E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3Cd(CH3)=CdH2                           ;   1.6E-03 ;  3000  ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CdH=CdH2                         ;   2.5E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CdH=CdH2                        ;   1.9E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CdH=CdH2                      ;   2.4E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2Cd(CH3)=CdH2                     ;   3.6E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH(CH3)CH2CdH=CdH2                     ;   1.6E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CdH=CdHCH3                    ;   2.4E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+CH3CH2CH2CH2CH2CH2CdH=CdH2                ;   1.1E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+CdH2=CdHCdH=CdH2                          ;   1.4E-02 ;  4500  ; -100 ; EW77HRV000 ;   ;
+CdH2=CdHCd(CH3)=CdH2                      ;   2.8E-02 ;      0 ; -100 ; RS99HMV000 ;   ;
+CdH2=CdHCH2CdH=CdH2                       ;   8.4E-03 ;      0 ; -100 ; DM81HRV000 ;   ;
+C1H2CdH=CdHCH2CH2C1H2                     ;   2.6E-02 ;      0 ; -100 ; FN94HMV000 ;   ;
+C1H2CdH=CdHCH2CdH=Cd1H                     ;  1.0E-01 ;      0 ; -100 ; EP00HEV000 ;   ;
+C1H2CH2CdH=CdHC1H2                         ;  1.6E-02 ;      0 ; -100 ; EP00HEV000 ;   ;
+CdH2=CdHCd(=CdH2)CH2CH2CdH=Cd(CH3)CH3      ;  1.6E-02 ;      0 ; -100 ; EP00HEV000 ;   ;
+C1H(CdH=CdH2)CH2CH2CdH=CdHC1H2             ;  2.2E-02 ;      0 ; -100 ; EP00HEV000 ;   ;
+c1HcHcHcHcHc1H                            ;   2.1E-01 ;  3600  ; -100 ; JD95HMV000 ;   ;
+c1(CH2CH3)cHcHcHcHc1H                     ;   1.5E-01 ;  4600  ; -100 ; GR93HMV000 ;   ;
+c1(CH3)cHc(CH3)cHcHc1H                    ;   1.6E-01 ;  4000  ; -100 ; JD95HMV000 ;   ;
+c1(CH3)cHcHcHcHc1H                        ;   1.8E-01 ;  4100  ; -100 ; JD95HMV000 ;   ;
+c1(CH2CH3)c(CH2CH3)cHcHcHc1H              ;   3.8E-01 ;     0  ; -100 ; EP00HEV000 ;   ;
+c1(CH3)c(CH3)cHcHcHc1H                    ;   2.5E-01 ;  4200  ; -100 ; JD95HMV000 ;   ;
+c1(CH3)cHcHc(CH3)cHc1H                    ;   1.7E-01 ;  4500  ; -100 ; JD95HMV000 ;   ;
+c1(CH3)c(CH3)cHc(CH3)cHc1H                ;   1.5E-01 ;  4300  ; -100 ; KH95HMV000 ;   ;
+c1(CH2CH2CH3)cHcHcHcHc1H                  ;   1.4E-01 ;     0  ; -100 ; DM81HRV000 ;   ;
+c1(CH(CH3)CH3)cHcHcHcHc1H                 ;   7.8E-01 ;     0  ; -100 ; DM81HRV000 ;   ;
+c1(CH2CH3)c(CH3)cHcHcHc1H                 ;   2.4E-01 ;     0  ; -100 ; DM81HRV000 ;   ;
+c1(CH2CH2CH3)c(CH3)cHcHcHc1H              ;   3.1E-02 ;     0  ; -100 ; DM81HRV000 ;   ;
+c1(C(CH3)(CH3)CH2CH3)cHcHcHcHc1H          ;   8.4E-02 ;     0  ; -100 ; DM81HRV000 ;   ;
+c1(CH(CH3)CH3)cHcHc(CH3)cHc1H             ;   1.3E-01 ;     0  ; -100 ; DM81HRV000 ;   ;
+c1(CH2CH2CH2CH2CH3)cHcHcHcHc1H            ;   1.7E-01 ;     0  ; -100 ; DM81HRV000 ;   ;
+c1(CdH=CdH2)cHcHcHcHc1H                    ;  3.6E-01 ;     0  ; -100 ; EP00HEV000 ;   ;
+c1(CH2CH2CH2CH3)cHcHcHcHc1H                ;  6.3E-02 ;     0  ; -100 ; EP00HEV000 ;   ;
+c1(CH(CH3)CH2CH3)cHcHcHcHc1H               ;  5.7E-02 ;     0  ; -100 ; EP00HEV000 ;   ;
+c1(CH3)c(CH3)c(CH3)cHcHc1H                 ;  2.3E-01 ;     0  ; -100 ; EP00HEV000 ;   ;
+c1(CH3)c(CH(CH3)CH3)cHcHcHc1H              ;  8.8E-02 ;     0  ; -100 ; EP00HEV000 ;   ;
+c1(CdH=CdH2)cHcHc(CH3)cHc1H                ;  3.2E-01 ;     0  ; -100 ; EP00HEV000 ;   ;
+c1HcHcHcHc2cHcHcHcHc12                     ;  2.27    ;     0. ; -100 ; EP00HEV000 ;   ;
+!
+!Alcools-------------------------
+CH3CdH=CdHCH2(OH)                         ;   3.03E+02 ;    0  ; -100 ; SH08HMV000 ;   ;
+CH3C(OH)(CH3)CdH=CdH2                     ;   6.48E+01 ;    0  ; -100 ; SH08HMV000 ;   ;
+CH3(OH)                                   ;   2.2E+02  ; 5200  ; -100 ; JS85HMV000 ;   ;
+CH3CH2(OH)                                ;   1.9E+02  ; 6600  ; -100 ; JS85HMV000 ;   ;
+CH3CH2CH2(OH)                             ;   1.3E+02  ; 7500  ; -100 ; JS85HMV000 ;   ;
+CH3CH(OH)CH3                              ;   1.3E+02  ; 7500  ; -100 ; JS85HMV000 ;   ;
+CH3CH2CH2CH2(OH)                          ;   1.3E+02  ; 7200  ; -100 ; JS85HMV000 ;   ;
+CH3CH(CH3)CH2(OH)                         ;   1.0E+02  ;    0  ; -100 ; JS85HMV000 ;   ;
+CH3CH2CH(OH)CH3                           ;   1.1E+02  ; 7300  ; -100 ; JS85HMV000 ;   ;
+CH3C(OH)(CH3)CH3                          ;   7.0E+01  ; 8300  ; -100 ; JS85HMV000 ;   ;
+CH3CH2C(OH)(CH3)CH3                       ;   7.3E+01  ;    0  ; -100 ; JB35HMV000 ;   ;
+CH3CH2CH2CH2CH2(OH)                       ;   7.7E+01  ;    0  ; -100 ; JB35HMV000 ;   ;
+CH3CH2CH2CH(OH)CH3                        ;   6.8E+01  ;    0  ; -100 ; JB35HMV000 ;   ;
+CH3CH2CH2CH2CH2CH2(OH)                    ;   5.9E+01  ;    0  ; -100 ; RB69HMV000 ;   ;
+CH3CH2CH(CH3)CH2(OH)                      ;   7.1E+01  ;    0  ; -100 ; JB35HMV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2(OH)              ;   4.0E+01  ;    0  ; -100 ; RB69HMV000 ;   ;
+CH3CH2CH(OH)CH2CH3                        ;   5.0E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH(CH3)CH(OH)CH3                       ;   5.7E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH2CH(OH)CH3                     ;   4.1E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH(OH)CH2CH3                     ;   2.5E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH(CH3)CH2(OH)                   ;   2.3E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2C(OH)(CH3)CH3                    ;   2.8E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH(CH3)CH2CH2(OH)                      ;   7.1E+01  ;    0  ; -100 ; JB35HMV000 ;   ;
+CH3CH(CH3)CH2CH(OH)CH3                    ;   2.2E+01  ;    0  ; -100 ; JH75HMV000 ;   ;
+CH3CH2CH(CH2CH3)CH2(OH)                   ;   1.9E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2(OH)                 ;   5.3E+01  ;    0  ; -100 ; JB35HMV000 ;   ;
+CH3CH2CH2CH2CH2CH(OH)CH3                  ;   1.8E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH2CH(OH)CH2CH3                  ;   3.5E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH(OH)CH3               ;   8.1E+00  ;    0  ; -100 ; EP00HEV000 ; KB76HEV000 ;
+CH3CH2CH2CH2CH(CH2CH3)CH2(OH)             ;   3.8E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2CH2(OH)           ;   3.2E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH(OH)CH3            ;   2.0E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH(CH3)CH2CH(OH)CH2CH(CH3)CH3          ;   7.7E+00  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2(OH)        ;   3.1E+01  ;    0  ; -100 ; JA99HMV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2CH2(OH)  ;   4.5E+01  ;    0  ; -100 ; JA99HMV000 ;   ;
+CH3C(CH3)(CH3)CH2(OH)                     ;   1.9E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2C(OH)(CH3)CH2CH3                    ;   5.7E+01  ;    0  ; -100 ; EP00HEV000 ;   ;
+CdH2=CdHCH2(OH)                           ;   2.0E+02  ;    0  ; -100 ; JH75HMV000 ;   ;
+C1H(OH)CH2CH2CH2CH2C1H2                   ;   2.3E+02  ;    0  ; -100 ; JA99HMV000 ;   ;
+C1H(OH)CH(CH3)CH2CH2CH2C1H2               ;   1.3E+02  ;    0  ; -100 ; JA99HMV000 ;   ;
+C1H(OH)CH2CH(CH3)CH2CH2C1H2               ;   2.7E+02  ;    0  ; -100 ; JA99HMV000 ;   ;
+c1(CH2CH2(OH))cHcHcHcHc1H                 ;   3.9E+03  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(CH2(OH))cHcHcHcHc1H                    ;   3.0E+03  ;    0  ; -100 ; MA94HMV000 ;   ;
+c12cHcHcHcHc1cHcHcHc2(OH)                 ;  1.75E+04  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)cHc(CH3)c(CH3)cHc1H                 ;   2.4E+03  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)c(CH3)cHcHc(CH3)c1H                 ;   8.9E+02  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)c(CH2CH3)cHcHcHc1H                  ;   2.2E+02  ;    0  ; -100 ; EP00HEV000 ;   ;
+c1(OH)c(CH3)cHc(CH3)cHc1H                 ;   1.1E+03  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)cHc(CH3)cHc(CH3)c1H                 ;   1.6E+03  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)cHcHc(CH2CH3)cHc1H                  ;   1.3E+03  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)c(CH3)c(CH3)cHcHc1H                 ;   1.4E+03  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)c(CH3)cHc(CH3)cHc1CH3               ;   3.8E+02  ;    0  ; -100 ; EP00HEV000 ;   ;
+c1(OH)c(CH3)cHcHcHc1CH3                   ;   1.5E+02  ;    0  ; -100 ; SH85HMV000 ;   ;
+c1(OH)cHcHc(CH2CH2CH3)cHc1H               ;   8.8E+02  ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)cHc(CH2CH3)cHc(CH3)c1H              ;   1.5E+03  ;    0  ; -100 ; EP00HEV000 ;   ;
+c1(OH)c(CH(CH3)CH3)cHcHc(CH3)c1H          ;   2.07E+03 ;    0  ; -100 ; EP00HEV000 ;   ;
+c1(OH)cHc(CH2CH3)cHcHc1H                  ;   1.59E+03 ;    0  ; -100 ; MA94HMV000 ;   ;
+c1(OH)cHcHcHcHc1H                         ;   3.00E+03 ;    0  ; -100 ; JG87HMV000 ;   ;
+!                                                      
+! hydroperoxydes ---------                                       
+CH3(OOH)                                  ;   3.1E+02  ;  5300 ; -100 ; DO96HMV000 ;   ;
+CH3CH2(OOH)                               ;   3.4E+02  ;  6000 ; -100 ; DO96HMV000 ;   ;
+!                                                      
+! Ethers ------------                                    
+!CH3CH(CH3)CH2-O-CdH=CdH2                   ; 2.58E-01 ;    0  ; -100 ; SH08HMV000 ;   ;
+CH3CH(CH3)-O-CH(CH3)CH3                    ; 4.9E-01   ;    0  ; -100 ; FN94HMV000 ;   ;
+CH3CH2CH2-O-CH2CH2CH3                      ; 2.3E-01   ; 8900  ; -100 ; AH73HMV000 ;   ;
+CH3CH2-O-CH2CH3                            ; 1.2E+00   ;   0   ; -100 ; FN94HMV000 ;   ;
+CH3C(CH3)(CH3)-O-CH3                       ; 1.6E+00   ; 7700  ; -100 ; GR93HMV000 ;   ;
+CdH2=CdH-O-CH2CH3                          ; 1.9E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+CdH2=CdH-O-CdH=CdH2                        ; 1.2E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+CdH2=CdH-O-CH2CH2CH2CH3                    ; 4.6E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2CH2-O-CH2CH2CH2CH3                ; 1.7E-01   ;    0  ; -100 ; JH75HMV000 ;   ;
+CH3CH(CH3)CH2CH2-O-CH2CH2CH(CH3)CH3        ; 6.8E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3-O-CH2CH2CH3                            ; 6.7E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3-O-CH(CH3)CH3                           ; 1.1E+00   ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2CH2-O-CH(CH3)CH3                     ; 4.1E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3-O-CH2CH2CH2CH3                         ; 5.6E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2-O-CH2CH2CH3                         ; 8.8E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3CH2-O-C(CH3)(CH3)CH2CH3                 ; 5.2E-02   ;    0  ; -100 ; EP00HEV000 ;   ;
+!CH3-O-C(CH3)(CH3)CH3                       ; 1.7E+00  ;    0  ; -100 ; EP00HEV000 ;   ;
+CH3-O-CH(CH3)CH2CH3                        ; 6.8E-01   ;    0  ; -100 ; EP00HEV000 ;   ;
+c1(-O-CH2CH3)cHcHcHcHc1H                   ; 2.3E+00   ;    0  ; -100 ; EP00HEV000 ;   ;
+!c1HcHcHcHcHc1-O-c2cHcHcHcHc2H              ; 3.6E+00  ;    0  ; -100 ; EP00HEV000 ;   ;
+!
+! Carbonyles----
+! value below for formaldehyde is for the true H (no hydration)
+!CH2O                                      ;  2.5E+00 ; 6500 ;  -100 ; XZ90HMV000 ;   ;
+CH3CHO                                    ;  1.4E+01 ;  5600 ;  0.00 ; JS96HRV000 ;   ;
+CH3CH2CHO                                 ;  1.3E+01 ;  5700 ; -0.10 ; XZ90HMV000 ;   ;
+CH3CH2CH2CHO                              ;  9.6E+00 ;  6200 ; -0.14 ; XZ90HMV000 ;   ;
+CH3CH2CH2CH2CHO                           ;  6.4E+00 ;  6300 ; -0.14 ; XZ90HMV000 ;   ;
+CH3CH2CH2CH2CH2CHO                        ;  4.9E+00 ;  6500 ; -0.14 ; XZ90HMV000 ;   ;
+CH3CH2CH2CH2CH2CH2CHO                     ;  3.3E+00 ;  7500 ; -0.14 ; XZ90HMV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CHO                  ;  2.1E+00 ;  7400 ; -0.14 ; XZ90HMV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2CHO               ;  1.0E+00 ;  6700 ; -0.14 ; XZ90HMV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2CH2CH2CHO            ;  6.1E-01 ;  8700 ; -0.14 ; XZ90HMV000 ;   ;
+CdH2=CdHCHO                               ;  7.4E+00 ;  5100 ; -100 ; JS85HMV000 ;    ;
+CdH2=Cd(CH3)CHO                           ;  6.5E+00 ;     0 ; -100 ; LI99HMV000 ;    ;
+!CH3CdH=CdHCHO                             ;  5.2E+01;     0 ; -100 ; RB69HMV000 ;    ;
+!CH3CH2CH2CdH=CdHCHO                       ;  2.0E+01;     0 ; -100 ; RB71HMV000 ;    ;
+!CH3CdH=CdHCdH=CdHCHO                      ;  1.0E+02;     0 ; -100 ; RB71HMV000 ;    ;
+!CH3CH2CH2CH2CH2CdH=CdHCHO                 ;  1.3E+01;     0 ; -100 ; RB71HMV000 ;    ;
+CH3COCH3                                  ;  3.0E+01 ;  4600 ; -100 ; JS96HRV000 ;    ;
+CH3CH2COCH3                               ;  2.0E+01 ;  5000 ; -100 ; JS96HRV000 ;    ;
+CH3CH2CH2COCH3                            ;  1.6E+01 ;     0 ; -100 ; RB71HMV000 ;    ;
+CH3CH2CH2CH2CH2COCH3                      ;  7.0E+00 ;     0 ; -100 ; RB71HMV000 ;    ;
+CH3CH2CH2CH2CH2CH2COCH3                   ;  5.4E+00 ;     0 ; -100 ; RB71HMV000 ;    ;
+CH3CH2CH2CH2CH2CH2CH2COCH3                ;  2.7E+00 ;     0 ; -100 ; RB71HMV000 ;    ;
+CH3CH2CH2CH2CH2CH2CH2CH2CH2COCH3          ;  1.6E+00 ;     0 ; -100 ; RB71HMV000 ;    ;
+CH3COCdH=CdH2                             ;  4.1E+01 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3COC(CH3)(CH3)CH3                        ; 4.6E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+C1(CH3)(CH3)CH2COCdH=Cd(CH3)C1H2           ; 1.5E+02 ;     0 ; -100 ; EP00HEV000 ;    ;
+C1H2CH2COCH2CH2C1H2                        ; 1.11E+02;     0 ; -100 ; EP00HEV000 ;    ;
+C1H2CH2COCH2C1H2                           ; 1.00E+02;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2COCH2CH3                             ; 1.1E+01 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH2CH2CH(CH2CH3)CHO                  ; 1.32E+00;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH2COCH2CH2CH3                       ; 1.82E+01;     0 ; -100 ; EP00HEV000 ;    ;
+CH3Cd(CH3)=CdHCOCH3                        ; 2.72E+01;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH(CH3)COCH3                            ; 1.03E+01;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH(CH3)COCH3                         ; 1.37E+01;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2COCH(CH3)CH3                         ; 6.49E+00;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH(CH3)COCH(CH3)CH3                     ; 2.83E+00;     0 ; -100 ; EP00HEV000 ;    ;
+c1(CHO)cHcHcHcHc1H                         ; 4.2E+01 ;  4600 ; -100 ; XZ90HMV000 ;    ;
+c1(COCH3)cHcHcHcHc1H                       ; 1.1E+02 ;  6000 ; -100 ; EB91HMV000 ;    ;
+!
+! Acids -----------------
+CH3CO(OH)                                  ; 4.1E+03 ;  6300 ; -100 ; BJ96HMV000 ;    ;
+CH3CH2CO(OH)                               ; 5.7E+03 ;     0 ; -100 ; IK95HMV000 ;    ;
+CH3CH2CH2CO(OH)                            ; 4.7E+03 ;     0 ; -100 ; IK95HMV000 ;    ;
+CH3CH(CH3)CO(OH)                           ; 1.1E+03 ;     0 ; -100 ; IK95HMV000 ;    ;
+CH3CH2CH2CH2CO(OH)                         ; 2.2E+03 ;  6583 ; -100 ; IK95HMV000 ;    ;
+CH3CH2CH2CH2CH2CO(OH)                      ; 1.4E+03 ;  6304 ; -100 ; IK95HMV000 ;    ;
+CH3CH(CH3)CH2CO(OH)                        ; 1.2E+03 ;     0 ; -100 ; IK95HMV000 ;    ;
+CH3C(CH3)(CH3)CO(OH)                       ; 3.5E+02 ;     0 ; -100 ; IK95HMV000 ;    ;
+CdH2=Cd(CH3)CO(OH)                         ; 2.6E+03 ;     0 ; -100 ; IK95HMV000 ;    ;
+CdH2=CdHCO(OH)                             ; 2.7E+03 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH(CH2CH3)CO(OH)                     ; 6.3E+02 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CdH=CdHCO(OH)                           ; 1.50E+04;     0 ; -100 ; EP00HEV000 ;    ;
+c1HcHcHcHcHc1CdH=CdHCO(OH)                 ; 5.85E+04;     0 ; -100 ; EP00HEV000 ;    ;
+c1HcHcHcHcHc1CO(OH)                        ; 2.6E+04 ;     0 ; -100 ; EP00HEV000 ;    ;
+c1(CH2CO(OH))cHcHcHcHc1H                   ; 2.4E+04 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CO(OOH)                                 ; 8.4E+02 ;  5300 ; -100 ; DO96HMV000 ;    ;
+!
+! Esters----------
+CdH2=Cd(CH3)CO-O-CH3                       ; 2.83E+00  ;   0 ; -100 ; SH08HMV000 ;    ;
+CdH2=Cd(CH3)CO-O-CH2CH3                    ; 1.63E+00  ;   0 ; -100 ; SH08HMV000 ;    ;
+!CH3CH2CH2CH2CH(CH2CH3)CH2-O-COCdH=CdH2     ; 2.25E+00 ;   0 ; -100 ; SH08HMV000 ;    ;
+CH3CH(CH3)CH2-O-COCd(CH3)=CdH2             ; 1.83E+00  ;   0 ; -100 ; SH08HMV000 ;    ;
+CH3CO-O-CdH=CdH2                           ; 1.70E+00  ;   0 ; -100 ; SH08HMV000 ;    ;
+!CH3CO-O-CH2CdH=CdH2                        ; 7.15E+00 ;   0 ; -100 ; SH08HMV000 ;    ;
+CH3CO-O-CH3                                ; 7.8E+00 ;  5000 ; -100 ; TK79HMV000 ;    ;
+CH3CO-O-CH2CH3                             ; 5.9E+00 ;  5300 ; -100 ; TK79HMV000 ;    ;
+CH3CH2CO-O-CH3                             ; 5.8E+00 ;     0 ; -100 ; RB69HMV000 ;    ;
+CH3CO-O-CH2CH2CH3                          ; 4.6E+00 ;  5500 ; -100 ; TK79HMV000 ;    ;
+CH3CH2CH2CO-O-CH3                          ; 4.8E+00 ;     0 ; -100 ; RB69HMV000 ;    ;
+CH3CO-O-CH2CH2CH2CH3                       ; 3.6E+00 ;  6000 ; -100 ; TK79HMV000 ;    ;
+CHO-O-CH3                                  ; 4.1E+00 ;  3800 ; -100 ; AH73HMV000 ;    ;
+CH3CH2CH2CH2CO-O-CH3                       ; 3.1E+00 ;     0 ; -100 ; RB69HMV000 ;    ;
+CH3CH2CH2CH2CH2CO-O-CH3                    ; 2.7E+00 ;     0 ; -100 ; RB69HMV000 ;    ;
+CH3CH2CH2CH2CH2CH2CH2CO-O-CH3              ; 1.3E+00 ;     0 ; -100 ; RB69HMV000 ;    ;
+CHO-O-CH2CH2CH3                            ; 2.3E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CHO-O-CH2CH2CH2CH3                         ; 1.9E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CHO-O-CH2CH3                               ; 2.6E+00 ;  4300 ; -100 ; AH73HMV000 ;    ;
+CdH2=CdHCO-O-CH3                           ; 5.1E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CO-O-CH2CH3                          ; 4.0E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH2CO-O-CH2CH2CH3                    ; 1.6E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH2CH2CH2CH2CO-O-CH2CH3              ; 2.0E+00 ;     0 ; -100 ; JH75HMV000 ;    ;
+CH3CH(CH3)CO-O-CH2CH(CH3)CH3               ; 1.2E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CdH2=Cd(CH3)CO-O-CH2CH2CH2CH3              ; 2.0E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH2CO-O-CH2CH2CH2CH3                 ; 1.5E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CO-O-CH2CH2CH3                       ; 2.5E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CdH2=CdHCO-O-CH2CH(CH3)CH3                 ; 1.3E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CO-O-COCH3                              ; 1.8E+02 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH(CH3)CH2CO-O-CH2CH3                   ; 1.4E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CO-O-CH2CH2CH(CH3)CH3                   ; 1.7E+00 ;     0 ; -100 ; JH75HMV000 ;    ;
+CdH2=CdHCO-O-CH2CH3                        ; 2.9E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CdH2=CdHCO-O-CH2CH2CH2CH3                  ; 2.2E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH2CH2CO-O-CH2CH3                    ; 2.7E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3C(CH3)(CH3)CO-O-CH3                     ; 2.4E+00 ;     0 ; -100 ; MA94HMV000 ;    ;
+CH3CH2CO-O-CH2CH2CH2CH2CH3                 ; 1.2E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CO-O-CH2CH2CH2CH2CH3                    ; 2.6E+00 ;     0 ; -100 ; EP00HEV000 ; RT85HEV000 ;
+CdH2=CdHCO-O-CH2CH(CH2CH3)CH2CH2CH2CH3     ; 2.3E+00 ;     0 ; -100 ; EP00HEV000 ;    ;
+c1HcHcHcHcHc1CO-O-CH2CH2CH2CH3             ; 2.5E+01 ;     0 ; -100 ; EP00HEV000 ;    ;
+c1(CO-O-CH2CH3)cHcHcHcHc1H                 ; 1.4E+01 ;     0 ; -100 ; EP00HEV000 ;    ;
+!C1H2CO-O-CH2C1H2                           ; 1.90E+04 ;   0 ; -100 ; EP00HEV000 ;    ;
+c1Hc2CO-O-COc2cHcHc1H                      ; 6.13E+04 ;    0 ; -100 ; EP00HEV000 ;    ;
+!
+! Nitrates and nitro--------
+CH3(ONO2)                                 ;  2.0E+00 ;  4700 ; -100 ; JK92HMV000 ;    ;
+CH3CH2(ONO2)                              ;  1.6E+00 ;  5400 ; -100 ; JK92HMV000 ;    ;
+CH3CH2CH2(ONO2)                           ;  7.9E-01 ;  5500 ; -100 ; KH98HMV000 ;    ;
+CH3CH(ONO2)CH3                            ;  6.2E-01 ;  5400 ; -100 ; KH98HMV000 ;    ;
+CH3CH2CH2CH2(ONO2)                        ;  6.5E-01 ;  5800 ; -100 ; KH98HMV000 ;    ;
+CH3CH(ONO2)CH2CH3                         ;  4.4E-01 ;  5400 ; -100 ; KH98HMV000 ;    ;
+CH3C(ONO2)(CH3)CH3                        ;  7.0E-01 ;  5200 ; -100 ; JK92HMV000 ;    ;
+CH3CH2CH2CH2CH2(ONO2)                     ;  6.0E-01 ;     0 ; -100 ; KH98HMV000 ;    ;
+CH3CH(ONO2)CH2CH2CH3                      ;  3.4E-01 ;  6300 ; -100 ; KH98HMV000 ;    ;
+CH3CH(CH3)CH2CH2(ONO2)                    ;  4.5E-01 ;     0 ; -100 ; KH98HMV000 ;    ;
+CH3CH2CH2CH2CH2CH2(ONO2)                  ;  6.7E-01 ;     0 ; -100 ; KH98HMV000 ;    ;
+CH3CH2CH(ONO2)CH2CH3                      ; 3.6E-01  ;     0 ; -100 ; KH98HMV000 ;    ;
+CH3(NO2)                                  ; 4.5E+01  ;     0 ; -100 ; LR73HMV000 ;    ;
+CH3CH2(NO2)                               ; 2.1E+01  ;     0 ; -100 ; JG87HMV000 ;    ;
+CH3CH(NO2)CH3                             ; 8.4E+00  ;     0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH2(NO2)                            ; 1.1E+01  ;     0 ; -100 ; JH75HMV000 ;    ;
+c1(CH3)c(NO2)cHcHcHc1H                    ; 8.0E+01  ;     0 ; -100 ; JA99HMV000 ;    ;
+!
+! PAN --------
+CH3CO(OONO2)                              ; 4.1E+00 ; 6500  ; -100 ; JK95HMV000 ;    ;
+CH3CH2CO(OONO2)                           ; 2.9E+00 ;    0  ; -100 ; JK95HMV000 ;    ;
+CH3CH2CH2CO(OONO2)                        ; 2.3E+00 ;    0  ; -100 ; JK95HMV000 ;    ;
+CdH2=Cd(CH3)CO(OONO2)                     ; 1.7E+00 ;    0  ; -100 ; JK95HMV000 ;    ;
+CH3CH(CH3)CO(OONO2)                       ; 1.0E+00 ;    0  ; -100 ; JK95HMV000 ;    ;
+!
+! Multi fuctional ---------------
+!CH2(Cl)CH2-O-CdH=CdH2                      ; 1.10E-01 ;  0 ;  -100 ; SH08HMV000 ;    ;
+!CH3Cd(CHO)=CdH2                            ; 4.28E+00 ;  0 ;  -100 ; SH08HMV000 ;    ;
+!CHOCdH=CdH2                                ; 8.16E+00 ;  0 ;  -100 ; SH08HMV000 ;    ;
+!C(F)(F)(F)CH(OH)C(F)(F)(F)                 ; 2.35E+01 ;  0 ;  -100 ; SH08HMV000 ;    ;
+CH2(Cl)CH(OH)CH2(Cl)                       ; 5.78E+02  ; 0  ; -100 ; SH08HMV000 ;     ;
+!CH3CH2CH2CH2-O-COCH(OH)CH3                 ; 3.56E+02 ;  0 ;  -100 ; SH08HMV000 ;    ;
+CH3CH(CH3)-O-CH2CH2(OH)                    ; 1.05E+03  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH3CH2CH2CH(OH)CH(CH2(OH))CH2CH3           ; 6.94E+04  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH2(OH)CH2CH2CH2CH2(OH)                    ; 4.00E+06  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH2(OH)CH2CH2CH2(OH)                       ; 1.83E+06  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH2(OH)CH2CH2(OH)                          ; 9.16E+05  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH3COCH2(NO2)                              ; 1.00E+03  ; 0  ; 1.70 ; SH08HMV000 ;     ;
+CH3CH(OH)CH2(NO2)                          ; 1.10E+04  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH3CH2CH(NO2)CH2(OH)                       ; 6.05E+03  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH3CH(OH)CH(NO2)CH3                        ; 1.00E+04  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH3CH(NO2)CH2(OH)                          ; 4.48E+03  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH2(OH)CH2(NO2)                             ; 4.00E+04 ;  0 ;  -100 ; SH08HMV000 ;    ;
+!CH3COCH2COCH3                             ; 2.90E+02  ; 0  ; 1.24 ; SH08HMV000 ;     ;
+CH3-O-CH2CH(CH3)-O-COCH3                   ; 2.76E+02  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH2(OH)CH2CH2-O-CH2CH2(OH)                 ; 3.10E+06  ; 0  ; -100 ; SH08HMV000 ;     ;
+!CH2(OH)CH2(OH)                             ; 5.27E+05 ;  0 ;  -100 ; SH08HMV000 ;    ;
+CH3CH2CH2CH2-O-CH2CH2(OH)                  ; 1.59E+03  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH3Cd(CH3)=CdHCH2CH2C(OH)(CH3)CdH=CdH2     ; 4.48E+01  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH3CH2CH2-O-CH2CH2(OH)                     ; 2.05E+03  ; 0  ; -100 ; SH08HMV000 ;     ;
+!CH3COCdH=Cd(CH3)CH3                        ; 1.87E+01 ;  0 ;  -100 ; SH08HMV000 ;    ;
+CH3COCH2CH(CH3)-O-CH3                      ; 4.92E+02  ; 0  ;  0.58 ; SH08HMV000 ;    ;
+!CH3CO-O-CH2CH2-O-CH2CH2CH2CH3              ; 1.26E+02 ;  0 ;  -100 ; SH08HMV000 ;    ;
+!CH3CH2-O-COCH2CO-O-CH2CH3                  ; 3.91E+02 ;  0 ;  -100 ; SH08HMV000 ;    ;
+CO(OH)CH2CH2CH2CO(OH)                      ; 1.91E+08  ; 0  ; -100 ; SH08HMV000 ;     ;
+!CH3CH2CH2-O-CH2CH2(OH)                     ; 2.05E+03 ;  0 ;  -100 ; SH08HMV000 ;    ;
+CH3CH2-O-CH2CH2(OH)                        ; 3.32E+03  ; 0  ; -100 ; SH08HMV000 ;     ;
+CH3-O-CH2CH2(OH)                           ; 3.73E+03  ; 0  ; -100 ; SH08HMV000 ;     ;
+!CH3COCH2C(CH3)(CH3)-O-CH3                  ; 4.92E+02 ;  0 ;  0.58 ; SH08HMV000 ;    ;
+CH2(OH)(OOH)                               ; 1.7E+06 ; 9700 ;  -100 ; DO96HMV000 ;    ;
+!CH3CH2CH2CH(OH)CH(CH2CH3)CH2(OH)           ; 7.3E+04 ;   0 ;  -100 ;  EP00HEV000;    ;
+c1(OH)c(OH)cHcHcHc1H                       ; 3.2E+05  ;  0  ; -100 ;  EP00HEV000 ;    ;
+c1(OH)cHcHc(OH)cHc1H                       ; 2.1E+07  ;  0  ; -100 ;  EP00HEV000 ;    ;
+CH3-O-CH2-O-CH3                            ; 5.8E+00  ;  0  ; -100 ;  JH75HMV000 ;    ;
+CH3CH2-O-CH2-O-CH2CH3                      ; 1.5E+01  ;  0  ; -100 ;  EP00HEV000 ;    ;
+CH3COCOCH3                                 ; 7.5E+01 ; 5700 ;  1.81 ; EB91HMV000 ;    ;
+!!!CH3COCOCH3                                 ; 1.91E+02  ;  0  ; -100 ; SH08HMV000 ;   ;
+CHOCHO                                     ; 3.6E+05  ;   0  ; 3.52 ; XZ90HMV000 ;    ;
+!!!CH3COCHO                                   ; 3.73E+03  ;  0 ;  -100 ; SH08HMV000 ;  ;
+CH3COCHO                                   ; 3.2E+04 ; 7500 ;  1.81 ; XZ90HMV000 ;    ;
+CH2(OH)CHO                                 ; 4.1E+04 ; 4600 ;  0.62 ; EB88HMV000 ;    ;
+!! 4 valeurs ci-dessous sont réelles
+!!!CHOCHO                                  ; 1.4E+00  ;  ;   0 ; EB88HMV000 ;    ;
+!!!CH3COCHO                                ; 1.4E+00  ;  ;   0 ; EB88HMV000 ;    ;
+!!!CH2(OH)CHO                              ; 4.1E+03  ;  ;   0 ; EB88HMV000 ;    ;
+!!!!!!!!!!!!!!!!!!!!!!!!!
+CO(OH)CO(OH)                               ; 7.0E+06  ;  0 ; -100 ; JG87HMV000 ;    ;
+CO(OH)CH2CO(OH)                            ; 3.7E+06  ;  0 ; -100 ; EP00HEV000 ;    ;
+CO(OH)CH2CH2CH2CH2CO(OH)                   ; 2.12E+08 ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3COCH2CO-O-CH3                           ; 3.7E+03  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3COCH2CO-O-CH2CH3                        ; 8.3E+02  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2-O-CO-O-CH2CH3                       ; 1.1E+01  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2-O-COCH2CO-O-CH2CH3                  ; 4.8E+02  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3CO-O-CH2CH2-O-COCH3                     ; 1.2E+04  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3-O-COCO-O-CH3                           ; 3.4E+02  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3-O-COCdH=CdHCO-O-CH3                    ; 1.4E+03  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2-O-COCH2CH2CO-O-CH2CH3               ; 1.9E+03  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3CH2CH2CH2-O-COCdH=CdHCO-O-CH2CH2CH2CH3  ; 2.7E+03  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH3CO-O-CH2CH(-O-COCH3)CH2-O-COCH3         ; 8.13E+04 ;  0 ; -100 ; EP00HEV000 ;    ;
+c1Hc(CO-O-CH3)c(CO-O-CH3)cHcHc1H           ; 9.52E+03 ;  0 ; -100 ; EP00HEV000 ;    ;
+c1(CH3)c(NO2)cHc(NO2)cHc1H                 ; 1.9E+04  ;  0 ; -100 ; JA99HMV000 ;    ;
+c1(NO2)cHc(NO2)cHcHc1H                     ; 2.0E+04  ;  0 ; -100 ; EP00HEV000 ;    ;
+CH2(ONO2)CH2(ONO2)                         ; 7.9E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH(ONO2)CH3                       ; 3.2E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH2(ONO2)                      ; 1.3E+02  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH(ONO2)CH2CH3                    ; 2.1E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH(ONO2)CH3                    ; 5.8E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH2CH2(ONO2)                   ; 1.6E+02  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH3CH(ONO2)CH(ONO2)CH3                     ; 1.2E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH(ONO2)CH2CH2CH3                 ; 1.3E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH2CH(ONO2)CH3                 ; 3.9E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH2CH2CH2(ONO2)                ; 1.2E+02  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH3CH(ONO2)CH2CH(ONO2)CH3                  ; 2.2E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH(ONO2)CH2CH2CH2CH3              ; 9.7E+00  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH2CH2CH2CH2(ONO2)             ; 1.5E+02  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH3CH(ONO2)CH2CH2CH(ONO2)CH3               ; 3.2E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+C1H(ONO2)CH(ONO2)CH2CH2CH2C1H2             ; 1.3E+02  ;  0 ; -100 ; RF98HMV000 ;    ;
+C1H(ONO2)CH2CH(ONO2)CH2CH2C1H2             ; 3.5E+02  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH2CH2CH2CH2CH2(ONO2)          ; 1.2E+02  ;  0 ; -100 ; RF98HMV000 ;    ;
+C1H(ONO2)CH(ONO2)CH2CH2CH2CH2CH2C1H2       ; 8.9E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH(ONO2)CH2CH2CH2CH2CH2CH3        ; 5.3E+00  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH2CH2CH2CH2CH2CH2(ONO2)       ; 7.9E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH(ONO2)CH2CH2CH2CH2CH2CH2CH2CH3  ; 2.0E+00  ;  0 ; -100 ; RF98HMV000 ;    ;
+CH2(ONO2)CH2CH2CH2CH2CH2CH2CH2CH2CH2(ONO2) ; 4.3E+01  ;  0 ; -100 ; RF98HMV000 ;    ;
+!CH3CH(CH3)-O-CH2CH2(OH)                    ; 1.1E+03 ;  0 ; -100 ; GJ88HMV000 ;    ;
+!CH3CH2-O-CH2CH2(OH)                        ; 2.1E+03 ;  0 ; -100 ; GJ88HMV000 ;    ;
+CH3CH(OH)CH2-O-CH3                         ; 1.1E+03  ;  0 ; -100 ; GJ88HMV000 ;    ;
+!CH3-O-CH2CH2(OH)                           ; 3.0E+03 ;   0 ; -100 ; GJ88HMV000 ;   ;
+CH3COCO(OH)                                ; 3.1E+05  ; 5100 ;  2.08 ; IK95HMV000 ;    ;
+CH3CO-O-CH2CH2-O-CH2CH3                    ; 3.1E+02  ;    0 ; -100  ; GJ88HMV000 ;    ;
+CH3C(-O-CH3)(CH3)CH2COCH3                  ; 5.2E+02  ;    0 ; 0.58  ; EP00HEV000 ;    ;
+CH2(OH)CH2(ONO2)                           ;  3.9E+04 ; 8600 ;  -100 ; PS96HMV000 ;    ;
+CH2(OH)CH2CH2(ONO2)                        ;  7.3E+03 ;    0  ; -100 ; JK92HMV000 ;    ;
+CH3CH(OH)CH2(ONO2)                         ;  1.1E+04 ; 10000 ; -100 ; PS96HMV000 ;    ;
+CH2(OH)CH(ONO2)CH3                         ;  4.5E+03 ; 8800  ; -100 ; PS96HMV000 ;    ;
+CH3CH(OH)CH(ONO2)CH3                       ;  1.0E+04 ; 9500  ; -100 ; PS96HMV000 ;    ;
+CH3CH2CH(OH)CH2(ONO2)                      ;  5.8E+03 ; 9200  ; -100 ; PS96HMV000 ;    ;
+CH3CH2CH(ONO2)CH2(OH)                      ;  6.0E+03 ; 9600  ; -100 ; PS96HMV000 ;    ;
+CH3COCH2(ONO2)                             ;  1.0E+03 ;    0 ; 1.5  ; JK92HMV000 ;     ;
+c1(OH)c(-O-CH3)cHc(CH3)cHc1H               ; 7.5E+02  ;    0 ; -100 ; JS92HMV000 ;     ;
+c1HcHcHcHcHc1CH2-O-CH2CH2(OH)              ; 8.3E+03  ;    0 ; -100 ; EP00HEV000 ;     ;
+c1(CO(OH))c(-O-COCH3)cHcHcHc1H             ; 7.7E+05  ;    0 ; -100 ; EP00HEV000 ;     ;
+c1(CO(OH))c(OH)cHcHcHc1H                   ; 1.4E+05  ;    0 ; -100 ; EP00HEV000 ;     ;
+c1(OH)cHc(-O-CH3)cHcHc1H                   ; 1.7E+04  ;    0 ; -100 ; MA94HMV000 ;     ;
+c1(OH)c(NO2)cHcHcHc1H                      ; 1.47E+02 ; 5720 ; -100 ; XG07HMV000 ;     ;
+c1(OH)cHc(NO2)cHcHc1H                      ; 1.13E+04 ; 5720 ; -100 ; XG07HMV000 ;     ;
+c1(OH)cHcHc(NO2)cHc1H                      ; 8.58E+03 ; 5720 ; -100 ; XG07HMV000 ;     ;
+c1(NO2)c(-O-CH3)cHcHcHc1H                  ; 2.33E+03 ;    0 ; -100 ; EP00HEV000 ;     ;
+C1H2CH(CH2(OH))-O-CH2CH2C1H2               ; 6.54E+04 ;    0 ; -100 ; EP00HEV000 ;     ;
+c1(OH)cHc(CHO)cHcHc1H                      ; 4.00E+05 ;    0 ; -100 ; JG87HMV000 ;     ;
+c1(OH)cHcHc(CHO)cHc1H                      ; 1.96E+06 ;    0 ; -100 ; GP71HMV000 ;     ;
+c1(CHO)c(OH)cHcHcHc1H                      ; 1.8E+02  ;    0 ; -100 ; EP00HEV000 ;     ;
+C1dH=Cd(CHO)-O-CdH=C1dH                    ; 2.97E+02 ;    0 ; -100 ; EP00HEV000 ;     ;
+c1Hc(CO-O-CH2CH2CH3)c(CO-O-CH2CH2CH3)cHcHc1H    ; 2.48E+03  ;  0 ; -100 ; EP00HEV000 ;   ;
+!
+! Multitrifunctional ---- 
+CH2(ONO2)CH(ONO2)CH2(ONO2)                ; 1.0E+04   ;   0 ; -100 ; EP00HEV000 ;    ;
+CH3CO-O-CH2CH2-O-CH2CH2-O-CH2CH2CH2CH3    ; 6.1E+03   ;   0 ; -100 ; EP00HEV000 ;    ;
+CH2(ONO2)CH2-O-CH2CH2(ONO2)               ; 2.6E+03   ;   0 ; -100 ; EP00HEV000 ;    ;
+!c1(OH)c(NO2)cHc(NO2)cHc1(NO2)             ; 5.9E+07  ;   0 ;  -100 ; EP00HEV000;    ;
+c1(OH)c(-O-CH3)cHcHcHc1-O-CH3             ; 4.3E+03   ;   0 ; -100 ; EP00HEV000 ;    ;
+c1(CHO)cHc(-O-CH3)c(OH)cHc1H              ; 4.7E+05   ;   0 ; -100 ; EP00HEV000 ;    ;
+c1Hc(NO2)cHc(NO2)c(OH)c1CH(CH3)CH2CH3     ; 2.19E+03  ;   0 ; -100 ; EP00HEV000 ;    ;
+!
+! Compounds with fluorine    
+! -----------------------
+!
+CH3(F)                                      ;   5.20E-02  ; 2200 ;  -100  ; DM81HRV000 ;    ;
+CH3CH2(F)                                   ;   4.50E-02  ;    0 ;  -100  ; EP00HEV000 ;    ;
+CH(F)(F)(F)                                 ;   1.44E-02  ; 2200 ;  -100  ; DZ97HMV000 ;    ;
+C(F)(F)(F)(F)                               ;   2.10E-04  ; 1800 ;  -100  ; EW77HRV000 ;    ;
+CH3CH(F)(F)                                 ;   5.40E-02  ; 2600.;  -100  ; DZ97HMV000 ;    ;
+C(F)(F)(F)CH2(F)                            ;   1.80E-02  ; 2700.;  -100  ; DZ97HMV000 ;    ;
+Cd(F)(F)=Cd(F)(F)                           ;   1.60E-03  ; 2100.;  -100  ; EW77HRV000 ;    ;
+C(F)(F)(F)Cd(F)=Cd(F)(F)                    ;   2.90E-04  ; 2400.;  -100  ; EW77HRV000 ;    ;
+!CO(F)(F)                                    ;   3.50E+01 ;     0;  -100  ; PM96HMV000 ;    ;
+C(F)(F)(F)CH2(OH)                           ;   5.90E+01 ;  5900.;  -100  ; CR73HMV000 ;    ;
+C(F)(F)(F)CH(OH)CH3                         ;   4.50E+01 ;  6300.;  -100  ; CR73HMV000 ;    ;
+CH(F)(F)C(F)(F)CH2(OH)                      ;   1.60E+02 ;  6700.;  -100  ; CR73HMV000 ;    ;
+C(F)(F)(F)C(F)(F)CH2(OH)                    ;   4.50E+01 ;  6000.;  -100  ; CR73HMV000 ;    ;
+C(F)(F)(F)CH(OH)C(F)(F)(F)                  ;   2.40E+01 ;  6700.;  -100  ; CR73HMV000 ;    ;
+C(F)(F)(F)CO(F)                             ;   3.00E+00 ;     0 ;  -100  ; PM96HMV000 ;    ;
+C(F)(F)(F)COCH3                             ;   1.40E+02 ;  8900 ;  2.61  ; EB91HMV000 ;    ;
+CH2(F)CO(OH)                                ;   8.10E+04 ;     0 ;  -100  ; DB98HMV000 ;    ;
+CH(F)(F)CO(OH)                              ;   3.00E+04 ;  6900.;  -100  ; DB98HMV000 ;    ;
+C(F)(F)(F)CO(OH)                            ;   8.90E+03 ;  9300.;  -100  ; DB98HMV000 ;    ;
+c1HcHcHcHcHc1(F)                            ;   1.60E-01 ;     0 ;  -100  ; DM81HRV000 ;    ;
+c1HcHcHcHcHc1C(F)(F)(F)                     ;   6.30E-02 ;     0 ;  -100  ; DM81HRV000 ;    ;
+!
+!
+! Compounds with chlorine     
+! -----------------------
+!
+!!!! CH3(Cl)                                     ;   9.40E-02  ; 3000. ; -100  ; RM95HMV000 ;    ;
+CH3(Cl)                                     ;   1.13E-01 ;  4200. ; -100  ; JG87HMV001 ;    ;
+CH2(Cl)(Cl)                                 ;   3.60E-01 ;  4100. ; -100  ; JS96HRV000 ;    ;
+CH(Cl)(Cl)(Cl)                              ;   2.50E-01 ;  4500. ; -100  ; JS96HRV000 ;    ;
+C(Cl)(Cl)(Cl)(Cl)                           ;   3.40E-02 ;  4200. ; -100  ; JS96HRV000 ;    ;
+CH3CH2(Cl)                                  ;   8.50E-02 ;  2900. ; -100  ; JS96HRV000 ;    ;
+CH(Cl)(Cl)CH3                               ;   1.60E-01 ;  3600. ; -100  ; JS96HRV000 ;    ;
+CH2(Cl)CH2(Cl)                              ;   7.30E-01 ;  4200. ; -100  ; JS96HRV000 ;    ;
+CH3C(Cl)(Cl)(Cl)                            ;   5.90E-02 ;  3900. ; -100  ; JS96HRV000 ;    ;
+CH(Cl)(Cl)CH2(Cl)                           ;   1.10E+00 ;  4900. ; -100  ; JS96HRV000 ;    ;
+C(Cl)(Cl)(Cl)CH2(Cl)                        ;   4.00E-01 ;  4800. ; -100  ; DW92HMV000 ;    ;
+CH(Cl)(Cl)CH(Cl)(Cl)                        ;   2.40E+00 ;  3200. ; -100  ; JS96HRV000 ;    ;
+CH(Cl)(Cl)C(Cl)(Cl)(Cl)                     ;   4.60E-01 ;     0  ; -100  ; DM81HRV000 ;    ;
+C(Cl)(Cl)(Cl)C(Cl)(Cl)(Cl)                  ;   2.50E-01 ;  5600. ; -100  ; JS96HRV000 ;    ;
+!!CH3CH2CH2(Cl)                               ;   9.20E-02  ;    0. ; -100  ; DM81HRV000 ;  ;
+CH3CH2CH2(Cl)                               ;   7.60E-02 ;    0 ; -100  ; JG87HMV001 ;      ;
+CH3CH(Cl)CH2(Cl)                            ;   3.40E-01 ; 4300.; -100  ; JS96HRV000 ;      ;
+CH2(Cl)CH(Cl)CH2(Cl)                        ;   3.40E+00 ; 3700.; -100  ; JS96HRV000 ;      ;
+CH2(Cl)CH(CH3)CH3                           ;   5.07E-02 ;    0 ;-100  ; EP00HEV000  ;      ;
+CH2(Cl)CH(Cl)CH2CH2CH2CH2CH2CH2CH(Cl)CH2(Cl) ;  5.70E+00 ;    0 ;-100  ; KD98HMV000  ;      ;
+CH2(Cl)CH(Cl)CH2CH2CH2CH2CH2CH2CH2CH(Cl)CH2(Cl) ; 1.60E+01 ;   0; -100  ; KD98HMV000 ;      ;
+CdH2=CdH(Cl)                                ;   3.90E-02  ; 3100. ;  -100  ; JS96HRV000 ;   ;
+CdH2=Cd(Cl)(Cl)                             ;   3.40E-02  ; 4000. ;  -100  ; JS96HRV000 ;   ;
+CdH(Cl)=CdH(Cl)                             ;   2.40E-01  ; 3900. ;  -100  ; JS96HRV000 ; VALUECIS ;
+!CdH(Cl)=CdH(Cl)                             ;   9.10E-02 ;  4100.;   -100  ; JS96HRV000 ;    ;
+CdH(Cl)=Cd(Cl)(Cl)                          ;   1.00E-01  ; 4600. ;  -100  ; JS96HRV000 ;     ;
+Cd(Cl)(Cl)=Cd(Cl)(Cl)                       ;   5.90E-02  ; 4800. ;  -100  ; JS96HRV000 ;     ;
+CdH(Cl)=CdHCH2(Cl)                          ;   6.50E-01  ; 4200. ;  -100  ; DW92HMV000 ;     ;
+CdH2=Cd(Cl)CH2(Cl)                          ;   2.80E-01  ;    0  ; -100   ; DM81HRV000 ;     ;
+Cd(Cl)(Cl)=Cd(Cl)Cd(Cl)=Cd(Cl)(Cl)          ;   4.00E-02  ;    0  ; -100   ; CP75HMV000 ;     ;
+C(Cl)(Cl)(Cl)CHO                            ;   3.40E+05  ; 3500. ;  2.82  ; EB88HMV000 ;     ;
+CH2(Cl)COCH3                                ;   5.90E+01  ; 5400. ;  0.94  ; EB91HMV000 ;     ;
+CH2(Cl)CO(OH)                               ;   1.10E+05  ; 9700. ;  -100  ; DB98HMV000 ;     ;
+CH(Cl)(Cl)CO(OH)                            ;   1.20E+05  ; 8000. ;  -100  ; DB98HMV000 ;     ;
+C(Cl)(Cl)(Cl)CO(OH)                         ;   7.40E+04  ; 8700. ;  -100  ; DB98HMV000 ;     ;
+C(Cl)(Cl)(Cl)CO(Cl)                         ;   2.00E+00  ;    0  ; -100   ; PM96HMV000 ;     ;
+CH3CH2CH2CH2(Cl)                            ;   5.20E-02  ;    0  ; -100   ; EP00HEV000 ;     ;
+CH3C(Cl)(CH3)CH3                            ;   7.81E-02  ;    0  ; -100   ; EP00HEV000 ;     ;
+CH3CH(Cl)CH3                                ;   5.70E-02  ;    0  ; -100   ; EP00HEV000 ;     ;
+CH3CH2CH(Cl)CH3                              ;   4.15E-02 ;    0  ; -100   ; DL81HMV000 ;     ;
+!
+!
+! Aromatics compounds with chlorine
+! ---------------------------------
+!
+c1HcHcHcHcHc1(Cl)                           ;   2.70E-01 ; 3800. ; -100  ; JS96HRV000 ;     ;
+c1(Cl)c(Cl)cHcHcHc1H                        ;   5.50E-01 ; 5900. ; -100  ; JS96HRV000 ;     ;
+c1(Cl)cHc(Cl)cHcHc1H                        ;   3.80E-01 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)cHcHc(Cl)cHc1H                        ;   4.15E-01 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)c(Cl)c(Cl)cHcHc1H                     ;   8.00E-01 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)cHc(Cl)cHc(Cl)c1H                     ;   5.29E-01 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)c(Cl)c(Cl)c(Cl)cHc1H                  ;   1.32E+00 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)c(Cl)c(Cl)cHc(Cl)c1H                  ;   6.33E-01 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)c(Cl)cHc(Cl)c(Cl)c1H                  ;   1.00E+00 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)c(Cl)c(Cl)c(Cl)c(Cl)c1H               ;   1.42E+00 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)c(Cl)c(Cl)c(Cl)c(Cl)c1(Cl)            ;   5.88E-01 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1HcHcHcHcHc1CH2(Cl)                        ;   2.43E+00 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1(Cl)cHcHcHc2cHcHcHcHc12                   ;   2.81E+00 ;    0. ; -100  ; EP00HEV000 ;     ;
+c1Hc(Cl)cHcHc2cHcHcHcHc12                   ;   3.12E+00 ;    0. ; -100  ; EP00HEV000 ;     ;
+!
+!
+! Compounds with chlorine and fluorine
+! ------------------------------------
+!
+CH2(Cl)(F)                                  ;   1.50E-01 ;  2600. ; -100  ; EW77HRV000 ;    ;
+CH(Cl)(F)(F)                                ;   3.70E-02 ;  2700. ; -100  ; DZ97HMV000 ;    ;
+C(Cl)(F)(F)(F)                              ;   9.40E-04 ;  1600. ; -100  ; EW77HRV000 ;    ;
+C(Cl)(Cl)(F)(F)                             ;   2.30E-03 ;  1800. ; -100  ; DM81HRV000 ;    ;
+C(F)(Cl)(Cl)(Cl)                            ;   1.00E-02 ;  3100. ; -100  ; JS96HRV000 ;    ;
+C(F)(F)(F)C(Cl)(F)(F)                       ;   3.40E-04 ;  2800. ; -100  ; EW77HRV000 ;    ;
+C(Cl)(F)(F)CO(OH)                           ;   2.50E+04 ; 10000. ; -100  ; DB98HMV000 ;    ;
+C(F)(F)(F)CO(Cl)                            ;   2.00E+00 ;     0. ; -100  ; PM96HMV000 ;    ;
+!
+!
+! Compounds with bromine
+! ----------------------
+!
+!!!!CH3(Br)                                  ;   1.90E-01 ;  3100. ;       ; DM81HRV000 ;    ;
+CH3(Br)                                     ;   1.60E-01 ;  3100. ; -100  ; EP00HEV000 ;     ;
+CH3CH2(Br)                                  ;   1.30E-01 ;     0. ; -100  ; JH75HMV000 ;     ;
+CH2(Br)(Br)                                 ;   9.30E-01 ;  4400. ; -100  ; RM95HMV000 ;     ;
+CH(Br)(Br)(Br)                              ;   1.70E+00 ;  5200. ; -100  ; JS96HRV000 ;     ;
+CH3CH2CH2CH2(Br)                            ;   4.70E-02 ;     0. ; -100  ; JH93HMV000 ;     ;
+CH2(Br)CO(OH)                               ;   1.50E+05 ;  9300. ; -100  ; DB98HMV000 ;     ;
+CH(Br)(Br)CO(OH)                            ;   2.30E+05 ;  8900. ; -100  ; DB98HMV000 ;     ;
+C(Br)(Br)(Br)CO(OH)                         ;   3.00E+05 ;  9000. ; -100  ; DB98HMV000 ;     ;
+c1HcHcHcHcHc1(Br)                           ;   5.40E-01 ;  5300. ; -100  ; KH95HMV000 ;     ;
+c1(Br)cHc(Br)cHcHc1H                        ;   5.10E-01 ;     0. ; -100  ; DM81HRV000 ;     ;
+c1(Br)cHcHc(Br)cHc1H                        ;   4.90E-01 ;     0. ; -100  ; DM81HRV000 ;     ;
+c1(OH)cHcHc(Br)cHc1H                        ;   7.00E+03 ;  8200. ; -100  ; GP71HMV000 ;     ;
+CH(Cl)(Cl)(Br)                              ;   4.00E-01 ;  5200. ; -100  ; JS96HRV000 ;     ;
+c1(Br)cHcHc(Cl)cHc1H                        ;   6.90E-01 ;     0. ; -100  ; DM81HRV000 ;     ;
+CH3CH(CH3)CH2(Br)                           ;   4.30E-02 ;     0. ; -100  ; JH75HMV000 ;     ;
+CH3C(Br)(CH3)CH3                            ;   2.45E-02 ;     0. ; -100  ; EP00HEV000 ;     ;
+CH3CH(Br)CH3                                ;   9.10E-02 ;     0. ; -100  ; EP00HEV000 ;     ;
+CH3CH2CH2(Br)                               ;   1.36E-01 ;     0. ; -100  ; EP00HEV000 ;     ;
+CH3CH2CH2CH2CH2CH2CH2CH2(Br)                ;   1.17E-02 ;     0. ; -100  ; EP00HEV000 ;     ;
+CH3CH2CH2CH2CH2CH2CH2(Br)                   ;   2.21E-02 ;     0. ; -100  ; EP00HEV000 ;     ;
+CH3CH2CH2CH2CH2CH2(Br)                      ;   3.05E-02 ;     0. ; -100  ; EP00HEV000 ;     ;
+!
+!
+! Compounds with iodine
+! ---------------------
+!
+!!!CH3(I)                                      ;   1.40E-01 ;  4300.  ;        ; RM95HMV000 ;   ;
+CH3(I)                                      ;   1.90E-01  ; 3800. ; -100  ; RH83HMV000 ;   ;
+CH3CH2(I)                                   ;   1.40E-01  ;    0. ; -100  ; JH75HMV000 ;   ;
+CH2(I)(I)                                   ;   2.30E+00  ; 5000. ; -100  ; RM95HMV000 ;   ;
+c1HcHcHcHcHc1(I)                            ;   7.80E-01  ;    0. ; -100  ; DM81HRV000 ;   ;
+CH2(Cl)(I)                                  ;   8.90E-01  ; 4300. ; -100  ; RM95HMV000 ;   ;
+CH3CH2CH2(I)                                ;   1.1E-01   ;    0. ; -100  ; EP00HEV000 ;   ;
+CH3CH2CH2CH2(I)                             ;   5.90E-02  ;    0. ; -100  ; EP00HEV000 ;   ;
+CH3CH(I)CH3                                 ;    1.45E-01 ;    0. ; -100  ; EP00HEV000 ;   ;
+CH3CH2CH(I)CH3                              ;    5.08E-02 ;    0. ; -100  ; EP00HEV000 ;   ;
+CH3CH2CH2CH2CH2(I)                          ;    5.15E-02 ;    0. ; -100  ; MA94HMV000 ;   ;
+CH3CH2CH2CH2CH2CH2CH2(I)                    ;   2.57E-02  ;    0. ; -100  ; MA94HMV000 ;   ;
+!
+!
+! PCB, pesticides...
+! ------------------
+!
+!c1(Cl)cHc2-O-c3cHcHc(Cl)cHc3-O-c2cHc1H      ;   1.70E+01  ;    0. ; -100  ; HS94HMV000 ;    ;
+!c1HcHc2-O-c3c(Cl)cHc(Cl)c(Cl)c3-O-c2cHc1H   ;   2.80E+01  ;    0. ; -100  ; HS94HMV000 ;    ;   
+!c1HcHc2-O-c3c(Cl)c(Cl)c(Cl)c(Cl)c3-O-c2cHc1H ;  5.10E+01  ;    0. ; -100  ; HS94HMV000 ;    ;
+!c1(Cl)cHcHcHcHc1c2cHcHcHcHc2(Cl)            ;   2.90E+00  ;    0. ; -100  ; FD88HMV000 ;    ;
+c1HcHcHcHcHc1c2cHc(Cl)cHcHc2(Cl)            ;   2.60E+00   ;   0.  ; -100  ; FD88HMV000 ;    ;
+!c1Hc(Cl)cHcHcHc1c2cHcHcHc(Cl)c2H            ;   4.20E+00  ;    0. ; -100  ; FD88HMV000 ;    ;
+c1Hc(Cl)cHcHcHc1c2cHcHc(Cl)cHc2H            ;   4.80E+00   ;   0.  ; -100  ; FD88HMV000 ;    ;
+!c1HcHc(Cl)cHcHc1c2cHcHc(Cl)cHc2H            ;   5.10E+00  ;    0. ; -100  ; FD88HMV000 ;    ;
+c1HcHcHc(Cl)cHc1c2cHc(Cl)cHcHc2(Cl)         ;   3.00E+00   ;   0.  ; -100  ; FD88HMV000 ;    ;
+c1HcHcHcHcHc1c2c(Cl)cHc(Cl)cHc2(Cl)         ;   1.50E+00   ;   0.  ; -100  ; FD88HMV000 ;    ;
+!c1(Cl)c(Cl)cHcHcHc1c2cHcHcHc(Cl)c2(Cl)      ;   4.90E+00  ;    0. ; -100  ; FD88HMV000 ;    ;
+!c1(Cl)cHcHc(Cl)cHc1c2cHc(Cl)cHcHc2(Cl)      ;   2.90E+00  ;    0. ; -100  ; FD88HMV000 ;    ;
+!c1(Cl)cHcHcHc(Cl)c1c2c(Cl)cHcHcHc2(Cl)      ;   1.80E+00  ;    0. ; -100  ; FD88HMV000 ;    ;
+c1(Cl)cHcHc(Cl)cHc1c2c(Cl)cHcHcHc2(Cl)      ;   2.40E+00   ;   0.  ; -100  ; FD88HMV000 ;    ;
+c1Hc(Cl)c(Cl)cHcHc1c2cHcHc(Cl)cHc2(Cl)      ;   1.10E+01   ;   0.  ; -100  ; FD88HMV000 ;    ;
+c1(Cl)cHc(Cl)c(Cl)cHc1c2cHc(Cl)cHcHc2(Cl)   ;   3.90E+00   ;   0.  ; -100  ; FD88HMV000 ;    ;
+c1(Cl)cHc(Cl)cHc(Cl)c1c2c(Cl)cHcHcHc2(Cl)   ;   1.10E+00   ;   0.  ; -100  ; FD88HMV000 ;    ;
+!c1(Cl)c(Cl)c(Cl)cHcHc1c2cHcHc(Cl)c(Cl)c2(Cl) ;  3.30E+01  ;    0. ; -100  ; FD88HMV000 ;    ;
+!c1(Cl)cHc(Cl)c(Cl)cHc1c2cHc(Cl)c(Cl)cHc2(Cl) ;  7.60E+00  ;    0. ; -100  ; FD88HMV000 ;    ;
+!c1(Cl)cHc(Cl)cHc(Cl)c1c2c(Cl)cHc(Cl)cHc2(Cl) ;  1.30E+00  ;    0. ; -100  ; FD88HMV000 ;    ;
+!C1H(Cl)CH(Cl)CH(Cl)CH(Cl)CH(Cl)C1H(Cl)      ;   3.20E+02  ;    0. ; -100  ; DM81HRV000 ;    ;
+!c1HcHc(Cl)cHcHc1CH(C(Cl)(Cl)(Cl))c2cHcHc(Cl)cHc2H ; 1.90E+01 ; 0. ; -100  ; DM81HRV000 ;    ;
+!
+CH2(OH)CO(OH)                                ;   2.37E+04   ;  0. ;  -100 ; HI09HMV000 ;  ;
+CHOCO(OH)                                    ;   1.09E+04   ;  0. ;  2.08 ; HI09HMV000 ;  ;
+!CHOCO(OH)                                    ;   28.67E+00 ;  0. ;   -100 ; HI09HMV000 ;  
+!CHOCHO                                       ;   12.3E+00  ;  0. ;   -100 ; DUMHENRY1  ;  ; !       calculated
+!CH3COCHO                                     ;   7.08E+00  ;  0. ;   -100 ; DUMHENRY1  ;  ; !       calculated
+CH3CH(OH)CO(OH)                              ;   1.23E+04   ;  0. ;  -100 ; EP00HEV000 ;   ;
+CO(OH)CH2CH2CO(OH)                           ;   2.80E+09   ;  0. ;  -100 ; EP00HEV000 ;   ;
+!
+!
+Cd1H=CdH-O-CdH=Cd1H                          ;   1.85E-01  ;  0.  ; -100 ; EP00HEV000 ; CY90HMV000 ; RS99HMV000 
+C1H2CH2-O-CH2C1H2                            ;   1.40E+01  ;  0.  ; -100 ; RS99HMV000 ; SC71HMV000 ;
+C1H2CH2CH2-O-C1HCH3                          ;   1.10E+01  ;  0.  ; -100 ; RS99HMV000 ; SC71HMV000 ;
+CH3C1HCH2CH2-O-C1HCH3                        ;   5.70E+00  ;  0.  ; -100 ; RS99HMV000 ; SC71HMV000 ; SH08HMV000
+!Cd1H=CdH-O-Cd(CHO)=Cd1H                      ;   6.92E+03 ;   0. ;  -100 ; SH08HMV000 ;  ;
+Cd1H=CdH-O-Cd(CH2(OH))=Cd1H                  ;   1.27E+04  ;  0.  ; -100 ; SH08HMV000 ;   ;
+C1H2CH2CH2-O-CH2C1H2                         ;   8.00E+00  ;  0.  ; -100 ; RS99HMV000 ; SC71HMV000 ; SH08HMV000
+C1H2-O-CH2CH2-O-C1H2                         ;   2.00E+02  ;  0.  ; -100 ; RS99HMV000 ; SC71HMV000 ;
+!CH3CH2CO-O-COCH2CH3                          ;   3.4E+02  ;   0. ;  -100 ; DUMHENRY1 ; DUMHENRY2 ;  ! m   TEST VALUE TO DELETE -dummy
+!CH3CH2-O-CO-O-COCH2CH3                       ;   3.4E+02  ;   0. ;  -100 ; DUMHENRY1 ; DUMHENRY2 ;  ! m   TEST VALUE TO DELETE -dummy
+!CH3CH2CO-O-O-COCH2CH3                        ;   3.4E+02  ;   0. ;  -100 ; DUMHENRY1 ; DUMHENRY2 ;  ! m   TEST VALUE TO DELEATE -dummy
+!
+END
+!
+! --------------------
+
+Compilation of Henry's law constants for inorganic and organic species of potential importance
+in environmental chemistry. Rolf Sander, 1999.
+
+Buttery et al 1971 is incorrect, should be 1969.
+
+M measurement
+V vapour pressure of the pure substance
+L review
+

@@ -1,0 +1,46 @@
+! RCO2 forced reaction, products and their associated rate constant
+! ----------------------------------------------------------
+!
+! this file is read up to the keyword END.
+! Comment line (! as first character) can be placed  
+! everywhere in the file.
+!
+! - first column : gives the formula of the species (must start at the
+!   character of the line
+! - second column : gives the formula of 2nd reactant
+! - third and fourth columns : stochiometric coefficient and first product
+! - 5th and 6th columns      : stochiometric coefficient and second product
+! - 7th and 8th columns      : stochiometric coefficient and third product
+! - 9th and 10th columns     : stochiometric coefficient and fourth product
+! - 11th column : arrhenius coefficient for the reaction
+! A 'space 
+!   character' must be inserted between '|' and the beginning of the 
+!   formula
+! if no product, let 1 or any value for the associated stochimetric coefficient, no '-'
+! for inorganic species, put the gecko name without the 'G' : e.g. HO, NO, NO2, O3 ...
+! for reaction with others peroxy, the second reactant must be MEPERO, PERO1, PERO3, etc.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! April 2015, Renee
+! Alpha-pinene system
+! Adding additional isomerization reactions of peroxy radical (last product in RO2 + RO2 reactions below)
+! to generate acids observed in Ma 2008 (pinic, norpinalic,
+! 4-OH-pinalic-3-acid, norpinalic, and norpinic acid)
+! Pathways proposed in Jenkin 2000 and Ma 2008, preliminary
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | HO2    | 0.74 | CH3C1(CH3)CH(CO(OOH))CH2C1HCH2CHO    | 1.0  | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO  | 1.00 | HO  | 1.00 | -                                    | 0.32E-12  0.0 -925.  ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | HO2    | 1.00 | CO2 | 0.260 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CHO                               | 0.26 | O3  | 1.00 | -                                    | 0.32E-12  0.0 -925.  ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | NO     | 1.0  | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO                                   | 1.00 | NO2 | 1.00 | CO2 | 1.00 | -                                    | 0.75E-11  0.0 -290.  ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | NO2    | 1.0  | CH3C1(CH3)CH(CO(OONO2))CH2C1HCH2CHO                             | 1.00 | -   | 1.00 | -   | 1.00 | -                                    | 6.14E-09 -1.1    0.  ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | NO3    | 1.0  | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO                                   | 1.00 | NO2 | 1.00 | CO2 | 1.00 | -                                    | 8.90E-12  0.0  305.  ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | PERO1  | 0.20 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.20 | CO2  | 0.80 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 1.00 | -                                    | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | PERO2  | 0.16 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.16 | CO2  | 0.20 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CHO     | 0.64 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | PERO3  | 0.20 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.20 | CO2  | 0.80 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 1.00 | -                                    | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | PERO4  | 0.16 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.16 | CO2  | 0.20 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CHO     | 0.64 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | PERO5  | 0.20 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.20 | CO2  | 0.80 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 1.00 | -                                    | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | MEPERO | 0.16 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.16 | CO2  | 0.20 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CHO     | 0.64 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | PERO7  | 0.16 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.16 | CO2  | 0.20 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CHO     | 0.64 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | PERO8  | 0.16 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.16 | CO2  | 0.20 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CHO     | 0.64 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+CHOCH2C1HCH2CH(CO(OO.))C1(CH3)CH3 | PERO9  | 0.20 | CH3C1(CH3)CH(OO.)CH2C1HCH2CHO | 0.20 | CO2  | 0.80 | CH3C1(CH3)CH(CO(OH))CH2C1HCH2CO(OO.) | 1.00 | -                                    | 2.00E-12 0.0  -508.  ; MJ00MER000 ; MJ19KMV000 ; FORCEDREAC
+END
+
