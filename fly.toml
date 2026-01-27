@@ -1,0 +1,52 @@
+# =============================================================================
+# GECKO-A Web Interface - Fly.io Configuration
+# Deploy: fly launch && fly deploy
+# =============================================================================
+
+app = "gecko-web"
+primary_region = "iad"  # US East - change to: lhr (London), fra (Frankfurt), sin (Singapore)
+
+[build]
+  dockerfile = "docker/Dockerfile"
+  # Build timeout extended for Fortran compilation (45-90 min)
+  [build.args]
+    # Add build args if needed
+
+[env]
+  DATA_DIR = "/data"
+  GECKO_SOURCE_DIR = "/app/gecko_source"
+  BOXMODEL_SOURCE_DIR = "/app/boxmodel_source"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  # Keep machine running to avoid cold starts (Fortran reload is slow)
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+[http_service.concurrency]
+  type = "connections"
+  hard_limit = 50
+  soft_limit = 30
+
+[[http_service.checks]]
+  grace_period = "60s"      # Extended for Fortran initialization
+  interval = "30s"
+  method = "GET"
+  timeout = "15s"
+  path = "/api/environment"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 2
+  memory_mb = 4096          # 4GB RAM for complex VOC simulations
+
+[mounts]
+  source = "gecko_data"
+  destination = "/data"
+
+# Restart policy
+[restart]
+  policy = "on-failure"
+  retries = 3

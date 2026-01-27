@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GECKO-A Interface</title>
+    <meta name="author" content="Deeksha Sharma">
+    <meta name="description" content="Web interface for GECKO-A atmospheric chemistry mechanism generator and Box Model simulations">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.23.0/cytoscape.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.5/dagre.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
+    <script src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
+    <script src="https://3dmol.org/build/3Dmol-min.js"></script>
+
+    <!-- Application Modules -->
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/reaction-tree.js"></script>
+    <script src="/static/js/app.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header style="margin-bottom: 24px;">
+        <h1>GECKO-A & Box Model Interface</h1>
+        <p class="author-credit">
+            <span style="color: #16a34a;">v3.0.6</span> · Author: <strong>Deeksha Sharma</strong> ·
+            <a href="https://gitlab.in2p3.fr/ipsl/lisa/geckoa/public/gecko-a" target="_blank" style="color: #2563eb; text-decoration: none;">GECKO-A Documentation</a>
+        </p>
+    </header>
+
+    <!-- New Simulation Form -->
+    <div class="container">
+        <h2>Start New Simulation</h2>
+        <div class="form-group">
+            <label for="voc_select">VOC Name:</label>
+            <select id="voc_select" onchange="toggleCustomVoc()">
+                <option value="" disabled selected>Loading compounds...</option>
+            </select>
+            <input type="text" id="voc_custom" placeholder="Enter custom VOC name or SMILES" style="display:none; margin-top: 5px;">
+            <small id="compound-count" style="color: #666; display: block; margin-top: 4px;"></small>
+        </div>
+        <div class="form-group">
+            <label for="job_type">Job Type:</label>
+            <select id="job_type" onchange="GeckoApp.toggleJobTypeOptions()">
+                <option value="generator">GECKO-A Generator (Recommended)</option>
+                <option value="boxmodel">Box Model Simulation</option>
+                <option value="comparison">VOC Comparison Mode</option>
+            </select>
+            <small style="color: #666; display: block; margin-top: 4px;">Generator creates the mechanism, Box Model runs simulations with an existing mechanism</small>
+        </div>
+
+        <!-- VOC Comparison Mode Options (hidden by default) -->
+        <div id="comparison-options" style="display: none; margin-top: 15px; padding: 15px; background: #f0f7ff; border: 1px solid #b3d4fc; border-radius: 4px;">
+            <h4 style="margin-top: 0; color: #1e40af;">VOC Comparison Mode</h4>
+            <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">Select 2-10 VOCs to compare their oxidation mechanisms, products, and SOA yields.</p>
+
+            <div class="form-group">
+                <label>Select VOCs to Compare:</label>
+                <select id="comparison_vocs" multiple size="6" style="width: 100%; padding: 8px;">
+                    <!-- Populated dynamically -->
+                </select>
+                <small style="color: #666;">Hold Ctrl/Cmd to select multiple compounds</small>
+            </div>
+
+            <div class="form-group">
+                <label>Comparison Metrics:</label>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 5px;">
+                    <label><input type="checkbox" id="compare_mechanism_size" checked> Mechanism Size</label>
+                    <label><input type="checkbox" id="compare_products" checked> Product Distribution</label>
+                    <label><input type="checkbox" id="compare_soa" checked> SOA Yield</label>
+                    <label><input type="checkbox" id="compare_radicals" checked> Radical Budget</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Options Accordion -->
+        <div style="margin-top: 20px; border: 1px solid #ddd; border-radius: 4px;">
+            <button onclick="toggleAdvanced()" class="advanced-options-toggle">
+                ▶ Advanced Options (Generator & Box Model)
+            </button>
+            <div id="advanced-options" style="display: none;" class="advanced-options-content">
+
+                <h3>Generator Settings</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="max_generations">Max Generations (maxgen):</label>
+                        <input type="number" id="max_generations" value="2" min="1" max="10">
+                        <small>Controls mechanism depth. Higher = more detailed but slower.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="vp_threshold">Vapor Pressure Threshold (log10 atm):</label>
+                        <input type="number" id="vp_threshold" value="-13.0" step="0.1">
+                        <small>Species with VP below this are considered non-volatile.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="vp_method">Vapor Pressure Method:</label>
+                        <select id="vp_method">
+                            <option value="nannoolal" selected>Nannoolal (Recommended)</option>
+                            <option value="myrdal">Myrdal-Yalkowsky</option>
+                            <option value="simpol">SIMPOL</option>
+                            <option value="evaporation">EVAPORATION</option>
+                        </select>
+                        <small>SAR method for estimating vapor pressures.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="nitrate_method">Nitrate Yield Method:</label>
+                        <select id="nitrate_method">
+                            <option value="carter" selected>Carter (Default)</option>
+                            <option value="arey">Arey</option>
+                            <option value="atkinson">Atkinson</option>
+                        </select>
+                        <small>SAR for organic nitrate formation.</small>
+                    </div>
+                </div>
+
+                <h4>Reaction Channels</h4>
+                <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_oh" checked> OH Reactions</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_o3" checked> O₃ Reactions</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_no3" checked> NO₃ Reactions</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_photolysis" checked> Photolysis</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_isomerization" checked> Isomerization</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_ro2_permutations" checked> RO₂ Permutations</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_pan_decomp" checked> PAN Decomposition</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_criegee"> Criegee Chemistry</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_autoxidation"> Autoxidation (H-shifts)</label>
+                        <small style="display:block; color:#888; font-size:0.8em;">Computationally expensive</small>
+                    </div>
+                </div>
+
+                <h3>Box Model Environment</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="temp_k">Temperature (K):</label>
+                        <input type="number" id="temp_k" value="298.0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="pressure_hpa">Pressure (hPa):</label>
+                        <input type="number" id="pressure_hpa" value="1013.25" step="1.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="rh_pct">Relative Humidity (%):</label>
+                        <input type="number" id="rh_pct" value="50.0" step="1.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="latitude">Latitude (Degrees):</label>
+                        <input type="number" id="latitude" value="45.0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude">Longitude (Degrees):</label>
+                        <input type="number" id="longitude" value="0.0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="date_day">Day (1-31):</label>
+                        <input type="number" id="date_day" value="21" min="1" max="31">
+                    </div>
+                    <div class="form-group">
+                        <label for="date_month">Month (1-12):</label>
+                        <input type="number" id="date_month" value="6" min="1" max="12">
+                    </div>
+                    <div class="form-group">
+                        <label for="date_year">Year:</label>
+                        <input type="number" id="date_year" value="1996">
+                    </div>
+                </div>
+
+                <h4>Simulation Time</h4>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="sim_hours">Simulation Duration (hours):</label>
+                        <input type="number" id="sim_hours" value="24.0" step="1.0" min="1" max="168">
+                    </div>
+                    <div class="form-group">
+                        <label for="output_interval">Output Interval (minutes):</label>
+                        <input type="number" id="output_interval" value="5.0" step="1.0" min="1" max="60">
+                    </div>
+                    <div class="form-group">
+                        <label for="start_hour">Start Hour (local solar):</label>
+                        <input type="number" id="start_hour" value="6.0" step="0.5" min="0" max="24">
+                    </div>
+                </div>
+
+                <h3>Initial Conditions</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="init_voc">Initial VOC (ppb):</label>
+                        <input type="number" id="init_voc" value="10.0" step="1.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="init_o3">Initial O₃ (ppb):</label>
+                        <input type="number" id="init_o3" value="40.0" step="1.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="init_no">Initial NO (ppb):</label>
+                        <input type="number" id="init_no" value="5.0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="init_no2">Initial NO₂ (ppb):</label>
+                        <input type="number" id="init_no2" value="5.0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="init_nox">Initial NOx Total (ppb):</label>
+                        <input type="number" id="init_nox" value="10.0" step="0.1">
+                        <small>If set, overrides NO+NO₂</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="init_hono">Initial HONO (ppb):</label>
+                        <input type="number" id="init_hono" value="0.1" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="init_h2o2">Initial H₂O₂ (ppb):</label>
+                        <input type="number" id="init_h2o2" value="1.0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="init_hcho">Initial HCHO (ppb):</label>
+                        <input type="number" id="init_hcho" value="2.0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="init_co">Initial CO (ppm):</label>
+                        <input type="number" id="init_co" value="0.1" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="init_ch4">Initial CH₄ (ppm):</label>
+                        <input type="number" id="init_ch4" value="1.8" step="0.1">
+                    </div>
+                </div>
+
+                <h3>Aerosol & Deposition</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="seed_aerosol">Seed Aerosol (µg/m³):</label>
+                        <input type="number" id="seed_aerosol" value="10.0" step="1.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="seed_density">Seed Density (g/cm³):</label>
+                        <input type="number" id="seed_density" value="1.4" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity_coeff">Activity Coefficient:</label>
+                        <input type="number" id="activity_coeff" value="1.0" step="0.1" min="0.1" max="5.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="dilution">Dilution Rate (s⁻¹):</label>
+                        <input type="number" id="dilution" value="0.0" step="1e-6">
+                    </div>
+                    <div class="form-group">
+                        <label for="dep_velocity">Deposition Velocity (cm/s):</label>
+                        <input type="number" id="dep_velocity" value="0.0" step="0.01">
+                    </div>
+                </div>
+
+                <h4>Additional Options</h4>
+                <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_heterogeneous" checked> Heterogeneous Reactions</label>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="enable_wall_loss"> Wall Loss</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="photolysis_scaling">Photolysis Scaling:</label>
+                        <input type="number" id="photolysis_scaling" value="1.0" step="0.1" min="0" max="2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <button onclick="startJob()">Start Job</button>
+    </div>
+
+    <!-- Job History -->
+    <div class="container">
+        <h2>Job History</h2>
+        <div id="job-list">Loading jobs...</div>
+    </div>
+
+    <!-- Job Details -->
+    <div class="container" id="details-container" style="display:none;">
+        <h2 id="details-title">Job Details</h2>
+
+        <h3>Logs</h3>
+        <div id="logs">Select a job to view logs...</div>
+
+        <div id="results-container">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Results</h3>
+                <button onclick="archiveJob(GeckoApp.currentJobId)" class="small secondary">Save Session (Archive)</button>
+            </div>
+
+            <!-- Mechanism Summary -->
+            <div class="result-section" id="mechanism-summary-section" style="display:none;">
+                <h4>Mechanism Summary</h4>
+                <div id="mechanism-summary" style="background: #f8f9fa; padding: 15px; border-radius: 4px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div><strong>Root VOC:</strong> <span id="summary-root"></span></div>
+                        <div><strong>Formula:</strong> <span id="summary-formula" style="font-family: monospace;"></span></div>
+                        <div><strong>Total Species:</strong> <span id="summary-species"></span></div>
+                        <div><strong>Total Reactions:</strong> <span id="summary-reactions"></span></div>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <strong>Primary Oxidation Pathways:</strong>
+                        <div id="summary-pathways" style="margin-top: 10px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publication-Quality Pathway Diagram -->
+            <div class="result-section" id="pathway-diagram-section" style="display:none;">
+                <h4>Oxidation Pathway Diagram</h4>
+                <p style="color: #666; font-size: 0.9em;">Publication-quality view with molecular structures, branching ratios, and reagent annotations</p>
+
+                <!-- Diagram Options -->
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 10px 0; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                    <div>
+                        <label for="diagram_layout" style="font-size: 0.9em;">Layout:</label>
+                        <select id="diagram_layout" onchange="GeckoApp.regenerateDiagram()" style="padding: 4px 8px;">
+                            <option value="hierarchical" selected>Hierarchical (Top-Down)</option>
+                            <option value="radial">Radial (Circular)</option>
+                            <option value="force">Force-Directed</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.9em;"><input type="checkbox" id="diagram_branching" checked onchange="GeckoApp.regenerateDiagram()"> Show Branching Ratios</label>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.9em;"><input type="checkbox" id="diagram_colors" checked onchange="GeckoApp.regenerateDiagram()"> Color by Reaction Type</label>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.9em;"><input type="checkbox" id="diagram_legend" checked onchange="GeckoApp.regenerateDiagram()"> Show Legend</label>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 10px 0; overflow: auto; max-height: 800px;">
+                    <img id="pathway-diagram-img" src="" alt="Pathway Diagram" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-top: 10px;">
+                    <a id="download-pathway-png" href="#" target="_blank" class="download-btn download-btn-green">Download PNG</a>
+                    <a id="download-pathway-svg" href="#" target="_blank" class="download-btn download-btn-blue">Download SVG</a>
+                    <button onclick="GeckoApp.regenerateDiagram()" class="small" style="margin-left: 10px;">Regenerate Diagram</button>
+                </div>
+            </div>
+
+            <!-- Static Mechanism Diagram (Legacy) -->
+            <div class="result-section" id="static-diagram-section" style="display:none;">
+                <h4>Mechanism Diagram (Alternative View)</h4>
+                <p style="color: #666; font-size: 0.9em;">Alternative hierarchical view of oxidation pathways</p>
+                <div style="text-align: center; margin: 10px 0;">
+                    <img id="static-diagram-img" src="" alt="Mechanism Diagram" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-top: 10px;">
+                    <a id="download-diagram-png" href="#" target="_blank" class="download-btn download-btn-blue">Download PNG</a>
+                    <a id="download-diagram-svg" href="#" target="_blank" class="download-btn download-btn-gray">Download SVG</a>
+                </div>
+            </div>
+
+            <!-- Interactive Reaction Tree -->
+            <div class="result-section">
+                <h4>Reaction Tree Visualization (Interactive)</h4>
+                <div id="cy"></div>
+                <small>Drag nodes to rearrange. Zoom with scroll wheel. Click nodes for details.</small>
+            </div>
+
+            <!-- Mechanism Export Downloads -->
+            <div class="result-section" id="mechanism-exports-section" style="display:none;">
+                <h4>Export Mechanism</h4>
+                <p style="color: #666; font-size: 0.9em;">Download mechanism in various formats for use in other modeling tools</p>
+                <div id="mechanism-exports" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;"></div>
+            </div>
+
+            <!-- 2D Chemical Structures -->
+            <div class="result-section" id="structures-section" style="display:none;">
+                <h4>2D Chemical Structures</h4>
+                <div id="structures-container" style="display: flex; flex-wrap: wrap; gap: 15px; padding: 10px;"></div>
+            </div>
+
+            <!-- Interactive 3D Structures -->
+            <div class="result-section" id="structures-3d-section" style="display:none;">
+                <h4>Interactive 3D Molecular Structures</h4>
+                <p style="color: #666; font-size: 0.9em;">Click on a species to view its 3D structure. Use mouse to rotate, scroll to zoom.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="flex: 0 0 200px;">
+                        <label>Select Species:</label>
+                        <select id="structure3d-species" onchange="GeckoApp.load3DStructure()" style="width: 100%; padding: 8px; margin-top: 5px;">
+                            <option value="">Select a species...</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1; min-width: 400px;">
+                        <h4 id="structure3d-c-name" style="margin-top: 0; margin-bottom: 10px; color: #333;">Select a species...</h4>
+                        <div id="viewer-3d" style="width: 100%; height: 400px; border: 1px solid #ddd; border-radius: 4px; background: #f0f0f0;"></div>
+                        
+                        <!-- Chemical Element Legend -->
+                        <div id="structure3d-legend" style="margin-top: 10px; font-size: 0.85em; display: flex; gap: 15px; flex-wrap: wrap; background: #fff; padding: 10px; border: 1px solid #eee; border-radius: 4px;">
+                            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #1A1A1A; border: 1px solid #666; display: inline-block;"></span> Carbon (C)</span>
+                            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; border: 1px solid #999; display: inline-block;"></span> Hydrogen (H)</span>
+                            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #FF0D0D; border: 1px solid #900; display: inline-block;"></span> Oxygen (O)</span>
+                            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #3050F8; border: 1px solid #0000a0; display: inline-block;"></span> Nitrogen (N)</span>
+                            <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #FFFF30; border: 1px solid #999900; display: inline-block;"></span> Sulfur (S)</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button onclick="GeckoApp.download3DStructure('mol')" class="small">Download MOL</button>
+                    <button onclick="GeckoApp.download3DStructure('sdf')" class="small">Download SDF</button>
+                    <button onclick="GeckoApp.download3DStructure('xyz')" class="small">Download XYZ</button>
+                </div>
+            </div>
+
+            <!-- SMILES Data -->
+            <div class="result-section" id="smiles-section" style="display:none;">
+                <h4>SMILES Representation (Text)</h4>
+                <div id="smiles-container" style="max-height: 300px; overflow-y: auto;"></div>
+            </div>
+
+            <!-- Reaction Scheme -->
+            <div class="result-section">
+                <h4>Generated Reaction Scheme</h4>
+                <pre id="reactions-content" style="max-height: 400px; overflow-y: auto;">Loading...</pre>
+            </div>
+
+            <!-- Analysis Plots -->
+            <div class="result-section">
+                <h4>Analysis Plots</h4>
+                <div id="plots-container"></div>
+            </div>
+
+            <!-- Aerosol Data Table -->
+            <div class="result-section">
+                <h4>Aerosol Data (First 100 rows)</h4>
+                <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd;">
+                    <table class="data-table" id="data-table">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a id="download-csv" href="#" target="_blank" class="download-btn download-btn-green">Download Full CSV</a>
+                </div>
+            </div>
+
+            <!-- Mass Balance Report -->
+            <div class="result-section" id="mass-balance-section" style="display:none;">
+                <h4>Mass Balance Verification</h4>
+                <div id="mass-balance-summary" style="background: #f8f9fa; padding: 15px; border-radius: 4px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                        <div><strong>Status:</strong> <span id="mb-status" class="status-badge">-</span></div>
+                        <div><strong>Carbon Balance:</strong> <span id="mb-carbon">-</span></div>
+                        <div><strong>Hydrogen Balance:</strong> <span id="mb-hydrogen">-</span></div>
+                        <div><strong>Oxygen Balance:</strong> <span id="mb-oxygen">-</span></div>
+                        <div><strong>Nitrogen Balance:</strong> <span id="mb-nitrogen">-</span></div>
+                    </div>
+                    <div id="mb-warnings" style="margin-top: 10px; color: #b45309;"></div>
+                </div>
+            </div>
+
+            <!-- PDF Report Download -->
+            <div class="result-section" id="pdf-report-section" style="display:none;">
+                <h4>Generated Reports</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a id="download-pdf-report" href="#" target="_blank" class="download-btn download-btn-red">
+                        📄 Download PDF Report
+                    </a>
+                    <a id="download-mass-balance-report" href="#" target="_blank" class="download-btn download-btn-blue">
+                        📊 Mass Balance Report
+                    </a>
+                    <a id="download-mechanism-summary" href="#" target="_blank" class="download-btn download-btn-gray">
+                        📋 Mechanism Summary (JSON)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mechanism Reduction Tools -->
+            <div class="result-section" id="reduction-section" style="display:none;">
+                <h4>Mechanism Reduction</h4>
+                <p style="color: #666; font-size: 0.9em;">Reduce the generated mechanism while preserving key chemistry.</p>
+                <div class="form-grid" style="margin-top: 10px;">
+                    <div class="form-group">
+                        <label for="reduction_method">Reduction Method:</label>
+                        <select id="reduction_method">
+                            <option value="drgep">DRGEP (Directed Relation Graph with Error Propagation)</option>
+                            <option value="pfa">PFA (Path Flux Analysis)</option>
+                            <option value="lumping">Species Lumping</option>
+                            <option value="sensitivity">Sensitivity-Based</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reduction_error">Error Threshold:</label>
+                        <input type="number" id="reduction_error" value="0.1" step="0.01" min="0.01" max="0.5">
+                        <small>Maximum allowed error (0.01-0.5)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="reduction_min_species">Minimum Species:</label>
+                        <input type="number" id="reduction_min_species" value="20" min="10" max="200">
+                    </div>
+                </div>
+                <div style="margin-top: 10px;">
+                    <label><input type="checkbox" id="preserve_radicals" checked> Preserve Radical Species</label>
+                    <label style="margin-left: 15px;"><input type="checkbox" id="preserve_soa" checked> Preserve SOA Precursors</label>
+                </div>
+                <div style="margin-top: 15px;">
+                    <button onclick="GeckoApp.reduceMechanism()" class="primary">Run Mechanism Reduction</button>
+                </div>
+                <div id="reduction-results" style="display: none; margin-top: 15px; padding: 15px; background: #f0fdf4; border: 1px solid #86efac; border-radius: 4px;">
+                    <h5 style="margin-top: 0;">Reduction Results</h5>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                        <div><strong>Original Species:</strong> <span id="red-orig-species">-</span></div>
+                        <div><strong>Reduced Species:</strong> <span id="red-new-species">-</span></div>
+                        <div><strong>Original Reactions:</strong> <span id="red-orig-reactions">-</span></div>
+                        <div><strong>Reduced Reactions:</strong> <span id="red-new-reactions">-</span></div>
+                        <div><strong>Species Reduction:</strong> <span id="red-species-pct">-</span></div>
+                        <div><strong>Reaction Reduction:</strong> <span id="red-reactions-pct">-</span></div>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <a id="download-reduced-mechanism" href="#" class="download-btn download-btn-green">Download Reduced Mechanism</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VOC Comparison Results -->
+            <div class="result-section" id="comparison-results-section" style="display:none;">
+                <h4>VOC Comparison Results</h4>
+                <div id="comparison-charts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px;">
+                    <!-- Charts will be populated dynamically -->
+                </div>
+                <div id="comparison-table" style="margin-top: 20px; overflow-x: auto;">
+                    <!-- Comparison table will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 24px 0; margin-top: 32px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 0.9rem;">
+        <p style="margin: 0;">
+            <strong>GECKO-A Web Interface</strong> v3.0.6 · Developed by <strong>Deeksha Sharma</strong>
+        </p>
+        <p style="margin: 8px 0 0 0; font-size: 0.85rem;">
+            Powered by <a href="https://gitlab.in2p3.fr/ipsl/lisa/geckoa/public/gecko-a" target="_blank" style="color: #2563eb;">GECKO-A</a> &
+            <a href="https://gitlab.in2p3.fr/ipsl/lisa/geckoa/public/boxmodel4gecko" target="_blank" style="color: #2563eb;">BOXMODEL4GECKO</a>
+        </p>
+    </footer>
+</body>
+</html>

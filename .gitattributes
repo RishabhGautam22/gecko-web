@@ -1,0 +1,42 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Force LF for shell scripts
+*.sh text eol=lf
+*.command text eol=lf
+
+# Force CRLF for Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pyc binary
+*.o binary
+*.mod binary
+*.exe binary
+
+# Fortran source (LF for consistency)
+*.f text eol=lf
+*.f90 text eol=lf
+*.F text eol=lf
+*.F90 text eol=lf
+
+# Data files
+*.csv text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.nml text eol=lf
+*.dat text eol=lf
+*.txt text eol=lf

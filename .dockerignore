@@ -1,0 +1,71 @@
+# =============================================================================
+# GECKO-A Docker Ignore File
+# Reduces build context from ~1.3GB to ~65MB
+# =============================================================================
+
+# Python virtual environments (465MB+)
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+.env
+
+# Windows installer (645MB)
+Gecko Windows Installation/
+
+# Test artifacts
+tests/
+test_environment/
+test_vis_bench/
+TestGeko/
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-*
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation (not needed in container)
+*.md
+docs/
+
+# Local scripts (not needed in container)
+start_gecko.command
+compile_local.sh
+rebuild_docker.sh
+run_tests.sh
+installers/
+scripts/
+
+# Build artifacts
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+
+# Data directories (mounted as volumes)
+data/
+
+# Fortran build artifacts (rebuilt in container)
+docker/gecko_source/OBJ/*.o
+docker/gecko_source/OBJ/*.mod
+docker/gecko_source/RUN/OUT/*
+docker/boxmodel_source/OBJ/*
+docker/boxmodel_source/SIMU/*/

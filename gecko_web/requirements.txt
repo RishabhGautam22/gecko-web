@@ -1,0 +1,37 @@
+# GECKO-A Web Interface Dependencies
+# Version 3.0.0
+
+# Core Web Framework
+fastapi>=0.100.0
+uvicorn>=0.23.0
+jinja2>=3.1.0
+python-multipart>=0.0.6
+
+# Scientific Computing
+numpy>=1.24.0
+scipy>=1.11.0
+pandas>=2.0.0
+
+# Data Formats
+netCDF4>=1.6.0
+xarray>=2023.1.0
+
+# Visualization
+matplotlib>=3.7.0
+Pillow>=10.0.0
+graphviz>=0.20.0
+networkx>=3.0
+
+# Chemistry
+rdkit>=2023.3.1
+
+# PDF Generation
+reportlab>=4.0.0
+
+# Testing
+pytest>=7.4.0
+httpx>=0.24.0
+
+# Optional but recommended
+aiofiles>=23.0.0
+python-dotenv>=1.0.0

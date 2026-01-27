@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  gecko-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: gecko-app:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - DATA_DIR=/data
+    volumes:
+      - ../data:/data
+      - ../gecko_web:/app/gecko_web  # Mount local code for development
+    restart: unless-stopped

@@ -1,0 +1,118 @@
+# =============================================================================
+# GECKO-A Web Interface - Git Ignore
+# =============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Data and job outputs (mounted volumes)
+data/output/*
+data/mechanisms/*
+data/archives/*
+data/library/*
+!data/.gitkeep
+
+# Fortran build artifacts (compiled objects - rebuilt in Docker)
+docker/gecko_source/OBJ/*.o
+docker/gecko_source/OBJ/*.mod
+docker/gecko_source/OBJ/cm
+docker/gecko_source/RUN/OUT/*
+!docker/gecko_source/RUN/OUT/.gitkeep
+docker/boxmodel_source/OBJ/*.o
+docker/boxmodel_source/OBJ/*.mod
+docker/boxmodel_source/OBJ/*.a
+docker/boxmodel_source/PROG/boxmod
+docker/boxmodel_source/INTERP30/gecko2box
+docker/boxmodel_source/SIMU/*/
+
+# BUT KEEP all Fortran source files (.f90, .f, .F90)
+# These are tracked:
+# - docker/gecko_source/LIB/*.f90 (source code)
+# - docker/gecko_source/DATA/* (reaction databases)
+# - docker/gecko_source/INPUT/* (configuration templates)
+# - docker/boxmodel_source/LIBSRC/* (source code)
+# - docker/boxmodel_source/PROG/*.f90 (main programs)
+
+# Windows installer (too large for git)
+Gecko Windows Installation/
+
+# Test directories
+test_environment/
+test_vis_bench/
+TestGeko/
