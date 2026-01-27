@@ -152,9 +152,10 @@ if [ -n "$import" ]; then
       cp ${PATH_BOX}/SCRIPTS/simu.nml ./
       cp ${PATH_BOX}/SCRIPTS/start.sh ./
       cp ${PATH_BOX}/SCRIPTS/concentrations.init ./
-      sed -i '' "s|_PATH_|${PATH_BOX}|g" my_param.sh
-      sed -i '' "s/XXXXX/$mechanism_maj/g" start.sh
-      sed -i '' "s/xxxxx/$mechanism_low/g" start.sh
+      # Use GNU sed syntax (Linux/Docker compatible)
+      sed -i "s|_PATH_|${PATH_BOX}|g" my_param.sh
+      sed -i "s/XXXXX/$mechanism_maj/g" start.sh
+      sed -i "s/xxxxx/$mechanism_low/g" start.sh
       
       default_init_conc="5.0E+11"
       awk '{print "REAC G" $1 " " "'$default_init_conc'"}' "${PATH_BOX}/CHEMDAT/$mechanism_low.listprimary" >> concentrations.init
