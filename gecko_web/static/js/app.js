@@ -8,12 +8,14 @@
 const GeckoApp = {
     currentJobId: null,
     refreshInterval: null,
+    syntheticWarnedJobId: null,
+    currentJob: null,
 
     /**
      * Initialize the application
      */
     init() {
-        console.log('[GeckoApp] Initializing v3.0.0...');
+        console.log('[GeckoApp] Initializing v3.0.10...');
         this.checkLibraries();
         this.loadCompounds();  // Load compounds from API
         this.loadJobs();
@@ -315,6 +317,7 @@ const GeckoApp = {
         document.getElementById('details-title').innerText = `Job Details: ${jobId}`;
 
         const job = await GeckoAPI.getJob(jobId);
+        this.currentJob = job;
 
         // Remove loading state
         buttons.forEach(btn => {
@@ -423,6 +426,9 @@ const GeckoApp = {
                 treeContainer.innerHTML = '<p>No reaction tree data available.</p>';
             }
 
+            // Data quality banner
+            this.renderDataQuality(data.data_quality || data.postprocessing_summary?.data_quality);
+
             // Plots
             this.renderPlots(data.plots);
 
@@ -458,6 +464,213 @@ const GeckoApp = {
     },
 
     /**
+     * Render data quality banner (synthetic/assumed data warnings)
+     * Enhanced to show vapor pressure quality and prominent warnings
+     */
+    renderDataQuality(dataQuality) {
+        const banner = document.getElementById('data-quality-banner');
+        if (!banner) return;
+
+        if (!dataQuality) {
+            banner.style.display = 'none';
+            banner.innerHTML = '';
+            return;
+        }
+
+        const sourceLabel = dataQuality.source || 'unknown';
+        const points = dataQuality.data_points ?? '-';
+        const timePoints = dataQuality.time_points ?? '-';
+        const assumptions = Array.isArray(dataQuality.assumptions) ? dataQuality.assumptions : [];
+        const pvapQuality = dataQuality.pvap_quality || 'unknown';
+        const pvapEstimatedFraction = dataQuality.pvap_estimated_fraction ?? null;
+
+        // Determine banner severity level
+        let severityClass = 'info';
+        let severityIcon = 'ℹ️';
+
+        if (dataQuality.is_synthetic || dataQuality.is_surrogate) {
+            severityClass = 'critical';
+            severityIcon = '⚠️';
+        } else if (pvapQuality === 'critical') {
+            severityClass = 'critical';
+            severityIcon = '⚠️';
+        } else if (pvapQuality === 'degraded') {
+            severityClass = 'warning';
+            severityIcon = '⚡';
+        } else if (pvapQuality === 'moderate') {
+            severityClass = 'moderate';
+            severityIcon = '📊';
+        }
+
+        let html = `<div class="data-quality-header severity-${severityClass}">
+            <span class="severity-icon">${severityIcon}</span>
+            <strong>Data Quality:</strong> ${sourceLabel}
+        </div>`;
+
+        html += `<div class="data-quality-stats">
+            <span><strong>Data Points:</strong> ${points}</span>
+            <span><strong>Time Points:</strong> ${timePoints}</span>
+        </div>`;
+
+        // Vapor pressure quality indicator
+        if (pvapQuality && pvapQuality !== 'unknown') {
+            const pvapStatusMap = {
+                'good': { label: 'Good (calculated)', color: '#28a745' },
+                'moderate': { label: 'Moderate (some estimated)', color: '#ffc107' },
+                'degraded': { label: 'Degraded (>50% estimated)', color: '#fd7e14' },
+                'critical': { label: 'Critical (mostly estimated)', color: '#dc3545' }
+            };
+            const pvapStatus = pvapStatusMap[pvapQuality] || { label: pvapQuality, color: '#6c757d' };
+
+            html += `<div class="pvap-quality" style="margin-top:8px; padding:6px; background:${pvapStatus.color}22; border-left:3px solid ${pvapStatus.color};">
+                <strong>Vapor Pressure Data:</strong> ${pvapStatus.label}`;
+
+            if (pvapEstimatedFraction !== null) {
+                html += ` (${(pvapEstimatedFraction * 100).toFixed(0)}% estimated)`;
+            }
+
+            if (pvapQuality === 'critical' || pvapQuality === 'degraded') {
+                html += `<div style="margin-top:4px; font-size:0.9em; color:#856404;">
+                    Partitioning accuracy may be reduced. Run GECKO-A generator to produce calculated vapor pressures.
+                </div>`;
+            }
+            html += `</div>`;
+        }
+
+        // Assumptions list
+        if (assumptions.length > 0) {
+            html += `<div class="data-quality-assumptions" style="margin-top:8px;">
+                <strong>Assumptions & Warnings:</strong>
+                <ul style="margin:6px 0 0 18px; padding-left:0;">
+                    ${assumptions.map(a => {
+                        // Highlight critical assumptions
+                        const isCritical = a.toLowerCase().includes('critical') || a.includes('⚠️');
+                        const style = isCritical ? 'color:#dc3545; font-weight:bold;' : '';
+                        return `<li style="${style}">${a}</li>`;
+                    }).join('')}
+                </ul>
+            </div>`;
+        }
+
+        // Synthetic data warning and action button
+        if (dataQuality.is_synthetic) {
+            html += `<div class="synthetic-warning" style="margin-top:10px; padding:10px; background:#fff3cd; border:1px solid #ffc107; border-radius:4px;">
+                <strong>⚠️ SYNTHETIC DATA WARNING</strong>
+                <p style="margin:6px 0;">Concentration data are assumed values, NOT from simulation. Results are for visualization only.</p>
+                <button id="synthetic-run-sim" class="small" style="background:#007bff;">Run Box Model for Real Data</button>
+            </div>`;
+        }
+
+        // Surrogate data warning
+        if (dataQuality.is_surrogate) {
+            html += `<div class="surrogate-warning" style="margin-top:10px; padding:10px; background:#f8d7da; border:1px solid #f5c6cb; border-radius:4px;">
+                <strong>⚠️ SURROGATE DATA</strong>
+                <p style="margin:6px 0;">Data are from a baseline surrogate compound, not the requested VOC. Results are approximations only.</p>
+            </div>`;
+        }
+
+        banner.innerHTML = html;
+        banner.style.display = 'block';
+        banner.className = `data-quality-banner severity-${severityClass}`;
+
+        // Alert for synthetic data (once per job)
+        if (dataQuality.is_synthetic && this.syntheticWarnedJobId !== this.currentJobId) {
+            alert('⚠️ SYNTHETIC DATA NOTICE\n\nPlots use assumed concentration values, NOT simulation results.\n\nRun a Box Model simulation for scientifically valid outputs.');
+            this.syntheticWarnedJobId = this.currentJobId;
+        }
+
+        // Alert for critical Pvap quality (once per job)
+        if (pvapQuality === 'critical' && this.pvapWarnedJobId !== this.currentJobId) {
+            alert('⚠️ VAPOR PRESSURE WARNING\n\nMost species used MW-based Pvap estimates.\nPartitioning accuracy may be off by 2+ orders of magnitude.\n\nRun GECKO-A generator for calculated values.');
+            this.pvapWarnedJobId = this.currentJobId;
+        }
+
+        const btn = document.getElementById('synthetic-run-sim');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                this.openBaselineModal();
+            });
+        }
+    },
+
+    // Track Pvap warning state
+    pvapWarnedJobId: null,
+
+    /**
+     * Open baseline simulation modal and prefill from existing form
+     */
+    openBaselineModal() {
+        const modal = document.getElementById('baseline-modal');
+        if (!modal) return;
+
+        document.getElementById('baseline_sim_hours').value = document.getElementById('sim_hours')?.value || 24;
+        document.getElementById('baseline_output_interval').value = document.getElementById('output_interval')?.value || 5;
+        document.getElementById('baseline_temp').value = document.getElementById('temp_k')?.value || 298;
+        document.getElementById('baseline_rh').value = document.getElementById('rh_pct')?.value || 50;
+        document.getElementById('baseline_o3').value = document.getElementById('init_o3')?.value || 40;
+        document.getElementById('baseline_no').value = document.getElementById('init_no')?.value || 5;
+        document.getElementById('baseline_no2').value = document.getElementById('init_no2')?.value || 5;
+        document.getElementById('baseline_voc').value = document.getElementById('init_voc')?.value || 10;
+        document.getElementById('baseline_seed').value = document.getElementById('seed_aerosol')?.value || 10;
+
+        modal.style.display = 'block';
+    },
+
+    closeBaselineModal() {
+        const modal = document.getElementById('baseline-modal');
+        if (modal) modal.style.display = 'none';
+    },
+
+    /**
+     * Run baseline box model simulation with modal parameters
+     */
+    async runBaselineSimulation() {
+        const voc = this.currentJob?.voc_name || document.getElementById('voc_select')?.value;
+        if (!voc) {
+            alert('VOC not available. Select a VOC and try again.');
+            return;
+        }
+
+        const scenario = this.getScenarioParams();
+        const boxmodelOptions = this.getExtendedBoxModelOptions();
+
+        const simHours = parseFloat(document.getElementById('baseline_sim_hours').value);
+        const outputInterval = parseFloat(document.getElementById('baseline_output_interval').value);
+        const temperature = parseFloat(document.getElementById('baseline_temp').value);
+        const rh = parseFloat(document.getElementById('baseline_rh').value);
+        const o3 = parseFloat(document.getElementById('baseline_o3').value);
+        const no = parseFloat(document.getElementById('baseline_no').value);
+        const no2 = parseFloat(document.getElementById('baseline_no2').value);
+        const vocInit = parseFloat(document.getElementById('baseline_voc').value);
+        const seed = parseFloat(document.getElementById('baseline_seed').value);
+
+        scenario.temperature_k = temperature;
+        scenario.rh_percent = rh;
+        scenario.initial_o3_ppb = o3;
+        scenario.initial_nox_ppb = no + no2;
+        scenario.seed_aerosol_ug_m3 = seed;
+
+        boxmodelOptions.simulation_hours = simHours;
+        boxmodelOptions.output_interval_minutes = outputInterval;
+        boxmodelOptions.temperature_k = temperature;
+        boxmodelOptions.rh_percent = rh;
+        boxmodelOptions.initial_o3_ppb = o3;
+        boxmodelOptions.initial_no_ppb = no;
+        boxmodelOptions.initial_no2_ppb = no2;
+        boxmodelOptions.initial_voc_ppb = vocInit;
+        boxmodelOptions.seed_aerosol_ug_m3 = seed;
+
+        try {
+            this.closeBaselineModal();
+            const data = await GeckoAPI.createJob(voc, 'boxmodel', scenario, this.getExtendedGeneratorOptions(), boxmodelOptions);
+            this.loadJobs();
+            this.viewJob(data.job_id);
+        } catch (e) {
+            alert('Error starting baseline simulation: ' + e);
+        }
+    },
+
+    /**
      * Render VOC comparison results
      */
     renderComparisonResults(results) {
@@ -471,6 +684,36 @@ const GeckoApp = {
         const chartsContainer = document.getElementById('comparison-charts');
         const tableContainer = document.getElementById('comparison-table');
 
+        // Check for SOA yield placeholder warning
+        const soaYield = results.comparison?.soa_yield;
+        if (soaYield && soaYield.is_placeholder) {
+            const warningDiv = document.createElement('div');
+            warningDiv.className = 'soa-yield-warning';
+            warningDiv.innerHTML = `
+                <div class="warning-header">
+                    <span>⚠️</span>
+                    <span>SOA YIELD ESTIMATES - NOT SIMULATION RESULTS</span>
+                </div>
+                <div class="warning-text">
+                    ${soaYield.warning || 'The SOA yields shown below are category-based literature estimates, NOT calculated values from this simulation.'}
+                </div>
+                ${soaYield.literature_sources ? `
+                <div class="literature-sources">
+                    <strong>Literature Sources:</strong>
+                    <ul style="margin:4px 0 0 16px;">
+                        ${Object.entries(soaYield.literature_sources).map(([cat, source]) =>
+                            `<li><strong>${cat}:</strong> ${source}</li>`
+                        ).join('')}
+                    </ul>
+                </div>
+                ` : ''}
+                <p style="margin-top:8px; font-style:italic;">
+                    Run Box Model simulations with identical conditions for calculated SOA yields.
+                </p>
+            `;
+            chartsContainer.parentNode.insertBefore(warningDiv, chartsContainer);
+        }
+
         // Render comparison charts
         if (results.charts) {
             chartsContainer.innerHTML = results.charts.map(chart => `
@@ -481,22 +724,37 @@ const GeckoApp = {
             `).join('');
         }
 
-        // Render comparison table
+        // Render comparison table with warning indicator for placeholder data
         if (results.summary_table) {
             let tableHtml = '<table class="data-table"><thead><tr><th>VOC</th>';
             const metrics = Object.keys(results.summary_table[Object.keys(results.summary_table)[0]] || {});
-            metrics.forEach(m => tableHtml += `<th>${m}</th>`);
+            metrics.forEach(m => {
+                // Mark SOA yield columns with warning indicator
+                const isYieldColumn = m.toLowerCase().includes('yield');
+                const marker = isYieldColumn ? ' ⚠️' : '';
+                tableHtml += `<th>${m}${marker}</th>`;
+            });
             tableHtml += '</tr></thead><tbody>';
 
             for (const [voc, values] of Object.entries(results.summary_table)) {
                 tableHtml += `<tr><td><strong>${voc}</strong></td>`;
                 metrics.forEach(m => {
                     const val = values[m];
-                    tableHtml += `<td>${typeof val === 'number' ? val.toFixed(2) : val}</td>`;
+                    const isYieldColumn = m.toLowerCase().includes('yield');
+                    const cellStyle = isYieldColumn ? 'style="color:#856404; font-style:italic;"' : '';
+                    tableHtml += `<td ${cellStyle}>${typeof val === 'number' ? val.toFixed(2) : val}</td>`;
                 });
                 tableHtml += '</tr>';
             }
             tableHtml += '</tbody></table>';
+
+            // Add footnote for yield columns
+            if (metrics.some(m => m.toLowerCase().includes('yield'))) {
+                tableHtml += `<p style="font-size:0.85rem; color:#856404; margin-top:8px;">
+                    ⚠️ Yield values are literature estimates, not simulation results.
+                </p>`;
+            }
+
             tableContainer.innerHTML = tableHtml;
         }
     },
@@ -1159,6 +1417,24 @@ const GeckoApp = {
         if (reports.summary_url) {
             document.getElementById('download-mechanism-summary').href = reports.summary_url;
             document.getElementById('download-mechanism-summary').style.display = 'inline-block';
+        }
+        if (reports.quality_appendix_url) {
+            const btn = document.getElementById('download-quality-report');
+            if (btn) {
+                btn.href = reports.quality_appendix_url;
+                btn.style.display = 'inline-block';
+            } else {
+                // If button doesn't exist in HTML (it doesn't yet), append it
+                const link = document.createElement('a');
+                link.href = reports.quality_appendix_url;
+                link.className = 'button secondary small';
+                link.target = '_blank';
+                link.innerHTML = '📄 Data Quality Appendix (PDF)';
+                link.style.marginLeft = '8px';
+                // Find container to append to
+                const container = document.getElementById('download-pdf-report').parentElement;
+                container.appendChild(link);
+            }
         }
     },
 

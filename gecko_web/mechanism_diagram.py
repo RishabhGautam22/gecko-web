@@ -18,15 +18,14 @@ import os
 import re
 import json
 import logging
-import math
-from typing import Dict, List, Optional, Tuple, Set, Any, Union
+from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, field
 from collections import defaultdict
-from enum import Enum
 
 # Import the unified SMILES conversion function from reaction_tree
 from .reaction_tree import gecko_to_smiles as unified_gecko_to_smiles, KNOWN_SPECIES as UNIFIED_KNOWN_SPECIES
 from .reaction_tree import identify_functional_groups as unified_identify_functional_groups
+from .reaction_tree import get_compound_name, GECKO_CODE_TO_NAME
 
 logger = logging.getLogger(__name__)
 
@@ -35,9 +34,7 @@ try:
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
-    import matplotlib.patches as mpatches
-    from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Circle
-    from matplotlib.lines import Line2D
+    from matplotlib.patches import FancyBboxPatch
     import numpy as np
     HAS_MATPLOTLIB = True
 except ImportError:
@@ -46,7 +43,7 @@ except ImportError:
 
 try:
     from rdkit import Chem
-    from rdkit.Chem import Draw, AllChem, rdDepictor
+    from rdkit.Chem import AllChem, rdDepictor
     from rdkit.Chem.Draw import rdMolDraw2D
     HAS_RDKIT = True
 except ImportError:
@@ -1415,8 +1412,21 @@ def generate_facsimile_format(tree: MechanismTree, output_path: str):
         f.write('\n'.join(lines))
 
 
-def _smiles_to_mol_image(smiles: str, size: Tuple[int, int] = (200, 150)) -> Optional[Any]:
-    """Convert SMILES to a molecule image using RDKit."""
+def _smiles_to_mol_image(smiles: str, size: Tuple[int, int] = (200, 150),
+                          compound_name: Optional[str] = None,
+                          formula: Optional[str] = None) -> Optional[Any]:
+    """
+    Convert SMILES to a molecule image with optional name and formula labels.
+
+    Args:
+        smiles: SMILES string
+        size: Tuple of (width, height) for the image
+        compound_name: Optional compound name to display below structure
+        formula: Optional molecular formula to display below name
+
+    Returns:
+        numpy array of the image for matplotlib
+    """
     if not HAS_RDKIT or not smiles:
         return None
 
@@ -1445,37 +1455,96 @@ def _smiles_to_mol_image(smiles: str, size: Tuple[int, int] = (200, 150)) -> Opt
         if mol is None:
             return None
 
+        # Get molecular formula if not provided
+        if not formula:
+            try:
+                formula = rdMolDescriptors.CalcMolFormula(mol)
+            except Exception:
+                pass
+
         # Generate 2D coordinates with high quality
         if hasattr(rdDepictor, 'SetPreferCoordGen'):
             rdDepictor.SetPreferCoordGen(True)
-        
+
         # Determine if we should prepare molecule (RDKit 2020.03+)
         if hasattr(rdMolDraw2D, 'PrepareMolForDrawing'):
             rdMolDraw2D.PrepareMolForDrawing(mol)
-        
+
         AllChem.Compute2DCoords(mol)
 
+        # Calculate dimensions - reserve space for labels if needed
+        label_height = 30 if (compound_name or formula) else 0
+        mol_height = size[1] - label_height
+
         # Draw molecule
-        drawer = rdMolDraw2D.MolDraw2DCairo(size[0], size[1])
+        drawer = rdMolDraw2D.MolDraw2DCairo(size[0], mol_height)
         opts = drawer.drawOptions()
         opts.addStereoAnnotation = True
         opts.addAtomIndices = False
         opts.bondLineWidth = 2.5
         opts.multipleBondOffset = 0.15
-        opts.padding = 0.05
-        # opts.atomLabelFontSize = 14  # Not supported
+        opts.padding = 0.08
         opts.minFontSize = 12
         opts.annotationFontScale = 0.8
-        
+
         drawer.DrawMolecule(mol)
         drawer.FinishDrawing()
 
-        # Convert to numpy array for matplotlib
+        # Convert to PIL Image
         from io import BytesIO
-        from PIL import Image
+        from PIL import Image, ImageDraw, ImageFont
         img_data = drawer.GetDrawingText()
-        img = Image.open(BytesIO(img_data))
-        return np.array(img)
+        mol_img = Image.open(BytesIO(img_data))
+
+        # If we have labels, create a combined image
+        if compound_name or formula:
+            # Create new image with space for labels
+            combined_img = Image.new('RGB', (size[0], size[1]), 'white')
+            combined_img.paste(mol_img, (0, 0))
+
+            # Add labels
+            draw = ImageDraw.Draw(combined_img)
+
+            # Try to get a good font
+            try:
+                font_paths = [
+                    '/System/Library/Fonts/Helvetica.ttc',
+                    '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+                    'C:/Windows/Fonts/arial.ttf',
+                ]
+                font = None
+                for fp in font_paths:
+                    if os.path.exists(fp):
+                        font = ImageFont.truetype(fp, 9)
+                        break
+                if font is None:
+                    font = ImageFont.load_default()
+            except Exception:
+                font = ImageFont.load_default()
+
+            y_pos = mol_height + 2
+
+            # Draw compound name
+            if compound_name:
+                display_name = compound_name.replace('_', ' ')
+                if len(display_name) > 18:
+                    display_name = display_name[:16] + '..'
+                bbox = draw.textbbox((0, 0), display_name, font=font)
+                text_width = bbox[2] - bbox[0]
+                x_pos = (size[0] - text_width) // 2
+                draw.text((x_pos, y_pos), display_name, fill='#1a237e', font=font)
+                y_pos += 12
+
+            # Draw formula
+            if formula:
+                bbox = draw.textbbox((0, 0), formula, font=font)
+                text_width = bbox[2] - bbox[0]
+                x_pos = (size[0] - text_width) // 2
+                draw.text((x_pos, y_pos), formula, fill='#424242', font=font)
+
+            return np.array(combined_img)
+        else:
+            return np.array(mol_img)
 
     except Exception as e:
         logger.debug(f"Failed to render SMILES {smiles}: {e}")
@@ -1541,13 +1610,37 @@ def generate_static_diagram(tree: MechanismTree, output_path: str,
             x = start_x + i * (node_w_inches + h_spacing) + node_w_inches / 2
             positions[code] = (x, y)
 
-    # Pre-render molecule images
+    # Pre-render molecule images with names and formulas
     mol_images = {}
     if HAS_RDKIT:
         for code in positions:
             species = tree.species_info.get(code, Species(code=code))
             if species.smiles:
-                img = _smiles_to_mol_image(species.smiles, (180, 140))
+                # Get a human-readable display name using the mapping
+                display_name = get_compound_name(code)
+                # If we still have just the code, try to make it more readable
+                if display_name == code:
+                    # Truncate long codes
+                    display_name = code[:12] + '..' if len(code) > 14 else code
+
+                # Get molecular formula
+                mol_formula = species.formula if species.formula else None
+                # If formula is too long (GECKO format), try to extract molecular formula
+                if mol_formula and len(mol_formula) > 15:
+                    # Try to compute from SMILES instead
+                    try:
+                        test_mol = Chem.MolFromSmiles(species.smiles)
+                        if test_mol:
+                            mol_formula = rdMolDescriptors.CalcMolFormula(test_mol)
+                    except Exception:
+                        mol_formula = mol_formula[:15] + '..'
+
+                img = _smiles_to_mol_image(
+                    species.smiles,
+                    (180, 160),  # Slightly taller to accommodate labels
+                    compound_name=display_name,
+                    formula=mol_formula
+                )
                 if img is not None:
                     mol_images[code] = img
 
@@ -1621,8 +1714,9 @@ def generate_static_diagram(tree: MechanismTree, output_path: str,
             ax.text(x, y, label, ha='center', va='center', fontsize=7,
                    family='monospace', zorder=3)
 
-    # Title
-    ax.set_title(f"Oxidation Mechanism: {tree.root}", fontsize=14, fontweight='bold', pad=10)
+    # Title - use human-readable name if available
+    root_name = get_compound_name(tree.root)
+    ax.set_title(f"Oxidation Mechanism: {root_name}", fontsize=14, fontweight='bold', pad=10)
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')

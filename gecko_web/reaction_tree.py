@@ -9,7 +9,6 @@ Author: Deeksha Sharma
 
 import os
 import re
-import json
 import logging
 from typing import Dict, List, Optional, Tuple
 
@@ -346,11 +345,21 @@ KNOWN_SPECIES = {
     'CYMENE': 'Cc1ccc(C(C)C)cc1',
     'PHELLANDRENE': 'CC(C)C1CCC(=C)C=C1', 'ALPHAPHELLANDRENE': 'CC(C)C1CCC(=C)C=C1',
     'BETAPHELLANDRENE': 'CC(C)=C1CCC(=C)CC1',
-    # Terpene oxidation products
-    'PINONALDEHYDE': 'CC1(C)C(C=O)CC(=O)C1', 'PINONAL': 'CC1(C)C(C=O)CC(=O)C1',
-    'PINONICACID': 'CC1(C)C(C(=O)O)CC(=O)C1', 'PINONIC': 'CC1(C)C(C(=O)O)CC(=O)C1',
+    # Terpene oxidation products - CORRECTED structures from PubChem
+    # Pinonaldehyde: 3-acetyl-2,2-dimethylcyclobutane-1-acetaldehyde (C10H16O2, MW 168.23)
+    # PubChem CID 17616 - CYCLOBUTANE ring (4-membered), NOT cyclopentane
+    'PINONALDEHYDE': 'CC(=O)C1CC(C1(C)C)CC=O', 'PINONAL': 'CC(=O)C1CC(C1(C)C)CC=O',
+    # Pinonic acid: 3-acetyl-2,2-dimethylcyclobutane-1-acetic acid (C10H16O3, MW 184.23)
+    # PubChem CID 10130 - CYCLOBUTANE ring (4-membered), NOT cyclopentane
+    'PINONICACID': 'CC(=O)C1CC(C1(C)C)CC(=O)O', 'PINONIC': 'CC(=O)C1CC(C1(C)C)CC(=O)O',
     'NORPINONICACID': 'CC1(C)C(C(=O)O)CCC1=O',
-    'PINICACID': 'OC(=O)C1CC(C(=O)O)C1(C)C', 'PINIC': 'OC(=O)C1CC(C(=O)O)C1(C)C',
+    # Pinic acid: 3-(carboxymethyl)-2,2-dimethylcyclobutane-1-carboxylic acid (C9H14O4, MW 186.21)
+    # PubChem CID 10131 - CYCLOBUTANE ring (4-membered)
+    'PINICACID': 'CC1(C)C(CC(=O)O)CC1C(=O)O', 'PINIC': 'CC1(C)C(CC(=O)O)CC1C(=O)O',
+    # GECKO species codes for terpene oxidation products
+    'TA9000': 'CC1(C)C(CC(=O)O)CC1C(=O)O',  # Pinic acid parent code
+    'TA8000': 'CC(=O)C1CC(C1(C)C)CC(=O)O',  # Pinonic acid
+    'TA7000': 'CC(=O)C1CC(C1(C)C)CC=O',     # Pinonaldehyde
     'NOPINONE': 'CC1(C)C2CCC(=O)C1C2',
     'CAMPHOR': 'CC1(C)C2CCC1(C)C(=O)C2',
     'VERBENONE': 'CC1=CC(=O)C2CC1C2(C)C',
@@ -426,12 +435,196 @@ KNOWN_SPECIES = {
 
 
 # ==============================================================================
+# GECKO Code to Human-Readable Name Mapping
+# ==============================================================================
+# This dictionary maps GECKO species codes to human-readable compound names
+# for display in diagrams and reports.
+
+GECKO_CODE_TO_NAME = {
+    # Inorganics
+    'HO': 'Hydroxyl radical', 'GHO': 'Hydroxyl radical', 'OH': 'Hydroxyl radical',
+    'HO2': 'Hydroperoxyl radical', 'GHO2': 'Hydroperoxyl radical',
+    'O3': 'Ozone', 'GO3': 'Ozone',
+    'NO': 'Nitric oxide', 'GNO': 'Nitric oxide',
+    'NO2': 'Nitrogen dioxide', 'GNO2': 'Nitrogen dioxide',
+    'NO3': 'Nitrate radical', 'GNO3': 'Nitrate radical',
+    'H2O': 'Water', 'GH2O': 'Water',
+    'H2O2': 'Hydrogen peroxide', 'GH2O2': 'Hydrogen peroxide',
+    'CO': 'Carbon monoxide', 'GCO': 'Carbon monoxide',
+    'CO2': 'Carbon dioxide', 'GCO2': 'Carbon dioxide',
+
+    # C1 compounds
+    'CH4': 'Methane', 'GCH4': 'Methane',
+    'CH2O': 'Formaldehyde', 'HCHO': 'Formaldehyde', 'GCH2O': 'Formaldehyde',
+    'CH3OH': 'Methanol', 'GCH3OH': 'Methanol',
+    'CH3OOH': 'Methyl hydroperoxide', 'GCH3OOH': 'Methyl hydroperoxide',
+    'CH3ONO2': 'Methyl nitrate',
+    'CH3O2': 'Methyl peroxy', 'GCH3O2': 'Methyl peroxy',
+    'CH3O': 'Methoxy radical', 'GCH3O': 'Methoxy radical',
+    'HCOOH': 'Formic acid', 'GHCOOH': 'Formic acid',
+
+    # C2 compounds
+    'C2H6': 'Ethane', 'C02000': 'Ethane',
+    'C2H4': 'Ethene', 'ETHENE': 'Ethene',
+    'C2H2': 'Ethyne', 'ETHYNE': 'Ethyne',
+    'CH3CHO': 'Acetaldehyde', 'ACETALD': 'Acetaldehyde', 'ACD': 'Acetaldehyde',
+    'GLYOX': 'Glyoxal', 'GLYOXAL': 'Glyoxal', 'GLY': 'Glyoxal',
+    'C2H5OH': 'Ethanol', 'ETHANOL': 'Ethanol',
+    'CH3COOH': 'Acetic acid', 'ACETICACID': 'Acetic acid',
+    'PAN': 'Peroxyacetyl nitrate',
+
+    # C3 compounds
+    'C3H8': 'Propane', 'C03000': 'Propane', 'PROPANE': 'Propane',
+    'C3H6': 'Propene', 'PROPENE': 'Propene',
+    'ACETONE': 'Acetone', 'CH3COCH3': 'Acetone', 'ACE': 'Acetone',
+    'PROPANAL': 'Propanal',
+    'MGLYOX': 'Methylglyoxal', 'MGLY': 'Methylglyoxal',
+    'HYAC': 'Hydroxyacetone', 'HACET': 'Hydroxyacetone',
+    'ACROLEIN': 'Acrolein', 'ACR': 'Acrolein',
+
+    # C4 compounds
+    'C4H10': 'n-Butane', 'C04000': 'n-Butane', 'NBUTANE': 'n-Butane', 'BUTANE': 'n-Butane',
+    'IBUTANE': 'Isobutane', 'ISOBUTANE': 'Isobutane',
+    'MVK': 'Methyl vinyl ketone', 'METHYLVINYLKETONE': 'Methyl vinyl ketone',
+    'MACR': 'Methacrolein', 'METHACROLEIN': 'Methacrolein',
+    'MEK': 'Methyl ethyl ketone', 'BUTANONE': 'Butanone',
+    'BUTANAL': 'Butanal',
+    'FURAN': 'Furan',
+    'THF': 'Tetrahydrofuran',
+
+    # C5 compounds - Isoprene
+    'C5H8': 'Isoprene', 'ISOP': 'Isoprene', 'ISOPRE': 'Isoprene', 'ISOPRENE': 'Isoprene',
+    'C5H12': 'n-Pentane', 'C05000': 'n-Pentane', 'PENTANE': 'n-Pentane',
+    'IPENTANE': 'Isopentane', 'ISOPENTANE': 'Isopentane', 'IPENTA': 'Isopentane',
+    'NEOPENTANE': 'Neopentane', 'NEOPEN': 'Neopentane',
+    'CYCLOPENTANE': 'Cyclopentane',
+    'CYCLOPENTENE': 'Cyclopentene',
+    # Isoprene oxidation products
+    'ISOPAO2': 'Isoprene peroxy A', 'ISOPA_OO': 'Isoprene peroxy A',
+    'ISOPBO2': 'Isoprene peroxy B', 'ISOPB_OO': 'Isoprene peroxy B',
+    'ISOPAOH': 'Isoprene hydroxy A', 'ISOPA_OH': 'Isoprene hydroxy A',
+    'ISOPBOH': 'Isoprene hydroxy B', 'ISOPB_OH': 'Isoprene hydroxy B',
+    'IEPOX': 'Isoprene epoxide', 'ISOPEPOX': 'Isoprene epoxide',
+    '2U5000': 'Isoprene-OH adduct', '2U5001': 'Isoprene-OH adduct',
+
+    # C6 compounds
+    'C6H14': 'n-Hexane', 'C06000': 'n-Hexane', 'HEXANE': 'n-Hexane',
+    'CYCLOHEXANE': 'Cyclohexane', 'CHEX': 'Cyclohexane',
+    'CYCLOHEXENE': 'Cyclohexene',
+    'BENZENE': 'Benzene', 'R06000': 'Benzene',
+    'HEXANAL': 'Hexanal',
+    'CYCLOHEXANOL': 'Cyclohexanol',
+    'CYCLOHEXANONE': 'Cyclohexanone',
+    'PHENOL': 'Phenol',
+    'CATECHOL': 'Catechol',
+
+    # C7 compounds - Toluene
+    'C7H16': 'n-Heptane', 'C07000': 'n-Heptane', 'HEPTANE': 'n-Heptane',
+    'TOLUENE': 'Toluene', 'TOL': 'Toluene', 'R07000': 'Toluene',
+    'BENZALDEHYDE': 'Benzaldehyde', 'BZALDEHYDE': 'Benzaldehyde', 'DR7000': 'Benzaldehyde',
+    'CRESOL': 'Cresol', 'OCRESOL': 'o-Cresol', 'OR7000': 'o-Cresol',
+    'MCRESOL': 'm-Cresol', 'PCRESOL': 'p-Cresol',
+    'BENZYLALC': 'Benzyl alcohol', 'OR7001': 'Benzyl alcohol',
+    '2R7000': 'Benzyl peroxy', '1R7000': 'Benzyloxy radical',
+
+    # C8 compounds - Xylenes
+    'C8H18': 'n-Octane', 'C08000': 'n-Octane', 'OCTANE': 'n-Octane',
+    'OXYLENE': 'o-Xylene', 'MXYLENE': 'm-Xylene', 'PXYLENE': 'p-Xylene',
+    'ETHYLBENZENE': 'Ethylbenzene',
+    'STYRENE': 'Styrene',
+    'R08000': 'o-Xylene',
+
+    # C9 compounds
+    'C9H20': 'n-Nonane', 'C09000': 'n-Nonane', 'NONANE': 'n-Nonane',
+    'TRIMETHYLBENZENE': 'Trimethylbenzene',
+
+    # C10 compounds - Monoterpenes
+    'C10H22': 'n-Decane', 'C10000': 'n-Decane', 'DECANE': 'n-Decane',
+    'APINENE': 'α-Pinene', 'ALPHAPINENE': 'α-Pinene',
+    'BPINENE': 'β-Pinene', 'BETAPINENE': 'β-Pinene',
+    'LIMONENE': 'Limonene', 'LIM': 'Limonene', 'LIM01': 'Limonene',
+    'CAMPHENE': 'Camphene',
+    'CARENE': 'Δ3-Carene', '3CARENE': 'Δ3-Carene', 'DELTA3CARENE': 'Δ3-Carene',
+    'SABINENE': 'Sabinene',
+    'MYRCENE': 'Myrcene',
+    'OCIMENE': 'Ocimene',
+    'TERPINENE': 'Terpinene', 'GAMMATERPINENE': 'γ-Terpinene', 'ALPHATERPINENE': 'α-Terpinene',
+    'TERPINOLENE': 'Terpinolene',
+    'PCYMENE': 'p-Cymene',
+    # Terpene oxidation products
+    'PINONALDEHYDE': 'Pinonaldehyde', 'PINONAL': 'Pinonaldehyde', 'TA7000': 'Pinonaldehyde',
+    'PINONICACID': 'Pinonic acid', 'PINONIC': 'Pinonic acid', 'TA8000': 'Pinonic acid',
+    'PINICACID': 'Pinic acid', 'PINIC': 'Pinic acid', 'TA9000': 'Pinic acid',
+    'NOPINONE': 'Nopinone',
+    'LINALOOL': 'Linalool',
+    'GERANIOL': 'Geraniol',
+    'TERPINEOL': 'Terpineol', 'ALPHATERPINEOL': 'α-Terpineol',
+    'NAPHTHALENE': 'Naphthalene', 'NAPH': 'Naphthalene',
+
+    # C11-15 compounds
+    'C11H24': 'n-Undecane', 'C11000': 'n-Undecane', 'UNDECANE': 'n-Undecane',
+    'C12H26': 'n-Dodecane', 'C12000': 'n-Dodecane', 'DODECANE': 'n-Dodecane',
+    'CARYOPHYLLENE': 'β-Caryophyllene', 'BCARYOPHYLLENE': 'β-Caryophyllene',
+    'HUMULENE': 'α-Humulene', 'ALPHAHUMULENE': 'α-Humulene',
+    'FARNESENE': 'Farnesene',
+    'NEROLIDOL': 'Nerolidol',
+
+    # Generic peroxy/alkoxy/nitrate patterns
+    'RO2': 'Peroxy radical', 'RO': 'Alkoxy radical',
+}
+
+
+def get_compound_name(gecko_code: str) -> str:
+    """
+    Get a human-readable name for a GECKO species code.
+
+    Args:
+        gecko_code: GECKO species code (e.g., 'C05000', 'ISOPRE', 'TA9000')
+
+    Returns:
+        Human-readable name or the original code if not found
+    """
+    # Check direct mapping
+    if gecko_code in GECKO_CODE_TO_NAME:
+        return GECKO_CODE_TO_NAME[gecko_code]
+
+    # Check case-insensitive
+    upper_code = gecko_code.upper()
+    if upper_code in GECKO_CODE_TO_NAME:
+        return GECKO_CODE_TO_NAME[upper_code]
+
+    # Try to identify patterns
+    # Peroxy radicals (end with O2 or OO)
+    if gecko_code.endswith('O2') or gecko_code.endswith('OO'):
+        base = gecko_code[:-2]
+        if base in GECKO_CODE_TO_NAME:
+            return f"{GECKO_CODE_TO_NAME[base]} peroxy"
+        return f"{gecko_code} (peroxy)"
+
+    # Alkoxy radicals (end with O)
+    if gecko_code.endswith('O') and len(gecko_code) > 2:
+        base = gecko_code[:-1]
+        if base in GECKO_CODE_TO_NAME:
+            return f"{GECKO_CODE_TO_NAME[base]} alkoxy"
+
+    # Nitrates (end with NO3 or ONO2)
+    if gecko_code.endswith('NO3') or gecko_code.endswith('ONO2'):
+        return f"{gecko_code} (nitrate)"
+
+    # Hydroperoxides (end with OOH)
+    if gecko_code.endswith('OOH'):
+        return f"{gecko_code} (hydroperoxide)"
+
+    # Return original code if no match
+    return gecko_code
+
+
+# ==============================================================================
 # RDKit Validation (optional but recommended)
 # ==============================================================================
 
 try:
     from rdkit import Chem
-    from rdkit.Chem import AllChem
     HAS_RDKIT = True
 except ImportError:
     HAS_RDKIT = False
@@ -751,6 +944,7 @@ def _convert_substituent(rest: str) -> str:
         return 'C'
 
     # If nothing matched, return empty (fallback to benzene)
+    logger.warning(f"Could not convert substituent to SMILES: '{rest}'")
     return ""
 
 
@@ -848,13 +1042,34 @@ def _generate_fallback_smiles(formula: str) -> str:
     has_carbonyl = '(CO)' in formula or '-CO-' in formula
     has_aldehyde = 'CHO' in formula
 
+    # Detect ring size from GECKO notation (C1...C1 pattern)
+    # Count atoms between ring markers to determine ring size
+    ring_size_detected = 0
+    ring_match = re.search(r'C1[^1]*C1', formula)
+    if ring_match:
+        ring_section = ring_match.group()
+        # Count carbon-like groups in the ring section
+        ring_carbons = len(re.findall(r'C[dH]*(?:\([^)]*\))?', ring_section))
+        if ring_carbons >= 3:
+            ring_size_detected = ring_carbons
+
+    # Also check for terpene oxidation product patterns (cyclobutane = 4-membered)
+    # These are alpha-pinene/beta-pinene derivatives with broken 4-membered ring
+    is_terpene_oxidation = ('CO(OH)' in formula or 'CHO' in formula) and 'C1' in formula
+
     # Build base structure
     if has_aromatic and n_carbon >= 6:
         base = 'c1ccccc1'
         if n_carbon > 6:
             base = 'C' * (n_carbon - 6) + base
     elif has_ring and n_carbon >= 4:
-        ring_size = min(6, n_carbon)
+        # Use detected ring size, default to 4 for terpene oxidation products
+        if ring_size_detected >= 3:
+            ring_size = ring_size_detected
+        elif is_terpene_oxidation:
+            ring_size = 4  # Cyclobutane for pinene oxidation products
+        else:
+            ring_size = min(6, n_carbon)
         base = 'C1' + 'C' * (ring_size - 2) + 'C1'
         if n_carbon > ring_size:
             base += 'C' * (n_carbon - ring_size)

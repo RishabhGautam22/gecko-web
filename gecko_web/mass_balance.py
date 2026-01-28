@@ -23,12 +23,9 @@ Author: GECKO-A Development Team
 import os
 import re
 import logging
-from typing import Dict, List, Optional, Tuple, Any, Set
+from typing import Dict, List, Optional, Any, Set
 from dataclasses import dataclass, field
 from collections import defaultdict
-from pathlib import Path
-
-import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -531,20 +528,95 @@ class MassBalanceChecker:
     sum(coeff_i * atoms_i) for reactants = sum(coeff_j * atoms_j) for products
 
     for each element (C, H, N, O, S).
+
+    Tolerance Configuration:
+    - absolute_tolerance: Maximum allowed absolute atom difference (default: 0.01)
+    - relative_tolerance: Maximum allowed relative difference (default: 0.01 = 1%)
+    - minor_threshold: Relative error threshold for minor warnings (default: 0.05 = 5%)
+    - major_threshold: Relative error threshold for major warnings (default: 0.10 = 10%)
+    - critical_threshold: Relative error threshold for critical errors (default: 0.20 = 20%)
+
+    Note: Small deviations may occur due to:
+    - Numerical precision in stoichiometric coefficients
+    - Implicit species (O2, N2, H2O) in some reaction schemes
+    - Photolysis products that include light energy
     """
 
-    # Tolerance thresholds
-    ABSOLUTE_TOLERANCE = 0.01  # Absolute atom difference tolerance
-    RELATIVE_TOLERANCE = 0.01  # 1% relative tolerance
+    # Default tolerance thresholds
+    DEFAULT_ABSOLUTE_TOLERANCE = 0.01  # Absolute atom difference tolerance
+    DEFAULT_RELATIVE_TOLERANCE = 0.01  # 1% relative tolerance
 
-    # Warning level thresholds (relative error)
-    MINOR_THRESHOLD = 0.05   # 5%
-    MAJOR_THRESHOLD = 0.10   # 10%
-    CRITICAL_THRESHOLD = 0.20  # 20%
+    # Default warning level thresholds (relative error)
+    DEFAULT_MINOR_THRESHOLD = 0.05   # 5%
+    DEFAULT_MAJOR_THRESHOLD = 0.10   # 10%
+    DEFAULT_CRITICAL_THRESHOLD = 0.20  # 20%
 
-    def __init__(self, dictionary_parser: DictionaryParser):
+    def __init__(self, dictionary_parser: DictionaryParser,
+                 absolute_tolerance: float = None,
+                 relative_tolerance: float = None,
+                 minor_threshold: float = None,
+                 major_threshold: float = None,
+                 critical_threshold: float = None):
+        """
+        Initialize mass balance checker with configurable tolerances.
+
+        Args:
+            dictionary_parser: Parser for species composition data
+            absolute_tolerance: Maximum allowed absolute atom difference
+            relative_tolerance: Maximum allowed relative difference (fraction)
+            minor_threshold: Relative error threshold for minor warnings
+            major_threshold: Relative error threshold for major warnings
+            critical_threshold: Relative error threshold for critical errors
+        """
         self.dict_parser = dictionary_parser
         self._unknown_species: Set[str] = set()
+
+        # Use provided tolerances or defaults
+        self.absolute_tolerance = absolute_tolerance if absolute_tolerance is not None else self.DEFAULT_ABSOLUTE_TOLERANCE
+        self.relative_tolerance = relative_tolerance if relative_tolerance is not None else self.DEFAULT_RELATIVE_TOLERANCE
+        self.minor_threshold = minor_threshold if minor_threshold is not None else self.DEFAULT_MINOR_THRESHOLD
+        self.major_threshold = major_threshold if major_threshold is not None else self.DEFAULT_MAJOR_THRESHOLD
+        self.critical_threshold = critical_threshold if critical_threshold is not None else self.DEFAULT_CRITICAL_THRESHOLD
+
+        # Validate tolerance hierarchy
+        if not (self.minor_threshold <= self.major_threshold <= self.critical_threshold):
+            logger.warning(
+                f"Tolerance thresholds not in expected order: "
+                f"minor={self.minor_threshold}, major={self.major_threshold}, critical={self.critical_threshold}"
+            )
+
+        # Store configuration for reporting
+        self.tolerance_config = {
+            'absolute_tolerance': self.absolute_tolerance,
+            'relative_tolerance': self.relative_tolerance,
+            'minor_threshold': self.minor_threshold,
+            'major_threshold': self.major_threshold,
+            'critical_threshold': self.critical_threshold,
+        }
+
+    @classmethod
+    def with_strict_tolerances(cls, dictionary_parser: DictionaryParser) -> 'MassBalanceChecker':
+        """Create checker with strict tolerances for publication-quality validation."""
+        return cls(
+            dictionary_parser,
+            absolute_tolerance=0.001,  # 0.1% of an atom
+            relative_tolerance=0.001,  # 0.1%
+            minor_threshold=0.01,      # 1%
+            major_threshold=0.05,      # 5%
+            critical_threshold=0.10    # 10%
+        )
+
+    @classmethod
+    def with_relaxed_tolerances(cls, dictionary_parser: DictionaryParser) -> 'MassBalanceChecker':
+        """Create checker with relaxed tolerances for exploratory analysis."""
+        return cls(
+            dictionary_parser,
+            absolute_tolerance=0.1,    # 10% of an atom
+            relative_tolerance=0.05,   # 5%
+            minor_threshold=0.10,      # 10%
+            major_threshold=0.20,      # 20%
+            critical_threshold=0.50    # 50%
+        )
 
     def check_reaction(self, reaction: Reaction) -> MassBalanceResult:
         """Check mass balance for a single reaction."""
@@ -582,25 +654,25 @@ class MassBalanceChecker:
         if total_reactant_atoms > 0:
             relative_error = absolute_error / total_reactant_atoms
 
-        # Determine balance status
+        # Determine balance status using instance tolerances
         is_balanced = True
         for elem, diff in element_diff.items():
             ref_count = max(reactant_atoms.get(elem, 0), product_atoms.get(elem, 0))
             if ref_count > 0:
-                if abs(diff) > self.ABSOLUTE_TOLERANCE:
+                if abs(diff) > self.absolute_tolerance:
                     elem_rel_error = abs(diff) / ref_count
-                    if elem_rel_error > self.RELATIVE_TOLERANCE:
+                    if elem_rel_error > self.relative_tolerance:
                         is_balanced = False
                         break
 
-        # Determine warning level
+        # Determine warning level using instance thresholds
         warning_level = 'ok'
         if not is_balanced:
-            if relative_error >= self.CRITICAL_THRESHOLD:
+            if relative_error >= self.critical_threshold:
                 warning_level = 'critical'
-            elif relative_error >= self.MAJOR_THRESHOLD:
+            elif relative_error >= self.major_threshold:
                 warning_level = 'major'
-            elif relative_error >= self.MINOR_THRESHOLD:
+            elif relative_error >= self.minor_threshold:
                 warning_level = 'minor'
             else:
                 warning_level = 'minor'
@@ -609,7 +681,7 @@ class MassBalanceChecker:
         notes = []
         if not is_balanced:
             for elem, diff in element_diff.items():
-                if abs(diff) > self.ABSOLUTE_TOLERANCE:
+                if abs(diff) > self.absolute_tolerance:
                     if diff > 0:
                         notes.append(f"{elem}: +{diff:.2f} atoms (excess in products)")
                     else:

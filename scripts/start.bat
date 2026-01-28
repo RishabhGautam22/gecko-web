@@ -3,13 +3,13 @@ setlocal EnableDelayedExpansion
 
 :: ============================================================================
 :: GECKO-A Web Interface - Windows Launcher
-:: Version 3.0.6
+:: Version 3.0.10
 :: ============================================================================
 
 echo.
 echo ========================================================================
 echo   GECKO-A Web Interface - Windows Launcher
-echo   Version 3.0.6
+echo   Version 3.0.10
 echo ========================================================================
 echo.
 

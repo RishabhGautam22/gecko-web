@@ -12,7 +12,7 @@ A clear and concise description of the bug.
 ## Environment
 - **OS:** [e.g., Windows 11, macOS 14.2, Ubuntu 22.04]
 - **Browser:** [e.g., Chrome 120, Firefox 121]
-- **GECKO-A Version:** [e.g., 3.0.6]
+- **GECKO-A Version:** [e.g., 3.0.10]
 - **Deployment:** [Docker / Local Python]
 
 ## Steps to Reproduce

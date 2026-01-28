@@ -1,0 +1,791 @@
+{
+  "total_compounds": 50,
+  "successful": 49,
+  "failed": 1,
+  "compounds": [
+    {
+      "name": "pinic_acid",
+      "status": "OK",
+      "smiles": "CC1(C)C(CC(=O)O)CC1C(=O)O",
+      "gecko_formula": "CH3C1(CH3)CH(CH2CO(OH))CH2C1HCO(OH)",
+      "gecko_to_smiles": "C1CCCC1CCCCO",
+      "formula": "C9H14O4",
+      "mw": 186.21,
+      "rings": [
+        4
+      ],
+      "carbons": 9,
+      "gecko_rings": [
+        5
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/pinic_acid.png"
+    },
+    {
+      "name": "pinonic_acid",
+      "status": "OK",
+      "smiles": "CC(=O)C1CC(C1(C)C)CC(=O)O",
+      "gecko_formula": "CH3COC1HCH2C1(CH3)(CH3)CH(CH2CO(OH))",
+      "gecko_to_smiles": "C1CC1CCCCCCCO",
+      "formula": "C10H16O3",
+      "mw": 184.23,
+      "rings": [
+        4
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        3
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/pinonic_acid.png"
+    },
+    {
+      "name": "pinonaldehyde",
+      "status": "OK",
+      "smiles": "CC(=O)C1CC(C1(C)C)CC=O",
+      "gecko_formula": "CH3COC1HCH2C1(CH3)(CH3)CH(CH2CHO)",
+      "gecko_to_smiles": "C1CC1C(=O)CCCCCC",
+      "formula": "C10H16O2",
+      "mw": 168.24,
+      "rings": [
+        4
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        3
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/pinonaldehyde.png"
+    },
+    {
+      "name": "nopinone",
+      "status": "OK",
+      "smiles": "CC1(C)C2CCC(=O)C1C2",
+      "gecko_formula": "CH3C12(CH3)CH2CH(CO)CH2C1CH22",
+      "gecko_to_smiles": "C1CCC(=O)CC1CCC",
+      "formula": "C9H14O",
+      "mw": 138.21,
+      "rings": [
+        4,
+        6,
+        6
+      ],
+      "carbons": 9,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/nopinone.png"
+    },
+    {
+      "name": "alpha_pinene",
+      "status": "OK",
+      "smiles": "CC1=CCC2CC1C2(C)C",
+      "gecko_formula": "C12HCH2CH(C1(CH3)CH3)CH2CdH=Cd2CH3",
+      "gecko_to_smiles": "C1CCC1CCCCCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        4,
+        6,
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        4
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/alpha_pinene.png"
+    },
+    {
+      "name": "beta_pinene",
+      "status": "OK",
+      "smiles": "CC1(C)C2CCC(=C)C1C2",
+      "gecko_formula": "C12HCH2CH(C1(CH3)CH3)CH2CH2Cd2=CdH2",
+      "gecko_to_smiles": "C1CCC1CCCCCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        4,
+        6,
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        4
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/beta_pinene.png"
+    },
+    {
+      "name": "camphene",
+      "status": "OK",
+      "smiles": "CC1(C)C2CCC(C2)C1=C",
+      "gecko_formula": "C12HCH2C(=CdH2)C1(CH3)CH3CH2CH2",
+      "gecko_to_smiles": "C1CCC1CCCCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        5,
+        5
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        4
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/camphene.png"
+    },
+    {
+      "name": "sabinene",
+      "status": "OK",
+      "smiles": "CC(C)C12CCC(=C)C1C2",
+      "gecko_formula": "CH3CH(CH3)C1HCH2CH2C2(=CdH2)CH2C12",
+      "gecko_to_smiles": "C1CCCCCC1CCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        3,
+        5
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        7
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/sabinene.png"
+    },
+    {
+      "name": "3_carene",
+      "status": "OK",
+      "smiles": "CC1=CCC2C(C1)C2(C)C",
+      "gecko_formula": "C12HCH2Cd(CH3)=CdHCH2C2HC1(CH3)CH3",
+      "gecko_to_smiles": "C1CCCCCC1CCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        3,
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        7
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/3_carene.png"
+    },
+    {
+      "name": "limonene",
+      "status": "OK",
+      "smiles": "CC1=CCC(CC1)C(=C)C",
+      "gecko_formula": "C1H2CH2Cd(CH3)=CdHCH2C1HCd(CH3)=CdH2",
+      "gecko_to_smiles": "C1CCCCC1CCCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/limonene.png"
+    },
+    {
+      "name": "alpha_terpinene",
+      "status": "OK",
+      "smiles": "CC1=CC=C(C(C)C)CC1",
+      "gecko_formula": "CH3Cd1=CdHCdH=Cd(CH(CH3)CH3)CH2C1H2",
+      "gecko_to_smiles": "CCCCC=CCCCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/alpha_terpinene.png"
+    },
+    {
+      "name": "gamma_terpinene",
+      "status": "OK",
+      "smiles": "CC1=CCC(C(C)C)=CC1",
+      "gecko_formula": "CH3Cd1=CdHCH2Cd(CH(CH3)CH3)=CdHC1H2",
+      "gecko_to_smiles": "CCCCC=CCCCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/gamma_terpinene.png"
+    },
+    {
+      "name": "terpinolene",
+      "status": "OK",
+      "smiles": "CC(C)=C1CCC(=C)CC1",
+      "gecko_formula": "CH3Cd(CH3)=Cd1CH2CH2Cd(=CdH2)CH2C1H2",
+      "gecko_to_smiles": "CCCCC=CCCCC",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/terpinolene.png"
+    },
+    {
+      "name": "myrcene",
+      "status": "OK",
+      "smiles": "CC(=C)CCCC(=C)C=C",
+      "gecko_formula": "CH3Cd(CH3)=CdHCH2CH2Cd(=CdH2)CdH=CdH2",
+      "gecko_to_smiles": "C=CC(=C)CCC=C(C)C",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [],
+      "carbons": 10,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/myrcene.png"
+    },
+    {
+      "name": "ocimene",
+      "status": "OK",
+      "smiles": "CC(=CCC=C(C)C=C)C",
+      "gecko_formula": "CH3Cd(CH3)=CdHCH2CdH=Cd(CH3)CdH=CdH2",
+      "gecko_to_smiles": "C=CC(C)=CCC=C(C)C",
+      "formula": "C10H16",
+      "mw": 136.24,
+      "rings": [],
+      "carbons": 10,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/ocimene.png"
+    },
+    {
+      "name": "linalool",
+      "status": "OK",
+      "smiles": "CC(=C)CCCC(C)(O)C=C",
+      "gecko_formula": "CH3Cd(=CdH2)CH2CH2CH2C(CH3)(OH)CdH=CdH2",
+      "gecko_to_smiles": "C=CC(C)(O)CCCC(=C)C",
+      "formula": "C10H18O",
+      "mw": 154.25,
+      "rings": [],
+      "carbons": 10,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/linalool.png"
+    },
+    {
+      "name": "alpha_terpineol",
+      "status": "OK",
+      "smiles": "CC(C)=C1CCC(C)(O)CC1",
+      "gecko_formula": "CH3Cd(CH3)=Cd1CH2CH2C(CH3)(OH)CH2C1H2",
+      "gecko_to_smiles": "CCCCC=CCCCCO",
+      "formula": "C10H18O",
+      "mw": 154.25,
+      "rings": [
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/alpha_terpineol.png"
+    },
+    {
+      "name": "nerolidol",
+      "status": "OK",
+      "smiles": "CC(=CCCC(=CCCC(C)(C=C)O)C)C",
+      "gecko_formula": "CH3Cd(CH3)=CdHCH2CH2Cd(CH3)=CdHCH2CH2C(CH3)(CdH=CdH2)(OH)",
+      "gecko_to_smiles": "C=CC(C)(O)CCC=C(C)CCC=C(C)C",
+      "formula": "C15H26O",
+      "mw": 222.37,
+      "rings": [],
+      "carbons": 15,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/nerolidol.png"
+    },
+    {
+      "name": "1_8_cineole",
+      "status": "OK",
+      "smiles": "CC1(C)OC2CCC1(C)CC2",
+      "gecko_formula": "CH3C12(CH3)OC3H2CH2CH2C1(CH3)CH2CH23",
+      "gecko_to_smiles": "C1CCCCC1CCCC",
+      "formula": "C10H18O",
+      "mw": 154.25,
+      "rings": [
+        6,
+        6,
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/1_8_cineole.png"
+    },
+    {
+      "name": "beta_caryophyllene",
+      "status": "OK",
+      "smiles": "CC1=CCCC(=C)C2CC(C)(C)C2CC1",
+      "gecko_formula": "CH3Cd1=CdHCH2CH2Cd(=CdH2)C2HCH2C(CH3)(CH3)C2HCH2C1H2",
+      "gecko_to_smiles": "C1CCCCC1CCCCCCCCC",
+      "formula": "C15H24",
+      "mw": 204.36,
+      "rings": [
+        4,
+        9
+      ],
+      "carbons": 15,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/beta_caryophyllene.png"
+    },
+    {
+      "name": "alpha_humulene",
+      "status": "OK",
+      "smiles": "CC1=CCC(C)(C)C=CCC(C)=CCC1",
+      "gecko_formula": "CH3Cd1=CdHCH2Cd(CH3)(CH3)CdH=CdHCH2Cd(CH3)=CdHCH2C1H2",
+      "gecko_to_smiles": "CCCCCCC=CCCCCCCC",
+      "formula": "C15H24",
+      "mw": 204.36,
+      "rings": [
+        11
+      ],
+      "carbons": 15,
+      "gecko_rings": [],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/alpha_humulene.png"
+    },
+    {
+      "name": "methane",
+      "status": "OK",
+      "smiles": "C",
+      "gecko_formula": "CH4",
+      "gecko_to_smiles": "C",
+      "formula": "CH4",
+      "mw": 16.04,
+      "rings": [],
+      "carbons": 1,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/methane.png"
+    },
+    {
+      "name": "ethane",
+      "status": "OK",
+      "smiles": "CC",
+      "gecko_formula": "CH3CH3",
+      "gecko_to_smiles": "CC",
+      "formula": "C2H6",
+      "mw": 30.07,
+      "rings": [],
+      "carbons": 2,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/ethane.png"
+    },
+    {
+      "name": "propane",
+      "status": "OK",
+      "smiles": "CCC",
+      "gecko_formula": "CH3CH2CH3",
+      "gecko_to_smiles": "CCC",
+      "formula": "C3H8",
+      "mw": 44.1,
+      "rings": [],
+      "carbons": 3,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/propane.png"
+    },
+    {
+      "name": "isobutane",
+      "status": "OK",
+      "smiles": "CC(C)C",
+      "gecko_formula": "CH3CH(CH3)CH3",
+      "gecko_to_smiles": "CC(C)C",
+      "formula": "C4H10",
+      "mw": 58.12,
+      "rings": [],
+      "carbons": 4,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/isobutane.png"
+    },
+    {
+      "name": "isopentane",
+      "status": "OK",
+      "smiles": "CC(C)CC",
+      "gecko_formula": "CH3CH(CH3)CH2CH3",
+      "gecko_to_smiles": "CC(C)CC",
+      "formula": "C5H12",
+      "mw": 72.15,
+      "rings": [],
+      "carbons": 5,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/isopentane.png"
+    },
+    {
+      "name": "neopentane",
+      "status": "NOT_FOUND",
+      "error": "Not in compound database"
+    },
+    {
+      "name": "cyclohexane",
+      "status": "OK",
+      "smiles": "C1CCCCC1",
+      "gecko_formula": "C1H2CH2CH2CH2CH2C1H2",
+      "gecko_to_smiles": "C1CCCCC1",
+      "formula": "C6H12",
+      "mw": 84.16,
+      "rings": [
+        6
+      ],
+      "carbons": 6,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/cyclohexane.png"
+    },
+    {
+      "name": "ethene",
+      "status": "OK",
+      "smiles": "C=C",
+      "gecko_formula": "CdH2=CdH2",
+      "gecko_to_smiles": "C=C",
+      "formula": "C2H4",
+      "mw": 28.05,
+      "rings": [],
+      "carbons": 2,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/ethene.png"
+    },
+    {
+      "name": "propene",
+      "status": "OK",
+      "smiles": "CC=C",
+      "gecko_formula": "CH3CdH=CdH2",
+      "gecko_to_smiles": "C=CC",
+      "formula": "C3H6",
+      "mw": 42.08,
+      "rings": [],
+      "carbons": 3,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/propene.png"
+    },
+    {
+      "name": "isoprene",
+      "status": "OK",
+      "smiles": "CC(=C)C=C",
+      "gecko_formula": "CH3Cd(=CdH2)CdH=CdH2",
+      "gecko_to_smiles": "C=CC(=C)C",
+      "formula": "C5H8",
+      "mw": 68.12,
+      "rings": [],
+      "carbons": 5,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/isoprene.png"
+    },
+    {
+      "name": "isobutene",
+      "status": "OK",
+      "smiles": "CC(=C)C",
+      "gecko_formula": "CH3Cd(CH3)=CdH2",
+      "gecko_to_smiles": "C=C(C)C",
+      "formula": "C4H8",
+      "mw": 56.11,
+      "rings": [],
+      "carbons": 4,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/isobutene.png"
+    },
+    {
+      "name": "benzene",
+      "status": "OK",
+      "smiles": "c1ccccc1",
+      "gecko_formula": "c1HcHcHcHcHc1H",
+      "gecko_to_smiles": "c1ccccc1",
+      "formula": "C6H6",
+      "mw": 78.11,
+      "rings": [
+        6
+      ],
+      "carbons": 6,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/benzene.png"
+    },
+    {
+      "name": "toluene",
+      "status": "OK",
+      "smiles": "Cc1ccccc1",
+      "gecko_formula": "c1(CH3)cHcHcHcHc1H",
+      "gecko_to_smiles": "Cc1ccccc1",
+      "formula": "C7H8",
+      "mw": 92.14,
+      "rings": [
+        6
+      ],
+      "carbons": 7,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/toluene.png"
+    },
+    {
+      "name": "ethylbenzene",
+      "status": "OK",
+      "smiles": "CCc1ccccc1",
+      "gecko_formula": "c1(CH2CH3)cHcHcHcHc1H",
+      "gecko_to_smiles": "CCc1ccccc1",
+      "formula": "C8H10",
+      "mw": 106.17,
+      "rings": [
+        6
+      ],
+      "carbons": 8,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/ethylbenzene.png"
+    },
+    {
+      "name": "styrene",
+      "status": "OK",
+      "smiles": "C=Cc1ccccc1",
+      "gecko_formula": "c1(CdH=CdH2)cHcHcHcHc1H",
+      "gecko_to_smiles": "c1ccccc1",
+      "formula": "C8H8",
+      "mw": 104.15,
+      "rings": [
+        6
+      ],
+      "carbons": 8,
+      "gecko_rings": [
+        6
+      ],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/styrene.png"
+    },
+    {
+      "name": "naphthalene",
+      "status": "OK",
+      "smiles": "c1ccc2ccccc2c1",
+      "gecko_formula": "c1Hc2HcHcHcHc2cHcHc1H",
+      "gecko_to_smiles": "C",
+      "formula": "C10H8",
+      "mw": 128.17,
+      "rings": [
+        6,
+        6
+      ],
+      "carbons": 10,
+      "gecko_rings": [],
+      "rings_match": false,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/naphthalene.png"
+    },
+    {
+      "name": "methanol",
+      "status": "OK",
+      "smiles": "CO",
+      "gecko_formula": "CH3OH",
+      "gecko_to_smiles": "CO",
+      "formula": "CH4O",
+      "mw": 32.04,
+      "rings": [],
+      "carbons": 1,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/methanol.png"
+    },
+    {
+      "name": "ethanol",
+      "status": "OK",
+      "smiles": "CCO",
+      "gecko_formula": "CH3CH2OH",
+      "gecko_to_smiles": "CC",
+      "formula": "C2H6O",
+      "mw": 46.07,
+      "rings": [],
+      "carbons": 2,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/ethanol.png"
+    },
+    {
+      "name": "acetone",
+      "status": "OK",
+      "smiles": "CC(=O)C",
+      "gecko_formula": "CH3COCH3",
+      "gecko_to_smiles": "CC(=O)C",
+      "formula": "C3H6O",
+      "mw": 58.08,
+      "rings": [],
+      "carbons": 3,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/acetone.png"
+    },
+    {
+      "name": "formaldehyde",
+      "status": "OK",
+      "smiles": "C=O",
+      "gecko_formula": "HCHO",
+      "gecko_to_smiles": "C=O",
+      "formula": "CH2O",
+      "mw": 30.03,
+      "rings": [],
+      "carbons": 1,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/formaldehyde.png"
+    },
+    {
+      "name": "acetaldehyde",
+      "status": "OK",
+      "smiles": "CC=O",
+      "gecko_formula": "CH3CHO",
+      "gecko_to_smiles": "CC=O",
+      "formula": "C2H4O",
+      "mw": 44.05,
+      "rings": [],
+      "carbons": 2,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/acetaldehyde.png"
+    },
+    {
+      "name": "acetic_acid",
+      "status": "OK",
+      "smiles": "CC(=O)O",
+      "gecko_formula": "CH3CO(OH)",
+      "gecko_to_smiles": "CCOO",
+      "formula": "C2H4O2",
+      "mw": 60.05,
+      "rings": [],
+      "carbons": 2,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/acetic_acid.png"
+    },
+    {
+      "name": "formic_acid",
+      "status": "OK",
+      "smiles": "OC=O",
+      "gecko_formula": "HCOOH",
+      "gecko_to_smiles": "OC=O",
+      "formula": "CH2O2",
+      "mw": 46.02,
+      "rings": [],
+      "carbons": 1,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/formic_acid.png"
+    },
+    {
+      "name": "methyl_formate",
+      "status": "OK",
+      "smiles": "COC=O",
+      "gecko_formula": "HCOOCH3",
+      "gecko_to_smiles": "CC",
+      "formula": "C2H4O2",
+      "mw": 60.05,
+      "rings": [],
+      "carbons": 2,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/methyl_formate.png"
+    },
+    {
+      "name": "ethyl_acetate",
+      "status": "OK",
+      "smiles": "CCOC(=O)C",
+      "gecko_formula": "CH3COOCH2CH3",
+      "gecko_to_smiles": "CCOOCC",
+      "formula": "C4H8O2",
+      "mw": 88.11,
+      "rings": [],
+      "carbons": 4,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/ethyl_acetate.png"
+    },
+    {
+      "name": "butyl_acetate",
+      "status": "OK",
+      "smiles": "CCCCOC(=O)C",
+      "gecko_formula": "CH3CH2CH2CH2OCOCH3",
+      "gecko_to_smiles": "CCCCOCOC",
+      "formula": "C6H12O2",
+      "mw": 116.16,
+      "rings": [],
+      "carbons": 6,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/butyl_acetate.png"
+    },
+    {
+      "name": "dimethyl_ether",
+      "status": "OK",
+      "smiles": "COC",
+      "gecko_formula": "CH3OCH3",
+      "gecko_to_smiles": "COC",
+      "formula": "C2H6O",
+      "mw": 46.07,
+      "rings": [],
+      "carbons": 2,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/dimethyl_ether.png"
+    },
+    {
+      "name": "diethyl_ether",
+      "status": "OK",
+      "smiles": "CCOCC",
+      "gecko_formula": "CH3CH2OCH2CH3",
+      "gecko_to_smiles": "CCOCC",
+      "formula": "C4H10O",
+      "mw": 74.12,
+      "rings": [],
+      "carbons": 4,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/diethyl_ether.png"
+    },
+    {
+      "name": "methyl_tert_butyl_ether",
+      "status": "OK",
+      "smiles": "COC(C)(C)C",
+      "gecko_formula": "CH3OC(CH3)(CH3)CH3",
+      "gecko_to_smiles": "COC(C)(C)C",
+      "formula": "C5H12O",
+      "mw": 88.15,
+      "rings": [],
+      "carbons": 5,
+      "gecko_rings": [],
+      "rings_match": true,
+      "image_path": "/Users/rgpro/Desktop/GECKOv2/tests/comprehensive/structure_images/methyl_tert_butyl_ether.png"
+    }
+  ]
+}

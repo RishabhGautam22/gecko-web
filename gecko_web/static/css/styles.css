@@ -1,6 +1,6 @@
 /**
  * GECKO-A Web Interface - Styles
- * Version 3.0.4
+ * Version 3.0.10
  * Author: Deeksha Sharma
  */
 
@@ -728,6 +728,129 @@ pre {
 #structures-3d-section .viewer-container {
     position: relative;
     min-height: 350px;
+}
+
+/* ============================================================================
+   Data Quality Banner Styles
+   ============================================================================ */
+.data-quality-banner {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--gray-300);
+    background: var(--gray-50);
+}
+
+.data-quality-banner.severity-info {
+    background: var(--info-light);
+    border-color: var(--info-color);
+}
+
+.data-quality-banner.severity-moderate {
+    background: #fff8e1;
+    border-color: #ffc107;
+}
+
+.data-quality-banner.severity-warning {
+    background: var(--warning-light);
+    border-color: var(--warning-color);
+}
+
+.data-quality-banner.severity-critical {
+    background: var(--error-light);
+    border-color: var(--error-color);
+}
+
+.data-quality-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.data-quality-header .severity-icon {
+    font-size: 1.3rem;
+}
+
+.data-quality-header.severity-critical {
+    color: var(--error-color);
+}
+
+.data-quality-header.severity-warning {
+    color: var(--warning-color);
+}
+
+.data-quality-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pvap-quality {
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+}
+
+.data-quality-assumptions ul {
+    list-style-type: none;
+}
+
+.data-quality-assumptions li {
+    padding: 4px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.data-quality-assumptions li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--gray-500);
+}
+
+.synthetic-warning,
+.surrogate-warning {
+    font-size: 0.95rem;
+}
+
+.synthetic-warning strong,
+.surrogate-warning strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* SOA Yield Placeholder Warning Styles (for comparison results) */
+.soa-yield-warning {
+    background: #fff3cd;
+    border: 2px dashed #ffc107;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.soa-yield-warning .warning-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: #856404;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.soa-yield-warning .warning-text {
+    color: #856404;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.soa-yield-warning .literature-sources {
+    margin-top: var(--spacing-sm);
+    font-size: 0.85rem;
+    color: var(--gray-600);
 }
 
 /* ============================================================================

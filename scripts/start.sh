@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # ============================================================================
 # GECKO-A Web Interface - Unix Launcher
-# Version 3.0.6
+# Version 3.0.10
 # Compatible with: macOS, Linux, WSL
 # ============================================================================
 
 set -e
 
-VERSION="3.0.6"
+VERSION="3.0.10"
 PORT="${PORT:-8000}"
 
 # Colors

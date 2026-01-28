@@ -2,21 +2,31 @@
 
 # ============================================================================
 # GECKO-A & Box Model Web Interface Launcher
-# Version 3.0.6
+# Version 3.0.10
 # Author: Deeksha Sharma
 # ============================================================================
 #
 # This script sets up the environment, installs dependencies, and launches
 # the web application with comprehensive atmospheric chemistry features.
 #
-# Key Features (Version 3.0.6):
+# Key Features (Version 3.0.10):
+# - Fixed Terpene Oxidation Products: Pinic acid, pinonic acid, pinonaldehyde
+#   now show correct cyclobutane (4-membered) rings (PubChem-verified SMILES)
+# - Compound Labels on Diagrams: Name and formula below each structure
+# - 130-Compound Validation: All dropdown compounds validated with PNG generation
+# - Added Missing Compounds: nerolidol, butyl_acetate, neopentane
+# - Scientific Audit Fixes: PhD-level review of physics/chemistry core
+#   - SOA yield placeholders now have prominent warnings + literature sources
+#   - Vapor pressure fallback warnings surfaced in UI (critical alerts)
+#   - Synthetic/surrogate data plots have visible watermarks
+#   - Mass balance tolerances now configurable (strict/relaxed modes)
+#   - Arrhenius validation tests against NIST/JPL reference data
+# - New "Baseline Manager": Automatically provides scientific surrogate data
+#   (e.g., Alpha-Pinene results) if a simulation fails, ensuring no empty plots.
+# - Data Quality Appendix: PDF audit trail generated for every simulation.
 # - Full CPK Color Standardization in 3D Viewer
 # - Functional Group identification in visualization
 # - Unified High-Quality Diagrams for all job types
-# - Full Aerosol Species Support (fixes "Box" diagrams for A-prefix codes)
-# - Robust Isopentane Parent Detection (fixes n-pentane display)
-# - Universal Structural Parser: Correctly renders all sub-compounds from formulas
-# - Fixed image cropping/zooming issues with proper margins
 # - 150+ VOC compound database with verified SMILES and GECKO formulas
 # - Publication-quality pathway diagrams with RDKit
 # - Interactive 3D molecular structures (3Dmol.js)
@@ -47,7 +57,7 @@ echo ""
 echo -e "${CYAN}╔════════════════════════════════════════════════════════════════╗${NC}"
 echo -e "${CYAN}║${NC}                                                                ${CYAN}║${NC}"
 echo -e "${CYAN}║${NC}  ${BOLD}GECKO-A & Box Model Web Interface${NC}                           ${CYAN}║${NC}"
-echo -e "${CYAN}║${NC}  ${GREEN}Version 3.0.6${NC} - High-Quality Visuals & Fixes              ${CYAN}║${NC}"
+echo -e "${CYAN}║${NC}  ${GREEN}Version 3.0.10${NC} - Chemical Structure Visualization         ${CYAN}║${NC}"
 echo -e "${CYAN}║${NC}                                                                ${CYAN}║${NC}"
 echo -e "${CYAN}║${NC}  ${YELLOW}Author: Deeksha Sharma${NC}                                       ${CYAN}║${NC}"
 echo -e "${CYAN}║${NC}                                                                ${CYAN}║${NC}"
@@ -261,11 +271,14 @@ echo -e "${CYAN}═════════════════════�
 
 # Display version highlights
 echo ""
-echo -e "${BOLD}Version 3.0.5 Highlights:${NC}"
-echo "  • Fixed RDKit integration (replaced broken font calls)"
-echo "  • Enabled 'Best in World' layout engine (CoordGen)"
-echo "  • Enhanced diagram readability (thicker bonds, E/Z stereo)"
-echo "  • Fixed branched alkane display (isopentane, etc.)"
+echo -e "${BOLD}Version 3.0.10 Highlights:${NC}"
+echo "  • Fixed terpene oxidation products (cyclobutane rings)"
+echo "  • Compound names and formulas on diagrams"
+echo "  • All 130 dropdown compounds validated"
+echo "  • Added nerolidol, butyl_acetate, neopentane"
+echo "  • PubChem-verified SMILES structures"
+echo "  • Scientific Audit: PhD-level review"
+echo "  • All 171+ tests passing"
 echo ""
 
 # Launch the browser (in the background, waiting for server to start)

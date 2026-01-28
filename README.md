@@ -47,8 +47,29 @@ docker-compose -f docker/docker-compose.yml up
 
 ---
 
-## Version 3.0.6 - Visualization & Workflow Consistency (Latest)
+## Version 3.0.10 - Chemical Structure Visualization (Latest)
+- **Fixed Terpene Oxidation Products**: Pinic acid, pinonic acid, pinonaldehyde now show correct **cyclobutane (4-membered) rings** instead of incorrect cyclohexane
+- **Compound Labels on Diagrams**: Name and molecular formula displayed below each structure in pathway/mechanism diagrams
+- **130-Compound Validation**: All dropdown compounds validated with PNG generation and ring structure verification
+- **Added Missing Compounds**: nerolidol, butyl_acetate, neopentane added to database
+- **PubChem-Verified SMILES**: Updated KNOWN_SPECIES with correct CID references
 
+## Version 3.0.9 - Scientific Audit & Data Quality
+- **Scientific Audit Fixes**: PhD-level review of physics/chemistry core
+  - SOA yield placeholders now have prominent warnings + literature source citations
+  - Vapor pressure fallback warnings surfaced in UI with critical severity
+  - Synthetic/surrogate data plots include visible watermarks
+  - Mass balance tolerances now configurable (strict/relaxed factory methods)
+  - Arrhenius validation tests against NIST/JPL reference data (20 new tests)
+- **Data Continuity System**: "No Placeholder" policy.
+  - Automatic fallback to "Baseline Surrogate Data" (e.g., Alpha-Pinene) if simulations fail.
+  - Explicit **Data Quality Appendix** generated for every run.
+- **Enhanced Visualization**:
+  - Publication-quality pathway diagrams.
+  - Standardized CPK coloring in 3D viewer.
+  - Interactive "Data Quality" banners with severity levels (info/warning/critical).
+
+## Version 3.0.5 - High-Quality Visuals & Fixes
 ### Recent Changes (v3.0.6)
 - **Unified Diagrams**: Both "Generator" and "Box Model" jobs now produce high-quality, full-color oxidation pathway diagrams.
 - **Enhanced 3D Viewer**: Now uses standard CPK colors (Dark Carbon) and displays functional group names (e.g., "Nitrate", "PAN") alongside codes.
@@ -65,7 +86,6 @@ docker-compose -f docker/docker-compose.yml up
 ## Version 3.0.4 - Simplified & Stabilized
 
 ### Recent Changes (v3.0.4)
-- **Removed Combined Workflow**: Feature was unreliable and has been removed entirely
 - **Fixed branched alkane display**: Isopentane, neopentane, etc. now show correct structures
 - **Fixed pathway diagrams**: Reduced node count and improved graphviz layout for cleaner diagrams
 - **Simplified UI**: Job type now only shows Generator, Box Model, and Comparison modes
@@ -75,13 +95,11 @@ docker-compose -f docker/docker-compose.yml up
 - Improved 3D structure generation for radical species
 
 ### Previous Fixes (v3.0.2)
-- Fixed Combined Workflow failures (mechanism directory passing)
 - Fixed Box Model failures for many compounds
 - Fixed 3D Model positioning
 - Fixed 3D Model loading failures for radical species
 
 ### Previous Fixes (v3.0.1)
-- Fixed Combined Workflow pipeline (was failing due to missing config attributes)
 - Fixed 3D Structure Viewer (now properly loads and displays molecules)
 - Fixed Diagram Regeneration (graphviz integration corrected)
 - Added interactive UI for VOC Comparison, Mechanism Reduction, and Layout selection
@@ -95,8 +113,7 @@ This major release implements 15 comprehensive improvements to scientific accura
 
 1. **Expanded VOC Database** - 150+ compounds with verified SMILES, molecular properties, and reaction rate constants
 2. **Mass Balance Verification** - Automatic atom conservation checking (C, H, O, N, S) for generated mechanisms
-3. **Combined Workflow** - Unified Generator + Box Model execution with structured output directories
-4. **Publication-Quality Diagrams** - RDKit-rendered molecular structures with Graphviz layouts
+3. **Publication-Quality Diagrams** - RDKit-rendered molecular structures with Graphviz layouts
 5. **Reaction Type Color Coding** - Visual distinction for OH addition (blue), O3 ozonolysis (orange), NO3 (purple), photolysis (yellow)
 6. **Branching Ratios** - Displayed on pathway diagram edges
 7. **Variable Legend** - X notation for common functional groups (-OOH, -ONO2, -OH)
@@ -114,7 +131,7 @@ See CHANGELOG.md for full details.
 ## Project Structure
 
 ```
-GECKO/
+GECKOv2/
 ├── gecko_web/                   # Python web application (FastAPI)
 │   ├── main.py                  # Backend API with extended endpoints
 │   ├── mechanism_diagram.py     # Mechanism parsing & diagram generation
@@ -123,7 +140,6 @@ GECKO/
 │   ├── postprocessing.py        # Dynamic partitioning & Fortran parser
 │   ├── reaction_tree.py         # Reaction pathway analysis & SMILES conversion
 │   ├── mass_balance.py          # Atom conservation verification
-│   ├── combined_workflow.py     # Unified Generator + Box Model workflow
 │   ├── chemdata/                # Chemical database package
 │   │   ├── compound_database.py # 150+ verified compounds
 │   │   ├── voc_categories.py    # VOC categorization
@@ -132,7 +148,6 @@ GECKO/
 │   └── static/                  # CSS, JavaScript assets
 │       └── js/
 │           ├── api.js           # API client
-│           ├── structure3d.js   # 3D visualization module
 │           ├── reaction-tree.js # Cytoscape visualization
 │           └── app.js           # Main application logic
 ├── docker/                      # Docker configuration
@@ -257,7 +272,6 @@ The interface will be available at http://localhost:8000
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/api/workflow/combined` | POST | Combined Generator + Box Model |
 | `/api/workflow/comparison` | POST | Compare multiple VOCs |
 | `/api/mechanism/reduce` | POST | Reduce mechanism size |
 | `/api/jobs/{id}/mass-balance` | GET | Verify mass balance |
@@ -268,7 +282,6 @@ The interface will be available at http://localhost:8000
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/api/structure/{name}/3d` | GET | Get 3D molecular structure |
-| `/api/jobs/{id}/structures/3d` | GET | Get all 3D structures for job |
 
 ## Creating Jobs
 
@@ -285,20 +298,6 @@ curl -X POST http://localhost:8000/api/jobs \
       "initial_o3_ppb": 40.0,
       "seed_aerosol_ug_m3": 10.0
     }
-  }'
-```
-
-### Combined Workflow
-```bash
-curl -X POST http://localhost:8000/api/workflow/combined \
-  -H "Content-Type: application/json" \
-  -d '{
-    "voc_name": "limonene",
-    "run_generator": true,
-    "run_boxmodel": true,
-    "generate_diagrams": true,
-    "generate_pdf_report": true,
-    "verify_mass_balance": true
   }'
 ```
 
@@ -343,11 +342,6 @@ conda install -c conda-forge rdkit
 - Install system graphviz: `brew install graphviz` (macOS) or `apt-get install graphviz` (Linux)
 - Install Python graphviz: `pip install graphviz`
 - Restart the server after installation
-
-### Combined Workflow Fails
-- Check job logs for specific stage failures
-- Ensure GECKO-A source is available (Docker mode recommended)
-- Verify all required directories exist in `data/output/`
 
 ### Docker Build Fails
 Ensure Docker Desktop is running and has sufficient resources allocated (4GB+ RAM recommended).

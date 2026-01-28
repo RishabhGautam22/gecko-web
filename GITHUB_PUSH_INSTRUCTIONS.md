@@ -32,7 +32,7 @@ git init
 git add .
 
 # Create commit
-git commit -m "Initial commit: GECKO-A Web Interface v3.0.6
+git commit -m "Initial commit: GECKO-A Web Interface v3.0.10
 
 - FastAPI backend with atmospheric chemistry simulation
 - GECKO-A and BOXMODEL4GECKO Fortran integration

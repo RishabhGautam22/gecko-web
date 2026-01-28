@@ -31,7 +31,7 @@ git init
 git add .
 
 # Commit
-git commit -m "Initial commit: GECKO-A Web Interface v3.0.6"
+git commit -m "Initial commit: GECKO-A Web Interface v3.0.10"
 
 # Create repo on GitHub (using GitHub CLI)
 gh repo create gecko-web --public --source=. --push

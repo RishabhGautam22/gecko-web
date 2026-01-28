@@ -1,7 +1,7 @@
 # GECKO-A Web Interface - Deployment & Docker Instructions
 ## Atmospheric Chemistry Mechanism Generator & Box Model Simulator
 
-**Application Version:** 3.0.6
+**Application Version:** 3.0.10
 **Primary Stack:** FastAPI (Python 3.9+) + Fortran 90 (GECKO-A & BOXMODEL4GECKO)
 **Author:** Deeksha Sharma
 
@@ -96,7 +96,7 @@ GECKO/
 │   ├── reaction_tree.py          # Reaction pathway analysis
 │   ├── postprocessing.py         # Dynamic partitioning
 │   ├── mass_balance.py           # Atom conservation
-│   ├── combined_workflow.py      # Generator + Box Model
+│   ├── mass_balance.py           # Atom conservation
 │   ├── requirements.txt          # Python dependencies
 │   ├── chemdata/                 # Chemical database
 │   │   ├── compound_database.py  # 150+ VOC compounds
@@ -162,7 +162,7 @@ GECKO/
 | `/api/compounds` | GET | Compound database |
 | `/api/compounds/search/{q}` | GET | Search compounds |
 | `/api/kinetics/{name}` | GET | Rate constants |
-| `/api/workflow/combined` | POST | Generator + Box Model |
+| `/api/workflow/comparison` | POST | Compare multiple VOCs |
 | `/api/environment` | GET | System status |
 | `/health` | GET | Health check (needs creation) |
 
@@ -186,7 +186,7 @@ Create `docker/Dockerfile.optimized`:
 ```dockerfile
 # =============================================================================
 # GECKO-A Web Interface - Optimized Multi-Stage Dockerfile
-# Version: 3.0.6
+# Version: 3.0.10
 # Platforms: linux/amd64, linux/arm64
 # =============================================================================
 
@@ -240,7 +240,7 @@ FROM python:3.9-slim AS production
 
 # Labels for container registry
 LABEL org.opencontainers.image.title="GECKO-A Web Interface"
-LABEL org.opencontainers.image.version="3.0.6"
+LABEL org.opencontainers.image.version="3.0.10"
 LABEL org.opencontainers.image.description="Atmospheric Chemistry Mechanism Generator"
 LABEL org.opencontainers.image.authors="Deeksha Sharma"
 LABEL org.opencontainers.image.source="https://github.com/yourusername/gecko-web"
@@ -459,7 +459,7 @@ async def health_check():
     """Health check endpoint for container orchestration."""
     return {
         "status": "healthy",
-        "version": "3.0.6",
+        "version": "3.0.10",
         "gecko_available": GECKO_ROOT.exists() and (GECKO_ROOT / "RUN" / "gecko.sh").exists(),
         "boxmodel_available": BOXMODEL_ROOT.exists() and (BOXMODEL_ROOT / "prepare_simu.sh").exists(),
         "data_dir_writable": os.access(DATA_DIR, os.W_OK)
@@ -480,13 +480,13 @@ setlocal EnableDelayedExpansion
 
 :: ============================================================================
 :: GECKO-A Web Interface - Windows Launcher
-:: Version 3.0.6
+:: Version 3.0.10
 :: ============================================================================
 
 echo.
 echo ========================================================================
 echo   GECKO-A Web Interface - Windows Launcher
-echo   Version 3.0.6
+echo   Version 3.0.10
 echo ========================================================================
 echo.
 
@@ -590,11 +590,11 @@ endlocal
 #Requires -Version 5.1
 # ============================================================================
 # GECKO-A Web Interface - PowerShell Launcher
-# Version 3.0.6
+# Version 3.0.10
 # ============================================================================
 
 $ErrorActionPreference = "Stop"
-$Version = "3.0.6"
+$Version = "3.0.10"
 
 function Write-Header {
     Write-Host ""
@@ -722,13 +722,13 @@ if (Test-Docker) {
 #!/usr/bin/env bash
 # ============================================================================
 # GECKO-A Web Interface - Unix Launcher
-# Version 3.0.6
+# Version 3.0.10
 # Compatible with: macOS, Linux, WSL
 # ============================================================================
 
 set -e
 
-VERSION="3.0.6"
+VERSION="3.0.10"
 PORT="${PORT:-8000}"
 
 # Colors
@@ -1229,7 +1229,7 @@ A clear and concise description of the bug.
 ## Environment
 - **OS:** [e.g., Windows 11, macOS 14.2, Ubuntu 22.04]
 - **Browser:** [e.g., Chrome 120, Firefox 121]
-- **GECKO-A Version:** [e.g., 3.0.6]
+- **GECKO-A Version:** [e.g., 3.0.10]
 - **Deployment:** [Docker / Local Python]
 
 ## Steps to Reproduce
@@ -1876,7 +1876,7 @@ git init
 git add .
 
 # 5. Create initial commit
-git commit -m "Initial commit: GECKO-A Web Interface v3.0.6
+git commit -m "Initial commit: GECKO-A Web Interface v3.0.10
 
 - FastAPI backend with atmospheric chemistry simulation
 - Docker containerization with Fortran compilation
@@ -1958,4 +1958,4 @@ cd gecko-web
 ---
 
 *Document generated: 2026-01-28*
-*GECKO-A Web Interface v3.0.6*
+*GECKO-A Web Interface v3.0.10*

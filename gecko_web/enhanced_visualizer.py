@@ -20,16 +20,11 @@ Author: GECKO-A Development Team
 
 import os
 import re
-import io
-import math
-import json
 import logging
 import tempfile
 import shutil
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple, Set, Any, Union
-from pathlib import Path
-from collections import defaultdict
+from typing import Dict, List, Optional, Tuple, Any
 from enum import Enum
 import base64
 
@@ -42,8 +37,8 @@ logger = logging.getLogger(__name__)
 
 try:
     from rdkit import Chem
-    from rdkit.Chem import AllChem, Draw, Descriptors
-    from rdkit.Chem.Draw import rdMolDraw2D, MolDrawOptions
+    from rdkit.Chem import Descriptors
+    from rdkit.Chem.Draw import rdMolDraw2D
     from rdkit.Chem import rdDepictor
     HAS_RDKIT = True
 except ImportError:
@@ -57,17 +52,6 @@ except ImportError:
     HAS_GRAPHVIZ = False
     logger.warning("graphviz not available - diagram generation disabled")
 
-try:
-    import networkx as nx
-    HAS_NETWORKX = True
-except ImportError:
-    HAS_NETWORKX = False
-
-try:
-    from PIL import Image
-    HAS_PIL = True
-except ImportError:
-    HAS_PIL = False
 
 
 # ==============================================================================

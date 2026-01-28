@@ -36,7 +36,7 @@
 | Get rate constants | ✅ PASSED |
 | Get rate constants with temperature | ✅ PASSED |
 | Get atmospheric lifetime | ✅ PASSED |
-| Combined workflow endpoint | ✅ PASSED |
+| VOC comparison endpoint | ✅ PASSED |
 | Comparison endpoint | ✅ PASSED |
 | Mechanism reduction endpoint | ✅ PASSED |
 | 3D structure endpoint | ✅ PASSED |

@@ -18,7 +18,7 @@ References:
 Author: GECKO-A Development Team
 """
 
-from typing import Dict, List, Set, Optional
+from typing import Dict, List, Optional
 from dataclasses import dataclass
 
 
@@ -68,10 +68,10 @@ VOC_CATEGORIES = {
             'c5_c10_medium': VOCSubcategory(
                 name='Medium Alkanes (C5-C10)',
                 description='Pentanes through decanes - gasoline range',
-                compounds=['n-pentane', 'isopentane', 'neopentane', 'n-hexane',
-                          '2-methylpentane', '3-methylpentane', '2,2-dimethylbutane',
-                          '2,3-dimethylbutane', 'cyclohexane', 'methylcyclohexane',
-                          'n-heptane', 'n-octane', 'isooctane', 'n-nonane', 'n-decane'],
+                compounds=['n_pentane', 'isopentane', 'neopentane', 'n_hexane',
+                          '2_methylpentane', '3_methylpentane', '22_dimethylbutane',
+                          '23_dimethylbutane', 'cyclohexane', 'methylcyclohexane',
+                          'n_heptane', 'n_octane', 'isooctane', 'n_nonane', 'n_decane'],
                 typical_sources=['gasoline evaporation', 'solvents', 'vehicle exhaust'],
                 soa_potential='medium'
             ),
@@ -122,8 +122,8 @@ VOC_CATEGORIES = {
             'dienes': VOCSubcategory(
                 name='Dienes',
                 description='Alkenes with two double bonds',
-                compounds=['1,3-butadiene', '1,3-pentadiene', '1,4-pentadiene',
-                          '2,3-dimethyl-1,3-butadiene', 'cyclopentadiene'],
+                compounds=['13_butadiene', '13_pentadiene', '14_pentadiene',
+                          '23_dimethyl_13_butadiene', 'cyclopentadiene'],
                 typical_sources=['vehicle exhaust', 'industrial processes'],
                 soa_potential='high'
             ),
@@ -156,8 +156,8 @@ VOC_CATEGORIES = {
             'c9_aromatics': VOCSubcategory(
                 name='C9 Aromatics',
                 description='Trimethylbenzenes and related compounds',
-                compounds=['1,2,3-trimethylbenzene', '1,2,4-trimethylbenzene',
-                          '1,3,5-trimethylbenzene', 'propylbenzene',
+                compounds=['123_trimethylbenzene', '124_trimethylbenzene',
+                          '135_trimethylbenzene', 'propylbenzene',
                           'isopropylbenzene', 'indane', 'indene'],
                 typical_sources=['gasoline', 'solvents', 'industrial'],
                 soa_potential='very_high'
@@ -166,7 +166,7 @@ VOC_CATEGORIES = {
                 name='C10+ Aromatics',
                 description='Larger aromatics including naphthalene',
                 compounds=['naphthalene', 'butylbenzene', 'diethylbenzene',
-                          '1,2,3,4-tetramethylbenzene', 'tetralin'],
+                          '1234_tetramethylbenzene', 'tetralin'],
                 typical_sources=['diesel', 'coal tar', 'industrial'],
                 soa_potential='very_high'
             ),
@@ -272,8 +272,8 @@ VOC_CATEGORIES = {
             'ketones': VOCSubcategory(
                 name='Ketones',
                 description='Compounds with C=O group (not aldehyde)',
-                compounds=['acetone', 'methyl ethyl ketone', 'methyl vinyl ketone',
-                          '2-pentanone', '3-pentanone', 'methyl isobutyl ketone',
+                compounds=['acetone', 'methyl_ethyl_ketone', 'methyl_vinyl_ketone',
+                          '2-pentanone', '3-pentanone', 'methyl_isobutyl_ketone',
                           'cyclohexanone'],
                 typical_sources=['solvents', 'oxidation products'],
                 soa_potential='low'
@@ -290,24 +290,24 @@ VOC_CATEGORIES = {
             'carboxylic_acids': VOCSubcategory(
                 name='Carboxylic Acids',
                 description='Compounds with -COOH group',
-                compounds=['formic acid', 'acetic acid', 'propionic acid',
-                          'butyric acid', 'valeric acid', 'hexanoic acid'],
+                compounds=['formic_acid', 'acetic_acid', 'propionic_acid',
+                          'butyric_acid', 'valeric_acid', 'hexanoic_acid'],
                 typical_sources=['biomass burning', 'oxidation products'],
                 soa_potential='high'
             ),
             'esters': VOCSubcategory(
                 name='Esters',
                 description='Compounds with -COO- linkage',
-                compounds=['methyl formate', 'methyl acetate', 'ethyl acetate',
-                          'butyl acetate', 'isoamyl acetate'],
+                compounds=['methyl_formate', 'methyl_acetate', 'ethyl_acetate',
+                          'butyl_acetate', 'isoamyl_acetate'],
                 typical_sources=['solvents', 'fragrances', 'fruits'],
                 soa_potential='low'
             ),
             'ethers': VOCSubcategory(
                 name='Ethers',
                 description='Compounds with C-O-C linkage',
-                compounds=['dimethyl ether', 'diethyl ether',
-                          'methyl tert-butyl ether', 'ethyl tert-butyl ether',
+                compounds=['dimethyl_ether', 'diethyl_ether',
+                          'methyl_tert_butyl_ether', 'ethyl_tert_butyl_ether',
                           'tetrahydrofuran', '2-methylfuran'],
                 typical_sources=['fuel additives', 'solvents'],
                 soa_potential='medium'
@@ -326,16 +326,16 @@ VOC_CATEGORIES = {
             'pinene_products': VOCSubcategory(
                 name='Pinene Oxidation Products',
                 description='Products from alpha- and beta-pinene oxidation',
-                compounds=['pinonaldehyde', 'pinonic acid', 'pinic acid',
-                          'norpinonaldehyde', 'nopinone', '10-hydroxypinonic acid',
-                          'MBTCA', 'terpenylic acid'],
+                compounds=['pinonaldehyde', 'pinonic_acid', 'pinic_acid',
+                          'norpinonaldehyde', 'nopinone', '10-hydroxypinonic_acid',
+                          'MBTCA', 'terpenylic_acid'],
                 typical_sources=['atmospheric oxidation of pinenes'],
                 soa_potential='very_high'
             ),
             'limonene_products': VOCSubcategory(
                 name='Limonene Oxidation Products',
                 description='Products from limonene oxidation',
-                compounds=['limonaldehyde', 'limonic acid', 'limonalic acid',
+                compounds=['limonaldehyde', 'limonic_acid', 'limonalic_acid',
                           'ketolimonaldehyde', 'keto-limononaldehyde'],
                 typical_sources=['atmospheric oxidation of limonene'],
                 soa_potential='very_high'
@@ -343,8 +343,8 @@ VOC_CATEGORIES = {
             'isoprene_products': VOCSubcategory(
                 name='Isoprene Oxidation Products',
                 description='Products from isoprene oxidation',
-                compounds=['methyl vinyl ketone', 'methacrolein',
-                          'isoprene epoxides', 'HMML', 'MAE',
+                compounds=['methyl_vinyl_ketone', 'methacrolein',
+                          'isoprene_epoxides', 'HMML', 'MAE',
                           'hydroxymethyl-methyl-alpha-lactone'],
                 typical_sources=['atmospheric oxidation of isoprene'],
                 soa_potential='medium'
@@ -352,7 +352,7 @@ VOC_CATEGORIES = {
             'sesquiterpene_products': VOCSubcategory(
                 name='Sesquiterpene Oxidation Products',
                 description='Products from sesquiterpene oxidation',
-                compounds=['caryophyllonic acid', 'caryophyllinic acid',
+                compounds=['caryophyllonic_acid', 'caryophyllinic_acid',
                           'beta-nocaryophyllone'],
                 typical_sources=['atmospheric oxidation of sesquiterpenes'],
                 soa_potential='very_high'

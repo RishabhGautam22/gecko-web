@@ -25,9 +25,6 @@ from typing import Dict, List, Optional, Any, Callable
 from dataclasses import dataclass, field, asdict
 from enum import Enum
 
-import numpy as np
-import pandas as pd
-
 logger = logging.getLogger(__name__)
 
 
@@ -899,18 +896,87 @@ class CombinedWorkflow:
             from gecko_web import postprocessing
 
             # Determine which directory has the data
-            if list(self.output.simulation_dir.glob("*.nc")):
-                data_dir = self.output.simulation_dir
-            else:
-                data_dir = self.output.mechanism_dir
+            sim_dir = self.output.simulation_dir
+            sim_has_data = (
+                list(sim_dir.glob("*.nc")) or
+                list(sim_dir.glob("*.conc")) or
+                list(sim_dir.glob("*.out")) or
+                list(sim_dir.glob("concentration*.dat"))
+            )
+            data_dir = sim_dir if sim_has_data else self.output.mechanism_dir
+
+            # BASELINE MANAGER INTERVENTION
+            # If no real data is found, try to inject baseline surrogate data BEFORE post-processing
+            baseline_metadata = None
+            if not sim_has_data:
+                try:
+                    from gecko_web.baseline_manager import manager
+                    logger.info("No simulation data found. Attempting to load baseline surrogate...")
+                    
+                    # Estimate initial VOC from config or default to 10.0
+                    scenario_params = {
+                        'initial_voc_ppb': self.config.initial_voc_ppb or 10.0,
+                        'initial_nox_ppb': self.config.initial_nox_ppb or 10.0
+                    }
+                    
+                    baseline_df, meta = manager.get_baseline_data(
+                        self.config.voc_name, 
+                        scenario_params=scenario_params
+                    )
+                    
+                    if baseline_df is not None:
+                        # Save surrogate data as if it were the simulation result
+                        csv_path = sim_dir / "aerosol_data.csv"
+                        baseline_df.to_csv(csv_path, index=False)
+                        
+                        sim_has_data = True
+                        data_dir = sim_dir
+                        baseline_metadata = meta
+                        
+                        logger.warning(f"Using baseline surrogate data: {meta.get('source')} (Class: {meta.get('surrogate_class')})")
+                        warnings.append(f"Using baseline surrogate data: {meta.get('source')}")
+                except Exception as e:
+                    logger.error(f"Baseline manager failed: {e}")
 
             # Run post-processing
             result = postprocessing.run_postprocessing(
                 str(data_dir),
                 self.config.voc_name,
                 temperature_k=self.config.temperature_k,
-                seed_mass=self.config.seed_aerosol_ug_m3
+                seed_mass=self.config.seed_aerosol_ug_m3,
+                allow_synthetic=True
             )
+
+            # INJECT CORRECT METADATA IF BASELINE WAS USED
+            # postprocessing.py will see the CSV and think it's "precalculated".
+            # We override this with the more specific "Baseline Surrogate" source.
+            if baseline_metadata and result.get('status') == 'success':
+                 result['data_quality'] = result.get('data_quality', {})
+                 result['data_quality'].update(baseline_metadata)
+                 
+                 # Also update the summary
+                 if 'summary' in result and 'data_quality' in result['summary']:
+                     result['summary']['data_quality'].update(baseline_metadata)
+                     
+                 # We need to re-write the summary files with the correct metadata
+                 if 'outputs' in result:
+                     # Update summary JSON
+                     summary_path = result['outputs'].get('summary')
+                     if summary_path and os.path.exists(summary_path):
+                         with open(summary_path, 'r') as f:
+                             summary_data = json.load(f)
+                         summary_data['data_quality'].update(baseline_metadata)
+                         with open(summary_path, 'w') as f:
+                             json.dump(summary_data, f, indent=2)
+                     
+                     # Update Data Quality Appendix JSON
+                     appendix_path = result['outputs'].get('data_quality_appendix_json')
+                     if appendix_path and os.path.exists(appendix_path):
+                         with open(appendix_path, 'r') as f:
+                             appendix_data = json.load(f)
+                         appendix_data['data_quality'].update(baseline_metadata)
+                         with open(appendix_path, 'w') as f:
+                             json.dump(appendix_data, f, indent=2)
 
             if result['status'] == 'error':
                 warnings.append(f"Post-processing error: {result.get('error')}")
@@ -925,6 +991,8 @@ class CombinedWorkflow:
                             dst = self.output.analysis_dir / src.name
                         elif src.suffix == '.png':
                             dst = self.output.plots_dir / src.name
+                        elif src.suffix == '.pdf':
+                            dst = self.output.reports_dir / src.name
                         else:
                             continue
 

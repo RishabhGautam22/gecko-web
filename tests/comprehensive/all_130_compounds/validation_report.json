@@ -1,0 +1,1537 @@
+{
+  "total": 130,
+  "successful": 130,
+  "failed": 0,
+  "formula_mismatches": 1,
+  "compounds": [
+    {
+      "name": "1_3_5_trimethylbenzene",
+      "smiles": "Cc1cc(C)cc(C)c1",
+      "formula_db": "C9H12",
+      "formula_calc": "C9H12",
+      "mw": 120.19,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "1_3_butadiene",
+      "smiles": "C=CC=C",
+      "formula_db": "C4H6",
+      "formula_calc": "C4H6",
+      "mw": 54.09,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "1_8_cineole",
+      "smiles": "CC1(C)OC2CCC1(C)CC2",
+      "formula_db": "C10H18O",
+      "formula_calc": "C10H18O",
+      "mw": 154.25,
+      "rings": [
+        6,
+        6,
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "1_butanol",
+      "smiles": "CCCCO",
+      "formula_db": "C4H10O",
+      "formula_calc": "C4H10O",
+      "mw": 74.12,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "1_butene",
+      "smiles": "CCC=C",
+      "formula_db": "C4H8",
+      "formula_calc": "C4H8",
+      "mw": 56.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "1_hexene",
+      "smiles": "CCCCC=C",
+      "formula_db": "C6H12",
+      "formula_calc": "C6H12",
+      "mw": 84.16,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "1_pentanol",
+      "smiles": "CCCCCO",
+      "formula_db": "C5H12O",
+      "formula_calc": "C5H12O",
+      "mw": 88.15,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "1_pentene",
+      "smiles": "CCCC=C",
+      "formula_db": "C5H10",
+      "formula_calc": "C5H10",
+      "mw": 70.14,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "1_propanol",
+      "smiles": "CCCO",
+      "formula_db": "C3H8O",
+      "formula_calc": "C3H8O",
+      "mw": 60.1,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "2_butanol",
+      "smiles": "CCC(C)O",
+      "formula_db": "C4H10O",
+      "formula_calc": "C4H10O",
+      "mw": 74.12,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "2_methyl_2_butene",
+      "smiles": "CC=C(C)C",
+      "formula_db": "C5H10",
+      "formula_calc": "C5H10",
+      "mw": 70.13,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "2_pentanone",
+      "smiles": "CCCC(=O)C",
+      "formula_db": "C5H10O",
+      "formula_calc": "C5H10O",
+      "mw": 86.13,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "2_propanol",
+      "smiles": "CC(O)C",
+      "formula_db": "C3H8O",
+      "formula_calc": "C3H8O",
+      "mw": 60.1,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "3_carene",
+      "smiles": "CC1=CCC2C(C1)C2(C)C",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        3,
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "3_pentanone",
+      "smiles": "CCC(=O)CC",
+      "formula_db": "C5H10O",
+      "formula_calc": "C5H10O",
+      "mw": 86.13,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "acetaldehyde",
+      "smiles": "CC=O",
+      "formula_db": "C2H4O",
+      "formula_calc": "C2H4O",
+      "mw": 44.05,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "acetic_acid",
+      "smiles": "CC(=O)O",
+      "formula_db": "C2H4O2",
+      "formula_calc": "C2H4O2",
+      "mw": 60.05,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "acetone",
+      "smiles": "CC(=O)C",
+      "formula_db": "C3H6O",
+      "formula_calc": "C3H6O",
+      "mw": 58.08,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "acrolein",
+      "smiles": "C=CC=O",
+      "formula_db": "C3H4O",
+      "formula_calc": "C3H4O",
+      "mw": 56.06,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "alpha_humulene",
+      "smiles": "CC1=CCC(C)(C)C=CCC(C)=CCC1",
+      "formula_db": "C15H24",
+      "formula_calc": "C15H24",
+      "mw": 204.36,
+      "rings": [
+        11
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "alpha_pinene",
+      "smiles": "CC1=CCC2CC1C2(C)C",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        4,
+        6,
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "alpha_terpinene",
+      "smiles": "CC1=CC=C(C(C)C)CC1",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "alpha_terpineol",
+      "smiles": "CC(C)=C1CCC(C)(O)CC1",
+      "formula_db": "C10H18O",
+      "formula_calc": "C10H18O",
+      "mw": 154.25,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "anisole",
+      "smiles": "COc1ccccc1",
+      "formula_db": "C7H8O",
+      "formula_calc": "C7H8O",
+      "mw": 108.14,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "benzaldehyde",
+      "smiles": "O=Cc1ccccc1",
+      "formula_db": "C7H6O",
+      "formula_calc": "C7H6O",
+      "mw": 106.12,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "benzene",
+      "smiles": "c1ccccc1",
+      "formula_db": "C6H6",
+      "formula_calc": "C6H6",
+      "mw": 78.11,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "benzoic_acid",
+      "smiles": "OC(=O)c1ccccc1",
+      "formula_db": "C7H6O2",
+      "formula_calc": "C7H6O2",
+      "mw": 122.12,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "benzyl_alcohol",
+      "smiles": "OCc1ccccc1",
+      "formula_db": "C7H8O",
+      "formula_calc": "C7H8O",
+      "mw": 108.14,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "beta_caryophyllene",
+      "smiles": "CC1=CCCC(=C)C2CC(C)(C)C2CC1",
+      "formula_db": "C15H24",
+      "formula_calc": "C15H24",
+      "mw": 204.36,
+      "rings": [
+        4,
+        9
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "beta_pinene",
+      "smiles": "CC1(C)C2CCC(=C)C1C2",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        4,
+        6,
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "butanal",
+      "smiles": "CCCC=O",
+      "formula_db": "C4H8O",
+      "formula_calc": "C4H8O",
+      "mw": 72.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "butanone",
+      "smiles": "CCC(=O)C",
+      "formula_db": "C4H8O",
+      "formula_calc": "C4H8O",
+      "mw": 72.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "butyl_acetate",
+      "smiles": "CCCCOC(=O)C",
+      "formula_db": "C6H12O2",
+      "formula_calc": "C6H12O2",
+      "mw": 116.16,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "butyric_acid",
+      "smiles": "CCCC(=O)O",
+      "formula_db": "C4H8O2",
+      "formula_calc": "C4H8O2",
+      "mw": 88.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "camphene",
+      "smiles": "CC1(C)C2CCC(C2)C1=C",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        5,
+        5
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "catechol",
+      "smiles": "Oc1ccccc1O",
+      "formula_db": "C6H6O2",
+      "formula_calc": "C6H6O2",
+      "mw": 110.11,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "cis_2_butene",
+      "smiles": "C/C=C\\C",
+      "formula_db": "C4H8",
+      "formula_calc": "C4H8",
+      "mw": 56.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "crotonaldehyde",
+      "smiles": "CC=CC=O",
+      "formula_db": "C4H6O",
+      "formula_calc": "C4H6O",
+      "mw": 70.09,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "cyclohexane",
+      "smiles": "C1CCCCC1",
+      "formula_db": "C6H12",
+      "formula_calc": "C6H12",
+      "mw": 84.16,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "cyclohexanone",
+      "smiles": "O=C1CCCCC1",
+      "formula_db": "C6H10O",
+      "formula_calc": "C6H10O",
+      "mw": 98.15,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "cyclohexene",
+      "smiles": "C1CCC=CC1",
+      "formula_db": "C6H10",
+      "formula_calc": "C6H10",
+      "mw": 82.15,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "cyclopentane",
+      "smiles": "C1CCCC1",
+      "formula_db": "C5H10",
+      "formula_calc": "C5H10",
+      "mw": 70.14,
+      "rings": [
+        5
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "cyclopentene",
+      "smiles": "C1CCC=C1",
+      "formula_db": "C5H8",
+      "formula_calc": "C5H8",
+      "mw": 68.12,
+      "rings": [
+        5
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "diethyl_ether",
+      "smiles": "CCOCC",
+      "formula_db": "C4H10O",
+      "formula_calc": "C4H10O",
+      "mw": 74.12,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "dimethyl_ether",
+      "smiles": "COC",
+      "formula_db": "C2H6O",
+      "formula_calc": "C2H6O",
+      "mw": 46.07,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ethane",
+      "smiles": "CC",
+      "formula_db": "C2H6",
+      "formula_calc": "C2H6",
+      "mw": 30.07,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ethanol",
+      "smiles": "CCO",
+      "formula_db": "C2H6O",
+      "formula_calc": "C2H6O",
+      "mw": 46.07,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ethene",
+      "smiles": "C=C",
+      "formula_db": "C2H4",
+      "formula_calc": "C2H4",
+      "mw": 28.05,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ethyl_acetate",
+      "smiles": "CCOC(=O)C",
+      "formula_db": "C4H8O2",
+      "formula_calc": "C4H8O2",
+      "mw": 88.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ethyl_tert_butyl_ether",
+      "smiles": "CCOC(C)(C)C",
+      "formula_db": "C6H14O",
+      "formula_calc": "C6H14O",
+      "mw": 102.18,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ethylbenzene",
+      "smiles": "CCc1ccccc1",
+      "formula_db": "C8H10",
+      "formula_calc": "C8H10",
+      "mw": 106.17,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ethyne",
+      "smiles": "C#C",
+      "formula_db": "C2H2",
+      "formula_calc": "C2H2",
+      "mw": 26.04,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "formaldehyde",
+      "smiles": "C=O",
+      "formula_db": "CH2O",
+      "formula_calc": "CH2O",
+      "mw": 30.03,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "formic_acid",
+      "smiles": "OC=O",
+      "formula_db": "CH2O2",
+      "formula_calc": "CH2O2",
+      "mw": 46.02,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "furan",
+      "smiles": "c1ccoc1",
+      "formula_db": "C4H4O",
+      "formula_calc": "C4H4O",
+      "mw": 68.07,
+      "rings": [
+        5
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "gamma_terpinene",
+      "smiles": "CC1=CCC(C(C)C)=CC1",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "geraniol",
+      "smiles": "CC(C)=CCCC(C)=CCO",
+      "formula_db": "C10H18O",
+      "formula_calc": "C10H18O",
+      "mw": 154.25,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "glycolaldehyde",
+      "smiles": "OCC=O",
+      "formula_db": "C2H4O2",
+      "formula_calc": "C2H4O2",
+      "mw": 60.05,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "glyoxal",
+      "smiles": "O=CC=O",
+      "formula_db": "C2H2O2",
+      "formula_calc": "C2H2O2",
+      "mw": 58.04,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "hexanal",
+      "smiles": "CCCCCC=O",
+      "formula_db": "C6H12O",
+      "formula_calc": "C6H12O",
+      "mw": 100.16,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "hexanoic_acid",
+      "smiles": "CCCCCC(=O)O",
+      "formula_db": "C6H12O2",
+      "formula_calc": "C6H12O2",
+      "mw": 116.16,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "hydrogen_peroxide",
+      "smiles": "OO",
+      "formula_db": "H2O2",
+      "formula_calc": "H2O2",
+      "mw": 34.01,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "hydroperoxyl_radical",
+      "smiles": "O[O]",
+      "formula_db": "HO2",
+      "formula_calc": "HO2",
+      "mw": 33.01,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "hydroxyacetone",
+      "smiles": "CC(=O)CO",
+      "formula_db": "C3H6O2",
+      "formula_calc": "C3H6O2",
+      "mw": 74.08,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "hydroxyl_radical",
+      "smiles": "[OH]",
+      "formula_db": "HO",
+      "formula_calc": "HO",
+      "mw": 17.01,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "isoamyl_acetate",
+      "smiles": "CC(C)CCOC(=O)C",
+      "formula_db": "C7H14O2",
+      "formula_calc": "C7H14O2",
+      "mw": 130.19,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "isobutane",
+      "smiles": "CC(C)C",
+      "formula_db": "C4H10",
+      "formula_calc": "C4H10",
+      "mw": 58.12,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "isobutene",
+      "smiles": "CC(=C)C",
+      "formula_db": "C4H8",
+      "formula_calc": "C4H8",
+      "mw": 56.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "isopentane",
+      "smiles": "CC(C)CC",
+      "formula_db": "C5H12",
+      "formula_calc": "C5H12",
+      "mw": 72.15,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "isoprene",
+      "smiles": "CC(=C)C=C",
+      "formula_db": "C5H8",
+      "formula_calc": "C5H8",
+      "mw": 68.12,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "limonene",
+      "smiles": "CC1=CCC(CC1)C(=C)C",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "linalool",
+      "smiles": "CC(=C)CCCC(C)(O)C=C",
+      "formula_db": "C10H18O",
+      "formula_calc": "C10H18O",
+      "mw": 154.25,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "m_cresol",
+      "smiles": "Cc1cccc(O)c1",
+      "formula_db": "C7H8O",
+      "formula_calc": "C7H8O",
+      "mw": 108.14,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "m_xylene",
+      "smiles": "Cc1cccc(C)c1",
+      "formula_db": "C8H10",
+      "formula_calc": "C8H10",
+      "mw": 106.17,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methacrolein",
+      "smiles": "CC(=C)C=O",
+      "formula_db": "C4H6O",
+      "formula_calc": "C4H6O",
+      "mw": 70.09,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methane",
+      "smiles": "C",
+      "formula_db": "CH4",
+      "formula_calc": "CH4",
+      "mw": 16.04,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methanol",
+      "smiles": "CO",
+      "formula_db": "CH4O",
+      "formula_calc": "CH4O",
+      "mw": 32.04,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methyl_acetate",
+      "smiles": "COC(=O)C",
+      "formula_db": "C3H6O2",
+      "formula_calc": "C3H6O2",
+      "mw": 74.08,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methyl_ethyl_ketone",
+      "smiles": "CCC(=O)C",
+      "formula_db": "C4H8O",
+      "formula_calc": "C4H8O",
+      "mw": 72.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methyl_formate",
+      "smiles": "COC=O",
+      "formula_db": "C2H4O2",
+      "formula_calc": "C2H4O2",
+      "mw": 60.05,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methyl_hydroperoxide",
+      "smiles": "COO",
+      "formula_db": "CH4O2",
+      "formula_calc": "CH4O2",
+      "mw": 48.04,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methyl_isobutyl_ketone",
+      "smiles": "CC(=O)CC(C)C",
+      "formula_db": "C6H12O",
+      "formula_calc": "C6H12O",
+      "mw": 100.16,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methyl_nitrate",
+      "smiles": "CO[N+](=O)[O-]",
+      "formula_db": "CH3NO3",
+      "formula_calc": "CH3NO3",
+      "mw": 77.04,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methyl_tert_butyl_ether",
+      "smiles": "COC(C)(C)C",
+      "formula_db": "C5H12O",
+      "formula_calc": "C5H12O",
+      "mw": 88.15,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methyl_vinyl_ketone",
+      "smiles": "CC(=O)C=C",
+      "formula_db": "C4H6O",
+      "formula_calc": "C4H6O",
+      "mw": 70.09,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "methylglyoxal",
+      "smiles": "CC(=O)C=O",
+      "formula_db": "C3H4O2",
+      "formula_calc": "C3H4O2",
+      "mw": 72.06,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "myrcene",
+      "smiles": "CC(=C)CCCC(=C)C=C",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_butane",
+      "smiles": "CCCC",
+      "formula_db": "C4H10",
+      "formula_calc": "C4H10",
+      "mw": 58.12,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_decane",
+      "smiles": "CCCCCCCCCC",
+      "formula_db": "C10H22",
+      "formula_calc": "C10H22",
+      "mw": 142.29,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_dodecane",
+      "smiles": "CCCCCCCCCCCC",
+      "formula_db": "C12H26",
+      "formula_calc": "C12H26",
+      "mw": 170.34,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_heptane",
+      "smiles": "CCCCCCC",
+      "formula_db": "C7H16",
+      "formula_calc": "C7H16",
+      "mw": 100.2,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_hexane",
+      "smiles": "CCCCCC",
+      "formula_db": "C6H14",
+      "formula_calc": "C6H14",
+      "mw": 86.18,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_nonane",
+      "smiles": "CCCCCCCCC",
+      "formula_db": "C9H20",
+      "formula_calc": "C9H20",
+      "mw": 128.26,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_octane",
+      "smiles": "CCCCCCCC",
+      "formula_db": "C8H18",
+      "formula_calc": "C8H18",
+      "mw": 114.23,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_pentane",
+      "smiles": "CCCCC",
+      "formula_db": "C5H12",
+      "formula_calc": "C5H12",
+      "mw": 72.15,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "n_undecane",
+      "smiles": "CCCCCCCCCCC",
+      "formula_db": "C11H24",
+      "formula_calc": "C11H24",
+      "mw": 156.31,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "naphthalene",
+      "smiles": "c1ccc2ccccc2c1",
+      "formula_db": "C10H8",
+      "formula_calc": "C10H8",
+      "mw": 128.17,
+      "rings": [
+        6,
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "neopentane",
+      "smiles": "CC(C)(C)C",
+      "formula_db": "C5H12",
+      "formula_calc": "C5H12",
+      "mw": 72.15,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "nerolidol",
+      "smiles": "CC(=CCCC(=CCCC(C)(C=C)O)C)C",
+      "formula_db": "C15H26O",
+      "formula_calc": "C15H26O",
+      "mw": 222.37,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "nitric_acid",
+      "smiles": "O[N+](=O)[O-]",
+      "formula_db": "HNO3",
+      "formula_calc": "HNO3",
+      "mw": 63.01,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "nitric_oxide",
+      "smiles": "[N]=O",
+      "formula_db": "NO",
+      "formula_calc": "NO",
+      "mw": 30.01,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "nitrogen_dioxide",
+      "smiles": "[N+](=O)[O-]",
+      "formula_db": "NO2",
+      "formula_calc": "NO2",
+      "mw": 46.01,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "nopinone",
+      "smiles": "CC1(C)C2CCC(=O)C1C2",
+      "formula_db": "C9H14O",
+      "formula_calc": "C9H14O",
+      "mw": 138.21,
+      "rings": [
+        4,
+        6,
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "o_cresol",
+      "smiles": "Cc1ccccc1O",
+      "formula_db": "C7H8O",
+      "formula_calc": "C7H8O",
+      "mw": 108.14,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "o_xylene",
+      "smiles": "Cc1ccccc1C",
+      "formula_db": "C8H10",
+      "formula_calc": "C8H10",
+      "mw": 106.17,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ocimene",
+      "smiles": "CC(=CCC=C(C)C=C)C",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "ozone",
+      "smiles": "[O-][O+]=O",
+      "formula_db": "O3",
+      "formula_calc": "O3",
+      "mw": 48.0,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "p_cresol",
+      "smiles": "Cc1ccc(O)cc1",
+      "formula_db": "C7H8O",
+      "formula_calc": "C7H8O",
+      "mw": 108.14,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "p_cymene",
+      "smiles": "Cc1ccc(C(C)C)cc1",
+      "formula_db": "C10H14",
+      "formula_calc": "C10H14",
+      "mw": 134.22,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "p_xylene",
+      "smiles": "Cc1ccc(C)cc1",
+      "formula_db": "C8H10",
+      "formula_calc": "C8H10",
+      "mw": 106.17,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "pan",
+      "smiles": "CC(=O)OO[N+](=O)[O-]",
+      "formula_db": "C2H3NO5",
+      "formula_calc": "C2H3NO5",
+      "mw": 121.05,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "pentanal",
+      "smiles": "CCCCC=O",
+      "formula_db": "C5H10O",
+      "formula_calc": "C5H10O",
+      "mw": 86.13,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "phenol",
+      "smiles": "Oc1ccccc1",
+      "formula_db": "C6H6O",
+      "formula_calc": "C6H6O",
+      "mw": 94.11,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "pinic_acid",
+      "smiles": "CC1(C)C(CC(=O)O)CC1C(=O)O",
+      "formula_db": "C9H14O4",
+      "formula_calc": "C9H14O4",
+      "mw": 186.21,
+      "rings": [
+        4
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "pinonaldehyde",
+      "smiles": "CC(=O)C1CC(C1(C)C)CC=O",
+      "formula_db": "C10H16O2",
+      "formula_calc": "C10H16O2",
+      "mw": 168.24,
+      "rings": [
+        4
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "pinonic_acid",
+      "smiles": "CC(=O)C1CC(C1(C)C)CC(=O)O",
+      "formula_db": "C10H16O3",
+      "formula_calc": "C10H16O3",
+      "mw": 184.23,
+      "rings": [
+        4
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "propanal",
+      "smiles": "CCC=O",
+      "formula_db": "C3H6O",
+      "formula_calc": "C3H6O",
+      "mw": 58.08,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "propane",
+      "smiles": "CCC",
+      "formula_db": "C3H8",
+      "formula_calc": "C3H8",
+      "mw": 44.1,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "propene",
+      "smiles": "CC=C",
+      "formula_db": "C3H6",
+      "formula_calc": "C3H6",
+      "mw": 42.08,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "propionic_acid",
+      "smiles": "CCC(=O)O",
+      "formula_db": "C3H6O2",
+      "formula_calc": "C3H6O2",
+      "mw": 74.08,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "propyne",
+      "smiles": "CC#C",
+      "formula_db": "C3H4",
+      "formula_calc": "C3H4",
+      "mw": 40.07,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "sabinene",
+      "smiles": "CC(C)C12CCC(=C)C1C2",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        3,
+        5
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "styrene",
+      "smiles": "C=Cc1ccccc1",
+      "formula_db": "C8H8",
+      "formula_calc": "C8H8",
+      "mw": 104.15,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "sulfur_dioxide",
+      "smiles": "O=S=O",
+      "formula_db": "SO2",
+      "formula_calc": "O2S",
+      "mw": 64.06,
+      "rings": [],
+      "valid": true,
+      "formula_match": false,
+      "image_generated": true
+    },
+    {
+      "name": "terpinolene",
+      "smiles": "CC(C)=C1CCC(=C)CC1",
+      "formula_db": "C10H16",
+      "formula_calc": "C10H16",
+      "mw": 136.24,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "tetrahydrofuran",
+      "smiles": "C1CCOC1",
+      "formula_db": "C4H8O",
+      "formula_calc": "C4H8O",
+      "mw": 72.11,
+      "rings": [
+        5
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "toluene",
+      "smiles": "Cc1ccccc1",
+      "formula_db": "C7H8",
+      "formula_calc": "C7H8",
+      "mw": 92.14,
+      "rings": [
+        6
+      ],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "trans_2_butene",
+      "smiles": "C/C=C/C",
+      "formula_db": "C4H8",
+      "formula_calc": "C4H8",
+      "mw": 56.11,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "valeric_acid",
+      "smiles": "CCCCC(=O)O",
+      "formula_db": "C5H10O2",
+      "formula_calc": "C5H10O2",
+      "mw": 102.13,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    },
+    {
+      "name": "water",
+      "smiles": "O",
+      "formula_db": "H2O",
+      "formula_calc": "H2O",
+      "mw": 18.02,
+      "rings": [],
+      "valid": true,
+      "formula_match": true,
+      "image_generated": true
+    }
+  ]
+}

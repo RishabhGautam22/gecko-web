@@ -14,17 +14,14 @@ import os
 import time
 import shutil
 import logging
-import glob
 import subprocess
 import re
 import json
 import uuid
-import tempfile
 import threading
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, Optional, List, Any
-from contextlib import contextmanager
 from dataclasses import dataclass, field, asdict
 
 import pandas as pd
@@ -34,7 +31,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 from fastapi import FastAPI, Request, BackgroundTasks, HTTPException
-from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
@@ -54,7 +51,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="GECKO-A Interface", version="3.0.6")
+app = FastAPI(title="GECKO-A Interface", version="3.0.10")
 
 # ==============================================================================
 # Configuration
@@ -953,7 +950,9 @@ def run_box_model(job_id: str, voc_name: str, output_dir: Path,
     if not prepare_script.exists():
         raise EnvironmentError(f"Box Model prepare_simu.sh not found at {prepare_script}")
 
-    mech_name = voc_name.lower().strip()
+    # Normalize mechanism name: lowercase, no spaces (use underscores)
+    # This is critical because bash scripts can't handle spaces in filenames
+    mech_name = voc_name.lower().strip().replace(' ', '_').replace('-', '_')
     mech_upper = mech_name.upper()
 
     # Clean up previous simulation
@@ -1063,7 +1062,9 @@ def run_box_model_with_mechanism_dir(
 
     job_manager.log_job(job_id, f"Using mechanism from: {mechanism_dir}")
 
-    mech_name = voc_name.lower().strip()
+    # Normalize mechanism name: lowercase, no spaces (use underscores)
+    # This is critical because bash scripts can't handle spaces in filenames
+    mech_name = voc_name.lower().strip().replace(' ', '_').replace('-', '_')
     mech_upper = mech_name.upper()
 
     # Clean up previous simulation
@@ -1213,10 +1214,86 @@ def run_process(job_id: str, request: JobRequest):
         job_manager.log_job(job_id, "Running Box Model simulation...")
         run_box_model(job_id, voc_name, output_dir, scenario)
 
+        # Check for simulation results
+        sim_has_data = (
+            list(output_dir.glob("*.nc")) or
+            list(output_dir.glob("*.conc")) or
+            list(output_dir.glob("*.out")) or
+            list(output_dir.glob("concentration*.dat"))
+        )
+
+        # BASELINE MANAGER INTERVENTION
+        baseline_metadata = None
+        if not sim_has_data:
+            try:
+                from gecko_web.baseline_manager import manager
+                job_manager.log_job(job_id, "No simulation data found. Attempting to load baseline surrogate...")
+                
+                # Estimate initial VOC
+                baseline_scenario_params = {
+                    'initial_voc_ppb': scenario.initial_voc_ppb if hasattr(scenario, 'initial_voc_ppb') else 10.0,
+                    'initial_nox_ppb': scenario.initial_nox_ppb if hasattr(scenario, 'initial_nox_ppb') else 10.0
+                }
+                
+                baseline_df, meta = manager.get_baseline_data(
+                    voc_name, 
+                    scenario_params=baseline_scenario_params
+                )
+                
+                if baseline_df is not None:
+                    # Save surrogate data
+                    csv_path = output_dir / "aerosol_data.csv"
+                    baseline_df.to_csv(csv_path, index=False)
+                    
+                    baseline_metadata = meta
+                    job_manager.log_job(job_id, f"Using baseline surrogate data: {meta.get('source')} (Class: {meta.get('surrogate_class')})")
+            except Exception as e:
+                job_manager.log_job(job_id, f"Baseline manager failed: {e}")
+
         # Post-processing
         job_manager.log_job(job_id, "Running post-processing...")
         try:
-            postprocessing.run_postprocessing(str(output_dir), voc_name)
+            post_result = postprocessing.run_postprocessing(
+                str(output_dir),
+                voc_name,
+                temperature_k=scenario.temperature_k,
+                seed_mass=scenario.seed_aerosol_ug_m3,
+                allow_synthetic=True
+            )
+            
+            # INJECT CORRECT METADATA IF BASELINE WAS USED
+            if baseline_metadata and post_result.get('status') == 'success':
+                 post_result['data_quality'] = post_result.get('data_quality', {})
+                 post_result['data_quality'].update(baseline_metadata)
+                 
+                 # Propagate to summary files on disk
+                 if 'outputs' in post_result:
+                     # Update summary JSON
+                     summary_path = post_result['outputs'].get('summary')
+                     if summary_path and os.path.exists(summary_path):
+                         with open(summary_path, 'r') as f:
+                             summary_data = json.load(f)
+                         summary_data['data_quality'].update(baseline_metadata)
+                         with open(summary_path, 'w') as f:
+                             json.dump(summary_data, f, indent=2)
+                     
+                     # Update Data Quality Appendix JSON
+                     appendix_path = post_result['outputs'].get('data_quality_appendix_json')
+                     if appendix_path and os.path.exists(appendix_path):
+                         with open(appendix_path, 'r') as f:
+                             appendix_data = json.load(f)
+                         appendix_data['data_quality'].update(baseline_metadata)
+                         with open(appendix_path, 'w') as f:
+                             json.dump(appendix_data, f, indent=2)
+            
+            if post_result.get('data_quality', {}).get('is_synthetic'):
+                source_msg = post_result.get('data_quality', {}).get('source', 'Synthetic')
+                job_manager.log_job(
+                    job_id,
+                    f"Post-processing used fallback data: {source_msg}"
+                )
+            for warning in post_result.get('warnings', []):
+                job_manager.log_job(job_id, f"Post-processing warning: {warning}")
         except Exception as e:
             job_manager.log_job(job_id, f"Post-processing warning: {e}")
 
@@ -1369,6 +1446,11 @@ async def get_job_results(job_id: str):
         raise HTTPException(status_code=400, detail="Job not completed")
 
     output_dir = DATA_DIR / "output" / job_id
+    plots_dir = output_dir / "plots"
+    analysis_dir = output_dir / "analysis"
+    diagrams_dir = output_dir / "diagrams"
+    exports_dir = output_dir / "exports"
+    mechanism_dir = output_dir / "mechanism"
 
     results = {
         "reactions": "",
@@ -1378,16 +1460,73 @@ async def get_job_results(job_id: str):
         "mechanism_exports": [],
         "mechanism_summary": None,
         "static_diagram": None,
-        "smiles_data": []
+        "smiles_data": [],
+        "postprocessing_summary": None,
+        "data_quality": None,
+        "reports": {}
     }
+
+    # Reports
+    reports_dir = output_dir / "reports"
+    
+    # Generic PDF Report
+    pdf_report = reports_dir / "report.pdf"
+    if not pdf_report.exists():
+        pdf_report = output_dir / "report.pdf"
+    if pdf_report.exists():
+        rel_path = "reports" if pdf_report.parent == reports_dir else ""
+        url = f"/data/output/{job_id}/{rel_path}/report.pdf" if rel_path else f"/data/output/{job_id}/report.pdf"
+        results["reports"]["pdf_url"] = url
+
+    # Data Quality Appendix
+    quality_report = reports_dir / "data_quality_appendix.pdf"
+    if not quality_report.exists():
+        quality_report = output_dir / "data_quality_appendix.pdf"
+    if not quality_report.exists():
+        quality_report = analysis_dir / "data_quality_appendix.pdf"
+        
+    if quality_report.exists():
+        # Determine relative path for URL construction
+        if quality_report.parent == reports_dir:
+            base = "reports"
+        elif quality_report.parent == analysis_dir:
+            base = "analysis"
+        else:
+            base = ""
+        url = f"/data/output/{job_id}/{base}/data_quality_appendix.pdf" if base else f"/data/output/{job_id}/data_quality_appendix.pdf"
+        results["reports"]["quality_appendix_url"] = url
+
+    # Summary Text
+    summary_txt = reports_dir / "summary.txt"
+    if not summary_txt.exists():
+        summary_txt = output_dir / "summary.txt"
+    if summary_txt.exists():
+        rel_path = "reports" if summary_txt.parent == reports_dir else ""
+        url = f"/data/output/{job_id}/{rel_path}/summary.txt" if rel_path else f"/data/output/{job_id}/summary.txt"
+        results["reports"]["summary_url"] = url
+        
+    # Mass Balance Report
+    mb_report = analysis_dir / "mass_balance.txt"
+    if not mb_report.exists():
+        mb_report = output_dir / "mass_balance.txt"
+    if mb_report.exists():
+        rel_path = "analysis" if mb_report.parent == analysis_dir else ""
+        url = f"/data/output/{job_id}/{rel_path}/mass_balance.txt" if rel_path else f"/data/output/{job_id}/mass_balance.txt"
+        results["reports"]["mass_balance_url"] = url
 
     # Read reactions
     reactions_file = output_dir / "reactions.txt"
+    if not reactions_file.exists():
+        reactions_file = mechanism_dir / "reactions.txt"
     if reactions_file.exists():
         results["reactions"] = reactions_file.read_text()
 
     # Read reaction tree
     tree_file = output_dir / "reaction_tree.json"
+    if not tree_file.exists():
+        tree_file = diagrams_dir / "reaction_tree.json"
+    if not tree_file.exists():
+        tree_file = mechanism_dir / "reaction_tree.json"
     if tree_file.exists():
         with open(tree_file) as f:
             tree_data = json.load(f)
@@ -1408,6 +1547,12 @@ async def get_job_results(job_id: str):
 
     # Mechanism summary
     summary_file = output_dir / "mechanism_summary.json"
+    if not summary_file.exists():
+        summary_file = diagrams_dir / "mechanism_summary.json"
+    if not summary_file.exists():
+        summary_file = analysis_dir / "mechanism_summary.json"
+    if not summary_file.exists():
+        summary_file = mechanism_dir / "mechanism_summary.json"
     if summary_file.exists():
         with open(summary_file) as f:
             results["mechanism_summary"] = json.load(f)
@@ -1417,50 +1562,96 @@ async def get_job_results(job_id: str):
     pathway_svg = output_dir / "pathway_diagram.svg"
     diagram_png = output_dir / "mechanism_diagram.png"
     diagram_svg = output_dir / "mechanism_diagram.svg"
+    if not pathway_png.exists():
+        pathway_png = diagrams_dir / "pathway_diagram.png"
+    if not pathway_svg.exists():
+        pathway_svg = diagrams_dir / "pathway_diagram.svg"
+    if not diagram_png.exists():
+        diagram_png = diagrams_dir / "mechanism_diagram.png"
+    if not diagram_svg.exists():
+        diagram_svg = diagrams_dir / "mechanism_diagram.svg"
 
     # Mechanism exports
     export_map = {'.kpp': 'KPP', '.mcm': 'MCM', '.fac': 'FACSIMILE'}
-    for item in output_dir.iterdir():
-        ext = item.suffix.lower()
-        if ext in export_map:
-            results["mechanism_exports"].append({
-                "format": export_map[ext],
-                "filename": item.name,
-                "url": f"/data/output/{job_id}/{item.name}"
-            })
+    export_dirs = [output_dir, exports_dir]
+    for export_dir in export_dirs:
+        if not export_dir.exists():
+            continue
+        for item in export_dir.iterdir():
+            ext = item.suffix.lower()
+            if ext in export_map:
+                rel_dir = "exports" if export_dir == exports_dir else ""
+                url_path = f"/data/output/{job_id}/{rel_dir}/{item.name}" if rel_dir else f"/data/output/{job_id}/{item.name}"
+                results["mechanism_exports"].append({
+                    "format": export_map[ext],
+                    "filename": item.name,
+                    "url": url_path
+                })
 
     # CSV data
     csv_file = output_dir / "aerosol_data.csv"
+    if not csv_file.exists():
+        csv_file = analysis_dir / "aerosol_data.csv"
     if csv_file.exists():
         df = pd.read_csv(csv_file)
         results["csv_data"] = df.head(100).to_dict(orient="records")
+
+    # Post-processing summary (data quality & assumptions)
+    post_summary_file = output_dir / "postprocessing_summary.json"
+    if not post_summary_file.exists():
+        analysis_summary = output_dir / "analysis" / "postprocessing_summary.json"
+        if analysis_summary.exists():
+            post_summary_file = analysis_summary
+
+    if post_summary_file.exists():
+        with open(post_summary_file) as f:
+            results["postprocessing_summary"] = json.load(f)
+            results["data_quality"] = results["postprocessing_summary"].get("data_quality")
 
     # Result filtering: exclude diagrams from the general plots list
     # Because they are shown in dedicated sections
     excluded_plots = {'pathway_diagram.png', 'mechanism_diagram.png'}
 
-    # Plots
-    for item in sorted(output_dir.iterdir()):
-        if item.suffix == ".png" and item.name not in excluded_plots:
-            results["plots"].append({
-                "title": item.stem.replace("_", " ").title(),
-                "url": f"/data/output/{job_id}/{item.name}"
-            })
+    # Plots (root + plots subdir)
+    plot_dirs = [output_dir, plots_dir]
+    seen = set()
+    for plot_dir in plot_dirs:
+        if not plot_dir.exists():
+            continue
+        for item in sorted(plot_dir.iterdir()):
+            if item.suffix == ".png" and item.name not in excluded_plots and item.name not in seen:
+                seen.add(item.name)
+                rel_dir = "plots" if plot_dir == plots_dir else ""
+                url_path = f"/data/output/{job_id}/{rel_dir}/{item.name}" if rel_dir else f"/data/output/{job_id}/{item.name}"
+                results["plots"].append({
+                    "title": item.stem.replace("_", " ").title(),
+                    "url": url_path
+                })
     
     # NEW: Also include the enhanced diagram explicitly for the frontend
     # This allows the frontend to show download buttons for the main diagram
     if pathway_png.exists():
+        pathway_base = "diagrams" if pathway_png.parent == diagrams_dir else ""
+        pathway_png_url = f"/data/output/{job_id}/{pathway_base}/pathway_diagram.png" if pathway_base else f"/data/output/{job_id}/pathway_diagram.png"
+        pathway_svg_url = None
+        if pathway_svg.exists():
+            pathway_svg_url = f"/data/output/{job_id}/{pathway_base}/pathway_diagram.svg" if pathway_base else f"/data/output/{job_id}/pathway_diagram.svg"
         results["pathway_diagram"] = {
-            "png": f"/data/output/{job_id}/pathway_diagram.png",
-            "svg": f"/data/output/{job_id}/pathway_diagram.svg" if pathway_svg.exists() else None
+            "png": pathway_png_url,
+            "svg": pathway_svg_url
         }
 
     # Static diagram (try enhanced first, then legacy)
     # This maintains the legacy "Mechanism Diagram" view (can be same content)
     if diagram_png.exists():
+        diagram_base = "diagrams" if diagram_png.parent == diagrams_dir else ""
+        diagram_png_url = f"/data/output/{job_id}/{diagram_base}/mechanism_diagram.png" if diagram_base else f"/data/output/{job_id}/mechanism_diagram.png"
+        diagram_svg_url = None
+        if diagram_svg.exists():
+            diagram_svg_url = f"/data/output/{job_id}/{diagram_base}/mechanism_diagram.svg" if diagram_base else f"/data/output/{job_id}/mechanism_diagram.svg"
         results["static_diagram"] = {
-            "png": f"/data/output/{job_id}/mechanism_diagram.png",
-            "svg": f"/data/output/{job_id}/mechanism_diagram.svg" if diagram_svg.exists() else None
+            "png": diagram_png_url,
+            "svg": diagram_svg_url
         }
     elif pathway_png.exists():
         # Fallback: Populate static_diagram slot with pathway_diagram if legacy doesn't exist
@@ -2007,37 +2198,78 @@ def _compare_soa_yields(voc_names: List[str]) -> Dict[str, Any]:
     """
     Compare SOA yields from database.
 
-    Note: SOA yields are typically determined experimentally and depend on
-    NOx conditions, seed aerosol, etc. This function returns placeholder
-    data - actual SOA yield comparison should be done via Box Model simulations.
+    CRITICAL WARNING: SOA yields are typically determined experimentally and depend on
+    NOx conditions, seed aerosol, temperature, RH, and oxidant levels. This function
+    returns LITERATURE-BASED ESTIMATES only - NOT calculated values from this simulation.
+
+    For accurate SOA yield comparison, run Box Model simulations with identical conditions.
+
+    Literature Sources for Estimates:
+    - Terpenes: Ng et al. (2007), Griffin et al. (1999)
+    - Aromatics: Ng et al. (2007), Hildebrandt et al. (2009)
+    - Isoprene: Kroll et al. (2006), Carlton et al. (2009)
+    - Alkanes: Lim & Ziemann (2005), Presto et al. (2010)
     """
     comparison = {
         "high_nox_yields": {},
         "low_nox_yields": {},
         "ranking_high_nox": [],
         "ranking_low_nox": [],
-        "note": "SOA yields require Box Model simulation for accurate comparison"
+        # CRITICAL: Prominent warning that these are NOT simulation results
+        "warning": "⚠️ LITERATURE ESTIMATES ONLY - These SOA yields are category-based "
+                   "estimates from published chamber studies, NOT calculated from this simulation. "
+                   "Actual yields depend on NOx, seed aerosol, T, RH, and oxidant levels. "
+                   "Run Box Model simulations for calculated SOA yields.",
+        "data_type": "literature_estimate",
+        "is_placeholder": True,
+        "note": "SOA yields require Box Model simulation for accurate comparison",
+        "literature_sources": {
+            "terpene": "Ng et al. (2007) ACP; Griffin et al. (1999) JGR",
+            "aromatic": "Ng et al. (2007) ACP; Hildebrandt et al. (2009) ACP",
+            "isoprene": "Kroll et al. (2006) ES&T; Carlton et al. (2009) ACP",
+            "alkane": "Lim & Ziemann (2005) ES&T; Presto et al. (2010) ES&T"
+        }
     }
 
     # SOA yield data is not stored in compound database
-    # These would need to be calculated from Box Model runs
+    # These are LITERATURE-BASED ESTIMATES, not calculated values
     for voc in voc_names:
         compound = compound_database.get_compound(voc)
         if compound:
-            # Use category-based estimates as placeholders
+            # LITERATURE-BASED ESTIMATES - clearly marked as such
             category = compound.category.lower() if compound.category else ""
+            estimate_source = "unknown"
+
             if "terpene" in category or "monoterpene" in category:
-                comparison["high_nox_yields"][voc] = 0.15  # Typical monoterpene
+                # Ng et al. (2007): α-pinene high-NOx ~0.10-0.20, low-NOx ~0.30-0.40
+                comparison["high_nox_yields"][voc] = 0.15
                 comparison["low_nox_yields"][voc] = 0.35
+                estimate_source = "terpene"
             elif "aromatic" in category:
-                comparison["high_nox_yields"][voc] = 0.10  # Typical aromatic
+                # Ng et al. (2007): toluene high-NOx ~0.05-0.15, low-NOx ~0.20-0.40
+                comparison["high_nox_yields"][voc] = 0.10
                 comparison["low_nox_yields"][voc] = 0.30
+                estimate_source = "aromatic"
             elif "isoprene" in voc.lower():
-                comparison["high_nox_yields"][voc] = 0.03  # Isoprene (low yield)
+                # Kroll et al. (2006): isoprene yields highly variable, 0.01-0.05 typical
+                comparison["high_nox_yields"][voc] = 0.03
                 comparison["low_nox_yields"][voc] = 0.10
+                estimate_source = "isoprene"
             elif "alkane" in category:
-                comparison["high_nox_yields"][voc] = 0.05  # Typical alkane
+                # Lim & Ziemann (2005): long-chain alkanes ~0.05-0.20
+                comparison["high_nox_yields"][voc] = 0.05
                 comparison["low_nox_yields"][voc] = 0.15
+                estimate_source = "alkane"
+            else:
+                # Default estimate for unknown categories
+                comparison["high_nox_yields"][voc] = 0.05
+                comparison["low_nox_yields"][voc] = 0.15
+                estimate_source = "default_estimate"
+
+            # Track source for each VOC
+            if "yield_sources" not in comparison:
+                comparison["yield_sources"] = {}
+            comparison["yield_sources"][voc] = estimate_source
 
     comparison["ranking_high_nox"] = sorted(
         comparison["high_nox_yields"].items(), key=lambda x: x[1], reverse=True
@@ -2275,6 +2507,19 @@ async def run_reduction_workflow(job_id: str, request: MechanismReductionRequest
         _write_reduced_mechanism(reduced_reactions, output_dir / "mechanism_reduced.mec")
 
         # Save reduction report
+        method_notes = {
+            "drgep": "DRGEP uses a directional dependency graph; weights are structural (no rate coefficients).",
+            "pfa": "PFA uses structural path-flux proxy (reactant->product) without kinetic rates.",
+            "lumping": "Lumping groups by composition heuristics (C/O/N counts) and is not structure-aware.",
+            "sensitivity": "Sensitivity reduction uses connectivity as a proxy; not a true sensitivity analysis."
+        }
+        limitations = {
+            "drgep": "No rate coefficients used; preserves topological dependencies only.",
+            "pfa": "No fluxes or rates; path weights are approximate and depth-limited.",
+            "lumping": "May merge chemically distinct isomers; use with caution.",
+            "sensitivity": "Connectivity does not represent kinetic sensitivities."
+        }
+
         report = {
             "source_job_id": request.job_id,
             "reduction_method": request.reduction_method,
@@ -2287,7 +2532,9 @@ async def run_reduction_workflow(job_id: str, request: MechanismReductionRequest
                 "preserve_radicals": request.preserve_radicals,
                 "preserve_soa_precursors": request.preserve_soa_precursors
             },
-            "removed_species": [s for s in species if s not in reduced_species]
+            "removed_species": [s for s in species if s not in reduced_species],
+            "method_notes": method_notes.get(request.reduction_method, ""),
+            "limitations": limitations.get(request.reduction_method, "")
         }
 
         with open(output_dir / "reduction_report.json", 'w') as f:
@@ -2359,13 +2606,26 @@ def _reduce_drgep(
     graph = {s: {} for s in species}
 
     for rxn in reactions:
-        all_species = set(rxn["reactants"] + rxn["products"])
-        for s1 in all_species:
-            if s1 in graph:
-                for s2 in all_species:
-                    if s2 != s1 and s2 in graph:
-                        # Simple interaction coefficient (can be refined with rate analysis)
-                        graph[s1][s2] = graph[s1].get(s2, 0) + 1
+        # Build directional graph: Reactants -> Products
+        # We want to identify species that are precursors to the target.
+        # If A + B -> C, then C depends on A and B.
+        # Graph edges should represent "Source leads to Target" (Causality).
+        # We want to find if 's' leads to 'target_species'.
+        reactants = rxn.get("reactants", [])
+        products = rxn.get("products", [])
+        
+        # Add edges Reactant -> Product
+        # This allows searching Reactant -> ... -> Target
+        # Wait, if we use Reactant -> Product, then drgep(R, Target) will find the path.
+        # Correct.
+        for r in reactants:
+            if r in graph:
+                for p in products:
+                    if p in graph:
+                        # Use weighting logic: if R produces multiple products,
+                        # the specific path R->P is just one branch.
+                        # Simple structural weight: 1.0 (refined by normalization later)
+                        graph[r][p] = graph[r].get(p, 0) + 1
 
     # Normalize interaction coefficients
     for s1, connections in graph.items():
@@ -2551,33 +2811,48 @@ def _reduce_pfa(
     Based on Sun et al. (2010) "Path flux analysis for the reduction of
     detailed chemical kinetic mechanisms"
     """
-    # Build flux graph
-    production = {s: [] for s in species}
-    consumption = {s: [] for s in species}
+    # Build directed adjacency (Reactant -> Product) with simple weights
+    adjacency: Dict[str, Dict[str, float]] = {s: {} for s in species}
 
-    for i, rxn in enumerate(reactions):
-        for r in rxn["reactants"]:
-            if r in consumption:
-                consumption[r].append(i)
-        for p in rxn["products"]:
-            if p in production:
-                production[p].append(i)
+    for rxn in reactions:
+        reactants = rxn.get("reactants", [])
+        products = rxn.get("products", [])
+        if not products:
+            continue
 
-    # Calculate path flux coefficients
-    def path_flux(source: str, target: str, max_depth: int = 5) -> float:
+        weight = 1.0 / max(len(products), 1)
+        for r in reactants:
+            if r in adjacency:
+                for p in products:
+                    if p in adjacency and p != r:
+                        adjacency[r][p] = adjacency[r].get(p, 0.0) + weight
+
+    # Normalize outgoing weights
+    for s1, neighbors in adjacency.items():
+        total = sum(neighbors.values()) if neighbors else 1.0
+        for s2 in neighbors:
+            neighbors[s2] /= total
+
+    # Calculate path flux coefficients (structural proxy)
+    def path_flux(source: str, target: str, max_depth: int = 5, visited: Optional[set] = None) -> float:
         if source == target:
             return 1.0
         if max_depth <= 0:
             return 0.0
 
-        total_flux = 0.0
-        for rxn_idx in production.get(source, []):
-            rxn = reactions[rxn_idx]
-            for next_species in rxn["reactants"]:
-                if next_species != source:
-                    total_flux += path_flux(next_species, target, max_depth - 1)
+        if visited is None:
+            visited = set()
+        if source in visited:
+            return 0.0
 
-        return min(total_flux, 1.0)
+        visited.add(source)
+        max_flux = 0.0
+        for neighbor, weight in adjacency.get(source, {}).items():
+            if neighbor not in visited:
+                flux = weight * path_flux(neighbor, target, max_depth - 1, visited.copy())
+                max_flux = max(max_flux, flux)
+
+        return max_flux
 
     # Auto-detect targets if not provided
     if not target_species:

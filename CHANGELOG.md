@@ -4,6 +4,172 @@ All notable changes to the GECKO-A Web Interface are documented in this file.
 
 **Author: Deeksha Sharma**
 
+## [3.0.10] - 2026-01-29
+
+### Chemical Structure Visualization Improvements
+
+#### Fixed Terpene Oxidation Product Ring Structures (CRITICAL)
+- **File**: `gecko_web/reaction_tree.py`
+- Fixed **pinic acid**, **pinonic acid**, **pinonaldehyde** to show correct **cyclobutane (4-membered) rings**
+- Previously displayed incorrect cyclohexane (6-membered) rings due to fallback SMILES generation
+- Updated `KNOWN_SPECIES` dictionary with PubChem-verified SMILES:
+  - Pinic acid: C9H14O4 (CID 10131) - cyclobutane dicarboxylic acid
+  - Pinonic acid: C10H16O3 (CID 10130) - cyclobutane ketoacid
+  - Pinonaldehyde: C10H16O2 (CID 17616) - cyclobutane aldehyde
+- Added GECKO species codes (TA9000, TA8000, TA7000) for proper lookup
+- Improved `_generate_fallback_smiles()` to detect ring sizes from GECKO notation
+
+#### Human-Readable Compound Names in Diagrams
+- **File**: `gecko_web/reaction_tree.py`
+- Added comprehensive `GECKO_CODE_TO_NAME` mapping dictionary (150+ entries)
+- New `get_compound_name()` function converts GECKO codes to human-readable names:
+  - `ISOPRE` → "Isoprene"
+  - `2U5000` → "Isoprene-OH adduct"
+  - `MVK` → "Methyl vinyl ketone"
+  - `TA9000` → "Pinic acid"
+  - `R07000` → "Toluene"
+
+- **File**: `gecko_web/mechanism_diagram.py`
+- Updated `generate_static_diagram()` to use `get_compound_name()`
+- Title and labels now show human-readable names
+
+- **File**: `gecko_web/pathway_visualizer.py`
+- Updated `from_reaction_tree()` to convert GECKO codes to readable names
+- Imported `get_compound_name` from reaction_tree
+
+#### Added Compound Labels to Diagrams
+- **File**: `gecko_web/pathway_visualizer.py`
+- Added compound name (dark blue) and molecular formula (gray) below each structure
+- New `_add_labels_to_mol_image()` method using PIL for text overlay
+- Labels are properly centered and sized for readability
+
+- **File**: `gecko_web/mechanism_diagram.py`
+- Updated `_smiles_to_mol_image()` to accept name and formula parameters
+- Labels displayed consistently with pathway diagrams
+
+#### Comprehensive 130-Compound Validation
+- **File**: `tests/comprehensive/generate_all_130_compounds.py` (NEW)
+- Generates labeled PNG images for ALL 130 dropdown compounds
+- Validates SMILES, molecular formula, ring structures, and molecular weight
+- Outputs JSON validation report with detailed compound data
+
+#### Added Missing Compounds
+- **File**: `gecko_web/chemdata/compound_database.py`
+- Added **nerolidol** (C15H26O) - sesquiterpene alcohol
+- Added **butyl_acetate** (C6H12O2) - ester
+- Added **neopentane** (C5H12) - branched alkane
+
+### Validation Results
+- All 130 compounds generate valid PNG images
+- Critical terpene oxidation products confirmed with cyclobutane rings:
+  - pinic_acid: rings=[4], C9H14O4 ✓
+  - pinonic_acid: rings=[4], C10H16O3 ✓
+  - pinonaldehyde: rings=[4], C10H16O2 ✓
+  - nopinone: rings=[4, 6, 6], C9H14O ✓
+
+### Known Limitations
+- **Box model failures**: Some compounds (e.g., nerolidol, butyl_acetate) may fail box model simulations due to GECKO-A's internal species dictionary limitations. The mechanism generator still produces valid outputs for these compounds.
+
+---
+
+## [3.0.9] - 2026-01-28
+
+### Scientific Audit Fixes
+
+PhD-level scientific review of physics/chemistry core with 6 critical fixes:
+
+#### SOA Yield Placeholder Warnings (CRITICAL)
+- **File**: `gecko_web/main.py` (lines 2193-2236)
+- SOA yield comparison function now includes prominent warnings
+- Added `is_placeholder: true` flag and `data_type: "literature_estimate"`
+- Literature sources cited for each VOC category (Ng et al., Griffin et al., etc.)
+- Users now see explicit warnings that yields are NOT from simulation
+
+#### Vapor Pressure Fallback Warnings (CRITICAL)
+- **File**: `gecko_web/postprocessing.py`
+- Added critical warning when `pvap.nan.dat` file is missing
+- Fallback to MW-based estimation now explicitly flagged
+- `data_quality` object now includes `pvap_source` and `pvap_accuracy_warning`
+
+#### Synthetic Data Plot Watermarks
+- **File**: `gecko_web/postprocessing.py`
+- New `_add_synthetic_watermark()` function for all plot generation
+- Watermarks applied when data is synthetic, surrogate, or has critical Pvap quality
+- Red "SYNTHETIC DATA", orange "SURROGATE DATA", yellow "ESTIMATED PVAP"
+
+#### Frontend Data Quality Warnings
+- **File**: `gecko_web/static/js/app.js`
+- Enhanced `renderDataQuality()` with severity levels (info/warning/critical)
+- Vapor pressure quality indicator with color-coded warnings
+- SOA yield placeholder warnings in comparison results
+- **File**: `gecko_web/static/css/styles.css`
+- New CSS classes: `.severity-critical`, `.severity-warning`, `.soa-yield-warning`
+
+#### Configurable Mass Balance Tolerances
+- **File**: `gecko_web/mass_balance.py`
+- `MassBalanceChecker` now accepts configurable tolerances via constructor
+- Added factory methods: `with_strict_tolerances()`, `with_relaxed_tolerances()`
+- Default, strict (0.001), and relaxed (0.1) tolerance presets
+
+#### Arrhenius Validation Tests
+- **File**: `tests/test_arrhenius_nist.py` (NEW)
+- 20 comprehensive tests validating against NIST/JPL reference data
+- Tests for OH + CH4, OH + C2H6, OH + C3H8, OH + CO, O3 + alkenes, etc.
+- Temperature dependence validation and uncertainty bounds checking
+- Troe pressure-dependent reaction tests
+
+### Technical Details
+- All 171 tests pass (154 passed, 17 skipped)
+- No breaking changes to existing functionality
+- Follows "Surgical Changes" and "Simplicity First" principles
+
+---
+
+## [3.0.8] - 2026-01-28
+
+### Baseline Manager & Data Quality Appendix
+- New Baseline Manager for automatic surrogate data fallback
+- Data Quality Appendix PDF generated for every simulation
+- Enhanced data provenance tracking
+
+---
+
+## [3.0.7] - 2026-01-28
+
+### Code Cleanup & Optimization
+
+#### Removed Obsolete Files (14 files deleted)
+- **Debug/Test Scripts**: Removed `regenerate_diagrams.py`, `regenerate_trees_v2.py`, `test_parser.py`, `test_pipeline_2.py`, `debug_parser_2.py`, `inspect_json.py`, `inspect_keys.py`, `fix_current_job.py`, `test.f90`
+- **Unused Deployment Configs**: Removed `railway.toml`, `render.yaml` (project standardized on Fly.io)
+- **Stale Artifacts**: Removed `server.log`, `test_bin`, `test_smiles.html`
+- **Unused JavaScript Module**: Removed `gecko_web/static/js/structure3d.js` (never imported)
+
+#### Cleaned Python Imports (11 files updated)
+- Removed unused imports across all Python modules including:
+  - `numpy`, `pandas` from `combined_workflow.py`
+  - `json`, `Path`, `Descriptors` from `compound_database.py`
+  - `io`, `math`, `networkx`, `PIL` from `enhanced_visualizer.py`
+  - `glob`, `tempfile`, `contextmanager` from `main.py`
+  - Many more unused typing imports and RDKit submodules
+
+#### Cleaned JavaScript API (api.js)
+- Removed 11 unused API functions:
+  - `getCompounds()`, `getCompoundCategories()`, `getCompound()`, `searchCompounds()`, `getCompoundsByCategory()`
+  - `getKinetics()`, `getAtmosphericLifetime()`, `createCombinedWorkflow()`
+  - `getJob3DStructures()`, `pollJobStatus()`, `checkEnvironment()`
+
+#### Data Cleanup
+- Reset `data/job_state.json` (had stale paths to old directory)
+- Cleared old job outputs from `data/output/`
+
+### Technical Details
+- All 142 tests pass (125 passed, 17 skipped)
+- All Python modules compile without errors
+- All JavaScript files pass syntax validation
+- No breaking changes to existing functionality
+
+---
+
 ## [3.0.6] - 2026-01-27
 
 ### Enhancements

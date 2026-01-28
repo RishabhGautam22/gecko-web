@@ -22,8 +22,7 @@ import os
 import re
 import glob
 import logging
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 
 import numpy as np
@@ -869,11 +868,119 @@ def _read_concentration_file(filepath: str) -> Optional[pd.DataFrame]:
         return None
 
 
+def _add_data_quality_note(fig: plt.Figure, note: Optional[str]) -> None:
+    """Add a data-quality annotation to plots when synthetic assumptions are used."""
+    if not note:
+        return
+    fig.text(
+        0.5, 0.01, note,
+        ha='center', va='bottom', fontsize=9, color='darkred'
+    )
+
+
+def _add_synthetic_watermark(fig: plt.Figure, is_synthetic: bool = False,
+                             is_surrogate: bool = False,
+                             pvap_quality: str = 'good') -> None:
+    """
+    Add prominent watermark to plots when data quality is compromised.
+
+    This ensures users cannot mistake synthetic/surrogate/degraded data for
+    real simulation results.
+
+    Args:
+        fig: Matplotlib figure
+        is_synthetic: True if concentrations are synthetic (not from simulation)
+        is_surrogate: True if data is from baseline surrogate
+        pvap_quality: 'good', 'moderate', 'degraded', or 'critical'
+    """
+    watermark_text = None
+    watermark_color = 'lightgray'
+    alpha = 0.3
+
+    if is_synthetic:
+        watermark_text = "SYNTHETIC DATA"
+        watermark_color = 'red'
+        alpha = 0.15
+    elif is_surrogate:
+        watermark_text = "SURROGATE DATA"
+        watermark_color = 'orange'
+        alpha = 0.15
+    elif pvap_quality == 'critical':
+        watermark_text = "ESTIMATED PVAP"
+        watermark_color = 'red'
+        alpha = 0.12
+    elif pvap_quality == 'degraded':
+        watermark_text = "REDUCED ACCURACY"
+        watermark_color = 'darkorange'
+        alpha = 0.10
+
+    if watermark_text:
+        # Add diagonal watermark across the plot
+        fig.text(
+            0.5, 0.5, watermark_text,
+            fontsize=40, color=watermark_color,
+            ha='center', va='center',
+            rotation=30, alpha=alpha,
+            transform=fig.transFigure,
+            fontweight='bold',
+            zorder=1000
+        )
+
+
+def _get_plot_metadata(data_quality: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Extract plot metadata from data quality dict for watermarking decisions.
+
+    Returns:
+        Dict with is_synthetic, is_surrogate, pvap_quality keys
+    """
+    return {
+        'is_synthetic': data_quality.get('is_synthetic', False),
+        'is_surrogate': data_quality.get('source', '').startswith('baseline') or
+                        data_quality.get('is_surrogate', False),
+        'pvap_quality': data_quality.get('pvap_quality', 'good')
+    }
+
+
+def _validate_plot_df(
+    df: pd.DataFrame,
+    required_cols: List[str],
+    plot_name: str,
+    results: Dict[str, Any]
+) -> tuple[bool, Optional[str]]:
+    """Validate DataFrame for plot generation and record warnings."""
+    if df is None or len(df) == 0:
+        reason = "empty dataset"
+        results['warnings'].append(f"Skipping {plot_name}: {reason}")
+        return False, reason
+
+    missing = [c for c in required_cols if c not in df.columns]
+    if missing:
+        reason = f"missing columns {missing}"
+        results['warnings'].append(f"Skipping {plot_name}: {reason}")
+        return False, reason
+
+    # Check for any finite data in required columns
+    for col in required_cols:
+        series = pd.to_numeric(df[col], errors='coerce')
+        if series.dropna().empty:
+            reason = f"invalid column {col}"
+            results['warnings'].append(f"Skipping {plot_name}: {reason}")
+            return False, reason
+
+    return True, None
+
+
 # ==============================================================================
 # Plotting Functions
 # ==============================================================================
 
-def generate_volatility_distribution_plot(df: pd.DataFrame, output_path: str):
+def generate_volatility_distribution_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate volatility distribution (VBS) plot."""
     if df is None or len(df) == 0:
         return
@@ -914,12 +1021,24 @@ def generate_volatility_distribution_plot(df: pd.DataFrame, output_path: str):
     ax.legend()
     ax.grid(axis='y', alpha=0.3)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_soa_yield_plot(df: pd.DataFrame, output_path: str, voc_name: str):
+def generate_soa_yield_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    voc_name: str,
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate SOA yield curve plot."""
     if df is None or len(df) == 0:
         return
@@ -946,21 +1065,33 @@ def generate_soa_yield_plot(df: pd.DataFrame, output_path: str, voc_name: str):
         cbar = plt.colorbar(ax.collections[0])
         cbar.set_label('Time', fontsize=10)
     else:
-        c_oa = df['c_oa_equilibrium'].values
-        soa_yield = df['c_particle'].sum() / (df['c_total'].sum() + 1e-10)
-        ax.scatter([c_oa.mean()], [soa_yield], s=100, c='steelblue')
+        # Plot all points without time coloring
+        c_oa = df['c_oa_equilibrium']
+        soa_yield = df['c_particle'] / (df['c_total'] + 1e-10)
+        ax.scatter(c_oa, soa_yield, s=50, c='steelblue', alpha=0.6, label='Data Points')
 
     ax.set_xlabel('C$_{OA}$ [$\\mu$g/m$^3$]', fontsize=12)
     ax.set_ylabel('SOA Yield (M$_{OA}$ / $\\Delta$VOC)', fontsize=12)
     ax.set_title(f'SOA Yield Curve: {voc_name}', fontsize=14)
     ax.grid(alpha=0.3)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_partitioning_summary_plot(df: pd.DataFrame, output_path: str):
+def generate_partitioning_summary_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate partitioning factor summary plot."""
     if df is None or len(df) == 0:
         return
@@ -1003,12 +1134,23 @@ def generate_partitioning_summary_plot(df: pd.DataFrame, output_path: str):
                 startangle=90, explode=(0.05, 0))
         ax2.set_title('Phase Distribution', fontsize=12)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_van_krevelen_plot(df: pd.DataFrame, output_path: str):
+def generate_van_krevelen_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate Van Krevelen diagram (H:C vs O:C)."""
     if df is None or len(df) == 0:
         return
@@ -1021,10 +1163,10 @@ def generate_van_krevelen_plot(df: pd.DataFrame, output_path: str):
     if len(df_plot) == 0:
         return
 
-    # Estimate H from formula (2*C + 2 - 2*DBE)
-    # For saturated: H = 2*C + 2, for each double bond: H -= 2
-    # Approximate using MW relationship
-    df_plot['n_hydrogen'] = (df_plot['mw'] - 12*df_plot['n_carbon'] - 16*df_plot['n_oxygen'] - 14*df_plot.get('n_nitrogen', 0)) / 1.0
+    # Estimate H from formula (MW - contributions from C, O, N)
+    # Using integer atomic weights consistent with GECKO mechanism definitions
+    n_nitrogen = df_plot['n_nitrogen'] if 'n_nitrogen' in df_plot.columns else 0
+    df_plot['n_hydrogen'] = (df_plot['mw'] - 12.0*df_plot['n_carbon'] - 16.0*df_plot['n_oxygen'] - 14.0*n_nitrogen) / 1.008
     df_plot['n_hydrogen'] = df_plot['n_hydrogen'].clip(0, None)
 
     df_plot['hc_ratio'] = df_plot['n_hydrogen'] / df_plot['n_carbon']
@@ -1056,12 +1198,24 @@ def generate_van_krevelen_plot(df: pd.DataFrame, output_path: str):
     ax.legend(loc='upper right')
     ax.grid(alpha=0.3)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_top10_species_plot(df: pd.DataFrame, output_path: str, phase: str = 'gas'):
+def generate_top10_species_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    phase: str = 'gas',
+    data_quality: Optional[Dict[str, Any]] = None,
+    data_quality_note: Optional[str] = None
+):
     """Generate top 10 species bar chart for gas or particle phase."""
     if df is None or len(df) == 0:
         return
@@ -1124,12 +1278,23 @@ def generate_top10_species_plot(df: pd.DataFrame, output_path: str, phase: str =
     ax.set_title(f'Top 10 {"Gas" if phase == "gas" else "Particle"}-Phase Species', fontsize=14)
     ax.grid(axis='x', alpha=0.3)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_trajectory_plot(df: pd.DataFrame, output_path: str):
+def generate_trajectory_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate NC vs O:C trajectory plot."""
     if df is None or len(df) == 0:
         return
@@ -1161,12 +1326,24 @@ def generate_trajectory_plot(df: pd.DataFrame, output_path: str):
     ax.set_title('Carbon Number vs. Oxidation Trajectory', fontsize=14)
     ax.grid(alpha=0.3)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_soa_mass_plot(df: pd.DataFrame, output_path: str, voc_name: str):
+def generate_soa_mass_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    voc_name: str,
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate SOA mass time series plot."""
     if df is None or len(df) == 0:
         return
@@ -1178,6 +1355,11 @@ def generate_soa_mass_plot(df: pd.DataFrame, output_path: str, voc_name: str):
         ax.bar([voc_name], [total_soa], color='steelblue')
         ax.set_ylabel('SOA Mass [$\\mu$g/m$^3$]', fontsize=12)
         ax.set_title(f'Total SOA Mass: {voc_name}', fontsize=14)
+        # Add watermark if data quality is compromised
+        if data_quality:
+            meta = _get_plot_metadata(data_quality)
+            _add_synthetic_watermark(fig, **meta)
+        _add_data_quality_note(fig, data_quality_note)
         plt.tight_layout()
         plt.savefig(output_path, dpi=300)
         plt.close()
@@ -1202,12 +1384,23 @@ def generate_soa_mass_plot(df: pd.DataFrame, output_path: str, voc_name: str):
     ax.legend()
     ax.grid(alpha=0.3)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_functional_group_plot(df: pd.DataFrame, output_path: str):
+def generate_functional_group_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate functional group distribution plot."""
     if df is None or len(df) == 0:
         return
@@ -1256,12 +1449,24 @@ def generate_functional_group_plot(df: pd.DataFrame, output_path: str):
     ax.set_title('Functional Group Distribution (Estimated)', fontsize=14)
     ax.grid(axis='y', alpha=0.3)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_osc_volatility_plot(df: pd.DataFrame, output_path: str, label: str = ''):
+def generate_osc_volatility_plot(
+    df: pd.DataFrame,
+    output_path: str,
+    label: str = '',
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate oxidation state of carbon (OSc) vs volatility plot."""
     if df is None or len(df) == 0:
         return
@@ -1276,7 +1481,8 @@ def generate_osc_volatility_plot(df: pd.DataFrame, output_path: str, label: str 
     # Calculate OSc = 2*O:C - H:C (approximation)
     # For organics: OSc ≈ 2*(O/C) - (H/C)
     df_plot['oc_ratio'] = df_plot['n_oxygen'] / df_plot['n_carbon']
-    df_plot['n_hydrogen'] = (df_plot['mw'] - 12*df_plot['n_carbon'] - 16*df_plot['n_oxygen']) / 1.0
+    n_nitrogen = df_plot['n_nitrogen'] if 'n_nitrogen' in df_plot.columns else 0
+    df_plot['n_hydrogen'] = (df_plot['mw'] - 12*df_plot['n_carbon'] - 16*df_plot['n_oxygen'] - 14*n_nitrogen) / 1.008
     df_plot['n_hydrogen'] = df_plot['n_hydrogen'].clip(0, None)
     df_plot['hc_ratio'] = df_plot['n_hydrogen'] / df_plot['n_carbon']
     df_plot['osc'] = 2 * df_plot['oc_ratio'] - df_plot['hc_ratio']
@@ -1305,12 +1511,23 @@ def generate_osc_volatility_plot(df: pd.DataFrame, output_path: str, label: str 
     ax.legend(loc='upper right')
     ax.grid(alpha=0.3)
 
+    # Add watermark if data quality is compromised
+    if data_quality:
+        meta = _get_plot_metadata(data_quality)
+        _add_synthetic_watermark(fig, **meta)
+
+    _add_data_quality_note(fig, data_quality_note)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300)
     plt.close()
 
 
-def generate_main_simulation_plot(output_dir: str, output_path: str):
+def generate_main_simulation_plot(
+    output_dir: str,
+    output_path: str,
+    data_quality_note: Optional[str] = None,
+    data_quality: Optional[Dict[str, Any]] = None
+):
     """Generate main simulation overview plot from netCDF or time series data."""
     import os
 
@@ -1382,6 +1599,11 @@ def generate_main_simulation_plot(output_dir: str, output_path: str):
                             ax.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
 
                     plt.suptitle('Key Oxidant Time Series', fontsize=14, fontweight='bold')
+                    # Add watermark if data quality is compromised
+                    if data_quality:
+                        meta = _get_plot_metadata(data_quality)
+                        _add_synthetic_watermark(fig, **meta)
+                    _add_data_quality_note(fig, data_quality_note)
                     plt.tight_layout()
                     plt.savefig(output_path, dpi=300)
                     plt.close()
@@ -1395,6 +1617,9 @@ def generate_main_simulation_plot(output_dir: str, output_path: str):
            ha='center', va='center', transform=ax.transAxes, fontsize=12)
     ax.set_frame_on(False)
     ax.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
+    # Add watermark for placeholder
+    _add_synthetic_watermark(fig, is_synthetic=True)
+    _add_data_quality_note(fig, data_quality_note)
     plt.savefig(output_path, dpi=300)
     plt.close()
 
@@ -1405,7 +1630,8 @@ def generate_main_simulation_plot(output_dir: str, output_path: str):
 
 def run_postprocessing(output_dir: str, voc_name: str,
                        temperature_k: float = 298.0,
-                       seed_mass: float = 0.0) -> Dict[str, Any]:
+                       seed_mass: float = 0.0,
+                       allow_synthetic: bool = True) -> Dict[str, Any]:
     """
     Run complete post-processing pipeline.
 
@@ -1421,7 +1647,14 @@ def run_postprocessing(output_dir: str, voc_name: str,
     results = {
         'status': 'success',
         'warnings': [],
-        'outputs': {}
+        'outputs': {},
+        'data_quality': {
+            'source': 'simulation',
+            'is_synthetic': False,
+            'assumptions': [],
+            'data_points': 0,
+            'time_points': 0
+        }
     }
 
     logger.info(f"Running post-processing for {voc_name} in {output_dir}")
@@ -1437,11 +1670,27 @@ def run_postprocessing(output_dir: str, voc_name: str,
 
         # 2. Read vapor pressures
         pvap_data = VaporPressureReader.read_pvap_file(output_dir)
+        if not pvap_data:
+            # CRITICAL WARNING: MW-based Pvap estimation can be off by 2+ orders of magnitude
+            results['warnings'].append(
+                "⚠️ CRITICAL: Vapor pressure data file (pvap.nan.dat) not found. "
+                "Using MW-based estimates for ALL species. Partitioning accuracy may be "
+                "reduced by 2+ orders of magnitude. Run GECKO-A generator to produce "
+                "calculated vapor pressures using Nannoolal SAR."
+            )
+            results['data_quality']['assumptions'].append(
+                "ALL Pvap values estimated using MW correlation (pvap file missing) - "
+                "partitioning accuracy significantly reduced"
+            )
+            results['data_quality']['pvap_source'] = 'mw_estimation_only'
+            results['data_quality']['pvap_accuracy_warning'] = True
 
         # 3. Calculate C* for all species
         calculator = PartitioningCalculator(temperature_k, seed_mass)
 
         species_data = []
+        pvap_estimated_count = 0
+        pvap_total_count = 0
         for code, sp in species_dict.items():
             if code.startswith('G') and code[1:] in species_dict:
                 continue  # Skip duplicates
@@ -1453,6 +1702,8 @@ def run_postprocessing(output_dir: str, voc_name: str,
                 )
                 if pvap_data:  # Only warn if we have some pvap data
                     results['warnings'].append(f"Using estimated Pvap for {code}")
+                pvap_estimated_count += 1
+            pvap_total_count += 1
 
             c_star = calculator.calculate_c_star(sp.mw, log_pvap)
 
@@ -1470,73 +1721,306 @@ def run_postprocessing(output_dir: str, voc_name: str,
         # 4. Create base aerosol data (from dictionary only)
         df_base = pd.DataFrame(species_data)
         df_base['log_c_star'] = np.log10(df_base['c_star'] + 1e-30)
-        df_base['f_p'] = 10.0 / (10.0 + df_base['c_star'])  # Static estimate
+        c_oa_assumed = max(seed_mass, 10.0)
+        df_base['f_p'] = c_oa_assumed / (c_oa_assumed + df_base['c_star'])  # Static estimate
         df_base['c_particle'] = df_base['concentration'] * df_base['f_p']
         df_base['c_gas'] = df_base['concentration'] * (1 - df_base['f_p'])
-        df_base['c_oa_equilibrium'] = 10.0
+        df_base['c_oa_equilibrium'] = c_oa_assumed
 
         # 5. Try to process time series if available
         df_timeseries = process_time_series(
             output_dir, species_dict, pvap_data, temperature_k, seed_mass
         )
 
+        data_quality_note = None
         # Use time series data if available, otherwise base data
-        df_final = df_timeseries if df_timeseries is not None else df_base
+        if df_timeseries is not None and len(df_timeseries) > 0:
+            df_final = df_timeseries
+        else:
+            if not allow_synthetic:
+                results['status'] = 'error'
+                results['error'] = 'No simulation concentration data found; synthetic fallback disabled.'
+                results['warnings'].append(results['error'])
+                return results
+
+            results['data_quality']['source'] = 'synthetic_dictionary'
+            results['data_quality']['is_synthetic'] = True
+            results['data_quality']['assumptions'] = [
+                'Concentrations set to 1.0 µg/m³ for all species',
+                f'Static partitioning with C_OA = {c_oa_assumed:.2f} µg/m³'
+            ]
+            results['warnings'].append(
+                'No simulation concentration data found. Using synthetic base dataset from dictionary with assumed concentrations.'
+            )
+            data_quality_note = (
+                f'Synthetic data: concentrations assumed; C_OA={c_oa_assumed:.2f} µg/m³. '
+                'Run Box Model for real results.'
+            )
+            df_final = df_base
+
+        results['data_quality']['data_points'] = int(len(df_final))
+        if 'time' in df_final.columns:
+            results['data_quality']['time_points'] = int(df_final['time'].nunique())
+
+        if pvap_total_count > 0:
+            results['data_quality']['pvap_estimated_count'] = int(pvap_estimated_count)
+            results['data_quality']['pvap_total_count'] = int(pvap_total_count)
+            pvap_estimated_fraction = pvap_estimated_count / pvap_total_count
+
+            # Track vapor pressure data quality with severity levels
+            results['data_quality']['pvap_estimated_fraction'] = float(pvap_estimated_fraction)
+
+            if pvap_estimated_fraction >= 0.9:
+                # CRITICAL: Almost all Pvap estimated
+                results['warnings'].append(
+                    f"⚠️ CRITICAL: {pvap_estimated_fraction*100:.0f}% of species "
+                    f"({pvap_estimated_count}/{pvap_total_count}) used MW-based Pvap estimates. "
+                    "Partitioning results may be inaccurate by 2+ orders of magnitude."
+                )
+                results['data_quality']['assumptions'].append(
+                    f"CRITICAL: {pvap_estimated_fraction*100:.0f}% Pvap values estimated - "
+                    "partitioning accuracy severely compromised"
+                )
+                results['data_quality']['pvap_quality'] = 'critical'
+            elif pvap_estimated_fraction >= 0.5:
+                # HIGH: More than half estimated
+                results['warnings'].append(
+                    f"⚠️ WARNING: {pvap_estimated_fraction*100:.0f}% of species "
+                    f"({pvap_estimated_count}/{pvap_total_count}) used MW-based Pvap estimates. "
+                    "Partitioning accuracy reduced."
+                )
+                results['data_quality']['assumptions'].append(
+                    f"High fraction ({pvap_estimated_fraction*100:.0f}%) of Pvap values estimated"
+                )
+                results['data_quality']['pvap_quality'] = 'degraded'
+            elif pvap_estimated_fraction >= 0.2:
+                # MODERATE: Significant fraction estimated
+                results['warnings'].append(
+                    f"Note: {pvap_estimated_fraction*100:.0f}% of species used estimated Pvap"
+                )
+                results['data_quality']['pvap_quality'] = 'moderate'
+            else:
+                # GOOD: Most Pvap from calculated values
+                results['data_quality']['pvap_quality'] = 'good'
+
+        df_final['data_source'] = results['data_quality']['source']
+
+        # Sanitize invalid values
+        df_final = df_final.replace([np.inf, -np.inf], np.nan)
+        for col in ['c_particle', 'c_gas', 'c_total']:
+            if col in df_final.columns:
+                neg_count = (df_final[col] < 0).sum()
+                if neg_count > 0:
+                    results['warnings'].append(f"Clipped {neg_count} negative values in {col}")
+                df_final[col] = df_final[col].clip(lower=0)
 
         # 6. Save aerosol data
         csv_path = os.path.join(output_dir, "aerosol_data.csv")
         df_final.to_csv(csv_path, index=False)
         results['outputs']['aerosol_data'] = csv_path
 
-        # 7. Generate plots
+        # 7. Generate plots (strict validation gates)
+        plot_audit = {}
+
         vbs_plot = os.path.join(output_dir, "volatility_distribution.png")
-        generate_volatility_distribution_plot(df_final, vbs_plot)
-        results['outputs']['vbs_plot'] = vbs_plot
+        ok, reason = _validate_plot_df(df_final, ['log_c_star', 'c_particle', 'c_gas'], 'VBS plot', results)
+        plot_audit['vbs_plot'] = {
+            'title': 'Volatility Basis Set Distribution',
+            'file': vbs_plot,
+            'required_columns': ['log_c_star', 'c_particle', 'c_gas'],
+            'units': {
+                'log_c_star': 'log10(µg/m³)',
+                'c_particle': 'µg/m³',
+                'c_gas': 'µg/m³'
+            },
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_volatility_distribution_plot(df_final, vbs_plot, data_quality_note, results['data_quality'])
+            results['outputs']['vbs_plot'] = vbs_plot
 
         yield_plot = os.path.join(output_dir, "soa_yield.png")
-        generate_soa_yield_plot(df_final, yield_plot, voc_name)
-        results['outputs']['yield_plot'] = yield_plot
+        ok, reason = _validate_plot_df(df_final, ['c_particle', 'c_total'], 'SOA yield plot', results)
+        plot_audit['yield_plot'] = {
+            'title': 'SOA Yield',
+            'file': yield_plot,
+            'required_columns': ['c_particle', 'c_total'],
+            'units': {
+                'c_particle': 'µg/m³',
+                'c_total': 'µg/m³'
+            },
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_soa_yield_plot(df_final, yield_plot, voc_name, data_quality_note, results['data_quality'])
+            results['outputs']['yield_plot'] = yield_plot
 
         summary_plot = os.path.join(output_dir, "partitioning_summary.png")
-        generate_partitioning_summary_plot(df_final, summary_plot)
-        results['outputs']['summary_plot'] = summary_plot
+        ok, reason = _validate_plot_df(df_final, ['log_c_star', 'f_p', 'c_particle', 'c_gas'], 'Partitioning summary plot', results)
+        plot_audit['summary_plot'] = {
+            'title': 'Partitioning Summary',
+            'file': summary_plot,
+            'required_columns': ['log_c_star', 'f_p', 'c_particle', 'c_gas'],
+            'units': {
+                'log_c_star': 'log10(µg/m³)',
+                'f_p': 'fraction',
+                'c_particle': 'µg/m³',
+                'c_gas': 'µg/m³'
+            },
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_partitioning_summary_plot(df_final, summary_plot, data_quality_note, results['data_quality'])
+            results['outputs']['summary_plot'] = summary_plot
 
         # Additional plots (restored from v1.0)
         vk_plot = os.path.join(output_dir, "van_krevelen_HC_OC.png")
-        generate_van_krevelen_plot(df_final, vk_plot)
-        results['outputs']['van_krevelen'] = vk_plot
+        ok, reason = _validate_plot_df(df_final, ['n_carbon', 'n_oxygen', 'mw'], 'Van Krevelen plot', results)
+        plot_audit['van_krevelen'] = {
+            'title': 'Van Krevelen (H:C vs O:C)',
+            'file': vk_plot,
+            'required_columns': ['n_carbon', 'n_oxygen', 'mw'],
+            'units': {
+                'n_carbon': 'count',
+                'n_oxygen': 'count',
+                'mw': 'g/mol'
+            },
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_van_krevelen_plot(df_final, vk_plot, data_quality_note, results['data_quality'])
+            results['outputs']['van_krevelen'] = vk_plot
 
         top10_gas_plot = os.path.join(output_dir, "top10_gas.png")
-        generate_top10_species_plot(df_final, top10_gas_plot, phase='gas')
-        results['outputs']['top10_gas'] = top10_gas_plot
+        ok, reason = _validate_plot_df(df_final, ['c_gas'], 'Top-10 gas plot', results)
+        plot_audit['top10_gas'] = {
+            'title': 'Top-10 Gas Species',
+            'file': top10_gas_plot,
+            'required_columns': ['c_gas'],
+            'units': {'c_gas': 'µg/m³'},
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_top10_species_plot(df_final, top10_gas_plot, phase='gas', data_quality=results['data_quality'], data_quality_note=data_quality_note)
+            results['outputs']['top10_gas'] = top10_gas_plot
 
         top10_particle_plot = os.path.join(output_dir, "top10_particle.png")
-        generate_top10_species_plot(df_final, top10_particle_plot, phase='particle')
-        results['outputs']['top10_particle'] = top10_particle_plot
+        ok, reason = _validate_plot_df(df_final, ['c_particle'], 'Top-10 particle plot', results)
+        plot_audit['top10_particle'] = {
+            'title': 'Top-10 Particle Species',
+            'file': top10_particle_plot,
+            'required_columns': ['c_particle'],
+            'units': {'c_particle': 'µg/m³'},
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_top10_species_plot(df_final, top10_particle_plot, phase='particle', data_quality=results['data_quality'], data_quality_note=data_quality_note)
+            results['outputs']['top10_particle'] = top10_particle_plot
 
         trajectory_plot = os.path.join(output_dir, "trajectory_NC_OC.png")
-        generate_trajectory_plot(df_final, trajectory_plot)
-        results['outputs']['trajectory'] = trajectory_plot
+        ok, reason = _validate_plot_df(df_final, ['n_carbon', 'n_oxygen'], 'Trajectory plot', results)
+        plot_audit['trajectory'] = {
+            'title': 'Carbon Number vs O:C Trajectory',
+            'file': trajectory_plot,
+            'required_columns': ['n_carbon', 'n_oxygen'],
+            'units': {'n_carbon': 'count', 'n_oxygen': 'count'},
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_trajectory_plot(df_final, trajectory_plot, data_quality_note, results['data_quality'])
+            results['outputs']['trajectory'] = trajectory_plot
 
         soa_mass_plot = os.path.join(output_dir, "soa_mass.png")
-        generate_soa_mass_plot(df_final, soa_mass_plot, voc_name)
-        results['outputs']['soa_mass'] = soa_mass_plot
+        ok, reason = _validate_plot_df(df_final, ['c_particle'], 'SOA mass plot', results)
+        plot_audit['soa_mass'] = {
+            'title': 'SOA Mass',
+            'file': soa_mass_plot,
+            'required_columns': ['c_particle'],
+            'units': {'c_particle': 'µg/m³'},
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_soa_mass_plot(df_final, soa_mass_plot, voc_name, data_quality_note, results['data_quality'])
+            results['outputs']['soa_mass'] = soa_mass_plot
 
         fg_plot = os.path.join(output_dir, "functional_group_dist_N.png")
-        generate_functional_group_plot(df_final, fg_plot)
-        results['outputs']['functional_groups'] = fg_plot
+        ok, reason = _validate_plot_df(df_final, ['n_oxygen'], 'Functional group plot', results)
+        plot_audit['functional_groups'] = {
+            'title': 'Functional Group Distribution',
+            'file': fg_plot,
+            'required_columns': ['n_oxygen'],
+            'units': {'n_oxygen': 'count'},
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_functional_group_plot(df_final, fg_plot, data_quality_note, results['data_quality'])
+            results['outputs']['functional_groups'] = fg_plot
 
         osc_plot = os.path.join(output_dir, "osc_volatility_1x_Lifetime_Approx.png")
-        generate_osc_volatility_plot(df_final, osc_plot, label='1x Lifetime')
-        results['outputs']['osc_volatility'] = osc_plot
+        ok, reason = _validate_plot_df(df_final, ['n_carbon', 'n_oxygen', 'mw', 'log_c_star'], 'OSc volatility plot', results)
+        plot_audit['osc_volatility'] = {
+            'title': 'OSc vs Volatility',
+            'file': osc_plot,
+            'required_columns': ['n_carbon', 'n_oxygen', 'mw', 'log_c_star'],
+            'units': {
+                'n_carbon': 'count',
+                'n_oxygen': 'count',
+                'mw': 'g/mol',
+                'log_c_star': 'log10(µg/m³)'
+            },
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': ok,
+            'skipped_reason': reason
+        }
+        if ok:
+            generate_osc_volatility_plot(df_final, osc_plot, label='1x Lifetime', data_quality_note=data_quality_note, data_quality=results['data_quality'])
+            results['outputs']['osc_volatility'] = osc_plot
 
         main_plot = os.path.join(output_dir, "plot.png")
-        generate_main_simulation_plot(output_dir, main_plot)
+        plot_audit['main_plot'] = {
+            'title': 'Key Oxidant Time Series',
+            'file': main_plot,
+            'required_columns': ['time', 'concentration (netCDF)'],
+            'units': {'time': 's', 'concentration': 'molec/cm³'},
+            'data_source': results['data_quality']['source'],
+            'assumptions': results['data_quality'].get('assumptions', []),
+            'generated': True,
+            'skipped_reason': None
+        }
+        generate_main_simulation_plot(output_dir, main_plot, data_quality_note, results['data_quality'])
         results['outputs']['main_plot'] = main_plot
 
         # 8. Calculate summary statistics
-        total_soa = df_final['c_particle'].sum()
-        total_gas = df_final['c_gas'].sum()
+        total_soa = df_final['c_particle'].sum() if 'c_particle' in df_final.columns else 0.0
+        total_gas = df_final['c_gas'].sum() if 'c_gas' in df_final.columns else 0.0
         total_organic = total_soa + total_gas
 
         soa_yield = total_soa / total_organic if total_organic > 0 else 0
@@ -1546,9 +2030,11 @@ def run_postprocessing(output_dir: str, voc_name: str,
             'total_soa_mass_ug_m3': float(total_soa),
             'total_gas_mass_ug_m3': float(total_gas),
             'soa_yield': float(soa_yield),
-            'mean_c_star': float(df_final['c_star'].mean()),
-            'median_log_c_star': float(df_final['log_c_star'].median()),
-            'c_oa_equilibrium': float(df_final['c_oa_equilibrium'].mean())
+            'mean_c_star': float(df_final['c_star'].mean()) if 'c_star' in df_final.columns else 0.0,
+            'median_log_c_star': float(df_final['log_c_star'].median()) if 'log_c_star' in df_final.columns else 0.0,
+            'c_oa_equilibrium': float(df_final['c_oa_equilibrium'].mean()) if 'c_oa_equilibrium' in df_final.columns else 0.0,
+            'data_quality': results['data_quality'],
+            'plot_audit': plot_audit
         }
 
         # Save summary
@@ -1557,6 +2043,63 @@ def run_postprocessing(output_dir: str, voc_name: str,
         with open(summary_path, 'w') as f:
             json.dump(results['summary'], f, indent=2)
         results['outputs']['summary'] = summary_path
+
+        plot_audit_path = os.path.join(output_dir, "plot_audit.json")
+        with open(plot_audit_path, 'w') as f:
+            json.dump(plot_audit, f, indent=2)
+        results['outputs']['plot_audit'] = plot_audit_path
+
+        # Data Quality Appendix (JSON + PDF)
+        appendix = {
+            'voc_name': voc_name,
+            'data_quality': results['data_quality'],
+            'plot_audit': plot_audit,
+            'warnings': results.get('warnings', [])
+        }
+        appendix_json_path = os.path.join(output_dir, "data_quality_appendix.json")
+        with open(appendix_json_path, 'w') as f:
+            json.dump(appendix, f, indent=2)
+        results['outputs']['data_quality_appendix_json'] = appendix_json_path
+
+        try:
+            from matplotlib.backends.backend_pdf import PdfPages
+
+            appendix_pdf_path = os.path.join(output_dir, "data_quality_appendix.pdf")
+            with PdfPages(appendix_pdf_path) as pdf:
+                fig = plt.figure(figsize=(8.27, 11.69))
+                fig.text(0.02, 0.98, f"Data Quality Appendix - {voc_name}", fontsize=14, fontweight='bold')
+
+                lines = [
+                    f"Source: {results['data_quality'].get('source')}",
+                    f"Synthetic: {results['data_quality'].get('is_synthetic')}",
+                    f"Data Points: {results['data_quality'].get('data_points')}",
+                    f"Time Points: {results['data_quality'].get('time_points')}",
+                    f"Pvap Estimated: {results['data_quality'].get('pvap_estimated_count', 0)} / {results['data_quality'].get('pvap_total_count', 0)}",
+                    "",
+                    "Assumptions:",
+                ]
+                assumptions = results['data_quality'].get('assumptions', [])
+                if not assumptions:
+                    assumptions = ["None"]
+                for a in assumptions:
+                    lines.append(f"- {a}")
+                lines.append("")
+                lines.append("Warnings:")
+                warnings = results.get('warnings', []) or ["None"]
+                for w in warnings:
+                    lines.append(f"- {w}")
+
+                y = 0.94
+                for line in lines:
+                    fig.text(0.02, y, line, fontsize=10)
+                    y -= 0.02
+
+                pdf.savefig(fig)
+                plt.close(fig)
+
+            results['outputs']['data_quality_appendix_pdf'] = appendix_pdf_path
+        except Exception as e:
+            results['warnings'].append(f"Failed to create data quality PDF: {e}")
 
         logger.info(f"Post-processing complete. SOA yield: {soa_yield:.3f}")
 

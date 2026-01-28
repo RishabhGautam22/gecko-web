@@ -55,7 +55,11 @@
       "Bash(flyctl launch:*)",
       "Bash(flyctl volumes create:*)",
       "Bash(flyctl deploy:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(flyctl logs:*)",
+      "Bash(fly deploy:*)",
+      "Bash(fly status:*)",
+      "WebFetch(domain:pubchem.ncbi.nlm.nih.gov)"
     ],
     "deny": [],
     "ask": []

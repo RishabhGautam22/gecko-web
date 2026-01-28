@@ -27,7 +27,7 @@ Author: GECKO-A Development Team
 """
 
 import math
-from typing import Dict, List, Optional, Tuple, Any, Union
+from typing import Dict, List, Optional, Tuple, Union
 from dataclasses import dataclass, field
 from enum import Enum
 

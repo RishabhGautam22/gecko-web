@@ -12,7 +12,6 @@ gecko_web/
 ├── reaction_tree.py           # Reaction analysis
 ├── postprocessing.py          # Data processing
 ├── mass_balance.py            # Atom conservation
-├── combined_workflow.py       # Workflow orchestration
 ├── requirements.txt           # Python dependencies
 ├── chemdata/
 │   ├── compound_database.py   # 150+ VOC compounds

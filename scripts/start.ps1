@@ -1,11 +1,11 @@
 #Requires -Version 5.1
 # ============================================================================
 # GECKO-A Web Interface - PowerShell Launcher
-# Version 3.0.6
+# Version 3.0.10
 # ============================================================================
 
 $ErrorActionPreference = "Stop"
-$Version = "3.0.6"
+$Version = "3.0.10"
 
 function Write-Header {
     Write-Host ""

@@ -17,18 +17,15 @@ Data sources:
 Author: GECKO-A Development Team
 """
 
-import json
 import logging
 from dataclasses import dataclass, field, asdict
 from typing import Dict, List, Optional, Any
-from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
 # Attempt RDKit import for validation
 try:
     from rdkit import Chem
-    from rdkit.Chem import Descriptors, rdMolDescriptors
     HAS_RDKIT = True
 except ImportError:
     HAS_RDKIT = False
@@ -1051,6 +1048,24 @@ COMPOUNDS['isopentane'] = Compound(
     source='IUPAC'
 )
 
+COMPOUNDS['neopentane'] = Compound(
+    name='neopentane',
+    # 2,2-dimethylpropane - highly branched C5 alkane
+    smiles='CC(C)(C)C',
+    gecko_formula='CH3C(CH3)(CH3)CH3',
+    molecular_formula='C5H12',
+    molecular_weight=72.149,
+    cas='463-82-1',
+    inchi='InChI=1S/C5H12/c1-5(2,3)4/h1-4H3',
+    aliases=['NEOPENTANE', '22DIMETHYLPROPANE', 'TETRAMETHYLMETHANE'],
+    category='alkane',
+    subcategory='c5_branched',
+    boiling_point_k=282.7,
+    vapor_pressure_298k_pa=170000.0,
+    koh_298k=8.2e-13,
+    source='NIST'
+)
+
 COMPOUNDS['cyclopentane'] = Compound(
     name='cyclopentane',
     smiles='C1CCCC1',
@@ -1763,10 +1778,12 @@ COMPOUNDS['myrcene'] = Compound(
 
 COMPOUNDS['ocimene'] = Compound(
     name='ocimene',
-    smiles='CC(=C)C=CCC(=C)C=C',
+    # CORRECTED: Beta-ocimene (trans-3,7-dimethyl-1,3,6-octatriene)
+    # PubChem CID 18756 - C10H16 with 3 double bonds (acyclic monoterpene)
+    smiles='CC(=CCC=C(C)C=C)C',
     gecko_formula='CH3Cd(CH3)=CdHCH2CdH=Cd(CH3)CdH=CdH2',
     molecular_formula='C10H16',
-    molecular_weight=136.234,
+    molecular_weight=136.23,
     cas='13877-91-3',
     inchi='InChI=1S/C10H16/c1-5-10(4)8-6-7-9(2)3/h5,7-8H,1,6H2,2-4H3',
     aliases=['OCIMENE', 'BETAOCIMENE', 'B-OCIMENE'],
@@ -1776,7 +1793,7 @@ COMPOUNDS['ocimene'] = Compound(
     vapor_pressure_298k_pa=200.0,
     koh_298k=2.5e-10,
     ko3_298k=5.4e-16,
-    source='IUPAC'
+    source='PubChem CID 18756'
 )
 
 COMPOUNDS['camphene'] = Compound(
@@ -1817,12 +1834,14 @@ COMPOUNDS['3_carene'] = Compound(
 
 COMPOUNDS['sabinene'] = Compound(
     name='sabinene',
-    smiles='CC(C)C1CCC2(C)CC12',
-    gecko_formula='CH3CH(CH3)C1HCH2CH2C2(CH3)CH2C12',
+    # CORRECTED: Sabinene has a double bond (4-methylene-1-(1-methylethyl)-bicyclo[3.1.0]hexane)
+    # PubChem CID 18818 - bicyclic monoterpene with exocyclic double bond
+    smiles='CC(C)C12CCC(=C)C1C2',
+    gecko_formula='CH3CH(CH3)C1HCH2CH2C2(=CdH2)CH2C12',
     molecular_formula='C10H16',
-    molecular_weight=136.234,
+    molecular_weight=136.23,
     cas='3387-41-5',
-    inchi='InChI=1S/C10H16/c1-7(2)8-4-5-10(3)6-9(8)10/h7-9H,4-6H2,1-3H3',
+    inchi='InChI=1S/C10H16/c1-7(2)10-5-4-8(3)9(10)6-10/h7,9H,3-6H2,1-2H3',
     aliases=['SABINENE'],
     category='monoterpene',
     subcategory='bicyclic',
@@ -1830,7 +1849,7 @@ COMPOUNDS['sabinene'] = Compound(
     vapor_pressure_298k_pa=400.0,
     koh_298k=1.2e-10,
     ko3_298k=8.3e-17,
-    source='IUPAC'
+    source='PubChem CID 18818'
 )
 
 COMPOUNDS['alpha_terpinene'] = Compound(
@@ -1946,6 +1965,26 @@ COMPOUNDS['alpha_humulene'] = Compound(
 # OXYGENATED TERPENES
 # -----------------------------------------------------------------------------
 
+COMPOUNDS['nerolidol'] = Compound(
+    name='nerolidol',
+    # PubChem CID 5284507 - (E)-nerolidol, a sesquiterpene alcohol (C15H26O)
+    # Structure: 3,7,11-trimethyldodeca-1,6,10-trien-3-ol
+    smiles='CC(=CCCC(=CCCC(C)(C=C)O)C)C',
+    gecko_formula='CH3Cd(CH3)=CdHCH2CH2Cd(CH3)=CdHCH2CH2C(CH3)(CdH=CdH2)(OH)',
+    molecular_formula='C15H26O',
+    molecular_weight=222.37,
+    cas='7212-44-4',
+    inchi='InChI=1S/C15H26O/c1-6-15(5,16)12-8-11-14(4)10-7-9-13(2)3/h6,9,11H,1,7-8,10,12H2,2-5H3',
+    aliases=['NEROLIDOL', 'ENEROLIDOL', 'PERUVIOL'],
+    category='oxygenated_terpene',
+    subcategory='sesquiterpene_alcohol',
+    boiling_point_k=549.0,
+    vapor_pressure_298k_pa=0.05,
+    koh_298k=3.0e-10,
+    ko3_298k=1.0e-16,
+    source='PubChem CID 5284507'
+)
+
 COMPOUNDS['linalool'] = Compound(
     name='linalool',
     smiles='CC(=C)CCCC(C)(O)C=C',
@@ -2021,50 +2060,60 @@ COMPOUNDS['1_8_cineole'] = Compound(
 
 COMPOUNDS['pinonaldehyde'] = Compound(
     name='pinonaldehyde',
-    smiles='CC1(C)C(C=O)CC(=O)C1',
-    gecko_formula='CH3C1(CH3)CH(CHO)CH2COC1H2',
+    # CORRECTED: Pinonaldehyde (3-acetyl-2,2-dimethylcyclobutane-1-acetaldehyde)
+    # PubChem CID 17616 - C10H16O2 - alpha-pinene oxidation product
+    # Has cyclobutane ring with acetyl (-COCH3) and acetaldehyde (-CH2CHO) groups
+    smiles='CC(=O)C1CC(C1(C)C)CC=O',
+    gecko_formula='CH3COC1HCH2C1(CH3)(CH3)CH(CH2CHO)',
     molecular_formula='C10H16O2',
-    molecular_weight=168.233,
-    cas='2704-82-1',
-    inchi='InChI=1S/C10H16O2/c1-10(2)7(6-11)4-8(12)5-9(10)3/h6-7,9H,3-5H2,1-2H3',
+    molecular_weight=168.23,
+    cas='2704-78-1',
+    inchi='InChI=1S/C10H16O2/c1-7(12)9-6-8(4-5-11)10(9,2)3/h5,8-9H,4,6H2,1-3H3',
     aliases=['PINONALDEHYDE', 'PINONAL'],
     category='terpene_oxidation_product',
     subcategory='aldehyde',
     boiling_point_k=492.0,
     vapor_pressure_298k_pa=1.5,
     koh_298k=3.9e-11,
-    source='MCM'
+    source='PubChem CID 17616'
 )
 
 COMPOUNDS['pinonic_acid'] = Compound(
     name='pinonic_acid',
-    smiles='CC1(C)C(C(=O)O)CC(=O)C1',
-    gecko_formula='CH3C1(CH3)CH(COOH)CH2COC1H2',
+    # CORRECTED: Pinonic acid (3-acetyl-2,2-dimethylcyclobutane-1-acetic acid)
+    # PubChem CID 10130 - C10H16O3 - alpha-pinene oxidation product
+    # Has cyclobutane ring with acetyl (-COCH3) and acetic acid (-CH2COOH) groups
+    smiles='CC(=O)C1CC(C1(C)C)CC(=O)O',
+    gecko_formula='CH3COC1HCH2C1(CH3)(CH3)CH(CH2CO(OH))',
     molecular_formula='C10H16O3',
-    molecular_weight=184.233,
-    cas='473-74-5',
-    inchi='InChI=1S/C10H16O3/c1-10(2)6(9(12)13)4-7(11)5-8(10)3/h6,8H,3-5H2,1-2H3,(H,12,13)',
+    molecular_weight=184.23,
+    cas='61826-55-9',
+    inchi='InChI=1S/C10H16O3/c1-6(11)8-4-7(5-9(12)13)10(8,2)3/h7-8H,4-5H2,1-3H3,(H,12,13)',
     aliases=['PINONICACID', 'PINONIC'],
     category='terpene_oxidation_product',
     subcategory='acid',
     vapor_pressure_298k_pa=0.006,
     koh_298k=8.7e-12,
-    source='MCM'
+    source='PubChem CID 10130'
 )
 
 COMPOUNDS['pinic_acid'] = Compound(
     name='pinic_acid',
-    smiles='CC1(C)C(C(=O)O)CC(C(=O)O)C1',
-    gecko_formula='CH3C1(CH3)CH(COOH)CH2CH(COOH)C1H2',
+    # CORRECTED: Pinic acid has a CYCLOBUTANE (4-membered) ring, not cyclopentane
+    # Structure: 3-(carboxymethyl)-2,2-dimethylcyclobutane-1-carboxylic acid
+    # PubChem CID 10131
+    smiles='CC1(C)C(CC(=O)O)CC1C(=O)O',
+    # GECKO formula for cyclobutane ring with gem-dimethyl and two COOH groups
+    gecko_formula='CH3C1(CH3)CH(CH2CO(OH))CH2C1HCO(OH)',
     molecular_formula='C9H14O4',
-    molecular_weight=186.205,
+    molecular_weight=186.21,
     cas='19067-78-4',
-    inchi='InChI=1S/C9H14O4/c1-9(2)5(8(12)13)3-4(6(9)7(10)11/h4-6H,3H2,1-2H3,(H,10,11)(H,12,13)',
+    inchi='InChI=1S/C9H14O4/c1-9(2)5(4-7(10)11)3-6(9)8(12)13/h5-6H,3-4H2,1-2H3,(H,10,11)(H,12,13)',
     aliases=['PINICACID', 'PINIC'],
     category='terpene_oxidation_product',
     subcategory='diacid',
     vapor_pressure_298k_pa=1e-5,
-    source='MCM'
+    source='PubChem CID 10131'
 )
 
 COMPOUNDS['nopinone'] = Compound(
@@ -2082,6 +2131,288 @@ COMPOUNDS['nopinone'] = Compound(
     vapor_pressure_298k_pa=27.0,
     koh_298k=1.4e-11,
     source='MCM'
+)
+
+
+# =============================================================================
+# ADDITIONAL COMPOUNDS (added to fix missing entries in voc_categories)
+# =============================================================================
+
+# Carboxylic Acids
+COMPOUNDS['valeric_acid'] = Compound(
+    name='valeric_acid',
+    smiles='CCCCC(=O)O',
+    gecko_formula='CH3CH2CH2CH2CO(OH)',
+    molecular_formula='C5H10O2',
+    molecular_weight=102.13,
+    cas='109-52-4',
+    inchi='InChI=1S/C5H10O2/c1-2-3-4-5(6)7/h2-4H2,1H3,(H,6,7)',
+    aliases=['PENTANOIC_ACID', 'PENTANOICACID', 'N-VALERIC_ACID'],
+    category='oxygenated',
+    subcategory='carboxylic_acid',
+    koh_298k=2.4e-12,
+    source='NIST'
+)
+
+COMPOUNDS['hexanoic_acid'] = Compound(
+    name='hexanoic_acid',
+    smiles='CCCCCC(=O)O',
+    gecko_formula='CH3CH2CH2CH2CH2CO(OH)',
+    molecular_formula='C6H12O2',
+    molecular_weight=116.16,
+    cas='142-62-1',
+    inchi='InChI=1S/C6H12O2/c1-2-3-4-5-6(7)8/h2-5H2,1H3,(H,7,8)',
+    aliases=['CAPROIC_ACID', 'CAPROICACID', 'N-HEXANOIC_ACID'],
+    category='oxygenated',
+    subcategory='carboxylic_acid',
+    koh_298k=3.0e-12,
+    source='NIST'
+)
+
+# Ketones
+COMPOUNDS['methyl_ethyl_ketone'] = Compound(
+    name='methyl_ethyl_ketone',
+    smiles='CCC(=O)C',
+    gecko_formula='CH3CH2COCH3',
+    molecular_formula='C4H8O',
+    molecular_weight=72.11,
+    cas='78-93-3',
+    inchi='InChI=1S/C4H8O/c1-3-4(2)5/h3H2,1-2H3',
+    aliases=['MEK', 'BUTANONE', '2-BUTANONE', 'BUTAN-2-ONE'],
+    category='oxygenated',
+    subcategory='ketone',
+    koh_298k=1.2e-12,
+    source='NIST'
+)
+
+COMPOUNDS['methyl_isobutyl_ketone'] = Compound(
+    name='methyl_isobutyl_ketone',
+    smiles='CC(=O)CC(C)C',
+    gecko_formula='CH3COCH2CH(CH3)CH3',
+    molecular_formula='C6H12O',
+    molecular_weight=100.16,
+    cas='108-10-1',
+    inchi='InChI=1S/C6H12O/c1-5(2)4-6(3)7/h5H,4H2,1-3H3',
+    aliases=['MIBK', '4-METHYLPENTAN-2-ONE', '4-METHYL-2-PENTANONE'],
+    category='oxygenated',
+    subcategory='ketone',
+    koh_298k=1.35e-11,
+    source='NIST'
+)
+
+COMPOUNDS['cyclohexanone'] = Compound(
+    name='cyclohexanone',
+    smiles='O=C1CCCCC1',
+    gecko_formula='C1H2CH2CH2CH2CH2COC1',
+    molecular_formula='C6H10O',
+    molecular_weight=98.14,
+    cas='108-94-1',
+    inchi='InChI=1S/C6H10O/c7-6-4-2-1-3-5-6/h1-5H2',
+    aliases=['CYCLOHEXAN-1-ONE'],
+    category='oxygenated',
+    subcategory='ketone',
+    koh_298k=6.4e-12,
+    source='NIST'
+)
+
+# Esters
+COMPOUNDS['methyl_acetate'] = Compound(
+    name='methyl_acetate',
+    smiles='COC(=O)C',
+    gecko_formula='CH3COOCH3',
+    molecular_formula='C3H6O2',
+    molecular_weight=74.08,
+    cas='79-20-9',
+    inchi='InChI=1S/C3H6O2/c1-3(4)5-2/h1-2H3',
+    aliases=['METHYLACETATE', 'METHYL_ETHANOATE'],
+    category='oxygenated',
+    subcategory='ester',
+    koh_298k=3.4e-13,
+    source='NIST'
+)
+
+COMPOUNDS['ethyl_acetate'] = Compound(
+    name='ethyl_acetate',
+    smiles='CCOC(=O)C',
+    gecko_formula='CH3COOCH2CH3',
+    molecular_formula='C4H8O2',
+    molecular_weight=88.11,
+    cas='141-78-6',
+    inchi='InChI=1S/C4H8O2/c1-3-6-4(2)5/h3H2,1-2H3',
+    aliases=['ETHYLACETATE', 'ETHYL_ETHANOATE'],
+    category='oxygenated',
+    subcategory='ester',
+    koh_298k=1.6e-12,
+    source='NIST'
+)
+
+COMPOUNDS['methyl_formate'] = Compound(
+    name='methyl_formate',
+    smiles='COC=O',
+    gecko_formula='HCOOCH3',
+    molecular_formula='C2H4O2',
+    molecular_weight=60.05,
+    cas='107-31-3',
+    inchi='InChI=1S/C2H4O2/c1-4-2-3/h2H,1H3',
+    aliases=['METHYLFORMATE'],
+    category='oxygenated',
+    subcategory='ester',
+    koh_298k=1.9e-13,
+    source='NIST'
+)
+
+COMPOUNDS['butyl_acetate'] = Compound(
+    name='butyl_acetate',
+    smiles='CCCCOC(=O)C',
+    gecko_formula='CH3COOCH2CH2CH2CH3',
+    molecular_formula='C6H12O2',
+    molecular_weight=116.16,
+    cas='123-86-4',
+    inchi='InChI=1S/C6H12O2/c1-3-4-5-8-6(2)7/h3-5H2,1-2H3',
+    aliases=['BUTYLACETATE', 'N-BUTYL_ACETATE'],
+    category='oxygenated',
+    subcategory='ester',
+    koh_298k=5.5e-12,
+    source='NIST'
+)
+
+COMPOUNDS['butyl_acetate'] = Compound(
+    name='butyl_acetate',
+    # PubChem CID 31272 - n-butyl acetate
+    smiles='CCCCOC(=O)C',
+    gecko_formula='CH3CH2CH2CH2OCOCH3',
+    molecular_formula='C6H12O2',
+    molecular_weight=116.16,
+    cas='123-86-4',
+    inchi='InChI=1S/C6H12O2/c1-3-4-5-8-6(2)7/h3-5H2,1-2H3',
+    aliases=['BUTYLACETATE', 'N-BUTYL_ACETATE', 'NBUTYLACETATE'],
+    category='oxygenated',
+    subcategory='ester',
+    koh_298k=4.5e-12,
+    source='PubChem CID 31272'
+)
+
+COMPOUNDS['isoamyl_acetate'] = Compound(
+    name='isoamyl_acetate',
+    smiles='CC(C)CCOC(=O)C',
+    gecko_formula='CH3COOCH2CH2CH(CH3)CH3',
+    molecular_formula='C7H14O2',
+    molecular_weight=130.18,
+    cas='123-92-2',
+    inchi='InChI=1S/C7H14O2/c1-6(2)4-5-9-7(3)8/h6H,4-5H2,1-3H3',
+    aliases=['ISOAMYLACETATE', 'ISOPENTYL_ACETATE', 'BANANA_OIL'],
+    category='oxygenated',
+    subcategory='ester',
+    koh_298k=6.1e-12,
+    source='estimated'
+)
+
+# Ethers
+COMPOUNDS['dimethyl_ether'] = Compound(
+    name='dimethyl_ether',
+    smiles='COC',
+    gecko_formula='CH3OCH3',
+    molecular_formula='C2H6O',
+    molecular_weight=46.07,
+    cas='115-10-6',
+    inchi='InChI=1S/C2H6O/c1-3-2/h1-2H3',
+    aliases=['DME', 'DIMETHYLETHER', 'METHOXYMETHANE'],
+    category='oxygenated',
+    subcategory='ether',
+    koh_298k=2.8e-12,
+    source='NIST'
+)
+
+COMPOUNDS['diethyl_ether'] = Compound(
+    name='diethyl_ether',
+    smiles='CCOCC',
+    gecko_formula='CH3CH2OCH2CH3',
+    molecular_formula='C4H10O',
+    molecular_weight=74.12,
+    cas='60-29-7',
+    inchi='InChI=1S/C4H10O/c1-3-5-4-2/h3-4H2,1-2H3',
+    aliases=['DEE', 'DIETHYLETHER', 'ETHOXYETHANE', 'ETHER'],
+    category='oxygenated',
+    subcategory='ether',
+    koh_298k=1.3e-11,
+    source='NIST'
+)
+
+COMPOUNDS['methyl_tert_butyl_ether'] = Compound(
+    name='methyl_tert_butyl_ether',
+    smiles='COC(C)(C)C',
+    gecko_formula='CH3OC(CH3)(CH3)CH3',
+    molecular_formula='C5H12O',
+    molecular_weight=88.15,
+    cas='1634-04-4',
+    inchi='InChI=1S/C5H12O/c1-5(2,3)6-4/h1-4H3',
+    aliases=['MTBE', 'METHYL_TERTBUTYL_ETHER', 'MTBE'],
+    category='oxygenated',
+    subcategory='ether',
+    koh_298k=2.9e-12,
+    source='NIST'
+)
+
+COMPOUNDS['ethyl_tert_butyl_ether'] = Compound(
+    name='ethyl_tert_butyl_ether',
+    smiles='CCOC(C)(C)C',
+    gecko_formula='CH3CH2OC(CH3)(CH3)CH3',
+    molecular_formula='C6H14O',
+    molecular_weight=102.17,
+    cas='637-92-3',
+    inchi='InChI=1S/C6H14O/c1-5-7-6(2,3)4/h5H2,1-4H3',
+    aliases=['ETBE', 'ETHYL_TERTBUTYL_ETHER'],
+    category='oxygenated',
+    subcategory='ether',
+    koh_298k=8.1e-12,
+    source='NIST'
+)
+
+# Alcohols
+COMPOUNDS['2_butanol'] = Compound(
+    name='2_butanol',
+    smiles='CCC(C)O',
+    gecko_formula='CH3CH2CH(OH)CH3',
+    molecular_formula='C4H10O',
+    molecular_weight=74.12,
+    cas='78-92-2',
+    inchi='InChI=1S/C4H10O/c1-3-4(2)5/h4-5H,3H2,1-2H3',
+    aliases=['SEC-BUTANOL', 'SECBUTANOL', 'BUTAN-2-OL'],
+    category='oxygenated',
+    subcategory='alcohol',
+    koh_298k=8.7e-12,
+    source='NIST'
+)
+
+COMPOUNDS['1_pentanol'] = Compound(
+    name='1_pentanol',
+    smiles='CCCCCO',
+    gecko_formula='CH3CH2CH2CH2CH2OH',
+    molecular_formula='C5H12O',
+    molecular_weight=88.15,
+    cas='71-41-0',
+    inchi='InChI=1S/C5H12O/c1-2-3-4-5-6/h6H,2-5H2,1H3',
+    aliases=['PENTANOL', 'N-PENTANOL', 'PENTAN-1-OL', 'AMYL_ALCOHOL'],
+    category='oxygenated',
+    subcategory='alcohol',
+    koh_298k=1.1e-11,
+    source='NIST'
+)
+
+# Aldehydes
+COMPOUNDS['crotonaldehyde'] = Compound(
+    name='crotonaldehyde',
+    smiles='CC=CC=O',
+    gecko_formula='CH3CdH=CdHCHO',
+    molecular_formula='C4H6O',
+    molecular_weight=70.09,
+    cas='4170-30-3',
+    inchi='InChI=1S/C4H6O/c1-2-3-4-5/h2-4H,1H3',
+    aliases=['CROTONALDEHYDE', '2-BUTENAL', 'BUT-2-ENAL'],
+    category='oxygenated',
+    subcategory='aldehyde',
+    koh_298k=3.6e-11,
+    source='NIST'
 )
 
 

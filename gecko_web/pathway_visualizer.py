@@ -18,10 +18,7 @@ import tempfile
 import shutil
 import logging
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple, Set, Any
-from pathlib import Path
-import base64
-import io
+from typing import Dict, List, Optional, Tuple
 
 logger = logging.getLogger(__name__)
 
@@ -42,20 +39,31 @@ except ImportError:
 
 try:
     from rdkit import Chem
-    from rdkit.Chem import Draw, AllChem, rdDepictor
+    from rdkit.Chem import AllChem, rdDepictor, Descriptors, rdMolDescriptors
     from rdkit.Chem.Draw import rdMolDraw2D
     HAS_RDKIT = True
 except ImportError:
     HAS_RDKIT = False
     logger.warning("RDKit not available - will use text labels instead of structures")
 
+# PIL for adding labels to images
+try:
+    from PIL import Image, ImageDraw, ImageFont
+    HAS_PIL = True
+except ImportError:
+    HAS_PIL = False
+    logger.warning("PIL not available - molecule labels may be limited")
+
 # Import the unified SMILES conversion function and KNOWN_SPECIES database from reaction_tree
 # This is the AUTHORITATIVE source for GECKO -> SMILES conversion
 try:
     from gecko_web.reaction_tree import KNOWN_SPECIES, gecko_to_smiles as unified_gecko_to_smiles
+    from gecko_web.reaction_tree import get_compound_name, GECKO_CODE_TO_NAME
 except ImportError:
     KNOWN_SPECIES = {}
     unified_gecko_to_smiles = None
+    GECKO_CODE_TO_NAME = {}
+    def get_compound_name(code): return code
 
 
 @dataclass
@@ -277,17 +285,26 @@ class GECKOPathwayVisualizer:
     def _generate_mol_image(self,
                             smiles: str,
                             node_id: str,
-                            highlight_radical: bool = False) -> Optional[str]:
+                            highlight_radical: bool = False,
+                            compound_name: Optional[str] = None,
+                            formula: Optional[str] = None) -> Optional[str]:
         """
-        Generate molecular structure image from SMILES.
+        Generate molecular structure image from SMILES with name and formula labels.
+
+        Args:
+            smiles: SMILES string for the molecule
+            node_id: Unique identifier for this node
+            highlight_radical: Whether to highlight radical sites
+            compound_name: Optional compound name to display below structure
+            formula: Optional molecular formula to display below name
 
         Returns path to the generated PNG file.
         """
         if not HAS_RDKIT:
             return self._generate_text_placeholder(node_id)
 
-        # Check cache
-        cache_key = f"{smiles}_{node_id}"
+        # Check cache - include name and formula in cache key
+        cache_key = f"{smiles}_{node_id}_{compound_name}_{formula}"
         if cache_key in self._image_cache:
             return self._image_cache[cache_key]
 
@@ -322,22 +339,34 @@ class GECKOPathwayVisualizer:
                 logger.warning(f"Empty molecule for {node_id}")
                 return self._generate_text_placeholder(node_id, node_id)
 
+            # Get molecular formula if not provided
+            if not formula and HAS_RDKIT:
+                try:
+                    formula = rdMolDescriptors.CalcMolFormula(mol)
+                except Exception:
+                    pass
+
             # Compute 2D coordinates with high quality
             try:
                 if hasattr(rdDepictor, 'SetPreferCoordGen'):
                     rdDepictor.SetPreferCoordGen(True)
-                
+
                 # Prepare molecule for drawing (canonicalize, add stereo, etc)
                 if hasattr(rdMolDraw2D, 'PrepareMolForDrawing'):
                     rdMolDraw2D.PrepareMolForDrawing(mol)
-                
+
                 AllChem.Compute2DCoords(mol)
             except Exception as coord_e:
                 logger.warning(f"Could not compute 2D coords for {node_id}: {coord_e}")
                 return self._generate_text_placeholder(node_id, node_id)
 
+            # Calculate image dimensions - add space for labels
+            label_height = 40 if (compound_name or formula) else 0
+            mol_width = self.mol_size[0]
+            mol_height = self.mol_size[1] - label_height  # Reserve space for labels
+
             # Create high-quality drawing (Cairo/PNG)
-            drawer = rdMolDraw2D.MolDraw2DCairo(self.mol_size[0], self.mol_size[1])
+            drawer = rdMolDraw2D.MolDraw2DCairo(mol_width, mol_height)
 
             # Drawing options for publication quality
             opts = drawer.drawOptions()
@@ -345,25 +374,27 @@ class GECKOPathwayVisualizer:
             opts.addAtomIndices = False
             opts.bondLineWidth = 2.5  # Thicker bonds for clarity
             opts.multipleBondOffset = 0.15
-            opts.padding = 0.05
-            # opts.atomLabelFontSize = 14  # Not supported in some RDKit versions
+            opts.padding = 0.08  # Slightly more padding to accommodate labels
             opts.minFontSize = 12 # Ensure labels are readable
             opts.annotationFontScale = 0.8
-            # opts.fontFile = "Arial"  # Using default font
-            
-            # Transparent background
-            # Note: RDKit Cairo background transparency depends on version, 
-            # simplest is to not clear if possible or set alpha
-            # For now we stick to white for compatibility with graphviz nodes
-            
+
             # Draw the molecule
             drawer.DrawMolecule(mol)
             drawer.FinishDrawing()
 
-            # Save as PNG
-            img_path = os.path.join(self.temp_dir, f"{node_id}.png")
-            with open(img_path, 'wb') as f:
-                f.write(drawer.GetDrawingText())
+            # Save molecule image to temporary file
+            mol_img_data = drawer.GetDrawingText()
+
+            # If PIL is available and we have labels, add them below the structure
+            if HAS_PIL and (compound_name or formula):
+                img_path = self._add_labels_to_mol_image(
+                    mol_img_data, node_id, compound_name, formula, mol_width, mol_height, label_height
+                )
+            else:
+                # Just save the molecule image without labels
+                img_path = os.path.join(self.temp_dir, f"{node_id}.png")
+                with open(img_path, 'wb') as f:
+                    f.write(mol_img_data)
 
             self._image_cache[cache_key] = img_path
             return img_path
@@ -371,6 +402,103 @@ class GECKOPathwayVisualizer:
         except Exception as e:
             logger.warning(f"Error generating structure for {node_id}: {e}")
             return self._generate_text_placeholder(node_id, node_id)
+
+    def _add_labels_to_mol_image(self,
+                                  mol_img_data: bytes,
+                                  node_id: str,
+                                  compound_name: Optional[str],
+                                  formula: Optional[str],
+                                  mol_width: int,
+                                  mol_height: int,
+                                  label_height: int) -> str:
+        """
+        Add compound name and formula labels below the molecule structure.
+
+        Args:
+            mol_img_data: PNG image data from RDKit
+            node_id: Node identifier for filename
+            compound_name: Compound name to display
+            formula: Molecular formula to display
+            mol_width: Width of molecule image
+            mol_height: Height of molecule image
+            label_height: Height reserved for labels
+
+        Returns:
+            Path to the labeled image file
+        """
+        import io
+
+        # Load the molecule image
+        mol_img = Image.open(io.BytesIO(mol_img_data))
+
+        # Create a new image with space for labels
+        total_height = mol_height + label_height
+        combined_img = Image.new('RGB', (mol_width, total_height), 'white')
+
+        # Paste molecule image at top
+        combined_img.paste(mol_img, (0, 0))
+
+        # Draw labels
+        draw = ImageDraw.Draw(combined_img)
+
+        # Try to use a nice font, fall back to default
+        try:
+            # Try common font paths
+            font_paths = [
+                '/System/Library/Fonts/Helvetica.ttc',  # macOS
+                '/System/Library/Fonts/SFNSText.ttf',   # macOS
+                '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',  # Linux
+                '/usr/share/fonts/TTF/DejaVuSans.ttf',  # Arch Linux
+                'C:/Windows/Fonts/arial.ttf',  # Windows
+            ]
+            font_name = None
+            font_formula = None
+            for fp in font_paths:
+                if os.path.exists(fp):
+                    font_name = ImageFont.truetype(fp, 11)
+                    font_formula = ImageFont.truetype(fp, 10)
+                    break
+            if font_name is None:
+                font_name = ImageFont.load_default()
+                font_formula = ImageFont.load_default()
+        except Exception:
+            font_name = ImageFont.load_default()
+            font_formula = ImageFont.load_default()
+
+        # Position for labels (centered below molecule)
+        y_pos = mol_height + 2
+
+        # Draw compound name (bold-ish by drawing twice with slight offset)
+        if compound_name:
+            # Truncate long names
+            display_name = compound_name.replace('_', ' ')
+            if len(display_name) > 20:
+                display_name = display_name[:18] + '...'
+
+            # Get text bounding box for centering
+            bbox = draw.textbbox((0, 0), display_name, font=font_name)
+            text_width = bbox[2] - bbox[0]
+            x_pos = (mol_width - text_width) // 2
+
+            # Draw name in dark blue
+            draw.text((x_pos, y_pos), display_name, fill='#1a237e', font=font_name)
+            y_pos += 14
+
+        # Draw molecular formula
+        if formula:
+            # Get text bounding box for centering
+            bbox = draw.textbbox((0, 0), formula, font=font_formula)
+            text_width = bbox[2] - bbox[0]
+            x_pos = (mol_width - text_width) // 2
+
+            # Draw formula in gray
+            draw.text((x_pos, y_pos), formula, fill='#424242', font=font_formula)
+
+        # Save combined image
+        img_path = os.path.join(self.temp_dir, f"{node_id}_labeled.png")
+        combined_img.save(img_path, 'PNG')
+
+        return img_path
 
     def _generate_text_placeholder(self,
                                    node_id: str,
@@ -514,7 +642,14 @@ class GECKOPathwayVisualizer:
 
         # Generate molecule images and add nodes
         for node_id, node in self.nodes.items():
-            img_path = self._generate_mol_image(node.smiles, node_id, node.is_radical)
+            # Pass compound name and formula for labeling below structure
+            img_path = self._generate_mol_image(
+                node.smiles,
+                node_id,
+                node.is_radical,
+                compound_name=node.name,
+                formula=node.formula
+            )
 
             if img_path and os.path.exists(img_path):
                 # Use image as node
@@ -592,10 +727,13 @@ class GECKOPathwayVisualizer:
         """
         # Add nodes
         for node in tree_data.get('nodes', []):
+            node_code = node.get('id') or node.get('code')
+            # Get human-readable name for the compound
+            display_name = get_compound_name(node_code)
             self.add_species(
-                node_id=node.get('id') or node.get('code'),
+                node_id=node_code,
                 smiles=node.get('smiles', ''),
-                name=node.get('code'),
+                name=display_name,
                 formula=node.get('raw_formula') or node.get('label'),
                 is_radical=node.get('is_radical', False),
                 functional_groups=node.get('functional_groups', []),

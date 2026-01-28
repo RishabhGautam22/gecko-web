@@ -104,30 +104,6 @@ const GeckoAPI = {
     // ==========================================================================
 
     /**
-     * Get all available compounds
-     * @returns {Promise<Object>} Compounds list with count
-     */
-    async getCompounds() {
-        const response = await fetch('/api/compounds');
-        if (!response.ok) {
-            throw new Error(`Failed to load compounds: ${response.status}`);
-        }
-        return response.json();
-    },
-
-    /**
-     * Get compound categories
-     * @returns {Promise<Object>} Categories hierarchy
-     */
-    async getCompoundCategories() {
-        const response = await fetch('/api/compounds/categories');
-        if (!response.ok) {
-            throw new Error(`Failed to load categories: ${response.status}`);
-        }
-        return response.json();
-    },
-
-    /**
      * Get compounds for dropdown (fast, optimized endpoint)
      * @returns {Promise<Object>} Simple category->compounds structure
      */
@@ -135,106 +111,6 @@ const GeckoAPI = {
         const response = await fetch('/api/compounds/dropdown');
         if (!response.ok) {
             throw new Error(`Failed to load compounds: ${response.status}`);
-        }
-        return response.json();
-    },
-
-    /**
-     * Get specific compound details
-     * @param {string} compoundName - Compound name
-     * @returns {Promise<Object>} Compound details
-     */
-    async getCompound(compoundName) {
-        const response = await fetch(`/api/compounds/${encodeURIComponent(compoundName)}`);
-        if (!response.ok) {
-            throw new Error(`Compound not found: ${compoundName}`);
-        }
-        return response.json();
-    },
-
-    /**
-     * Search compounds
-     * @param {string} query - Search query
-     * @returns {Promise<Object>} Search results
-     */
-    async searchCompounds(query) {
-        const response = await fetch(`/api/compounds/search/${encodeURIComponent(query)}`);
-        return response.json();
-    },
-
-    /**
-     * Get compounds by category
-     * @param {string} category - Category name
-     * @returns {Promise<Object>} Compounds in category
-     */
-    async getCompoundsByCategory(category) {
-        const response = await fetch(`/api/compounds/category/${encodeURIComponent(category)}`);
-        if (!response.ok) {
-            throw new Error(`Category not found: ${category}`);
-        }
-        return response.json();
-    },
-
-    // ==========================================================================
-    // Reaction Kinetics API
-    // ==========================================================================
-
-    /**
-     * Get reaction kinetics for a compound
-     * @param {string} compoundName - Compound name
-     * @param {number} temperatureK - Temperature in Kelvin (default 298)
-     * @returns {Promise<Object>} Rate constants
-     */
-    async getKinetics(compoundName, temperatureK = 298.0) {
-        const response = await fetch(
-            `/api/kinetics/${encodeURIComponent(compoundName)}?temperature_k=${temperatureK}`
-        );
-        if (!response.ok) {
-            throw new Error(`No kinetics data for: ${compoundName}`);
-        }
-        return response.json();
-    },
-
-    /**
-     * Calculate atmospheric lifetime
-     * @param {string} compoundName - Compound name
-     * @param {Object} conditions - Oxidant concentrations
-     * @returns {Promise<Object>} Lifetime data
-     */
-    async getAtmosphericLifetime(compoundName, conditions = {}) {
-        const params = new URLSearchParams({
-            oh_concentration: conditions.oh || 1e6,
-            o3_concentration: conditions.o3 || 7e11,
-            no3_concentration: conditions.no3 || 5e8,
-            temperature_k: conditions.temperature || 298.0
-        });
-        const response = await fetch(
-            `/api/kinetics/${encodeURIComponent(compoundName)}/lifetime?${params}`
-        );
-        if (!response.ok) {
-            throw new Error(`No kinetics data for: ${compoundName}`);
-        }
-        return response.json();
-    },
-
-    // ==========================================================================
-    // Combined Workflow API
-    // ==========================================================================
-
-    /**
-     * Create a combined Generator + Box Model workflow
-     * @param {Object} request - Combined workflow request
-     * @returns {Promise<Object>} Job creation response
-     */
-    async createCombinedWorkflow(request) {
-        const response = await fetch('/api/workflow/combined', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(request)
-        });
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.detail || 'Failed to create workflow');
         }
         return response.json();
     },
@@ -342,22 +218,6 @@ const GeckoAPI = {
         return response.json();
     },
 
-    /**
-     * Get 3D structures for all species in a job
-     * @param {string} jobId - Job ID
-     * @param {number} maxStructures - Maximum number of structures
-     * @returns {Promise<Object>} 3D structures data
-     */
-    async getJob3DStructures(jobId, maxStructures = 20) {
-        const response = await fetch(
-            `/api/jobs/${jobId}/structures/3d?max_structures=${maxStructures}`
-        );
-        if (!response.ok) {
-            throw new Error(`Failed to get 3D structures for job: ${jobId}`);
-        }
-        return response.json();
-    },
-
     // ==========================================================================
     // Enhanced Visualization API
     // ==========================================================================
@@ -386,46 +246,6 @@ const GeckoAPI = {
         return response.json();
     },
 
-    // ==========================================================================
-    // Utility Functions
-    // ==========================================================================
-
-    /**
-     * Poll job status until completion
-     * @param {string} jobId - Job ID
-     * @param {Function} onProgress - Progress callback(job)
-     * @param {number} interval - Poll interval in ms
-     * @param {number} timeout - Timeout in ms
-     * @returns {Promise<Object>} Completed job
-     */
-    async pollJobStatus(jobId, onProgress = null, interval = 2000, timeout = 3600000) {
-        const startTime = Date.now();
-
-        while (Date.now() - startTime < timeout) {
-            const job = await this.getJob(jobId);
-
-            if (onProgress) {
-                onProgress(job);
-            }
-
-            if (job.status === 'completed' || job.status === 'failed') {
-                return job;
-            }
-
-            await new Promise(resolve => setTimeout(resolve, interval));
-        }
-
-        throw new Error(`Job ${jobId} timed out after ${timeout}ms`);
-    },
-
-    /**
-     * Get environment status
-     * @returns {Promise<Object>} Environment check results
-     */
-    async checkEnvironment() {
-        const response = await fetch('/api/environment');
-        return response.json();
-    }
 };
 
 // Export for module usage
